@@ -1,0 +1,298 @@
+\begin{thebibliography}{41}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Adams and Shariff(1996)]{ADAMS1996}
+N.~A. Adams and K.~Shariff.
+\newblock A high-resolution hybrid compact-eno scheme for shock-turbulence
+  interaction problems.
+\newblock \emph{Journal of Computational Physics}, 127\penalty0 (1):\penalty0
+  27--51, 1996.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1006/jcph.1996.0156}.
+
+\bibitem[Boussinesq(1877)]{boussinesq1877essai}
+J.~Boussinesq.
+\newblock \emph{Essai sur la th{\'e}orie des eaux courantes}.
+\newblock M{\'e}moires pr{\'e}sent{\'e}s par divers savants {\`a}
+  l'Acad{\'e}mie des sciences de l'Institut national de France. Impr.
+  nationale, 1877.
+\newblock URL \url{https://books.google.it/books?id=4NdQAAAAYAAJ}.
+
+\bibitem[Catalano et~al.(2003)Catalano, Wang, Iaccarino, and Moin]{Catalano}
+P.~Catalano, M.~Wang, G.~Iaccarino, and P.~Moin.
+\newblock Numerical simulation of the flow around a circular cylinder at high
+  reynolds numbers.
+\newblock \emph{International journal of heat and fluid flow}, 24\penalty0
+  (4):\penalty0 463--469, 2003.
+
+\bibitem[Clough(1990)]{clough1990original}
+R.~W. Clough.
+\newblock Original formulation of the finite element method.
+\newblock \emph{Finite elements in analysis and design}, 7\penalty0
+  (2):\penalty0 89--101, 1990.
+
+\bibitem[Cook et~al.(1977)Cook, Firmin, and McDonald]{cook1977aerofoil}
+P.~H. Cook, M.~C.~P. Firmin, and M.~A. McDonald.
+\newblock \emph{Aerofoil RAE 2822: pressure distributions, and boundary layer
+  and wake measurements}.
+\newblock RAE, 1977.
+
+\bibitem[Crank and Nicolson(1947)]{crank1947practical}
+J.~Crank and P.~Nicolson.
+\newblock A practical method for numerical evaluation of solutions of partial
+  differential equations of the heat-conduction type.
+\newblock In \emph{Mathematical proceedings of the Cambridge philosophical
+  society}, volume~43, pages 50--67, 1947.
+\newblock \doi{10.1017/S0305004100023197}.
+
+\bibitem[Darwish et~al.(2016)Darwish, Moukalled, and
+  Mangani]{darwish2016finite}
+F.~Darwish, L.~Moukalled, and M.~Mangani.
+\newblock \emph{The finite volume method in computational fluid dynamics}.
+\newblock Springer, 2016.
+
+\bibitem[Ducros et~al.(1999)Ducros, Ferrand, Nicoud, Weber, Darracq, Gacherieu,
+  and Poinsot]{DUCROS1999}
+F.~Ducros, V~Ferrand, F.~Nicoud, C.~Weber, D.~Darracq, C.~Gacherieu, and
+  T.~Poinsot.
+\newblock Large-eddy simulation of the shock/turbulence interaction.
+\newblock \emph{Journal of Computational Physics}, 152\penalty0 (2):\penalty0
+  517--549, 1999.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1006/jcph.1999.6238}.
+
+\bibitem[Emery(1968)]{EMERY1968306}
+A.~F. Emery.
+\newblock An evaluation of several differencing methods for inviscid fluid flow
+  problems.
+\newblock \emph{Journal of Computational Physics}, 2\penalty0 (3):\penalty0
+  306--331, 1968.
+
+\bibitem[Ferziger et~al.(2016)Ferziger, Peri{\'c}, and
+  Street]{ferziger2019computational}
+J.~H. Ferziger, M.~Peri{\'c}, and R.~L. Street.
+\newblock \emph{Computational methods for fluid dynamics}, volume 113.
+\newblock Springer, 2016.
+\newblock \doi{10.1007/978-3-319-16874-6}.
+
+\bibitem[Foundation(Accessed on November 11, 2024)]{OpenFOAMFoundation}
+Foundation.
+\newblock Openfoam, Accessed on November 11, 2024.
+\newblock URL \url{https://openfoam.org/}.
+
+\bibitem[Garnier et~al.(2001)Garnier, Sagaut, and Deville]{garnier2001class}
+Eric Garnier, Pierre Sagaut, and Michel Deville.
+\newblock A class of explicit eno filters with application to unsteady flows.
+\newblock \emph{Journal of Computational Physics}, 170\penalty0 (1):\penalty0
+  184--204, 2001.
+
+\bibitem[Gosman(1969)]{gosman1969heat}
+A.~D. Gosman.
+\newblock Heat and mass transfer in recirculating flows.
+\newblock \emph{(No Title)}, 1969.
+
+\bibitem[Harten et~al.(1983)]{HARTEN1983}
+A.~Harten et~al.
+\newblock High resolution schemes for hyperbolic conservation laws.
+\newblock \emph{Journal of Computational Physics}, 49\penalty0 (3):\penalty0
+  357--393, 1983.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1016/0021-9991(83)90136-5}.
+
+\bibitem[Issa et~al.(1986)Issa, Gosman, and Watkins]{ISSA198666}
+R.~I. Issa, A.~D. Gosman, and A.~P. Watkins.
+\newblock The computation of compressible and incompressible recirculating
+  flows by a non-iterative implicit scheme.
+\newblock \emph{Journal of Computational Physics}, 62\penalty0 (1):\penalty0
+  66--82, 1986.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1016/0021-9991(86)90100-2}.
+
+\bibitem[Jameson(2017)]{JST1981}
+A.~Jameson.
+\newblock Origins and further development of the jameson–schmidt–turkel
+  scheme.
+\newblock \emph{AIAA Journal}, 55\penalty0 (5):\penalty0 1487--1510, 2017.
+\newblock \doi{10.2514/1.J055493}.
+
+\bibitem[Larsson et~al.(2016)Larsson, Kawai, Bodart, and
+  Bermejo-Moreno]{LARSSON201615-00418}
+J.~Larsson, S.~Kawai, J.~Bodart, and I.~Bermejo-Moreno.
+\newblock Large eddy simulation with modeled wall-stress: recent progress and
+  future directions.
+\newblock \emph{Mechanical Engineering Reviews}, 3\penalty0 (1):\penalty0
+  15--00418, 2016.
+
+\bibitem[Lax and Wendroff(1960)]{LAXWENDROFF}
+P.~Lax and B.~Wendroff.
+\newblock Systems of conservation laws.
+\newblock \emph{Communications on Pure and Applied Mathematics}, 13\penalty0
+  (2):\penalty0 217--237, 1960.
+\newblock \doi{https://doi.org/10.1002/cpa.3160130205}.
+\newblock URL
+  \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/cpa.3160130205}.
+
+\bibitem[Leonard(1979)]{leonard1979stable}
+B.~P. Leonard.
+\newblock A stable and accurate convective modelling procedure based on
+  quadratic upstream interpolation.
+\newblock \emph{Computer methods in applied mechanics and engineering},
+  19\penalty0 (1):\penalty0 59--98, 1979.
+
+\bibitem[Liou(1996)]{LIOU_AUSM+}
+M.~S. Liou.
+\newblock A sequel to ausm: Ausm+.
+\newblock \emph{Journal of Computational Physics}, 129\penalty0 (2):\penalty0
+  364--382, 1996.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1006/jcph.1996.0256}.
+
+\bibitem[Liou(2006)]{LIOU_AUSM+-up}
+M.~S. Liou.
+\newblock A sequel to ausm, part ii: Ausm+-up for all speeds.
+\newblock \emph{Journal of Computational Physics}, 214\penalty0 (1):\penalty0
+  137--170, 2006.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1016/j.jcp.2005.09.020}.
+
+\bibitem[Liou and Steffen(1993)]{LIOU_AUSM}
+M.~S. Liou and C.~J. Steffen.
+\newblock A new flux splitting scheme.
+\newblock \emph{Journal of Computational Physics}, 107\penalty0 (1):\penalty0
+  23--39, 1993.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1006/jcph.1993.1122}.
+
+\bibitem[Liu et~al.(1994)Liu, Osher, and Chan]{LIU1994}
+X.~D. Liu, S.~Osher, and T.~Chan.
+\newblock Weighted essentially non-oscillatory schemes.
+\newblock \emph{Journal of Computational Physics}, 115\penalty0 (1):\penalty0
+  200--212, 1994.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1006/jcph.1994.1187}.
+
+\bibitem[Modesti and Pirozzoli(2017)]{rhoEnergyFOAM}
+D.~Modesti and S.~Pirozzoli.
+\newblock A low-dissipative solver for turbulent compressible flows on
+  unstructured meshes, with openfoam implementation.
+\newblock \emph{Computers \& Fluids}, 152:\penalty0 14--23, 2017.
+
+\bibitem[Modesti and Pirozzoli(2018)]{Modesti_2018}
+D.~Modesti and S.~Pirozzoli.
+\newblock An efficient semi-implicit solver for direct numerical simulation of
+  compressible flows at all speeds.
+\newblock \emph{Journal of Scientific Computing}, 75:\penalty0 308--331, 2018.
+
+\bibitem[Moretti(1979)]{MORETTI1979191}
+G.~Moretti.
+\newblock The {$\lambda$}-scheme.
+\newblock \emph{Computers \& Fluids}, 7\penalty0 (3):\penalty0 191--205, 1979.
+\newblock ISSN 0045-7930.
+\newblock \doi{https://doi.org/10.1016/0045-7930(79)90036-7}.
+
+\bibitem[OpenCFD(Accessed on October 29, 2024)]{OpenFOAM_ESI}
+OpenCFD.
+\newblock Openfoam, Accessed on October 29, 2024.
+\newblock URL \url{https://www.openfoam.com/}.
+
+\bibitem[Patankar(1980)]{patankar1980numerical}
+S.~V. Patankar.
+\newblock \emph{Numerical heat transfer and fluid flow}.
+\newblock Series on Computational Methods in Mechanics and Thermal Science.
+  Hemisphere Publishing Corporation (CRC Press, Taylor \& Francis Group), 1980.
+\newblock ISBN 978-0891165224.
+
+\bibitem[Pirozzoli(2002)]{PIROZZOLI2002}
+S.~Pirozzoli.
+\newblock Conservative hybrid compact-weno schemes for shock-turbulence
+  interaction.
+\newblock \emph{Journal of Computational Physics}, 178\penalty0 (1):\penalty0
+  81--117, 2002.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1006/jcph.2002.7021}.
+
+\bibitem[Pirozzoli(2011)]{Pirozzoli2011}
+S.~Pirozzoli.
+\newblock Numerical methods for high-speed flows.
+\newblock \emph{Annual Review of Fluid Mechanics}, 43:\penalty0 163--194, 2011.
+
+\bibitem[Roe(1981)]{ROE1981357}
+P.~L. Roe.
+\newblock Approximate riemann solvers, parameter vectors, and difference
+  schemes.
+\newblock \emph{Journal of Computational Physics}, 43\penalty0 (2):\penalty0
+  357--372, 1981.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1016/0021-9991(81)90128-5}.
+
+\bibitem[Runchal and Wolfshtein(1969)]{runchal1969numerical}
+A.~K. Runchal and M.~Wolfshtein.
+\newblock Numerical integration procedure for the steady state navier-stokes
+  equations.
+\newblock \emph{Journal of Mechanical Engineering Science}, 11\penalty0
+  (5):\penalty0 445--453, 1969.
+
+\bibitem[Schmitt(1979)]{schmitt1979pressure}
+V.~Schmitt.
+\newblock Pressure distributions on the onera m6-wing at transonic mach
+  numbers, experimental data base for computer program assessment.
+\newblock \emph{AGARD AR-138}, 1979.
+
+\bibitem[Slater(2010)]{slater2010rae2822}
+J.~W. Slater.
+\newblock Rae2822 transonic airfoil: Study\# 1.
+\newblock \emph{NASA Glenn Research Centre, Ohio. Internet: http://www. grc.
+  nasa. gov/WWW/wind/valid/raetaf/raetaf01/raetaf01. ht ml}, 2010.
+
+\bibitem[Spalart(2000)]{SPALART2000252}
+P.~R. Spalart.
+\newblock Strategies for turbulence modelling and simulations.
+\newblock \emph{International journal of heat and fluid flow}, 21\penalty0
+  (3):\penalty0 252--263, 2000.
+
+\bibitem[Spalding et~al.(1961)]{spalding1961single}
+D.~B. Spalding et~al.
+\newblock A single formula for the law of the wall.
+\newblock \emph{Journal of Applied Mechanics}, 28\penalty0 (3):\penalty0
+  455--458, 1961.
+
+\bibitem[Steger and Warming(1981)]{STEGER1981263}
+J.~L. Steger and R.~F. Warming.
+\newblock Flux vector splitting of the inviscid gasdynamic equations with
+  application to finite-difference methods.
+\newblock \emph{Journal of Computational Physics}, 40\penalty0 (2):\penalty0
+  263--293, 1981.
+\newblock ISSN 0021-9991.
+
+\bibitem[Toro(2013)]{toro2013riemann}
+E.~F. Toro.
+\newblock \emph{Riemann solvers and numerical methods for fluid dynamics: a
+  practical introduction}.
+\newblock Science \& Business Media, 2013.
+
+\bibitem[Van~Leer and Krause(1982)]{van1982}
+B.~Van~Leer and E.~Krause.
+\newblock Lecture notes in physics, vol. 170, numerical methods in fluid
+  dynamics.
+\newblock \emph{SIAM review}, 1982.
+
+\bibitem[Wilcox(2008)]{Wlicox_k-omega_model}
+D.~C. Wilcox.
+\newblock Formulation of the k-w turbulence model revisited.
+\newblock \emph{AIAA Journal}, 46\penalty0 (11):\penalty0 2823--2838, 2008.
+\newblock \doi{10.2514/1.36541}.
+
+\bibitem[Yee et~al.(1999)Yee, Sandham, and Djomehri]{YEE1999199}
+H.~C. Yee, N.~D. Sandham, and M.~J. Djomehri.
+\newblock Low-dissipative high-order shock-capturing methods using
+  characteristic-based filters.
+\newblock \emph{Journal of Computational Physics}, 150\penalty0 (1):\penalty0
+  199--238, 1999.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1006/jcph.1998.6177}.
+
+\end{thebibliography}

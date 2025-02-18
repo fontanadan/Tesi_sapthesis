@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb, 2024-10-09)"
+   sodipodi:docname="stencil.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.66"
+     inkscape:cx="424.24242"
+     inkscape:cy="540.15152"
+     inkscape:window-width="2490"
+     inkscape:window-height="1376"
+     inkscape:window-x="70"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000;stroke-width:0.674896"
+       id="rect1"
+       width="243.998"
+       height="2.2378144"
+       x="26.765472"
+       y="168.38147" />
+    <rect
+       style="fill:#ff0000;stroke-width:0.701261"
+       id="rect2"
+       width="259.31958"
+       height="2.226943"
+       x="-18.173229"
+       y="-134.21411"
+       transform="matrix(0.93631297,-0.35116666,-0.32766235,-0.94479489,0,0)" />
+    <rect
+       style="fill:#ff00ff;stroke-width:0.477223"
+       id="rect3"
+       width="2.3597822"
+       height="143.11832"
+       x="150.10512"
+       y="56.502167" />
+    <ellipse
+       style="fill:#00ff00;stroke-width:0.608009"
+       id="path4"
+       cx="151.44579"
+       cy="169.65282"
+       rx="4.4049873"
+       ry="3.8140664" />
+    <ellipse
+       style="fill:#ff0000;stroke-width:0.608009"
+       id="path4-2"
+       cx="151.77902"
+       cy="85.492699"
+       rx="4.4049873"
+       ry="3.8140664" />
+    <ellipse
+       style="fill:#ff0000;stroke-width:0.608009"
+       id="path4-2-7"
+       cx="271.04688"
+       cy="169.10068"
+       rx="4.4049873"
+       ry="3.8140664" />
+    <ellipse
+       style="fill:#ff0000;stroke-width:0.608009"
+       id="path4-2-7-6"
+       cx="27.692413"
+       cy="131.79912"
+       rx="4.4049873"
+       ry="3.8140664" />
+    <ellipse
+       style="fill:#ff0000;stroke-width:0.608009"
+       id="path4-2-7-6-6"
+       cx="269.92456"
+       cy="40.690136"
+       rx="4.4049873"
+       ry="3.8140664" />
+    <ellipse
+       style="fill:#0000ff;stroke-width:0.608009"
+       id="path4-5"
+       cx="27.964394"
+       cy="169.66736"
+       rx="4.4049873"
+       ry="3.8140664" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;white-space:pre;inline-size:4.02859;display:inline;fill:#00ff00;stroke-width:0.264583"
+       x="107.61887"
+       y="105.02173"
+       id="text4"
+       transform="matrix(2.3597824,0,0,2.2378144,-118.4076,-47.022491)"><tspan
+         x="107.61887"
+         y="105.02173"
+         id="tspan1">f</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.2136px;font-family:'TeX Gyre Bonum Math';-inkscape-font-specification:'TeX Gyre Bonum Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.608009"
+       x="21.58843"
+       y="194.17093"
+       id="text5"
+       transform="scale(1.0268901,0.97381408)"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'TeX Gyre Bonum Math';-inkscape-font-specification:'TeX Gyre Bonum Math';fill:#0000ff;stroke-width:0.608009"
+         x="21.58843"
+         y="194.17093">P</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.2136px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus Medium';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0000ff;stroke-width:0.608009"
+       x="10.77109"
+       y="222.14682"
+       id="text6"
+       transform="scale(1.0268901,0.97381408)"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="stroke-width:0.608009"
+         x="10.77109"
+         y="222.14682" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.2136px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus Medium';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ff0000;stroke-width:0.608009"
+       x="257.33203"
+       y="192.30588"
+       id="text7"
+       transform="scale(1.0268901,0.97381408)"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'TeX Gyre Bonum Math';-inkscape-font-specification:'TeX Gyre Bonum Math';stroke-width:0.608009"
+         x="257.33203"
+         y="192.30588">N</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.2136px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ff0000;stroke-width:0.608009"
+       x="21.215431"
+       y="109.87019"
+       id="text8"
+       transform="scale(1.0268901,0.97381408)"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="stroke-width:0.608009"
+         x="21.215431"
+         y="109.87019" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.6468px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';text-align:start;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;fill:#ff0000;stroke-width:0.499328"
+       x="13.776905"
+       y="113.32565"
+       id="text9"
+       transform="scale(1.0047896,0.99523322)"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         style="baseline-shift:baseline;stroke-width:0.499328"
+         x="13.776905"
+         y="113.32565">ϕ<tspan
+   style="font-size:14.7203px;baseline-shift:sub;stroke-width:0.499328"
+   id="tspan10">P</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.6468px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';text-align:start;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;fill:#ff0000;stroke-width:0.499328"
+       x="260.94177"
+       y="22.95295"
+       id="text9-0"
+       transform="scale(1.0047896,0.99523328)"><tspan
+         sodipodi:role="line"
+         id="tspan9-4"
+         style="baseline-shift:baseline;stroke-width:0.499328"
+         x="260.94177"
+         y="22.95295">ϕ<tspan
+   style="font-size:14.7203px;baseline-shift:sub;stroke-width:0.499328"
+   id="tspan11">N</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.6468px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';text-align:start;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;fill:#ff0000;stroke-width:0.499328"
+       x="157.98285"
+       y="60.374783"
+       id="text9-0-0"
+       transform="scale(1.0047896,0.99523328)"><tspan
+         sodipodi:role="line"
+         id="tspan9-4-4"
+         style="baseline-shift:baseline;stroke-width:0.499328"
+         x="157.98285"
+         y="60.374783">ϕ<tspan
+   style="font-size:14.7203px;baseline-shift:sub;stroke-width:0.499328"
+   id="tspan12">f</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.7111px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.926664"
+       x="53.71772"
+       y="167.06606"
+       id="text13"
+       transform="scale(1.0329468,0.96810405)"><tspan
+         sodipodi:role="line"
+         id="tspan13"
+         style="stroke-width:0.926664"
+         x="53.71772"
+         y="167.06606">d</tspan></text>
+    <path
+       style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.608009px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 27.937001,165.85344 -0.217195,-30.2404"
+       id="path13"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#path4-5"
+       inkscape:connection-end="#path4-2-7-6" />
+    <path
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:0.608009px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 271.01354,165.28679 269.95789,44.504025"
+       id="path15"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#path4-2-7"
+       inkscape:connection-end="#path4-2-7-6-6" />
+  </g>
+</svg>
