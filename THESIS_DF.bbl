@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -247,6 +247,18 @@ J.~W. Slater.
 \newblock Rae2822 transonic airfoil: Study\# 1.
 \newblock \emph{NASA Glenn Research Centre, Ohio. Internet: http://www. grc.
   nasa. gov/WWW/wind/valid/raetaf/raetaf01/raetaf01. ht ml}, 2010.
+
+\bibitem[Smagorinsky(1963)]{smagorinsky1963general}
+J.~Smagorinsky.
+\newblock General circulation experiments with the primitive equations: I. the
+  basic experiment.
+\newblock \emph{Monthly weather review}, 91\penalty0 (3):\penalty0 99--164,
+  1963.
+
+\bibitem[Spalart and Allmaras(1992)]{SPALARTALLMARAS}
+P.~Spalart and S.~Allmaras.
+\newblock A one-equation turbulence model for aerodynamic flows.
+\newblock page 439, 1992.
 
 \bibitem[Spalart(2000)]{SPALART2000252}
 P.~R. Spalart.

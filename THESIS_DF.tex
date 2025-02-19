@@ -49,7 +49,7 @@
 	
 	% Acknowledgements
 	\chapter*{Acknowledgements}
-	%\addcontentsline{toc}{chapter}{Acknowledgements}
+	\addcontentsline{toc}{chapter}{Acknowledgements}
 	Acknowledge contributions from advisors, funding sources, colleagues, and anyone who supported you.	
 	
 	% Table of Contents
@@ -937,7 +937,7 @@
 	\newpage
 	\section{CFD Methodologies}
 	
-	\subsection{Reynolds-Averaged Navier-Stokes (RANS)}
+\	\subsection{Reynolds-Averaged Navier-Stokes (RANS)}
 	The RANS approach is one of the most common methods used in turbulence modeling. It implies averaging the Navier-Stokes equations over time, which effectively smooths out fluctuations in turbulence to provide a steady-state solution. This method greatly simplifies computational requirements and is particularly useful for applications where the flow is stable or slightly unsteady. RANS models are widely used in industrial applications because of their robustness and low computational costs. However, they may be less accurate in predicting complex flows with significant separation or strong instability.
 	The key to obtain RANS equations is to use the Reynolds decomposition which divide the velocity field into a mean component ($U$) and a fluctuating component ($u'$):
 	
@@ -970,10 +970,9 @@
 	The primary problem with RANS equations is that there are more unknowns than equations. The system of equations for the first moments depends on correlations involving pairs of variables (second moments) and RANS equations developed for these pair correlations involve triple correlations. For example, the conservation equation for the Reynolds stress correlation, $\overline{u_i' u_j'}$:
 	\begin{equation}
 		\begin{aligned}
-			\frac{\partial u_i u_j}{\partial t} + U_k \frac{\partial u_i u_j}{\partial x_k} + \frac{\partial u_i u_j u_k}{\partial x_k} = - u_i u_k \frac{\partial U_j}{\partial x_k} - u_j u_k \frac{\partial U_i}{\partial x_k} \\
-			-\frac{1}{\rho} \left( u_i \frac{\partial p}{\partial x_j} + u_j \frac{\partial p}{\partial x_i} \right)
-			\\ \quad 
-			- 2 \nu \frac{\partial u_i}{\partial x_k} \frac{\partial u_j}{\partial x_k} + \nu \frac{\partial^2 u_i u_j}{\partial x_k^2} 
+			\frac{\partial u_i u_j}{\partial t} + U_k \frac{\partial u_i u_j}{\partial x_k} + \frac{\partial u_i u_j u_k}{\partial x_k} = - u_i u_k \frac{\partial U_j}{\partial x_k} - u_j u_k \frac{\partial U_i}{\partial x_k} + \\
+			-\frac{1}{\rho} \left( u_i \frac{\partial p}{\partial x_j} + u_j \frac{\partial p}{\partial x_i} \right)  
+			- 2 \nu \frac{\partial u_i}{\partial x_k} \frac{\partial u_j}{\partial x_k} + \nu \frac{\partial^2 u_i u_j}{\partial x_k^2} + \\
 			+ g \alpha \left( u_j T' \delta_{i3} + u_i T' \delta_{j3} \right)
 		\end{aligned}
 	\end{equation}
@@ -982,9 +981,91 @@
 	modeling, involves terminating the equation hierarchy at a given level and closing the resulting system of equations with models developed from dimensional analysis, 	intuition, symmetry requirements, and experimental results. The second, known as direct numerical simulations (DNS) involves numerically solving the time-dependent equations of motion and
 	then Reynolds averaging the computational output to determine mean-flow quantities. The third, known as large-eddy simulation (LES), combines elements of the other two and involves some modeling and some numerical simulation of large-scale turbulent fluctuations.
 	
-	\subsection{RANS closure modeling}
+	\subsection{RANS closure models}
 	The closure problem arising from Reynolds-averaging of the equations of fluid motion has lead to the development of approximate models to close systems of RANS equations. Because
-	of the practical importance of such models for weather forecasting and performance prediction for engineered devices, RANS-closure modeling efforts have existed for more than a century and continue to this day. This section presents a truncated overview of the essential elements leading to the most known turbulence models: the $k-\varepsilon$ closure model and the $k-\omega$ closure model.
+	of the practical importance of such models for weather forecasting and performance prediction for engineered devices, RANS-closure modeling efforts have existed for more than a century and continue to this day. This section presents a truncated overview of the essential elements leading to the most known turbulence models that can be divided into two categories: the one equation models like the Spalart-Allmaras model, and the two-equation models like the $k-\varepsilon$ model and the $k-\omega$ model.
+	
+	\subsubsection{Spalart-Allmaras model}
+	The Spalart-Allmaras (SA) model is a one-equation turbulence model\cite{SPALARTALLMARAS} designed primarily for aerodynamic flows, particularly those involving wall-bounded and external flows around airfoils, wings, and vehicles. This model introduces a transport equation for a modified \textbf{eddy viscosity} ($\tilde{\nu}$), making it computationally efficient while still capturing important turbulence effects. \\
+	The turbulent \textbf{eddy viscosity} is given by:
+	
+	\begin{equation}
+		\nu_t = \tilde{\nu} f_{v1}, \quad f_{v1} = \frac{\chi^3}{\chi^3 + C_{v1}^3}, \quad \chi := \frac{\tilde{\nu}}{\nu}
+	\end{equation}
+	\\
+	and the transport equation for the modified eddy viscosity is:
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{\partial \tilde{\nu}}{\partial t} + u_j \frac{\partial \tilde{\nu}}{\partial x_j} = C_{b1} [1 - f_{t2}] \tilde{S} \tilde{\nu} 
+			+ \frac{1}{\sigma} \left\{ \nabla \cdot [( \nu + \tilde{\nu}) \nabla \tilde{\nu}] + C_{b2} | \nabla \tilde{\nu} |^2 \right\} +\\
+			- \left[ C_{w1} f_w - \frac{C_{b1}}{\kappa^2} f_{t2} \right] \left( \frac{\tilde{\nu}}{d} \right)^2 + f_{t1} \Delta U^2
+		\end{aligned}
+	\end{equation}
+
+	where:
+	
+	\begin{equation}
+		\tilde{S} \equiv S + \frac{\tilde{\nu}}{\kappa^2 d^2} f_{v2}, \quad f_{v2} = 1 - \frac{\chi}{1 + \chi f_{v1}}
+	\end{equation}
+	
+	\begin{equation}
+		f_w = g \left[ \frac{1 + C_{w6}^6}{g^6 + C_{w6}^6} \right]^{1/6}, \quad g = r + C_{w2} (r^6 - r), \quad r \equiv \frac{\tilde{\nu}}{\tilde{S} \kappa^2 d^2}
+	\end{equation}
+	
+	\begin{equation}
+		f_{t1} = C_{t1} g_t \exp \left( -C_{t2} \frac{\omega_t^2}{\Delta U^2} [d^2 + g_t^2 d_t^2] \right)
+	\end{equation}
+	
+	\begin{equation}
+		f_{t2} = C_{t3} \exp(-C_{t4} \chi^2)
+	\end{equation}
+	
+	\begin{equation}
+		S = \sqrt{2 \Omega_{ij} \Omega_{ij}}
+	\end{equation}
+	\\
+	The rotation tensor is given by
+	\begin{equation}
+		\Omega_{ij} = \frac{1}{2} \left ( \frac{\partial{u_i}}{\partial{x_j}} - \frac{\partial{u_j}}{\partial{x_i}}\right ),
+	\end{equation}
+	\\
+	$d$ is the distance from the closest surface and $\Delta{U^2}$ is the norm of the difference between the velocity at the trip (usually zero) and that at the field point we are considering. 
+	All the constant are written in table \ref{table:SAconstants}:
+	
+	\begin{table}[h]
+		\centering
+		\renewcommand{\arraystretch}{1.2} % Adjust row height
+		\begin{tabular}{c c}
+			\hline
+			\textbf{Constant} & \textbf{Value} \\ 
+			\hline
+			$\sigma$  & $2/3$ \\
+			$C_{b1}$  & $0.1355$ \\
+			$C_{b2}$  & $0.622$ \\
+			$\kappa$  & $0.41$ \\
+			$C_{w1}$  & $\frac{C_{b1}}{\kappa^2} + \frac{(1 + C_{b2})}{\sigma}$ \\
+			$C_{w2}$  & $0.3$ \\
+			$C_{w3}$  & $2$ \\
+			$C_{v1}$  & $7.1$ \\
+			$C_{t1}$  & $1$ \\
+			$C_{t2}$  & $2$ \\
+			$C_{t3}$  & $1.1$ \\
+			$C_{t4}$  & $2$ \\
+			\hline
+		\end{tabular}
+		\caption{Spalart-Allmaras constants}
+		\label{table:SAconstants}
+	\end{table}
+	
+	\noindent There are several approaches to adapting the model for compressible flows. In all cases, the turbulent dynamic viscosity is computed from
+	
+	\begin{equation}
+		\mu_t = \rho \tilde{\nu} f_{v1}
+	\end{equation}
+	\\
+	where $\rho$ is the local density.
+	
 	
 	\subsubsection{$k-\varepsilon$ model}
 	This model solves transport equations for turbulent kinetic energy (k) and dissipation rate ($\varepsilon$):
@@ -1021,7 +1102,7 @@
 		\begin{aligned}
 			\frac{\partial (\rho \omega)}{\partial t} + \frac{\partial}{\partial x_j} (\rho u_j \omega) =
 			\alpha \frac{\omega}{k} \rho \tau_{ij} \frac{\partial u_i}{\partial x_j} - 	\beta \rho \omega^2 
-			+ \sigma_d \frac{\rho}{\omega} \frac{\partial k}{\partial x_j} 	\frac{\partial \omega}{\partial x_j} 
+			+ \sigma_d \frac{\rho}{\omega} \frac{\partial k}{\partial x_j} 	\frac{\partial \omega}{\partial x_j} +
 			\\
 			+ \frac{\partial}{\partial x_j} \left[ \left( \mu + \sigma \frac{\rho 	k}{\omega} \right) \frac{\partial \omega}{\partial x_j} \right]
 		\end{aligned}
@@ -1045,7 +1126,8 @@
 	URANS extends the RANS approach by allowing time-dependent variations in the flow field, making it capable of capturing unsteady phenomena. It still uses Reynolds averaging of the Navier-Stokes equations but does not calculate the time-averaged flow as rigorously as RANS. This means that URANS can model large-scale transient flow characteristics and oscillatory behaviors that are typical in many practical engineering systems, such as vortex detachment from building corners. Although URANS improves RANS in terms of capturing instability, it still uses eddy viscosity models that may not adequately resolve finer turbulent structures. Additionally, while URANS requires more computational resources than RANS, it remains significantly more efficient than higher-fidelity turbulence models like Large Eddy Simulation (LES) or Delayed Detached Eddy Simulation (DDES). This balance between accuracy and efficiency makes URANS a practical choice for many engineering applications where large-scale unsteady behavior plays a critical role. However, URANS has limitations, particularly in handling complex turbulent flows. Due to its reliance on eddy-viscosity models, it may struggle to accurately predict fine turbulent structures. Moreover, despite being time-dependent, URANS still averages the flow over time, potentially smoothing out important transient details. Another drawback is its reduced effectiveness in strongly separated flows, as it lacks the refinement of LES or hybrid methods in capturing separation and reattachment phenomena. Despite these limitations, URANS remains a widely used approach in engineering applications requiring a compromise between accuracy and computational efficiency.
 
 	\subsection{Large Eddy Simulation (LES)}
-	LES applies spatial filtering to the Navier-Stokes equations. The filtered momentum equation includes the subgrid-scale (SGS) stress tensor:
+ 	Large Eddy Simulation (LES) is a mathematical model used in CFD to  study turbulent phenomena. Initially proposed in 1963 by Joseph \citet{smagorinsky1963general} for modeling atmospheric currents, it is still the subject of great interest both because of its possible developments and because it stands as a middle ground between RANS-type modeling (faster but more approximate) and DNS direct numerical simulation (more exact but computationally very expensive). LES basic idea is to reduce computational cost by ignoring the smallest length scales, which are the most expensive to resolve, through low-pass filtering of the Navier–Stokes equations. This filtering can be seen as a combination of time- and spatial-averaging, effectively removing small-scale information from the numerical solution. However, this information is not irrelevant, as its influence on the flow field must still be modeled.
+	
 	
 	\begin{equation}
 		\tau_{ij} = \overline{u_i u_j} - \bar{u}_i\bar{u}_j
@@ -1103,8 +1185,8 @@
 	\label{chap:methodology}
     This solver addresses the numerical challenges of simulating fluid dynamics in situations involving significant temperature variations, density changes, and complex energy transfer mechanisms. By employing advanced numerical discretization techniques and solving coupled energy and momentum conservation equations, rhoEnergyFoam provides researchers and engineers with a powerful computational framework for investigating thermodynamic phenomena across diverse applications, from aeronautical engineering to industrial thermal management systems. The following methodology section will delve into the mathematical formulation, numerical algorithms, and computational strategies that underpin the rhoEnergyFoam solver, elucidating the precise numerical methods used to transform fundamental conservation laws into computationally tractable algorithms capable of accurately predicting fluid behavior under complex thermodynamic conditions.
 	
-	\section{rhoEnergyFOAM}
-	RhoEnergyFOAM is a high-fidelity numerical solver for solving Navier-Stokes equations in the compressible field. The solver exploits the predictive capabilities of low-diffusion numerical schemes useful for the applied study of flows around complex geometries. The spatial discretization of convective terms in the Navier-Stokes equations is based on a robust energy-preserving numerical flow, and the numerical diffusion inherited from the AUSM scheme is added limitedly to the vicinity of shock waves, or wherever spurious numerical oscillations are detected. The solver is capable of preserving the total kinetic energy in the nonviscous limit, and bears significantly less numerical diffusion than typical industrial solvers, with greater predictive power, as demonstrated through a series of test cases including DNS \citep{Modesti_2018}, LES \citep{LARSSON201615-00418} and URANS of turbulent flows \citep{SPALART2000252}.
+	\section{rhoEnergyFoam}
+	RhoEnergyFoam is a high-fidelity numerical solver for solving Navier-Stokes equations in the compressible field. The solver exploits the predictive capabilities of low-diffusion numerical schemes useful for the applied study of flows around complex geometries. The spatial discretization of convective terms in the Navier-Stokes equations is based on a robust energy-preserving numerical flow, and the numerical diffusion inherited from the AUSM scheme is added limitedly to the vicinity of shock waves, or wherever spurious numerical oscillations are detected. The solver is capable of preserving the total kinetic energy in the nonviscous limit, and bears significantly less numerical diffusion than typical industrial solvers, with greater predictive power, as demonstrated through a series of test cases including DNS \citep{Modesti_2018}, LES \citep{LARSSON201615-00418} and URANS of turbulent flows \citep{SPALART2000252}.
 	
 	Let's consider the Navier-Stokes equations for a compressible ideal gas, integrated over an arbitrary volume $V$
 	
