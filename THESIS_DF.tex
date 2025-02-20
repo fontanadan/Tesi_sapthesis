@@ -24,15 +24,16 @@
 	pdfauthor={Daniele Fontana}
 }
 
-\title{Development of high-fidelity simulation techniques for aircraft and rotor aerodynamics}
+\title{Development of high-fidelity simulation  \\
+	   techniques for aircraft and rotor aerodynamics}
 \author{Daniele Fontana}
 \IDnumber{1635256}
 \course{PhD in Aeronautical and Space Engineering}
 \courseorganizer{Department of Mechanical and Aerospace Engineering}
 \cycle{XXXVII}
 \AcademicYear{2024/2025}
-\advisor{Prof.Sergio Pirozzoli}
-\coadvisor{Dr. Ivan Spisso}
+\advisor{Sergio Pirozzoli}
+\coadvisor{Ivan Spisso}
 \authoremail{daniele.fontana@uniroma1.it}
 \copyyear{2025}
 \thesistype{PhD thesis}
@@ -1022,12 +1023,12 @@
 	\end{equation}
 	
 	\begin{equation}
-		S = \sqrt{2 \Omega_{ij} \Omega_{ij}}
+		S = \sqrt{2 S_{ij} S_{ij}}
 	\end{equation}
 	\\
 	The rotation tensor is given by
 	\begin{equation}
-		\Omega_{ij} = \frac{1}{2} \left ( \frac{\partial{u_i}}{\partial{x_j}} - \frac{\partial{u_j}}{\partial{x_i}}\right ),
+		S_{ij} = \frac{1}{2} \left ( \frac{\partial{u_i}}{\partial{x_j}} - \frac{\partial{u_j}}{\partial{x_i}}\right ),
 	\end{equation}
 	\\
 	$d$ is the distance from the closest surface and $\Delta{U^2}$ is the norm of the difference between the velocity at the trip (usually zero) and that at the field point we are considering. 
@@ -1130,16 +1131,16 @@
  	For instance, a generic model of filtering is the following
  	
  	\begin{equation}
- 			\overline{(x,t)} = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} u(r,t')G(x-r,t-t') dt'dr,
+ 			\overline{u(x,t)} = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} u(\chi,\tau)F(x-\chi,t-\tau) d\tau d\chi,
  	\end{equation}
  	\\
- 	where $G$ is a convolution function different for the any type of filter. Using the above filter definition, the field $u$ may be split up into a filtered and sub-filtered (denoted with a prime) portion, as 
+ 	where $F$ is a convolution function different for any type of filter. Using the above filter definition, the field $u$ may be split up into a filtered and sub-filtered (denoted with a prime) portion, as 
  	\begin{equation}
  		{u ={\bar{u}}+u^{\prime }.}
  	\end{equation}
  	It is important to note that the large eddy simulation filtering operation does not satisfy the properties of a Reynolds operator. 
  	The governing equations of LES are obtained by filtering the Navier-Stokes equations both for incompressible flows and compressible flows. 
-	The former approach generate the filtered advection term that can be split up, following 
+	The former approach generate the filtered advection term that can be written as 
 	
 	\begin{equation}
 		\overline{u_i u_j} = \tau_{ij} + \bar{u}_i\bar{u}_j
@@ -1156,10 +1157,10 @@
 		\bar{S}_{ij} = \frac{1}{2}\left(\frac{\partial \bar{u}_i}{\partial x_j} + \frac{\partial \bar{u}_j}{\partial x_i}\right)
 	\end{equation}
 	\\
-	The Smagorinsky model treats dissipation of kinetic energy at sub-grid scales as analogous to molecular diffusion and so, it relates the filtered strain rate tensor to the stress tensor:
+	The Smagorinsky model treats dissipation of kinetic energy at sub-grid scales as analogous to molecular diffusion and so, it relates the filtered strain rate tensor to the stress tensor $\tau_{ij}^r$:
 	
 	\begin{equation}
-		\tau_{ij} - \frac{1}{3}\delta_{ij}\tau_{kk} = -2 \nu_t \bar{S}_{ij}
+		\tau_{ij}^r = \tau_{ij} - \frac{1}{3}\delta_{ij}\tau_{kk} = -2 \nu_t \bar{S}_{ij}
 	\end{equation}
 	\\
 	where $\nu_t$ is the turbulent eddy viscosity. The first SubGrid Scale (SGS) model developed by Smagorinsky and used in the first LES,  models the eddy viscosity as follows
@@ -1168,6 +1169,29 @@
 	\end{equation}
 	\\
 	where $\Delta$ is the grid size and $C_s$ is the Smagorinsky constant.
+	\\
+	For the governing equations of compressible flow, each equation is filtered.
+	\citet{Favre} proposed a density-weighted filtering operation, called Favre filtering, defined for an arbitrary quantity $\phi$ as:
+	
+	\begin{equation}
+		\tilde {\phi }=\frac {\overline {\rho \phi }}{\overline {\rho }}
+	\end{equation}
+	The momentum balance equation of the Navier-Stokes equations for compressible flows becomes:
+	
+	\begin{equation}
+		{\frac {\partial {\overline {\rho }}{\tilde {u_{i}}}}{\partial t}}+{\frac {\partial {\overline {\rho }}{\tilde {u_{i}}}{\tilde {u_{j}}}}{\partial x_{j}}}+{\frac {\partial {\overline {p}}}{\partial x_{i}}}-{\frac {\partial {\tilde {\sigma }}_{ij}}{\partial x_{j}}}=-{\frac {\partial {\overline {\rho }}\tau _{ij}^{r}}{\partial x_{j}}}+{\frac {\partial }{\partial x_{j}}}\left({\overline {\sigma }}_{ij}-{\tilde {\sigma }}_{ij}\right)
+		\label{NS_compressible_favre}
+	\end{equation}
+	\\
+	where $\sigma _{ij}$ is the shear stress tensor, given for a Newtonian fluid by: 
+	\begin{equation}
+		\sigma _{ij}=2\mu (T)S_{ij}-{\frac {2}{3}}\mu (T)\delta _{ij}S_{kk}
+	\end{equation}
+	\\
+	and the last term of the right hand side of the equation \ref{NS_compressible_favre} represents a sub-filter viscous contribution from evaluating the viscosity $\mu (T)$ using the Favre-filtered temperature $\tilde {T}$. The subgrid stress tensor for the Favre-filtered momentum field is given by 
+	\begin{equation}
+			\tau _{ij}^{r}={\widetilde {u_{i}\cdot u_{j}}}-{\tilde {u_{i}}}{\tilde {u_{j}}}
+	\end{equation}
 	\subsection{Detached Eddy Simulation (DES)}
 	DES combines RANS and LES approaches, with the transition controlled by:
 	

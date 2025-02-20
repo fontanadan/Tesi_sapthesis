@@ -4,45 +4,45 @@ The top-level auxiliary file: THESIS_DF.aux
 The style file: plainnat.bst
 Database file #1: references.bib
 Warning--empty journal in SPALARTALLMARAS
-You've used 43 entries,
+You've used 44 entries,
             2773 wiz_defined-function locations,
-            890 strings with 12007 characters,
-and the built_in function-call counts, 18214 in all, are:
-= -- 1691
-> -- 814
-< -- 37
-+ -- 286
-- -- 243
-* -- 1409
-:= -- 2836
-add.period$ -- 164
-call.type$ -- 43
-change.case$ -- 202
-chr.to.int$ -- 43
-cite$ -- 87
-duplicate$ -- 873
-empty$ -- 1622
-format.name$ -- 308
-if$ -- 3847
+            900 strings with 12165 characters,
+and the built_in function-call counts, 18640 in all, are:
+= -- 1734
+> -- 824
+< -- 38
++ -- 290
+- -- 246
+* -- 1442
+:= -- 2902
+add.period$ -- 169
+call.type$ -- 44
+change.case$ -- 206
+chr.to.int$ -- 44
+cite$ -- 89
+duplicate$ -- 893
+empty$ -- 1664
+format.name$ -- 312
+if$ -- 3939
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 47
-newline$ -- 256
-num.names$ -- 172
-pop$ -- 372
+missing$ -- 48
+newline$ -- 263
+num.names$ -- 176
+pop$ -- 377
 preamble$ -- 1
-purify$ -- 165
+purify$ -- 168
 quote$ -- 0
-skip$ -- 636
+skip$ -- 649
 stack$ -- 0
-substring$ -- 753
-swap$ -- 59
+substring$ -- 782
+swap$ -- 60
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 443
+type$ -- 454
 warning$ -- 1
-while$ -- 175
+while$ -- 179
 width$ -- 0
-write$ -- 623
+write$ -- 640
 (There was 1 warning)

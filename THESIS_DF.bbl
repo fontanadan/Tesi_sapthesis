@@ -1,4 +1,4 @@
-\begin{thebibliography}{43}
+\begin{thebibliography}{44}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -71,6 +71,15 @@ A.~F. Emery.
   problems.
 \newblock \emph{Journal of Computational Physics}, 2\penalty0 (3):\penalty0
   306--331, 1968.
+
+\bibitem[Favre(1983)]{Favre}
+A.~Favre.
+\newblock Turbulence: Space‐time statistical properties and behavior in
+  supersonic flows.
+\newblock \emph{The Physics of Fluids}, 26\penalty0 (10):\penalty0 2851--2863,
+  1983.
+\newblock ISSN 0031-9171.
+\newblock \doi{10.1063/1.864049}.
 
 \bibitem[Ferziger et~al.(2016)Ferziger, Peri{\'c}, and
   Street]{ferziger2019computational}
