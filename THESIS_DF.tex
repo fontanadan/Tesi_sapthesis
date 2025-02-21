@@ -50,7 +50,7 @@
 	
 	% Acknowledgements
 	\chapter*{Acknowledgements}
-	\addcontentsline{toc}{chapter}{Acknowledgements}
+	%\addcontentsline{toc}{chapter}{Acknowledgements}
 	Acknowledge contributions from advisors, funding sources, colleagues, and anyone who supported you.	
 	
 	% Table of Contents
@@ -357,11 +357,14 @@
 	Upwinding has the main effect of damping the Fourier modes with the highest supported
 	wave numbers, with a subsequent stabilizing effect on the numerical solution.
 	
-	\subsection{The AUSM Scheme}
+	\subsection{The AUSM Schemes}
+	The AUSM (Advection Upstream Splitting Method) scheme is a family of numerical schemes used in computational fluid dynamics (CFD) to solve compressible flow problems. Developed to enhance the accuracy and robustness of numerical simulations, the AUSM scheme efficiently handles shock waves, contact discontinuities, and smooth flow regions by carefully splitting the convective and pressure terms in the flux computation. Over time, various improved versions, such as AUSM+, AUSM+-up, and others, have been introduced to address stability and accuracy issues in high-speed flows. These schemes are widely applied in aerospace, automotive, and energy industries for simulating supersonic and transonic flows with high fidelity.
+	
+	\subsubsection{The AUSM Scheme}
 	
 	The original AUSM scheme, introduced by \citet{LIOU_AUSM} in their seminal paper \textit{“A New Flux Splitting Scheme”}, marked a significant departure from earlier flux vector and flux difference splitting methods. The key innovation of AUSM lies in its decomposition of fluxes into convective and pressure components, each treated separately to align with their respective physical characteristics.
 	
-	\subsubsection{Numerical Formulation}
+	\subsubsection*{Numerical Formulation}
 	
 	Considering the two-dimensional system of Euler equation for perfect gas:
 	
@@ -468,12 +471,12 @@
 	\\
 	The AUSM scheme is simple and computationally efficient, providing accurate shock capturing and robust performance for subsonic and supersonic flows, sometimes with better results than the ones obtained with the Roe scheme. However, it showed limitations in maintaining stability and accuracy for low-Mach-number flows.
 	
-	\subsection{The AUSM+ Scheme}
+	\subsubsection{The AUSM+ Scheme}
 	
 	To address the deficiencies of AUSM, particularly removing postshock overshoot and a glitch in the slowly moving shock problem, \citet{LIOU_AUSM+} introduced the $AUSM+$ scheme in the follow-up paper. This iteration improved robustness and extended the method’s applicability to a broader range of flow conditions. In fact, the scheme is capable of exactly capturing stationary shocks and contact discontinuities, it ensures that density remains positive, which is crucial for handling strong rarefaction and near-vacuum flows, and it significantly reduces the "carbuncle" issue that affects the Roe scheme and previous AUSM implementations in blunt-body simulations.
 	The AUSM+ scheme improves the splitting approach by unifying the Mach number and velocity formulations while maintaining a simple structure, making it easily adaptable to other hyperbolic systems.  
 	
-	\subsubsection{Algorithm}
+	\subsubsection*{Algorithm}
 	To implement the AUSM+ to a basic central-differencing code, it only requires the key interface quantities $(m_{j+1/2},p_{j+1/2})$ and unified numerical speed of sound $a_{j+1/2}$.  
 	The Mach number is split to minimize numerical dissipation at low Mach numbers.
 	
@@ -561,13 +564,13 @@
 	\\
 	This scheme improved stability and accuracy at low Mach numbers, enhanced shock and contact discontinuity resolution, and reduced dissipation for smooth flow regions.
 	
-	\subsection{The AUSM+-up Scheme}
+	\subsubsection{The AUSM+-up Scheme}
 	
 	Recognizing the need for a unified framework capable of handling flows across all speeds, which could not be achieved with AUSM+, in 2006 \citet{LIOU_AUSM+-up} proposed the AUSM+-up scheme in \textit{“A Sequel to AUSM, Part II: AUSM+-up for All Speeds”}. As for its predecessors, this method integrates pressure-based and velocity-based splitting strategies, with more precise corrections that allowed the achieving of superior performances. In fact, the previous AUSM+ scheme had two critical deficiencies that affect compressible flow solvers, particularly when applied to low-speed flow predictions. These deficiencies manifest as two distinct yet interconnected problems: an intrinsic convergence instability and a fundamental inaccuracy in solution generation.
 	The first issue originates at the continuum level, fundamentally tied to the governing equations' mathematical structure. This convergence challenge exists independently of the spatial discretization scheme employed, representing a deep-rooted numerical complexity. The second deficiency, however, is directly linked to the flux numerical scheme itself, offering a more tractable avenue for methodological intervention.
 	Previous computational approaches, despite their practical successes, revealed significant limitations. The pressure split function exhibited a critical discontinuity at zero Mach number, necessitating arbitrary cut-off parameters that artificially constrained the method's applicability. Existing preconditioners relied on preset Mach number limitations, which fundamentally restricted the method's universal potential. The core objectives of the Liou's latest article are ambitious yet precise: to create a flux scheme that ensures convergence rates independent of Mach numbers in low-speed flows, maintains at least equivalent performance in other speed regimes, and preserves solution accuracy across the entire spectrum of flow conditions.
 	
-	\subsubsection{Algorithm}
+	\subsubsection*{Algorithm}
 	The AUSM+-up scheme introduces two critical modifications:
 	
 	\begin{itemize}
@@ -855,10 +858,10 @@
 	Despite their computational cost, their unconditional stability and ability to handle stiff equations make them a very powerful and are commonly used in many CFD software programs.
 	
 	\newpage
-	\section*{Application in OpenFOAM}
+	\section{Interpolation schemes in OpenFOAM}
 	In OpenFOAM, the selection of interpolation schemes for spatial and temporal terms is specified in the \texttt{fvSchemes} and \texttt{fvSolution} configuration files. The \texttt{fvSchemes} file determines the spatial interpolation schemes for divergence, gradient, and Laplacian terms, while \texttt{fvSolution} configures the temporal schemes and solvers for each variable. For high-speed flows, the selection of schemes is particularly critical, as these flows are sensitive to both numerical diffusion and oscillations. Typically, an initial solution might employ an upwind scheme for stability, which can then be refined with higher-order schemes, such as \textit{Roe}\cite{ROE1981357}, \textit{TVD}\cite{HARTEN1983} or \textit{AUSM}\cite{LIOU_AUSM}, for improved accuracy. The Roe scheme is a popular approximate Riemann solver that linearizes the flux Jacobian to achieve high accuracy and ensure proper wave propagation by capturing discontinuities with minimal numerical dissipation. The Godunov scheme, on the other hand, is a fundamental first-order method that employs the exact solution of the Riemann problem to determine fluxes at cell interfaces, ensuring robust shock capturing, albeit with relatively high dissipation. To overcome the excessive numerical diffusion of first-order methods, Total Variation Diminishing (TVD) schemes were introduced, incorporating non-oscillatory high-order reconstructions such as MUSCL (Monotonic Upstream-Centered Schemes for Conservation Laws) to enhance solution accuracy while maintaining stability. The Advection Upstream Splitting Method (AUSM) family of schemes takes a different approach by splitting convective and pressure fluxes, offering superior accuracy in capturing compressible flow features like shocks and contact discontinuities, especially in transonic and supersonic regimes. Together, these methods highlight the evolution of upwind techniques, balancing accuracy, stability, and computational efficiency for complex flow problems.
 	
-	\section{OpenFOAM solvers}
+	\subsection{OpenFOAM solvers}
 		
 	OpenFOAM is known for its flexibility and extensive range of solvers tailored to specific simulation needs. The solvers in OpenFOAM are broadly categorized into incompressible and compressible solvers, addressing fluid flow scenarios depending on the fluid’s compressibility and the physical phenomena being modeled. Incompressible solvers are designed for flows where density variations are negligible, such as low-speed air or water flows. Examples include simpleFoam for steady-state turbulent flows, pimpleFoam for transient simulations using the SIMPLE and PIMPLE algorithms, and icoFoam for laminar, transient flows. On the other hand, compressible solvers handle flows where changes in density due to pressure and temperature variations are significant, as in high-speed aerodynamics, supersonic flows and combustion processes. Examples include rhoSimpleFoam and rhoPimpleFoam for steady and transient compressible flows, respectively, and rhoCentralFoam, which leverages a central difference scheme for shock-dominated flows. Beyond these categories, OpenFOAM also includes specialized solvers for heat transfer, multiphase flows, chemical reactions, and electromagnetics. For instance, solvers like chtMultiRegionFoam enable conjugate heat transfer analysis, while interFoam and twoPhaseEulerFoam address multiphase flow problems. Each solver is tailored to specific applications, allowing users to simulate a wide range of industrial and research problems with high accuracy and computational efficiency. Furthermore, the modularity of OpenFOAM enables customization of solvers, providing unparalleled flexibility to engineers and researchers.
 	
@@ -963,8 +966,8 @@
 	\begin{equation}
 		\delta_{ij} = 
 		\begin{cases}
-			1, if i=j \\
-			0, if i\neq j
+			1,  \quad i=j \\
+			0,  \quad i\neq j
 		\end{cases}
 	\end{equation}
 	\\
@@ -998,32 +1001,30 @@
 	
 	\begin{equation}
 		\begin{aligned}
-			\frac{\partial \tilde{\nu}}{\partial t} + u_j \frac{\partial \tilde{\nu}}{\partial x_j} = C_{b1} [1 - f_{t2}] \tilde{S} \tilde{\nu} 
+			\frac{\partial \tilde{\nu}}{\partial t} + u_j \frac{\partial \tilde{\nu}}{\partial x_j} = C_{b1} [1 - f_{t2}] \tilde{S} \tilde{\nu}+ \\ 
 			+ \frac{1}{\sigma} \left\{ \nabla \cdot [( \nu + \tilde{\nu}) \nabla \tilde{\nu}] + C_{b2} | \nabla \tilde{\nu} |^2 \right\} +\\
 			- \left[ C_{w1} f_w - \frac{C_{b1}}{\kappa^2} f_{t2} \right] \left( \frac{\tilde{\nu}}{d} \right)^2 + f_{t1} \Delta U^2
 		\end{aligned}
 	\end{equation}
-
-	where:
+	\\
+	where $d$ is the distance from the field point to the nearest wall and
 	
 	\begin{equation}
-		\tilde{S} \equiv S + \frac{\tilde{\nu}}{\kappa^2 d^2} f_{v2}, \quad f_{v2} = 1 - \frac{\chi}{1 + \chi f_{v1}}
+		\tilde{S} \equiv S + \frac{\tilde{\nu}}{\kappa^2 d^2} f_{v2}, \quad f_{v2} = 1 - \frac{\chi}{1 + \chi f_{v1}}, \quad  S = \sqrt{2 S_{ij} S_{ij}}.
+	\end{equation}
+	\\
+	Additional definitions are given by the following equations: 
+	
+	\begin{equation}
+		C_{w1} = \frac{C_{b1}}{\kappa^2} + \frac{(1 + C_{b2})}{\sigma}
 	\end{equation}
 	
 	\begin{equation}
-		f_w = g \left[ \frac{1 + C_{w6}^6}{g^6 + C_{w6}^6} \right]^{1/6}, \quad g = r + C_{w2} (r^6 - r), \quad r \equiv \frac{\tilde{\nu}}{\tilde{S} \kappa^2 d^2}
+		f_w (r)= g \left[ \frac{1 + C_{w3}^6}{g^6 + C_{w3}^6} \right]^{1/6}, \quad g = r + C_{w2} (r^6 - r), \quad r \equiv \frac{\tilde{\nu}}{\tilde{S} \kappa^2 d^2}
 	\end{equation}
 	
 	\begin{equation}
-		f_{t1} = C_{t1} g_t \exp \left( -C_{t2} \frac{\omega_t^2}{\Delta U^2} [d^2 + g_t^2 d_t^2] \right)
-	\end{equation}
-	
-	\begin{equation}
-		f_{t2} = C_{t3} \exp(-C_{t4} \chi^2)
-	\end{equation}
-	
-	\begin{equation}
-		S = \sqrt{2 S_{ij} S_{ij}}
+		f_{t1} = C_{t1} g_t \exp \left( -C_{t2} \frac{\omega_t^2}{\Delta U^2} [d^2 + g_t^2 d_t^2] \right) \quad f_{t2} = C_{t3} \exp(-C_{t4} \chi^2)
 	\end{equation}
 	\\
 	The rotation tensor is given by
@@ -1031,7 +1032,7 @@
 		S_{ij} = \frac{1}{2} \left ( \frac{\partial{u_i}}{\partial{x_j}} - \frac{\partial{u_j}}{\partial{x_i}}\right ),
 	\end{equation}
 	\\
-	$d$ is the distance from the closest surface and $\Delta{U^2}$ is the norm of the difference between the velocity at the trip (usually zero) and that at the field point we are considering. 
+	and $\Delta{U^2}$ is the norm of the difference between the velocity at the trip (usually zero) and that at the field point we are considering. 
 	All the constant are written in table \ref{table:SAconstants}:
 	
 	\begin{table}[h]
@@ -1045,7 +1046,6 @@
 			$C_{b1}$  & $0.1355$ \\
 			$C_{b2}$  & $0.622$ \\
 			$\kappa$  & $0.41$ \\
-			$C_{w1}$  & $\frac{C_{b1}}{\kappa^2} + \frac{(1 + C_{b2})}{\sigma}$ \\
 			$C_{w2}$  & $0.3$ \\
 			$C_{w3}$  & $2$ \\
 			$C_{v1}$  & $7.1$ \\
@@ -1072,7 +1072,7 @@
 	This model solves transport equations for turbulent kinetic energy (k) and dissipation rate ($\varepsilon$):
 	
 	\begin{equation}
-		\frac{\partial \rho k}{\partial t} + \frac{\partial \rho k u_i}{\partial x_i} = \frac{\partial}{\partial x_j}\left[\left(\mu +\frac{\mu_t}{\sigma_k}\right)\frac{\partial k}{\partial x_j}\right] + P_k + P_b - \rho \varepsilon - Y_M + S_k
+		\frac{\partial \rho k}{\partial t} + \frac{\partial \rho k u_i}{\partial x_i} = \frac{\partial}{\partial x_j}\left[\left(\mu +\frac{\mu_t}{\sigma_k}\right)\frac{\partial k}{\partial x_j}\right] + P_k + P_b - \rho \varepsilon + S_k
 	\end{equation}
 	\\	
 	\begin{equation}
@@ -1086,7 +1086,7 @@
 		\mu_t = \rho C_{\mu} \frac{k^2}{\varepsilon}
 	\end{equation}
 	\\
-	The equation contains some calibration constants $\sigma_k$, $\sigma_{\varepsilon}$, $C_{1\varepsilon}$ and $C_{2\varepsilon}$. The value of these constants are derived from experimental results, and the standard values used are:
+	Moreover, $P_k$ is the production of turbulent kinetic energy term due to mean velocity shear, $P_b$ is the production of TKE due to buoyancy, $S_k$ and $S_\varepsilon$ are source terms defined by the user. The equation contains some calibration constants $\sigma_k$, $\sigma_{\varepsilon}$, $C_{1\varepsilon}$ and $C_{2\varepsilon}$. The value of these constants are derived from experimental results, and the standard values used are:
 	$C_{\mu }=0.09$, $\sigma_k = 1.00$, $\sigma_{\varepsilon} = 1.30$, $C_{1\varepsilon} = 1.44$ and $C_{2\varepsilon} = 1.92$.
 	
 	\subsubsection{$k-\omega$ model}
@@ -1131,7 +1131,7 @@
  	For instance, a generic model of filtering is the following
  	
  	\begin{equation}
- 			\overline{u(x,t)} = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} u(\chi,\tau)F(x-\chi,t-\tau) d\tau d\chi,
+ 			\overline{u(x,t)} = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} u(\bar{x},\bar{t})F(x-\bar{x},t-\bar{t}) d\bar{t} d\bar{x},
  	\end{equation}
  	\\
  	where $F$ is a convolution function different for any type of filter. Using the above filter definition, the field $u$ may be split up into a filtered and sub-filtered (denoted with a prime) portion, as 
@@ -1193,13 +1193,15 @@
 			\tau _{ij}^{r}={\widetilde {u_{i}\cdot u_{j}}}-{\tilde {u_{i}}}{\tilde {u_{j}}}
 	\end{equation}
 	\subsection{Detached Eddy Simulation (DES)}
-	DES combines RANS and LES approaches, with the transition controlled by:
+	DES was born from the necessity to resolve, with reduced computational cost, high–Reynolds number, massively separated flows, which must be addressed in many fields such as aerospace and ground transportation, as well as in
+	atmospheric forecast.
+	DES was initially proposed by \citet{DES} in 1997 and it combines RANS and LES approaches. The basic formulas of DES was based on the substitution in the Spalart–Allmaras turbulence model of the wall distance $d$ with a new wall distance $\tilde{d}$ that controls the eddy viscosity:
 	
 	\begin{equation}
 		\tilde{d} = \min(d, C_{DES}\Delta)
 	\end{equation}
-	
-	where $d$ is the wall distance and $C_{DES}$ is a model constant.
+	\\
+	where $C_{DES}$ is a model constant of order 1 and $\Delta = max(\Delta x, \Delta y, \Delta z)$.
 	
 	\subsection{Direct Numerical Simulation (DNS)}
 	DNS resolves all scales down to the Kolmogorov scales:
@@ -1261,14 +1263,15 @@
 	
 	\chapter{Results}
 	\label{chap:results}
-	\subsection{Analisi dei casi}
-	Il passo successivo è stato quello di analizzare i casi elencati nella sezione \ref{WorkPlan}, facendo riferimento all'articolo di \cite{rhoEnergyFOAM}.
 	
-	\subsubsection{Decaying Isotropic Turbulence}
+	\section{Analisi dei casi}
+	Il passo successivo è stato quello di analizzare i casi facendo riferimento all'articolo di \citet{rhoEnergyFOAM}.
+	
+	\section{Decaying Isotropic Turbulence}
 	Al fine di quantificare le proprietà di conservazione dell'energia di rhoEnergyFOAM, è stato analizzato il decadimento isotropo omogeneo della turbolenza a viscosità cinematica nulla ($\nu = 0$). La simulazione numerica è stata realizzata su una mesh cartesiana strutturata con $32^3$ celle (32 celle per lato) con una spaziatura costante e un timestep costante, imponendo un CFL = 1. La simulazione è stata impostata con il numero di Mach pari a 0.01.
 	Il caso è stato analizzato a parità di condizioni con rhoCentralFOAM e con rhoEnergyFOAM in modalità A, in modalità B e in modalità C e, infine, è stato anche valutato con il solutore dnsFOAM.
 	
-	\subsection{Taylor-Green Vortex}
+	\section{Taylor-Green Vortex}
 	Il Taylor-Green vortex illustra il meccanismo di base del decadimento della produzione di piccoli vortici detti "eddies". Il caso in questione, come il precedente, quantifica le proprietà di conservazione dell'energia di rhoEnergyFOAM. Sono state effettuate prove sia con rhoEnergyFOAM che con rhoCentralFOAM, su una mesh strutturata con $32^3$ celle e su una mesh non strutturata con 85'056 prisimi. Tale mesh è stata realizzata con gmsh, estrudendo gli elementi triangolari di una faccia lungo la terza direzione principale. Per valutare la conservazione della TKE (Turbulent Kinetic Energy) è stata effettuata l'inversione del tempo a metà della simulazione, verificando effettivamente se la soluzione tornasse ai valori delle condizioni iniziali. Per una migliore visualizzazione dei risultati, è stato realizzato un video in cui si possono apprezzare contemporaneamente le simulazioni ottenute con Paraview e i grafici animati in cui viene rappresentatato l'andamento dell'enstrofia, come mostrato in Figura \ref{TGV}. 
 	
 	\begin{figure}
@@ -1278,21 +1281,29 @@
 		\label{TGV}
 	\end{figure} 
 	
-	\subsection{Forward Step}
+	\section{Forward Step}
 	Lo studio del flusso non viscoso su un gradino rivolto in avanti è stato originariamente proposto da \cite{EMERY1968306} per confrontare gli schemi di cattura dello shock. In questo caso è stato utilizzato per analizzare il comportamento di rhoEnergyFOAM su flussi supersonici in presenza di urti. 
 	Il flusso supersonico a M = 3 affronta un gradino di altezza $0.2 h$, dove $h$ è l'altezza del canale. La lunghezza totale del canale è $3 h$, il bordo anteriore del gradino è a $0.6 h$ dall'ingresso e la mesh è uniforme, con $N_x \times N_y = 240 \times 80$ celle nelle direzioni delle coordinate. Le condizioni al contorno di scorrimento sono imposte alle pareti superiore e inferiore e tutte le variabili sono estrapolate all'uscita. Per questo caso il test viene eseguito in modalità C. L'ispezione del modello di shock mostra che, nonostante le somiglianze qualitative, rhoEnergyFOAM fornisce dettagli di flusso aggiuntivi che sono appena visibili con rhoCentralFOAM. In particolare la linea di scivolamento che esce dal punto quadruplo vicino alla parete superiore è evanescente in rhoCentralFOAM, a causa della sua maggiore diffusione numerica.
 	
-	\subsection{Onera M6}
-	Questo caso mira alla valutazione di un flusso inviscido intorno all'ala dell'Onera M6, il cui flusso è transonico con numero di Mach $M = 0.8395$, e l'angolo di attacco è $\alpha = 3.06^\circ$ . \'E stata utilizzata una mesh non strutturata che include 341'797 celle tetraedriche, all'interno di una scatola computazionale esterna di dimensioni $L_x \times L_y \times L_z = 10c \times 10c \times 5c$, dove c è la corda nella sezione della radice dell'ala. Le simulazioni numeriche sono state effettuate utilizzando sia rhoCentralFOAM che rhoEnergyFOAM in modo C.
-	
-	\subsection{RANS and DES of a flow past circular cylinder}
-	Il flusso turbolento attorno a un cilindro circolare è stato studiato numericamente per mezzo di rhoEnergyFOAM in modalità B, sia attraverso la URANS (Unsteady Reynolds-Averaged Navier-Stokes) che con la simulazione DES (Detached Eddy Simulation), basandosi sul classico modello di turbolenza di Spalart-Allmaras e la sua estensione DES, rispettivamente. Il numero di Mach del flusso libero è $M_0 = u_0 /c_0 = 0.1$, dove $u_0$ e $c_0$ sono la velocità del flusso libero e la velocità del suono, e il Reynolds basato sul diametro del cilindro è $Re_D = \rho_0 u_0 D/ \mu_w$, con $\rho_0$ la densità del flusso libero e $\mu_w$ la viscosità della parete. Una mesh di tipo O viene utilizzata per DES con $Nr \times N_\theta \times N_z = 256 \times 256 \times 48$ celle con tangente iperbolica che si estende verso il muro in un dominio $L_r \times L_z = 20D \times 2D$, mentre viene utilizzata la stessa mesh con $N_z = 1$ per la URANS. I risultati sono ancora in fase di discussione.
-	
-	\subsection{Bachalo-Johnson}
+	\section{Sod Shock Tube}
 	Il caso in questione studia il flusso transonico sul dosso assialsimmetrico di Bachalo-Johnson. La lunghezza del dosso è c = 20.32 cm. Il dominio è costituito da un cuneo di $1^\circ$ con raggio interno $r_{in}/c = 0.375$ e raggio esterno $r_{out}/c = 4.0$. L'altezza del dosso è $h/c = 0.09375$. La condizione a contorno è di no-slip vicino alla parete. All'inlet la velocità, la temperatura totale e la pressione totale sono costanti ("fixed-value"), mentre all'outlet la velocità, la temperatura e la pressione sono impostate con uno "zero-gradient". I confini su entrambi i lati del dominio computazionale sono periodici, cioè è stata decisa la condizione "cyclic" di OpenFOAM per rendere la simulazione 3D e assialsimmetrica. I risultati sono ancora in fase di discussione.
 	
-	\subsection{RAE-2822}
+	\section{Bachalo-Johnson}
+	Il caso in questione studia il flusso transonico sul dosso assialsimmetrico di Bachalo-Johnson. La lunghezza del dosso è c = 20.32 cm. Il dominio è costituito da un cuneo di $1^\circ$ con raggio interno $r_{in}/c = 0.375$ e raggio esterno $r_{out}/c = 4.0$. L'altezza del dosso è $h/c = 0.09375$. La condizione a contorno è di no-slip vicino alla parete. All'inlet la velocità, la temperatura totale e la pressione totale sono costanti ("fixed-value"), mentre all'outlet la velocità, la temperatura e la pressione sono impostate con uno "zero-gradient". I confini su entrambi i lati del dominio computazionale sono periodici, cioè è stata decisa la condizione "cyclic" di OpenFOAM per rendere la simulazione 3D e assialsimmetrica. I risultati sono ancora in fase di discussione.
+	
+	\section{RANS of a flow past circular cylinder}
+	Il flusso turbolento attorno a un cilindro circolare è stato studiato numericamente per mezzo di rhoEnergyFOAM in modalità B, sia attraverso la URANS (Unsteady Reynolds-Averaged Navier-Stokes) che con la simulazione DES (Detached Eddy Simulation), basandosi sul classico modello di turbolenza di Spalart-Allmaras e la sua estensione DES, rispettivamente. Il numero di Mach del flusso libero è $M_0 = u_0 /c_0 = 0.1$, dove $u_0$ e $c_0$ sono la velocità del flusso libero e la velocità del suono, e il Reynolds basato sul diametro del cilindro è $Re_D = \rho_0 u_0 D/ \mu_w$, con $\rho_0$ la densità del flusso libero e $\mu_w$ la viscosità della parete. Una mesh di tipo O viene utilizzata per DES con $Nr \times N_\theta \times N_z = 256 \times 256 \times 48$ celle con tangente iperbolica che si estende verso il muro in un dominio $L_r \times L_z = 20D \times 2D$, mentre viene utilizzata la stessa mesh con $N_z = 1$ per la URANS. I risultati sono ancora in fase di discussione.
+	
+	\section{DES of a flow past circular cylinder}
+	Il flusso turbolento attorno a un cilindro circolare è stato studiato numericamente per mezzo di rhoEnergyFOAM in modalità B, sia attraverso la URANS (Unsteady Reynolds-Averaged Navier-Stokes) che con la simulazione DES (Detached Eddy Simulation), basandosi sul classico modello di turbolenza di Spalart-Allmaras e la sua estensione DES, rispettivamente. Il numero di Mach del flusso libero è $M_0 = u_0 /c_0 = 0.1$, dove $u_0$ e $c_0$ sono la velocità del flusso libero e la velocità del suono, e il Reynolds basato sul diametro del cilindro è $Re_D = \rho_0 u_0 D/ \mu_w$, con $\rho_0$ la densità del flusso libero e $\mu_w$ la viscosità della parete. Una mesh di tipo O viene utilizzata per DES con $Nr \times N_\theta \times N_z = 256 \times 256 \times 48$ celle con tangente iperbolica che si estende verso il muro in un dominio $L_r \times L_z = 20D \times 2D$, mentre viene utilizzata la stessa mesh con $N_z = 1$ per la URANS. I risultati sono ancora in fase di discussione.
+	
+	\section{Smooth flow past cylinder with AMR}
+	
+	\section{Transonic flow over RAE-2822 airfoil}
 	Il flusso transonico intorno al profilo alare RAE-2822 è stato simulato tramite RANS, utilizzando il modello standard di Spalart-Allmaras. Il numero di Mach è $M = 0.729$, il numero di Reynolds della corda è $Re_c = \rho_0 u_0 c /\mu_0 = 6.5 \times 10^6$, e l'angolo di attacco è $\alpha = 2.31^\circ$. \'E stata utilizzata una mesh strutturata di tipo C che comprende $369 \times 256$ celle, con tangente iperbolica che si estende verso la parete. Il limite del "far-field" si trova a circa 20 corde dalla parete, dove le condizioni al contorno di ingresso/uscita sono imposte, mentre le condizioni al contorno isotermiche di non slittamento sono imposte alla parete del profilo alare.
+
+	\section{Transonic flow over Onera M6 wing}
+	Questo caso mira alla valutazione di un flusso inviscido intorno all'ala dell'Onera M6, il cui flusso è transonico con numero di Mach $M = 0.8395$, e l'angolo di attacco è $\alpha = 3.06^\circ$ . \'E stata utilizzata una mesh non strutturata che include 341'797 celle tetraedriche, all'interno di una scatola computazionale esterna di dimensioni $L_x \times L_y \times L_z = 10c \times 10c \times 5c$, dove c è la corda nella sezione della radice dell'ala. Le simulazioni numeriche sono state effettuate utilizzando sia rhoCentralFOAM che rhoEnergyFOAM in modo C.
 	
 	\subsubsection{Taylor-Green Vortex}
 	Il Taylor-Green vortex illustra il meccanismo di base del decadimento della produzione di piccoli vortici detti \say{eddies}. Il caso studio dimostra le proprietà di conservazione dell'energia cinetica del solutore rhoEnergyFOAM. Sono state effettuate prove sia con rhoEnergyFOAM che con rhoCentralFOAM, prima su una mesh strutturata con $32^3$ celle e poi su una mesh non strutturata con 85'056 prismi. Tale mesh è stata realizzata con Gmsh, estrudendo gli elementi triangolari di una faccia lungo la terza direzione principale. Per valutare la conservazione della TKE (Turbulent Kinetic Energy) è stata effettuata l'inversione del tempo a metà della simulazione, verificando effettivamente se la soluzione tornasse ai valori delle condizioni iniziali. Per una migliore visualizzazione dei risultati, è stato realizzato un video in cui si possono apprezzare contemporaneamente le simulazioni ottenute con Paraview e i grafici animati in cui viene rappresentatato l'andamento dell'enstrofia. In figura \ref{TGV_Qcriterion} viene mostrato il campo di velocità del Taylor-Green vortex visualizzato con il  Q-criterion, mentre in figura \ref{TGV_Enstrophy} si può apprezzare il grafico dell'enstrofia ottenuto con rhoEnergyFOAM che, dopo aver invertito il campo di velocità al tempo adimensionalizzato $t^*=8$, recupera l'andamento fino alle raggiungimento delle condizioni iniziali. Il tempo adimensinalizzato è calcolato con $t^* = t u_0 k_0$.
@@ -1365,7 +1376,38 @@
 	
 	\newpage
 	
-	\subsubsection{RANS and DES of a flow past circular cylinder}
+	\subsubsection{RANS of a flow past circular cylinder}
+	Il flusso turbolento attorno a un cilindro circolare è stato studiato numericamente per mezzo di rhoEnergyFOAM in modalità B, sia attraverso la URANS (Unsteady Reynolds-Averaged Navier-Stokes) che con la simulazione DES (Detached Eddy Simulation), basandosi sul classico modello di turbolenza di Spalart-Allmaras e la sua estensione DES, rispettivamente. Il numero di Mach del flusso libero è $M_\infty = u_\infty /c_\infty = 0.1$, dove $u_\infty$ e $c_\infty$ sono la velocità del flusso libero e la velocità del suono, e il Reynolds basato sul diametro del cilindro è $Re_D = \rho_\infty u_\infty D/ \mu_w$, con $\rho_\infty$ la densità del flusso libero e $\mu_w$ la viscosità della parete. Una mesh di tipo O viene utilizzata per DES con $Nr \times N_\theta \times N_z = 256 \times 256 \times 48$ celle con tangente iperbolica che si estende verso il muro in un dominio $L_r \times L_z = 20D \times 2D$, mentre viene utilizzata la stessa mesh con $N_z = 1$ per la URANS.
+	La griglia è allungata verso il cilindro con il primo punto della griglia fuori dalla parete a $y_+ \approx 150 - 200$, quindi ci affidiamo all'uso di funzioni di parete per un corretto trattamento della parete. In particolare, si utilizza la legge di equilibrio della parete di Spalding \citep{spalding1961single}. Le condizioni al contorno isotermiche di \say{no-slip} sono imposte alla parete, mentre le condizioni al contorno \say{fixedValue} e/o \say{zeroGradient} sono utilizzate per tutte le variabili all'ingresso e all'uscita, rispettivamente, con la viscosità turbolenta impostata a $\mu_{t0} = 3\mu_w$. I risultati numerici sono confrontati con precedenti simulazioni numeriche ed esperimenti. La principale differenza rispetto a questi ultimi è l'assenza di vorticità sensibile nella URANS che è probabilmente da ricondurre all'uso di funzioni di parete. Lo shedding è osservato nella DES in figura \ref{Des_Cylinder}, con parametri globali di ﬂusso in ragionevole accordo con altre fonti. Il coefficiente di pressione di parete e i proﬁli di velocità media nella scia del cilindro sono ulteriormente analizzati nelle ﬁgure \ref{Cp_Cylinder} e \ref{Cylinder}. Il confronto è complessivamente soddisfacente sia per il coefficiente di pressione che per i proﬁli di velocità, con la differenza principale che si osserva una scia cilindrica più lunga nella URANS rispetto alle simulazioni numeriche di riferimento di Catalano \citep{Catalano}. Anche in questo caso, questa deviazione può essere dovuta a una previsione imprecisa del punto di separazione causata da un trattamento approssimativo delle pareti.
+	
+	\begin{figure}[htp]
+		\begin{center}
+			{\includegraphics[width=0.579\linewidth]{pressure_coeff_cylinder}}  
+			\caption{Simulazione numerica del flusso attorno a un cilindro circolare: coefficiente di pressione ottenuto da rhoEnergyFoam in modalità B con URANS (linea viola continua e quadrati) confrontato con URANS di Modesti(linea celeste) e LES (tratteggiato) di Catalano et al. \cite{Catalano}}
+			\label{Cp_Cylinder}
+		\end{center}
+	\end{figure}
+	
+	\begin{figure}[htp]
+		\centering
+		\subfloat
+		{\includegraphics[width=0.9\textwidth, height=0.27\textheight]{Cylinder_u.pdf}} \quad 
+		\subfloat
+		\centering
+		{\includegraphics[width=0.9\textwidth, height=0.27\textheight]{Cylinder_v}}
+		\caption{Simulazione numerica del flusso attorno a un cilindro circolare: proﬁli di velocità media a $x/D = 0.75$ e $x/D = 1.5$ per la URANS (linea rossa), la URANS di Modesti (linea tratteggiata viola sottile) rispetto alla URANS (linea tratteggiata viola spessa) di Catalano.}
+		\label{Cylinder}
+	\end{figure}
+	
+	\begin{figure}[htp]
+		\begin{center}
+			{\includegraphics[width=0.98\linewidth]{Des_cylinder}}  
+			\caption{DES del flusso 3D attorno a un cilindro circolare: rappresentazione del campo di velocità mediante il Q-criterion $Q = \dfrac{1}{2} [(\nabla \cdot u)^2 - \nabla u : \nabla u^T]$.}
+			\label{Des_Cylinder}
+		\end{center}
+	\end{figure}
+	
+	\subsubsection{DES of a flow past circular cylinder}
 	Il flusso turbolento attorno a un cilindro circolare è stato studiato numericamente per mezzo di rhoEnergyFOAM in modalità B, sia attraverso la URANS (Unsteady Reynolds-Averaged Navier-Stokes) che con la simulazione DES (Detached Eddy Simulation), basandosi sul classico modello di turbolenza di Spalart-Allmaras e la sua estensione DES, rispettivamente. Il numero di Mach del flusso libero è $M_\infty = u_\infty /c_\infty = 0.1$, dove $u_\infty$ e $c_\infty$ sono la velocità del flusso libero e la velocità del suono, e il Reynolds basato sul diametro del cilindro è $Re_D = \rho_\infty u_\infty D/ \mu_w$, con $\rho_\infty$ la densità del flusso libero e $\mu_w$ la viscosità della parete. Una mesh di tipo O viene utilizzata per DES con $Nr \times N_\theta \times N_z = 256 \times 256 \times 48$ celle con tangente iperbolica che si estende verso il muro in un dominio $L_r \times L_z = 20D \times 2D$, mentre viene utilizzata la stessa mesh con $N_z = 1$ per la URANS.
 	La griglia è allungata verso il cilindro con il primo punto della griglia fuori dalla parete a $y_+ \approx 150 - 200$, quindi ci affidiamo all'uso di funzioni di parete per un corretto trattamento della parete. In particolare, si utilizza la legge di equilibrio della parete di Spalding \citep{spalding1961single}. Le condizioni al contorno isotermiche di \say{no-slip} sono imposte alla parete, mentre le condizioni al contorno \say{fixedValue} e/o \say{zeroGradient} sono utilizzate per tutte le variabili all'ingresso e all'uscita, rispettivamente, con la viscosità turbolenta impostata a $\mu_{t0} = 3\mu_w$. I risultati numerici sono confrontati con precedenti simulazioni numeriche ed esperimenti. La principale differenza rispetto a questi ultimi è l'assenza di vorticità sensibile nella URANS che è probabilmente da ricondurre all'uso di funzioni di parete. Lo shedding è osservato nella DES in figura \ref{Des_Cylinder}, con parametri globali di ﬂusso in ragionevole accordo con altre fonti. Il coefficiente di pressione di parete e i proﬁli di velocità media nella scia del cilindro sono ulteriormente analizzati nelle ﬁgure \ref{Cp_Cylinder} e \ref{Cylinder}. Il confronto è complessivamente soddisfacente sia per il coefficiente di pressione che per i proﬁli di velocità, con la differenza principale che si osserva una scia cilindrica più lunga nella URANS rispetto alle simulazioni numeriche di riferimento di Catalano \citep{Catalano}. Anche in questo caso, questa deviazione può essere dovuta a una previsione imprecisa del punto di separazione causata da un trattamento approssimativo delle pareti.
 	
