@@ -940,6 +940,7 @@
 	
 	\newpage
 	\section{CFD Methodologies}
+	Turbulence modeling is a cornerstone of computational fluid dynamics (CFD), essential for predicting complex flow behavior in engineering and scientific applications. The Reynolds-Averaged Navier-Stokes (RANS) approach, widely used for its efficiency, simplifies turbulence by averaging its effects over time, making it practical for many industrial problems despite its limitations in capturing finer flow structures. Large Eddy Simulation (LES) takes a step further, directly resolving larger turbulent eddies while modeling only the smaller, more universal scales, offering a better balance between accuracy and computational cost. At the most detailed level, Direct Numerical Simulation (DNS) resolves all turbulent scales without approximation, providing the highest fidelity at an extraordinary computational expense. Each of these methods—RANS, LES, and DNS—comes with its own trade-offs, shaping their use in different contexts where turbulence must be understood and controlled.
 	
 \	\subsection{Reynolds-Averaged Navier-Stokes (RANS)}
 	The RANS approach is one of the most common methods used in turbulence modeling. It implies averaging the Navier-Stokes equations over time, which effectively smooths out fluctuations in turbulence to provide a steady-state solution. This method greatly simplifies computational requirements and is particularly useful for applications where the flow is stable or slightly unsteady. RANS models are widely used in industrial applications because of their robustness and low computational costs. However, they may be less accurate in predicting complex flows with significant separation or strong instability.
@@ -1204,7 +1205,7 @@
 	where $C_{DES}$ is a model constant of order 1 and $\Delta = max(\Delta x, \Delta y, \Delta z)$.
 	
 	\subsection{Direct Numerical Simulation (DNS)}
-	DNS resolves all scales down to the Kolmogorov scales:
+	DNS means Direct Numerical Simulation and it resolves all scales down to the Kolmogorov scales:
 	
 	\begin{equation}
 		\eta = \left(\frac{\nu^3}{\varepsilon}\right)^{1/4} \quad \text{(length scale)}
@@ -1213,7 +1214,8 @@
 	\begin{equation}
 		\tau_\eta = \left(\frac{\nu}{\varepsilon}\right)^{1/2} \quad \text{(time scale)}
 	\end{equation}
-	
+	\\
+	In fact, DNS generates complete three-dimensional and time-dependent solution of the Navier–Stokes equations to obtain results for the instantaneous fluid velocity as a function of position and time. Unfortunately this is not possible for a the majority of physical flows. It is true that Direct numerical simulation has been applied to a limited number of geometrically simple flow situations, such as flow in a channel or over a flat plate. 
 	\subsection{Grid Resolution Requirements}
 	\begin{itemize}
 		\item RANS: $y^+ \approx 30$ for wall functions or $y^+ < 1$ for low-Reynolds number models
