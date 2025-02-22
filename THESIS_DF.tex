@@ -11,6 +11,7 @@
 \usepackage[square, numbers]{natbib}
 \usepackage{subfig} 		 % make it possible to include more than one captioned figure/table in a single float
 \usepackage{mathrsfs}
+\usepackage{caption} 
 \bibliographystyle{plainnat}  % Orders references alphabetically
 
 \usepackage[bookmarks=false,hyperfootnotes=false]{hyperref}
@@ -306,7 +307,6 @@
 	In high-speed flows, the accurate representation of pressure gradients is particularly critical, as errors in these terms can propagate through the solution, impacting the prediction of shock structures, expansion fans, and other key flow features. Therefore, careful selection and implementation of gradient discretization schemes are integral to achieving reliable and precise CFD results.
 	
 	\subsection{Flux Splitting Schemes}
-	\label{AUSMsection}
 	
 	The story of flux splitting schemes begins in the late 1970s, when researchers were grappling with the challenge of accurately capturing shock waves and other discontinuities in compressible flow simulations. The key insight was that by splitting the flux terms into positive and negative components based on wave propagation directions, one could better handle these challenging flow features.The Godunov scheme, introduced by Sergei Godunov in 1959, represented a revolutionary approach to numerical fluid dynamics. This method solves the exact or approximate Riemann problem at cell interfaces, considering the flow as a series of interacting waves. The scheme's ability to naturally capture shock waves and maintain conservation properties made it a cornerstone of modern CFD, though its computational cost was initially seen as a drawback. Building on these foundations, the Total Variation Diminishing (TVD) scheme emerged in 1983 through the work of \citet{HARTEN1983}. TVD schemes introduced the crucial concept of limiting the numerical solution's total variation to prevent spurious oscillations near discontinuities. This advancement addressed a key limitation of earlier high-order methods which often produced unphysical oscillations near shock waves. The TVD property ensures that the numerical solution remains stable and physically meaningful, making these schemes particularly valuable for compressible flow calculations.
 	One further advancement in the flux splitting domain is the development of the Advection Upwind Splitting Method (AUSM) and its subsequent iterations: AUSM+ and AUSM+-up. The AUSM (Advection Upstream Splitting Method) scheme, developed by \citet{LIOU_AUSM} in 1993, represents a more sophisticated approach to flux splitting. It cleverly separates the convective and pressure terms in the flux vector, treating them differently based on their physical nature. The scheme combines the accuracy of flux-difference splitting methods like Godunov's with the computational efficiency of flux-vector splitting approaches. What makes AUSM particularly noteworthy is its ability to accurately capture both inviscid and viscous flow features while maintaining excellent robustness and efficiency. These three schemes are interconnected through their progressive refinement of flux splitting concepts. While Godunov's scheme laid the theoretical groundwork with its wave-based approach, TVD schemes added the crucial property of solution stability, and AUSM brought everything together with a physically motivated splitting that balanced accuracy and computational efficiency. Together, they represent key milestones in the development of modern computational fluid dynamics methods.\\
@@ -367,6 +367,8 @@
 	wave numbers, with a subsequent stabilizing effect on the numerical solution.
 	
 	\subsection{The AUSM Schemes}
+	\label{AUSMsection}
+	
 	The AUSM (Advection Upstream Splitting Method) scheme is a family of numerical schemes used in computational fluid dynamics (CFD) to solve compressible flow problems. Developed to enhance the accuracy and robustness of numerical simulations, the AUSM scheme efficiently handles shock waves, contact discontinuities, and smooth flow regions by carefully splitting the convective and pressure terms in the flux computation. Over time, various improved versions, such as AUSM+, AUSM+-up, and others, have been introduced to address stability and accuracy issues in high-speed flows. These schemes are widely applied in aerospace, automotive, and energy industries for simulating supersonic and transonic flows with high fidelity.
 	
 	\subsubsection{The AUSM Scheme}
@@ -469,8 +471,8 @@
 	
 	\begin{figure}[t]
 		\centering
-		\includegraphics[width=0.4 \linewidth]{Figures/CELL.png}
-		\caption{Interpolation stencil}
+		\includegraphics[width=0.4 \linewidth]{Figures/CELL3D.png}
+		\caption{Computational cell for numerical flux evaluation. $\textcolor{red}{\Delta S_{ON}}$ represents the interface between the owner cell O and the neighboring cell N, with $\over{n}$ as the outward normal for O. L and R denote the limit states on either side of the interface, where $L\equiv O$ and $R \equiv O$ in the case of first-order reconstruction.}
 		\label{cells}
 	\end{figure} 
 	\noindent The pressure flux is treated symmetrically to ensure accurate shock resolution and smooth transitions:
@@ -1278,14 +1280,14 @@
 	\\
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.5 \linewidth]{Figures/CELL.png}
+		\includegraphics[width=0.4 \linewidth]{Figures/CELL.png}
 		\caption{Computational cell for numerical flux evaluation. \textcolor{red}{ON} represents the interface between the owner cell O and the neighboring cell N, with $n_{ON}$ as the outward normal for O. L and R denote the limit states on either side of the interface, where $L\equiv O$ and $R \equiv O$ in the case of first-order reconstruction.}
 		\label{figure:cells}
 	\end{figure} 
 	
 	\noindent Let $\mathbf{\hat{f}}_{ON}$ represent the numerical flux at the interface shared between a given cell and its neighboring cell $N$. The interface area is denoted by $\Delta S_{ON}$, and $\sum_N$ signifies summation over all cell faces.
 	\\
-	Following the standard AUSM methodology \cite{LIOU_AUSM}, we decompose the Euler fluxes in \ref{variables}  into two components: one representing convection and the other accounting for pressure, given as:
+	Following the standard AUSM methodology \cite{LIOU_AUSM}, we decompose the Euler fluxes in (\ref{variables})  into two components: one representing convection and the other accounting for pressure, given as:
 	
 	\begin{equation}
 		\mathbf{f}_i = f_i + p_i =
@@ -1306,12 +1308,14 @@
 	
 	\begin{equation}
 		\hat{f}_{ON} = \hat{f}^{c}_{ON} + \hat{f}^{D}_{ON}, \quad \hat{p}_{ON} = \hat{p}^{C}_{ON} + \hat{p}^{D}_{ON}.
+		\label{central_diffusive_fluxes}
 	\end{equation}
 	\\
 	The central part of the convective flux is determined using the following relation \cite{PIROZZOLI20107180}:
 	
 	\begin{equation}
 		\hat{f}^{c}_{ON} = \frac{1}{8} (\rho_0 + \rho_N) (u_{n0} + u_{nN}) (\boldsymbol{\varphi}_0 + \boldsymbol{\varphi}_N),
+		\label{PirozzoliFLux}
 	\end{equation}
 	\\
 	where $\boldsymbol{\varphi} = (1, u_i, H)^T$, and the pressure flux is obtained via a standard central interpolation approach:
@@ -1319,10 +1323,86 @@
 	\begin{equation}
 		\hat{p}^{C}_{ON} = \frac{1}{2} (p_0 + p_N).
 	\end{equation}
+	\\
+	Unlike conventional central differencing schemes, the numerical flux in equation (\ref{PirozzoliFLux}) ensures discrete conservation of the total kinetic energy transported by convection, albeit with significant nonlinear stability properties. In fact, this central numerical flux has been observed to maintain stability in fully resolved direct numerical simulations (DNS) on Cartesian grids or slightly distorted meshes \cite{PIROZZOLI20107180,PIROZZOLI20112997}. Nevertheless, when applied to practical computational fluid dynamics problems using unstructured meshes, especially in the presence of shock waves, it becomes necessary to introduce a certain level of numerical diffusion. Consequently, the diffusive fluxes in equation should be selectively activated in regions where resolution deteriorates. To assess local smoothness and determine where numerical diffusion should be applied, a classical shock sensor is employed \cite{DUCROS1999}.
 	
-	Unlike conventional central differencing schemes, the numerical flux in Eq. (6) ensures discrete conservation of the total kinetic energy transported by convection, albeit with significant nonlinear stability properties. In fact, this central numerical flux has been observed to maintain stability in fully resolved direct numerical simulations (DNS) on Cartesian grids or slightly distorted meshes \cite{PIROZZOLI20107180,PIROZZOLI20112997}. Nevertheless, when applied to practical computational fluid dynamics problems using unstructured meshes, especially in the presence of shock waves, it becomes necessary to introduce a certain level of numerical diffusion. Consequently, the diffusive fluxes in Eq. (5) should be selectively activated in regions where resolution deteriorates. To assess local smoothness and determine where numerical diffusion should be applied, a classical shock sensor is employed \cite{DUCROS1999}.
+	\begin{equation}
+		\theta = max\left (\dfrac{-\nabla \cdot \mathbf{u}}{\sqrt{(\nabla \cdot \mathbf{u})^2 + (\nabla \times \mathbf{u})^2 + u_0^2/L_0}}, 0 \right ) \ \in \ [0,1],
+	\end{equation}
+	\\
+	Where $u_0$ and $L_0$ represent appropriate velocity and length scales \cite{Pirozzoli2011}, they are defined such that $ \theta \approx 0 $ in smooth regions and $ \theta \approx 1 $ in the presence of shocks.  
+	\\
+	For smooth flows (i.e., without shocks), we have observed that numerical stability can be improved with minimal accuracy loss by applying the artificial diffusion term exclusively to the pressure flux, in an amount proportional to $ \theta_{\text{ON}} $. 
 	
-			
+	\begin{equation}
+		\theta_{\text{ON}} = \frac{1}{2} (\theta_O +\theta_N)
+	\end{equation}
+	\\
+	To accurately capture shock waves, it is necessary to also activate the convective diffusive flux whenever $ \theta_{\text{ON}} $ exceeds a specified threshold ($ \theta^* $, set to 0.05 unless stated otherwise). Thus, the diffusive numerical fluxes used in equation (\ref{central_diffusive_fluxes}) can be concisely expressed as follows:
+	
+	\begin{equation}
+		\hat{f}_{\text{ON}} = (\text{IC}) H (\theta_{\text{ON}} - \theta^*) \tilde{p}_{\text{ON}}^{AUSM}, \quad
+		\tilde{p}_D = \text{IP} \theta_{\text{ON}} \tilde{p}_D^{AUSM},
+		\label{flags_fluxes}
+	\end{equation}
+	\\
+	$(\text{IC})$ and $(\text{IP})$ are flags that regulate the activation of convective and pressure diffusive fluxes, respectively. $H$ represents the Heaviside step function, while the artificial diffusion fluxes are derived from the AUSM scheme, as outlined in section \ref{AUSMsection}. Recommended values for $(\text{IC})$ and $(\text{IP})$, based on the type of numerical simulation being performed, are provided in table \ref{REF_modes}.  
+	
+	\begin{table}[h]
+		\centering
+		\renewcommand{\arraystretch}{1.4} % Adjust row height
+		\begin{tabular}{c l l r}
+			\hline
+			\textbf{Mode} & \textbf{Intent} & \textbf{IC} & \textbf{IP} \\
+			\hline
+			A & Fully resolved smooth flows & 0 & 0 \\
+			B & Unresolved smooth flows & 0 & 1 \\
+			C & Shocked flows & 1 & 1 \\
+			\hline
+		\end{tabular}
+				\vspace{2mm}
+		\caption{Modes of operation of the flow solver, with corresponding	suggested values for the flags in equation \ref{flags_fluxes}.}
+		\label{REF_modes}
+	\end{table}
+	\noindent The discretization of viscous fluxes is based on standard second-order approximations for unstructured meshes \cite{hirsch2007numerical} and is implemented using the \texttt{fvc::laplacian()} primitive in OpenFOAM.
+	\\The resulting semi-discretized system of ordinary differential equations, say 
+	
+	\begin{equation}
+		d \mathbf{u}/dt = R(\mathbf{u}),
+	\end{equation}
+	\\
+	is advanced in time using a low-storage	third-order, three-stage Runge–Kutta algorithm, where the substeps are the following:
+	
+	\begin{equation}
+		\begin{cases}
+			\mathbf{u}' = \mathbf{u}^n + \gamma_1 \Delta t\mathbf{R}(\mathbf{u}^n) + \rho_1 \Delta t\mathbf{R}(\mathbf{u}^{n-1})\\
+			\mathbf{u}'' = \mathbf{u}' + \gamma_2 \Delta t\mathbf{R}(\mathbf{u}') + \rho_2 \Delta t\mathbf{R}(\mathbf{u}^n)\\
+			\mathbf{u}'' = \mathbf{u}' + \gamma_2 \Delta t\mathbf{R}(\mathbf{u}') + \rho_2 \Delta t\mathbf{R}(\mathbf{u}^n)
+		\end{cases}	
+	\end{equation}
+	\\
+	where the constants are displayed in table 
+	
+		\begin{table}[h]
+		\centering
+		\renewcommand{\arraystretch}{1.8} % Adjust row height
+		\begin{tabular}{c c}
+			\hline
+			\textbf{Constant} & \textbf{Value} \\ 
+			\hline 
+			$\gamma_1$  & $\frac{8}{15}$ \\
+			$\gamma_2$  & $\frac{5}{12}$ \\
+			$\gamma_3$  & $\frac{3}{4}$ \\
+			$\rho_1$    & $0$ \\
+			$\rho_2$    & $-\frac{17}{60}$ \\
+			$\rho_3$    & $-\frac{5}{12}$ \\  
+			\hline
+		\end{tabular}
+		\vspace{2mm}
+		\caption{Coefficient of the low-storage	third-order, three-stage Runge–Kutta algorithm}
+		\label{table:RKconstants}
+	\end{table}
+
 	\chapter{Results}
 	\label{chap:results}
 	

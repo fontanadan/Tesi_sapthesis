@@ -3,46 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: THESIS_DF.aux
 The style file: plainnat.bst
 Database file #1: references.bib
-Warning--I didn't find a database entry for "39"
-You've used 44 entries,
+You've used 45 entries,
             2773 wiz_defined-function locations,
-            903 strings with 12089 characters,
-and the built_in function-call counts, 18482 in all, are:
-= -- 1727
-> -- 784
-< -- 39
-+ -- 279
-- -- 234
-* -- 1423
-:= -- 2882
-add.period$ -- 174
-call.type$ -- 44
-change.case$ -- 202
-chr.to.int$ -- 43
-cite$ -- 88
-duplicate$ -- 892
-empty$ -- 1666
-format.name$ -- 298
-if$ -- 3916
+            906 strings with 12227 characters,
+and the built_in function-call counts, 18774 in all, are:
+= -- 1749
+> -- 794
+< -- 40
++ -- 283
+- -- 237
+* -- 1438
+:= -- 2930
+add.period$ -- 177
+call.type$ -- 45
+change.case$ -- 205
+chr.to.int$ -- 44
+cite$ -- 90
+duplicate$ -- 912
+empty$ -- 1698
+format.name$ -- 302
+if$ -- 3977
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 48
-newline$ -- 268
-num.names$ -- 176
-pop$ -- 364
+missing$ -- 50
+newline$ -- 273
+num.names$ -- 180
+pop$ -- 376
 preamble$ -- 1
-purify$ -- 164
+purify$ -- 167
 quote$ -- 0
-skip$ -- 639
+skip$ -- 651
 stack$ -- 0
-substring$ -- 779
-swap$ -- 64
+substring$ -- 781
+swap$ -- 65
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 454
+type$ -- 460
 warning$ -- 0
-while$ -- 176
+while$ -- 179
 width$ -- 0
-write$ -- 651
-(There was 1 warning)
+write$ -- 663
