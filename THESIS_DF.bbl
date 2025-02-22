@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{44}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -128,14 +128,6 @@ A.~Jameson.
 \newblock \emph{AIAA Journal}, 55\penalty0 (5):\penalty0 1487--1510, 2017.
 \newblock \doi{10.2514/1.J055493}.
 
-\bibitem[Larsson et~al.(2016)Larsson, Kawai, Bodart, and
-  Bermejo-Moreno]{LARSSON201615-00418}
-J.~Larsson, S.~Kawai, J.~Bodart, and I.~Bermejo-Moreno.
-\newblock Large eddy simulation with modeled wall-stress: recent progress and
-  future directions.
-\newblock \emph{Mechanical Engineering Reviews}, 3\penalty0 (1):\penalty0
-  15--00418, 2016.
-
 \bibitem[Lax and Wendroff(1960)]{LAXWENDROFF}
 P.~Lax and B.~Wendroff.
 \newblock Systems of conservation laws.
@@ -190,12 +182,6 @@ D.~Modesti and S.~Pirozzoli.
   unstructured meshes, with openfoam implementation.
 \newblock \emph{Computers \& Fluids}, 152:\penalty0 14--23, 2017.
 
-\bibitem[Modesti and Pirozzoli(2018)]{Modesti_2018}
-D.~Modesti and S.~Pirozzoli.
-\newblock An efficient semi-implicit solver for direct numerical simulation of
-  compressible flows at all speeds.
-\newblock \emph{Journal of Scientific Computing}, 75:\penalty0 308--331, 2018.
-
 \bibitem[Moretti(1979)]{MORETTI1979191}
 G.~Moretti.
 \newblock The {$\lambda$}-scheme.
@@ -224,10 +210,29 @@ S.~Pirozzoli.
 \newblock ISSN 0021-9991.
 \newblock \doi{https://doi.org/10.1006/jcph.2002.7021}.
 
-\bibitem[Pirozzoli(2011)]{Pirozzoli2011}
+\bibitem[Pirozzoli(2010)]{PIROZZOLI20107180}
+S.~Pirozzoli.
+\newblock Generalized conservative approximations of split convective
+  derivative operators.
+\newblock \emph{Journal of Computational Physics}, 229\penalty0 (19):\penalty0
+  7180--7190, 2010.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1016/j.jcp.2010.06.006}.
+
+\bibitem[Pirozzoli(2011{\natexlab{a}})]{PIROZZOLI20112997}
+S.~Pirozzoli.
+\newblock Stabilized non-dissipative approximations of euler equations in
+  generalized curvilinear coordinates.
+\newblock \emph{Journal of Computational Physics}, 230\penalty0 (8):\penalty0
+  2997--3014, 2011{\natexlab{a}}.
+\newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1016/j.jcp.2011.01.001}.
+
+\bibitem[Pirozzoli(2011{\natexlab{b}})]{Pirozzoli2011}
 S.~Pirozzoli.
 \newblock Numerical methods for high-speed flows.
-\newblock \emph{Annual Review of Fluid Mechanics}, 43:\penalty0 163--194, 2011.
+\newblock \emph{Annual Review of Fluid Mechanics}, 43:\penalty0 163--194,
+  2011{\natexlab{b}}.
 
 \bibitem[Roe(1981)]{ROE1981357}
 P.~L. Roe.
@@ -274,13 +279,7 @@ P.~Spalart.
 \bibitem[Spalart and Allmaras(1992)]{SPALARTALLMARAS}
 P.~Spalart and S.~Allmaras.
 \newblock A one-equation turbulence model for aerodynamic flows.
-\newblock page 439, 1992.
-
-\bibitem[Spalart(2000)]{SPALART2000252}
-P.~R. Spalart.
-\newblock Strategies for turbulence modelling and simulations.
-\newblock \emph{International journal of heat and fluid flow}, 21\penalty0
-  (3):\penalty0 252--263, 2000.
+\newblock \emph{AIAA Paper 1992-0439}, page 439, 1992.
 
 \bibitem[Spalding et~al.(1961)]{spalding1961single}
 D.~B. Spalding et~al.

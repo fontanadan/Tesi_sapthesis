@@ -1,10 +1,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Overview of the OpenFOAM structure.\relax }}{7}{figure.caption.5}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Case directory structure.\relax }}{8}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Interpolation stencil\relax }}{21}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Overview of the OpenFOAM structure.\relax }}{9}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Case directory structure.\relax }}{10}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Interpolation stencil\relax }}{23}{figure.caption.13}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Computational cell for numerical flux evaluation. \textcolor {red}{ON} represents the interface between the owner cell O and the neighboring cell N, with $n_{ON}$ as the outward normal for O. L and R denote the limit states on either side of the interface, where $L\equiv O$ and $R \equiv O$ in the case of first-order reconstruction.\relax }}{53}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Computational cell for numerical flux evaluation. \textcolor {red}{ON} represents the interface between the owner cell O and the neighboring cell N, with $n_{ON}$ as the outward normal for O. L and R denote the limit states on either side of the interface, where $L\equiv O$ and $R \equiv O$ in the case of first-order reconstruction.\relax }}{55}{figure.caption.37}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces A destra il plot della velocità graficata mediante il Q-criterion del Taylor-Green Vortex, sulla sinistra il grafico dell'Enstrofia che, dopo aver invertito il campo di velocità al tempo adimensionalizzato 8, recupera l'andamento fino alle raggiungimento delle condizioni iniziali. Il tempo adimensinalizzato è calcolato com $t u_0 k_0$ dove $k_0$ è il numero d'onda.\relax }}{58}{figure.caption.38}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Campo di velocità del Taylor-Green Vortex graficata mediante il Q-criterion.\relax }}{62}{figure.caption.40}%
