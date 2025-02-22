@@ -87,7 +87,7 @@
 	\chapter{Literature Review}
 	\label{chap:literature}
 	
-	The purpose of this chapter is to provide the theoretical and computational foundation necessary to understand the structure and capability of rhoEnergyFOAM, the density-based solver described in this thesis. This new OpenFOAM solver is a powerful tool for CFD simulations due to its energy-preserving and shock-capturing properites. By exploring key concepts in fluid dynamics, numerical methods, and the computational framework used, this chapter aims to equip the reader with the background knowledge essential for comprehending the following chapters.
+	The purpose of this chapter is to provide the theoretical and computational foundation necessary to understand the structure and capability of rhoEnergyFoam, the density-based solver described in this thesis. This new OpenFOAM solver is a powerful tool for CFD simulations due to its energy-preserving and shock-capturing properites. By exploring key concepts in fluid dynamics, numerical methods, and the computational framework used, this chapter aims to equip the reader with the background knowledge essential for comprehending the following chapters.
 	
 	To achieve this, the present chapter begins with an overview of the Navier-Stokes equations, which govern fluid motion and it is at the basis of all fluid dynamics. Then, it discusses the numerical framework provided by OpenFOAM and the principles of the finite volume method (FVM) employed for discretizing these equations. The chapter also explores critical components of solver design, including interpolation schemes, flux computation using the Advection Upstream Splitting Method (AUSM), and strategies for energy preservation and shock capturing.	
 	
@@ -258,7 +258,6 @@
 	where $A$ is the $N \times N$ coefficient matrix, $\bar{x}$ is the unknown $N$ vector variable which is defined at each interior element and at the boundary of the computational domain, and $\bar{b}$ is the vector of dimension $N$ of the known variables. One of the main advantages of the Finite Volume Method is that the techniques to solve the algebraic system of equations are independent of the discretization method, and represent the various trajectories that can be followed to obtain a solution. 
 	It is important to recall that the variables are computed and stored at the centroid $P$ of the control volumes. This means that the face values in the convective and diffusive fluxes have to be computed by some form of interpolation from the centroid of the control volume at both sides of the face $f$.
 	
-	\newpage
 	\section{Interpolation Schemes}
 	
 	Interpolation schemes are numerical methods used to estimate values at intermediate points within a discrete set of data or across a continuous domain. Interpolation methods range from simple approaches like linear and polynomial interpolation to more complex schemes designed to handle challenges like sharp gradients or discontinuities in data, which are common in physical simulations and engineering applications. Employing the Finite Volume Method (FVM), the partial differential equations are transformed into algebraic equations by integrating over discrete control volumes in the computational domain. This transformation requires both spatial and temporal discretization to approximate the solution within each control volume and over successive time steps.
@@ -649,7 +648,6 @@
 	
 	\noindent Finally we can say that the AUSM family has profoundly impacted CFD, providing reliable tools for simulating a wide range of aerodynamic and thermodynamic problems. Applications span from aerospace engineering to turbomachinery, internal combustion engines, and atmospheric modeling. The AUSM+-up scheme, in particular, has become a standard choice for many high-fidelity solvers, owing to its ability to handle diverse flow phenomena without compromising stability or accuracy.
 	
-	\newpage
 	\subsection{Shock Capturing Schemes}
 	The shock-capturing method applies a uniform discretization scheme across all points and achieves stabilization by incorporating numerical dissipation, which prevents the emergence of Gibbs oscillations. In contrast, the shock-fitting method treats shock waves as true discontinuities, governed by their own algebraic equations and it employs the Rankine-Hugoniot relations as nonlinear boundary conditions to connect the states on either side of the discontinuity.
 		
@@ -936,8 +934,6 @@
 		\label{tab:comparison}
 	\end{table}
 	
-
-	
 	\newpage
 	\section{CFD Methodologies}
 	Turbulence modeling is a cornerstone of computational fluid dynamics (CFD), essential for predicting complex flow behavior in engineering and scientific applications. The Reynolds-Averaged Navier-Stokes (RANS) approach, widely used for its efficiency, simplifies turbulence by averaging its effects over time, making it practical for many industrial problems despite its limitations in capturing finer flow structures. Large Eddy Simulation (LES) takes a step further, directly resolving larger turbulent eddies while modeling only the smaller, more universal scales, offering a better balance between accuracy and computational cost. At the most detailed level, Direct Numerical Simulation (DNS) resolves all turbulent scales without approximation, providing the highest fidelity at an extraordinary computational expense. Each of these methods—RANS, LES, and DNS—comes with its own trade-offs, shaping their use in different contexts where turbulence must be understood and controlled.
@@ -1216,34 +1212,65 @@
 	\end{equation}
 	\\
 	In fact, DNS generates complete three-dimensional and time-dependent solution of the Navier–Stokes equations to obtain results for the instantaneous fluid velocity as a function of position and time. Unfortunately this is not possible for a the majority of physical flows. It is true that Direct numerical simulation has been applied to a limited number of geometrically simple flow situations, such as flow in a channel or over a flat plate. 
-	\subsection{Grid Resolution Requirements}
-	\begin{itemize}
-		\item RANS: $y^+ \approx 30$ for wall functions or $y^+ < 1$ for low-Reynolds number models
-		\item LES: $\Delta x^+ \approx 50\text{--}150$, $\Delta y^+ < 1$, $\Delta z^+ \approx 15\text{--}40$
-		\item DNS: $\Delta x^+ \approx 10$, $\Delta y^+ < 1$, $\Delta z^+ \approx 5$
-	\end{itemize}
-	
-	\subsection{Computational Cost}
-	The computational requirements for DNS scale with Reynolds number as:
+	The computational requirements for DNS scale with Reynolds number is:
 	
 	\begin{equation}
 		N \sim Re^3
 	\end{equation}
-	
-	where $N$ is the total number of grid points required.
-	
+	\\
+	where $N$ is the total number of grid points required. In practical turbulent flow simulations, such as those with a Reynolds number around $10^6$, the number of grid points required would be at least $N\sim 10^{18}$. This presents a formidable computational and it would not be feasible given the current technology.
+		
 	\chapter{Methodology}
 	\label{chap:methodology}
-    This solver addresses the numerical challenges of simulating fluid dynamics in situations involving significant temperature variations, density changes, and complex energy transfer mechanisms. By employing advanced numerical discretization techniques and solving coupled energy and momentum conservation equations, rhoEnergyFoam provides researchers and engineers with a powerful computational framework for investigating thermodynamic phenomena across diverse applications, from aeronautical engineering to industrial thermal management systems. The following methodology section will delve into the mathematical formulation, numerical algorithms, and computational strategies that underpin the rhoEnergyFoam solver, elucidating the precise numerical methods used to transform fundamental conservation laws into computationally tractable algorithms capable of accurately predicting fluid behavior under complex thermodynamic conditions.
+    This solver addresses the numerical challenges of simulating fluid dynamics in situations involving significant density changes, complex energy transfer mechanisms and temperature variations. By employing advanced numerical discretization techniques and solving coupled energy and momentum conservation equations, rhoEnergyFoam provides researchers and engineers with a powerful computational framework for investigating thermodynamic phenomena across diverse applications, from aeronautical engineering to industrial thermal management systems. The following methodology section will delve into the mathematical formulation, numerical algorithms, and computational strategies that underpin the rhoEnergyFoam solver, elucidating the precise numerical methods used to transform fundamental conservation laws into computationally tractable algorithms capable of accurately predicting fluid behavior under complex thermodynamic conditions.
 	
 	\section{rhoEnergyFoam}
-	RhoEnergyFoam is a high-fidelity numerical solver for solving Navier-Stokes equations in the compressible field. The solver exploits the predictive capabilities of low-diffusion numerical schemes useful for the applied study of flows around complex geometries. The spatial discretization of convective terms in the Navier-Stokes equations is based on a robust energy-preserving numerical flow, and the numerical diffusion inherited from the AUSM scheme is added limitedly to the vicinity of shock waves, or wherever spurious numerical oscillations are detected. The solver is capable of preserving the total kinetic energy in the nonviscous limit, and bears significantly less numerical diffusion than typical industrial solvers, with greater predictive power, as demonstrated through a series of test cases including DNS \citep{Modesti_2018}, LES \citep{LARSSON201615-00418} and URANS of turbulent flows \citep{SPALART2000252}.
+	RhoEnergyFoam is a density-based solver developed in the OpenFoam library. It exploits the predictive capabilities of low-diffusion numerical schemes useful for the applied study of flows around complex geometries. The spatial discretization of convective terms in the Navier-Stokes equations is based on a robust energy-preserving numerical flow, and the numerical diffusion inherited from the AUSM scheme is added limitedly to the vicinity of shock waves, or wherever spurious numerical oscillations are detected. The solver is capable of preserving the total kinetic energy in the inviscid limit, and bears significantly less numerical diffusion than typical industrial solvers, with greater predictive power, as demonstrated through a series of test cases including URANS, LES and DNS of turbulent flows.  
 	
-	Let's consider the Navier-Stokes equations for a compressible ideal gas, integrated over an arbitrary volume $V$
+	\noindent Let's consider the Navier-Stokes equations for a compressible ideal gas, integrated over an arbitrary volume $V$
 	
 	\begin{equation}
 		\dfrac{d}{dt}\int_V \textbf{u} \ dV + \sum_{i=1}^{3} \int_{\partial{V}} (\textbf{f}_i-\textbf{f}_i^{\nu}) \cdot n_i \ dS = 0
+		\label{NS-compressible}
 	\end{equation}
+	\\
+	where  $n_i$ is the outward normal, and
+	
+	\begin{equation}
+	\mathbf{u} =
+	\begin{Bmatrix} 
+		\rho \\ 
+		\rho u_i \\ 
+		\rho E 
+	\end{Bmatrix}, \quad
+	\mathbf{f}_i =
+	\begin{Bmatrix} 
+		\rho u_i \\ 
+		\rho u_i u_j + p \delta_{ij} \\ 
+		\rho u_i H 
+	\end{Bmatrix}, \quad
+	\mathbf{f}_i^v =
+	\begin{Bmatrix} 
+		0 \\ 
+		\sigma_{ij} \\ 
+		\sigma_{ik} u_k - q_i 
+	\end{Bmatrix},
+	\end{equation}
+	\\
+	are the vector of conservative variables, and the associated Eulerian and viscous fluxes, respectively. Here $\rho$ is the density, $ u_i$ is the velocity component in the $i-th$ coordinate direction, $p$ is the thermodynamic pressure, $ E = e + u^2/2 $ is the total energy per unit mass, $ e = RT/(\gamma - 1) $ is the internal energy per unit mass, $ H = E + p/\rho $ is the total enthalpy, $ R $ is the gas constant, $ \gamma = c_p/c_v $ is the specific heat ratio, $ \sigma_{ij} $ is the viscous stress tensor, and $ q_i $ is the heat flux vector.
+	\\
+	The boundary Eulerian flux in equation \ref{NS-compressible} is approximated on a polyhedral cell $ O $ (see figure \ref{figure:cells} for illustration) as follows
+	
+	\begin{equation}
+		\frac{1}{V} \int_{\partial V} f_i n_i dS \approx \sum_N (f_i n_i)_{\partial N} \Delta S_{\partial N} = \sum_N f_{\partial N} \Delta S_{\partial N}.
+	\end{equation}
+	\\
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5 \linewidth]{Figures/CELL.png}
+		\caption{Computational cell for numerical flux evaluation. \textcolor{red}{ON} represents the interface between the owner cell O and the neighboring cell N, with $n_{ON}$ as the outward normal for O. L and R denote the limit states on either side of the interface, where $L\equiv O$ and $R \equiv O$ in the case of first-order reconstruction.}
+		\label{figure:cells}
+	\end{figure} 
 	
 	The simulation of turbulent compressible flows remains a cornerstone in computational fluid dynamics (CFD), requiring high-fidelity solvers capable of capturing complex flow behaviors in industrial and academic settings. This work introduces an advanced numerical solver for the compressible Navier-Stokes equations, prioritizing low numerical diffusion and enhanced energy conservation. The core of this solver lies in its use of an energy-preserving flux computation combined with the Advection Upstream Splitting Method (AUSM) for shock regions. This novel integration seeks to address the inherent limitations of many industrial CFD solvers, which rely on first or second-order discretization methods stabilized through upwind schemes and implicit segregated algorithms. These traditional methods often exhibit excessive numerical diffusion, which compromises their ability to resolve fine-scale turbulent structures, especially in scenarios such as large-eddy simulations (LES) or direct numerical simulations (DNS). By contrast, the solver described in this study incorporates features common in academic approaches, such as high-order discretization and explicit time integration, to achieve a balance between computational efficiency and predictive accuracy.
 	

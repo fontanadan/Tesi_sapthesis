@@ -3,58 +3,56 @@
 \contentsline {section}{\numberline {2.1}Navier-Stokes equations}{3}{section.2.1}%
 \contentsline {section}{\numberline {2.2}OpenFOAM}{6}{section.2.2}%
 \contentsline {section}{\numberline {2.3}The Finite Volume Method}{9}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Interpolation Schemes}{13}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Spatial Discretization}{13}{subsection.2.4.1}%
-\contentsline {subsubsection}{Convective Terms}{14}{section*.7}%
-\contentsline {subsubsection}{Diffusive Terms}{15}{section*.8}%
-\contentsline {subsubsection}{Gradient Terms}{16}{section*.9}%
+\contentsline {section}{\numberline {2.4}Interpolation Schemes}{12}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Spatial Discretization}{12}{subsection.2.4.1}%
+\contentsline {subsubsection}{Convective Terms}{13}{section*.7}%
+\contentsline {subsubsection}{Diffusive Terms}{14}{section*.8}%
+\contentsline {subsubsection}{Gradient Terms}{15}{section*.9}%
 \contentsline {subsection}{\numberline {2.4.2}Flux Splitting Schemes}{16}{subsection.2.4.2}%
 \contentsline {subsubsection}{Upwind methods}{17}{section*.10}%
-\contentsline {subsection}{\numberline {2.4.3}The AUSM Schemes}{19}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.3}The AUSM Schemes}{18}{subsection.2.4.3}%
 \contentsline {subsubsection}{The AUSM Scheme}{19}{section*.11}%
-\contentsline {subsubsection}{The AUSM+ Scheme}{22}{section*.14}%
-\contentsline {subsubsection}{The AUSM+-up Scheme}{24}{section*.16}%
-\contentsline {subsection}{\numberline {2.4.4}Shock Capturing Schemes}{27}{subsection.2.4.4}%
-\contentsline {subsubsection}{Classical methods}{27}{section*.18}%
-\contentsline {subsubsection}{Hybrid Methods}{28}{section*.19}%
-\contentsline {paragraph}{Ducros Sensor}{32}{section*.20}%
-\contentsline {subsection}{\numberline {2.4.5}Temporal Discretization}{33}{subsection.2.4.5}%
-\contentsline {subsubsection}{Explicit Time Discretization}{33}{section*.21}%
-\contentsline {subsubsection}{Implicit Time Discretization}{34}{section*.22}%
-\contentsline {section}{\numberline {2.5}Interpolation schemes in OpenFOAM}{36}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}OpenFOAM solvers}{36}{subsection.2.5.1}%
-\contentsline {section}{\numberline {2.6}CFD Methodologies}{41}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Reynolds-Averaged Navier-Stokes (RANS)}{41}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}RANS closure models}{43}{subsection.2.6.2}%
-\contentsline {subsubsection}{Spalart-Allmaras model}{43}{section*.33}%
-\contentsline {subsubsection}{$k-\varepsilon $ model}{45}{section*.35}%
-\contentsline {subsubsection}{$k-\omega $ model}{46}{section*.36}%
-\contentsline {subsection}{\numberline {2.6.3}Unsteady RANS (URANS)}{47}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Large Eddy Simulation (LES)}{47}{subsection.2.6.4}%
-\contentsline {subsection}{\numberline {2.6.5}Detached Eddy Simulation (DES)}{49}{subsection.2.6.5}%
-\contentsline {subsection}{\numberline {2.6.6}Direct Numerical Simulation (DNS)}{50}{subsection.2.6.6}%
-\contentsline {subsection}{\numberline {2.6.7}Grid Resolution Requirements}{50}{subsection.2.6.7}%
-\contentsline {subsection}{\numberline {2.6.8}Computational Cost}{51}{subsection.2.6.8}%
-\contentsline {chapter}{\numberline {3}Methodology}{53}{chapter.3}%
-\contentsline {section}{\numberline {3.1}rhoEnergyFoam}{53}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Results}{59}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Analisi dei casi}{59}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Decaying Isotropic Turbulence}{59}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Taylor-Green Vortex}{59}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Forward Step}{60}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Sod Shock Tube}{61}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Bachalo-Johnson}{61}{section.4.6}%
-\contentsline {section}{\numberline {4.7}RANS of a flow past circular cylinder}{62}{section.4.7}%
-\contentsline {section}{\numberline {4.8}DES of a flow past circular cylinder}{62}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Smooth flow past cylinder with AMR}{63}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Transonic flow over RAE-2822 airfoil}{63}{section.4.10}%
-\contentsline {section}{\numberline {4.11}Transonic flow over Onera M6 wing}{63}{section.4.11}%
-\contentsline {subsubsection}{Taylor-Green Vortex}{63}{section*.38}%
-\contentsline {subsubsection}{Forward Step}{65}{section*.41}%
-\contentsline {subsubsection}{Onera M6 inviscid}{65}{section*.44}%
-\contentsline {subsubsection}{RANS of a flow past circular cylinder}{70}{section*.48}%
-\contentsline {subsubsection}{DES of a flow past circular cylinder}{71}{section*.52}%
-\contentsline {subsubsection}{RAE-2822}{73}{section*.56}%
-\contentsline {chapter}{\numberline {5}Discussion}{77}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{79}{chapter.6}%
-\contentsline {chapter}{Bibliography}{81}{section*.59}%
+\contentsline {subsubsection}{The AUSM+ Scheme}{21}{section*.14}%
+\contentsline {subsubsection}{The AUSM+-up Scheme}{23}{section*.16}%
+\contentsline {subsection}{\numberline {2.4.4}Shock Capturing Schemes}{26}{subsection.2.4.4}%
+\contentsline {subsubsection}{Classical methods}{26}{section*.18}%
+\contentsline {subsubsection}{Hybrid Methods}{27}{section*.19}%
+\contentsline {paragraph}{Ducros Sensor}{31}{section*.20}%
+\contentsline {subsection}{\numberline {2.4.5}Temporal Discretization}{32}{subsection.2.4.5}%
+\contentsline {subsubsection}{Explicit Time Discretization}{32}{section*.21}%
+\contentsline {subsubsection}{Implicit Time Discretization}{33}{section*.22}%
+\contentsline {section}{\numberline {2.5}Interpolation schemes in OpenFOAM}{35}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}OpenFOAM solvers}{35}{subsection.2.5.1}%
+\contentsline {section}{\numberline {2.6}CFD Methodologies}{40}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Reynolds-Averaged Navier-Stokes (RANS)}{40}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}RANS closure models}{42}{subsection.2.6.2}%
+\contentsline {subsubsection}{Spalart-Allmaras model}{42}{section*.33}%
+\contentsline {subsubsection}{$k-\varepsilon $ model}{44}{section*.35}%
+\contentsline {subsubsection}{$k-\omega $ model}{45}{section*.36}%
+\contentsline {subsection}{\numberline {2.6.3}Unsteady RANS (URANS)}{46}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Large Eddy Simulation (LES)}{46}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Detached Eddy Simulation (DES)}{48}{subsection.2.6.5}%
+\contentsline {subsection}{\numberline {2.6.6}Direct Numerical Simulation (DNS)}{49}{subsection.2.6.6}%
+\contentsline {chapter}{\numberline {3}Methodology}{51}{chapter.3}%
+\contentsline {section}{\numberline {3.1}rhoEnergyFoam}{51}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Results}{57}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Analisi dei casi}{57}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Decaying Isotropic Turbulence}{57}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Taylor-Green Vortex}{57}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Forward Step}{58}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Sod Shock Tube}{59}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Bachalo-Johnson}{59}{section.4.6}%
+\contentsline {section}{\numberline {4.7}RANS of a flow past circular cylinder}{60}{section.4.7}%
+\contentsline {section}{\numberline {4.8}DES of a flow past circular cylinder}{60}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Smooth flow past cylinder with AMR}{61}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Transonic flow over RAE-2822 airfoil}{61}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Transonic flow over Onera M6 wing}{61}{section.4.11}%
+\contentsline {subsubsection}{Taylor-Green Vortex}{61}{section*.39}%
+\contentsline {subsubsection}{Forward Step}{63}{section*.42}%
+\contentsline {subsubsection}{Onera M6 inviscid}{63}{section*.45}%
+\contentsline {subsubsection}{RANS of a flow past circular cylinder}{68}{section*.49}%
+\contentsline {subsubsection}{DES of a flow past circular cylinder}{69}{section*.53}%
+\contentsline {subsubsection}{RAE-2822}{71}{section*.57}%
+\contentsline {chapter}{\numberline {5}Discussion}{75}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{77}{chapter.6}%
+\contentsline {chapter}{Bibliography}{79}{section*.60}%
