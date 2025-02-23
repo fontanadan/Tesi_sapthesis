@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  23 FEB 2025 18:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  24 FEB 2025 00:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -766,53 +766,49 @@ l.138
 ge.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.151 	\newpage
-                [7]
-<Figures/OpenFOAM_structure.pdf, id=304, 1445.4pt x 813.0375pt>
+l.156 	
+        [7]
+<Figures/OpenFOAM_structure.pdf, id=308, 1445.4pt x 813.0375pt>
 File: Figures/OpenFOAM_structure.pdf Graphic file (type pdf)
 <use Figures/OpenFOAM_structure.pdf>
-Package pdftex.def Info: Figures/OpenFOAM_structure.pdf  used on input line 158
+Package pdftex.def Info: Figures/OpenFOAM_structure.pdf  used on input line 159
 .
 (pdftex.def)             Requested size: 300.0pt x 168.74556pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.172 	\end{itemize}
-                     [8]pdfTeX warning (ext4): destination with the same identi
-fier (name{page.9}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.178 		\item \textbf
-                     {faces}: the file faces represents a list of faces, wit...
-[9 <./Figures/OpenFOAM_structure.pdf>]
-<Figures/Case_directory_structure.pdf, id=334, 1445.4pt x 813.0375pt>
+l.173 	\end{itemize}
+                     [8 <./Figures/OpenFOAM_structure.pdf>]
+<Figures/Case_directory_structure.pdf, id=332, 1445.4pt x 813.0375pt>
 File: Figures/Case_directory_structure.pdf Graphic file (type pdf)
 <use Figures/Case_directory_structure.pdf>
 Package pdftex.def Info: Figures/Case_directory_structure.pdf  used on input li
-ne 186.
+ne 187.
 (pdftex.def)             Requested size: 225.0pt x 126.55296pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has
- been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.193 	\newpage
-                [10 <./Figures/Case_directory_structure.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has
- been already used, duplicate ignored
+l.190 	\end{figure}
+                    [9]pdfTeX warning (ext4): destination with the same identif
+ier (name{page.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.206 	\end{equation}
-                      [11]
+l.202 	
+        [10 <./Figures/Case_directory_structure.pdf>]
 Overfull \hbox (6.90193pt too wide) detected at line 223
 [][][] [][] [] \OML/lmm/m/it/10 dV \OT1/lmr/m/n/10 + [][] [] \OML/lmm/m/it/10 d
 S \OMS/lmsy/m/n/10 ^^@ [][] [] \OML/lmm/m/it/10 dS \OT1/lmr/m/n/10 = [][] [] \O
 ML/lmm/m/it/10 dV
  []
 
-
+pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.223 	\end{equation}
+                      [11]
 Overfull \hbox (23.29478pt too wide) detected at line 231
 [][][][] [] \OMS/lmsy/m/n/10 ^^A [] \OML/lmm/m/it/10 dS \OT1/lmr/m/n/10 = [] []
 [] [] \OMS/lmsy/m/n/10 ^^A [] \OML/lmm/m/it/10 dS \OMS/lmsy/m/n/10 ' []\OT1/lmr
@@ -821,12 +817,7 @@ Overfull \hbox (23.29478pt too wide) detected at line 231
 m/it/10 S[]
  []
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.244 	\end{equation}
-                      [12]
+
 Overfull \hbox (7.15288pt too wide) detected at line 260
 [][][] [][] [] \OML/lmm/m/it/10 dV \OT1/lmr/m/n/10 + [](\OML/lmm/m/it/10 ^^Zu^^
 ^\OT1/lmr/m/n/10 )[] \OMS/lmsy/m/n/10 ^^A [] \OML/lmm/m/it/10 S[] \OMS/lmsy/m/n
@@ -836,53 +827,52 @@ Overfull \hbox (7.15288pt too wide) detected at line 260
 mm/m/it/10 S[]V[]^^^[]
  []
 
+pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.264 	
+        [12]
+Underfull \vbox (badness 1509) has occurred while \output is active []
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.13}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.272 	
+l.283 	
         [13]pdfTeX warning (ext4): destination with the same identifier (name{p
 age.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.283 	
+l.293 	
         [14]pdfTeX warning (ext4): destination with the same identifier (name{p
 age.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.293 	
+l.300 	
         [15]pdfTeX warning (ext4): destination with the same identifier (name{p
 age.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.300 	
+l.309 	
         [16]
 Underfull \hbox (badness 10000) in paragraph at lines 312--314
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17]
-Underfull \vbox (badness 2635) has occurred while \output is active []
-
- [18]
+[17]
 Overfull \hbox (3.02716pt too wide) in paragraph at lines 333--334
 []\T1/lmr/m/n/10 (-20) In the fi-nite vol-ume (FV) frame-work, up-wind-ing is t
 yp-i-cally achieved
  []
 
-[19] [20] [21]
-<Figures/CELL3D.png, id=455, 447.17062pt x 288.3272pt>
+[18] [19] [20] [21]
+<Figures/CELL3D.png, id=460, 447.17062pt x 288.3272pt>
 File: Figures/CELL3D.png Graphic file (type png)
 <use Figures/CELL3D.png>
 Package pdftex.def Info: Figures/CELL3D.png  used on input line 475.
 (pdftex.def)             Requested size: 119.99817pt x 77.36983pt.
- [22]
-Underfull \vbox (badness 1043) has occurred while \output is active []
-
- [23 <./Figures/CELL3D.png>] [24] [25] [26]
+ [22 <./Figures/CELL3D.png>] [23] [24] [25]
 Underfull \hbox (badness 10000) in paragraph at lines 610--612
 
  []
@@ -902,19 +892,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 646--651
 
  []
 
-
+[26]
 Underfull \hbox (badness 10000) in paragraph at lines 654--657
 
  []
 
-[27] [28] [29]
-Underfull \vbox (badness 2635) has occurred while \output is active []
-
- [30]
-[31] [32] [33] [34]
-Underfull \vbox (badness 1019) has occurred while \output is active []
-
- [35]
+[27] [28] [29] [30] [31] [32] [33] [34]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
 74.
 
@@ -925,18 +908,29 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [36] [37] [38] [39] [40]
+
+Underfull \vbox (badness 2538) has occurred while \output is active []
+
+ [35]
+[36] [37] [38] [39]
 Underfull \hbox (badness 10000) in paragraph at lines 928--952
 
  []
 
-[41] [42] [43]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[40] [41] [42]
 Overfull \hbox (6.10074pt too wide) in paragraph at lines 1005--1007
 \T1/lmr/m/n/10 (-20) The Spalart-Allmaras (SA) model is a one-equation tur-bu-l
 ence model[[]]
  []
 
-[44] [45]
+[43]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[44]
 Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
 
  []
@@ -949,17 +943,17 @@ OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 C[]^^Z[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/1
 0 S[]
  []
 
-[46]
+[45]
 Underfull \hbox (badness 10000) in paragraph at lines 1112--1114
 
  []
 
-[47] [48] [49] [50] [51] [52
+[46] [47] [48] [49] [50]
+Chapter 3.
+[51
 
 ]
-Chapter 3.
-[53]
-<Figures/CELL.png, id=760, 1219.55624pt x 560.0925pt>
+<Figures/CELL.png, id=754, 1219.55624pt x 560.0925pt>
 File: Figures/CELL.png Graphic file (type png)
 <use Figures/CELL.png>
 Package pdftex.def Info: Figures/CELL.png  used on input line 1286.
@@ -968,7 +962,7 @@ Package pdftex.def Info: Figures/CELL.png  used on input line 1286.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[54] [55 <./Figures/CELL.png>]
+[52] [53 <./Figures/CELL.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -978,53 +972,50 @@ Overfull \hbox (23.12909pt too wide) in paragraph at lines 1375--1378
 ee-stage Runge^^UKutta
  []
 
-[56]
+[54]
 Overfull \hbox (15.3612pt too wide) detected at line 1414
 [][][] \OT1/lmr/m/n/10 = \OMS/lmsy/m/n/10 ^^@[] [] \OML/lmm/m/it/10 :
  []
 
-[57] [58] [59] [60
+[55] [56] [57] [58
 
 ]
 Chapter 4.
-[61]
+[59]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./TGV.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<TGV.pdf, id=850, 844.83801pt x 321.9635pt>
+<TGV.pdf, id=843, 844.83801pt x 321.9635pt>
 File: TGV.pdf Graphic file (type pdf)
 <use TGV.pdf>
-Package pdftex.def Info: TGV.pdf  used on input line 1511.
+Package pdftex.def Info: TGV.pdf  used on input line 1516.
 (pdftex.def)             Requested size: 297.00165pt x 113.18509pt.
-
-Underfull \vbox (badness 1168) has occurred while \output is active []
-
- [62 <./TGV.pdf>]
+[60]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./TGV_Qcriterion.pdf): PDF inclusion: f
 ound PDF version <1.7>, but at most version <1.5> allowed
-<TGV_Qcriterion.pdf, id=862, 441.42816pt x 321.96384pt>
+<TGV_Qcriterion.pdf, id=850, 441.42816pt x 321.96384pt>
 File: TGV_Qcriterion.pdf Graphic file (type pdf)
 <use TGV_Qcriterion.pdf>
-Package pdftex.def Info: TGV_Qcriterion.pdf  used on input line 1520.
+Package pdftex.def Info: TGV_Qcriterion.pdf  used on input line 1525.
 (pdftex.def)             Requested size: 198.0011pt x 144.41566pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./TGV_Enstrophy.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<TGV_Enstrophy.pdf, id=863, 401.24104pt x 324.05165pt>
+<TGV_Enstrophy.pdf, id=851, 401.24104pt x 324.05165pt>
 File: TGV_Enstrophy.pdf Graphic file (type pdf)
 <use TGV_Enstrophy.pdf>
-Package pdftex.def Info: TGV_Enstrophy.pdf  used on input line 1527.
+Package pdftex.def Info: TGV_Enstrophy.pdf  used on input line 1532.
 (pdftex.def)             Requested size: 198.0011pt x 159.90912pt.
-[63 <./TGV_Qcriterion.pdf>]
+[61 <./TGV.pdf>] [62 <./TGV_Qcriterion.pdf> <./TGV_Enstrophy.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./FS.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
 <FS.pdf, id=878, 727.21687pt x 364.36125pt>
 File: FS.pdf Graphic file (type pdf)
 <use FS.pdf>
-Package pdftex.def Info: FS.pdf  used on input line 1541.
+Package pdftex.def Info: FS.pdf  used on input line 1546.
 (pdftex.def)             Requested size: 282.00446pt x 127.39491pt.
 
 
@@ -1033,7 +1024,7 @@ d PDF version <1.7>, but at most version <1.5> allowed
 <FS_velocity.pdf, id=879, 846.59145pt x 290.37053pt>
 File: FS_velocity.pdf Graphic file (type pdf)
 <use FS_velocity.pdf>
-Package pdftex.def Info: FS_velocity.pdf  used on input line 1548.
+Package pdftex.def Info: FS_velocity.pdf  used on input line 1553.
 (pdftex.def)             Requested size: 209.99908pt x 72.02531pt.
 
 
@@ -1042,21 +1033,16 @@ ound PDF version <1.7>, but at most version <1.5> allowed
 <FS_velocitybar.pdf, id=880, 107.65219pt x 252.19218pt>
 File: FS_velocitybar.pdf Graphic file (type pdf)
 <use FS_velocitybar.pdf>
-Package pdftex.def Info: FS_velocitybar.pdf  used on input line 1551.
+Package pdftex.def Info: FS_velocitybar.pdf  used on input line 1556.
 (pdftex.def)             Requested size: 30.00113pt x 78.40195pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [64 <./TGV_Enstrophy.pdf>] [65 <./FS.pdf> <./FS_velocity.pdf> <./FS_velocityba
-r.pdf>]
-[66]
+[63] [64 <./FS.pdf> <./FS_velocity.pdf> <./FS_velocitybar.pdf>] [65]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./pressure_coeff_cylinder.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<pressure_coeff_cylinder.pdf, id=913, 701.44414pt x 595.87321pt>
+<pressure_coeff_cylinder.pdf, id=910, 701.44414pt x 595.87321pt>
 File: pressure_coeff_cylinder.pdf Graphic file (type pdf)
 <use pressure_coeff_cylinder.pdf>
-Package pdftex.def Info: pressure_coeff_cylinder.pdf  used on input line 1571.
+Package pdftex.def Info: pressure_coeff_cylinder.pdf  used on input line 1576.
 (pdftex.def)             Requested size: 173.69843pt x 147.54955pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1065,101 +1051,95 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Cylinder_u.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<Cylinder_u.pdf, id=916, 844.74538pt x 380.49437pt>
+<Cylinder_u.pdf, id=913, 844.74538pt x 380.49437pt>
 File: Cylinder_u.pdf Graphic file (type pdf)
 <use Cylinder_u.pdf>
-Package pdftex.def Info: Cylinder_u.pdf  used on input line 1580.
+Package pdftex.def Info: Cylinder_u.pdf  used on input line 1585.
 (pdftex.def)             Requested size: 270.0018pt x 132.30414pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Cylinder_v.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<Cylinder_v.pdf, id=917, 844.74538pt x 380.49437pt>
+<Cylinder_v.pdf, id=914, 844.74538pt x 380.49437pt>
 File: Cylinder_v.pdf Graphic file (type pdf)
 <use Cylinder_v.pdf>
-Package pdftex.def Info: Cylinder_v.pdf  used on input line 1583.
+Package pdftex.def Info: Cylinder_v.pdf  used on input line 1588.
 (pdftex.def)             Requested size: 270.0018pt x 132.30414pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Des_cylinder.pdf): PDF inclusion: fou
 nd PDF version <1.7>, but at most version <1.5> allowed
-<Des_cylinder.pdf, id=918, 844.47797pt x 292.62225pt>
+<Des_cylinder.pdf, id=915, 844.47797pt x 292.62225pt>
 File: Des_cylinder.pdf Graphic file (type pdf)
 <use Des_cylinder.pdf>
-Package pdftex.def Info: Des_cylinder.pdf  used on input line 1590.
+Package pdftex.def Info: Des_cylinder.pdf  used on input line 1595.
 (pdftex.def)             Requested size: 293.99872pt x 101.87457pt.
+[66]
+Underfull \vbox (badness 2229) has occurred while \output is active []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [67]
-Underfull \vbox (badness 1019) has occurred while \output is active []
-
- [68 <./pressure_coeff_cylinder.pdf>] [69 <./Cylinder_u.pdf> <./Cylinder_v.pdf>
- <./Des_cylinder.pdf>] [70]
+ [67 <./pressure_coeff_cylinder.pdf>] [68 <./Cylinder_u.pdf> <./Cylinder_v.pdf>
+ <./Des_cylinder.pdf>] [69]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./RAE2822_pressurefield.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<RAE2822_pressurefield.pdf, id=963, 842.44148pt x 354.2647pt>
+<RAE2822_pressurefield.pdf, id=960, 842.44148pt x 354.2647pt>
 File: RAE2822_pressurefield.pdf Graphic file (type pdf)
 <use RAE2822_pressurefield.pdf>
-Package pdftex.def Info: RAE2822_pressurefield.pdf  used on input line 1612.
+Package pdftex.def Info: RAE2822_pressurefield.pdf  used on input line 1617.
 (pdftex.def)             Requested size: 269.99817pt x 113.54pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Cp_RAE2822.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<Cp_RAE2822.pdf, id=964, 408.02437pt x 372.64218pt>
+<Cp_RAE2822.pdf, id=961, 408.02437pt x 372.64218pt>
 File: Cp_RAE2822.pdf Graphic file (type pdf)
 <use Cp_RAE2822.pdf>
-Package pdftex.def Info: Cp_RAE2822.pdf  used on input line 1619.
+Package pdftex.def Info: Cp_RAE2822.pdf  used on input line 1624.
 (pdftex.def)             Requested size: 150.0pt x 136.99411pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [71 <./RAE2822_pressurefield.pdf>]
+[70 <./RAE2822_pressurefield.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Ducros.pdf): PDF inclusion: found PDF
  version <1.7>, but at most version <1.5> allowed
-<Ducros.pdf, id=975, 641.39626pt x 569.12625pt>
+<Ducros.pdf, id=972, 641.39626pt x 569.12625pt>
 File: Ducros.pdf Graphic file (type pdf)
 <use Ducros.pdf>
-Package pdftex.def Info: Ducros.pdf  used on input line 1631.
+Package pdftex.def Info: Ducros.pdf  used on input line 1636.
 (pdftex.def)             Requested size: 194.99431pt x 156.80112pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Ducros_bar.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<Ducros_bar.pdf, id=976, 408.02437pt x 59.47218pt>
+<Ducros_bar.pdf, id=973, 408.02437pt x 59.47218pt>
 File: Ducros_bar.pdf Graphic file (type pdf)
 <use Ducros_bar.pdf>
-Package pdftex.def Info: Ducros_bar.pdf  used on input line 1633.
+Package pdftex.def Info: Ducros_bar.pdf  used on input line 1638.
 (pdftex.def)             Requested size: 180.00183pt x 26.2368pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Cp_contours_oneram6_1.pdf): PDF inclu
 sion: found PDF version <1.7>, but at most version <1.5> allowed
-<Cp_contours_oneram6_1.pdf, id=977, 763.79953pt x 358.58766pt>
+<Cp_contours_oneram6_1.pdf, id=974, 763.79953pt x 358.58766pt>
 File: Cp_contours_oneram6_1.pdf Graphic file (type pdf)
 <use Cp_contours_oneram6_1.pdf>
-Package pdftex.def Info: Cp_contours_oneram6_1.pdf  used on input line 1640.
+Package pdftex.def Info: Cp_contours_oneram6_1.pdf  used on input line 1645.
 (pdftex.def)             Requested size: 284.99908pt x 133.8025pt.
-[72 <./Cp_RAE2822.pdf>] [73 <./Ducros.pdf> <./Ducros_bar.pdf> <./Cp_contours_on
+[71 <./Cp_RAE2822.pdf>] [72 <./Ducros.pdf> <./Ducros_bar.pdf> <./Cp_contours_on
 eram6_1.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Cp_oneram6.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<Cp_oneram6.pdf, id=1009, 733.7336pt x 595.81372pt>
+<Cp_oneram6.pdf, id=1007, 733.7336pt x 595.81372pt>
 File: Cp_oneram6.pdf Graphic file (type pdf)
 <use Cp_oneram6.pdf>
-Package pdftex.def Info: Cp_oneram6.pdf  used on input line 1649.
+Package pdftex.def Info: Cp_oneram6.pdf  used on input line 1654.
 (pdftex.def)             Requested size: 284.99908pt x 231.43pt.
-[74] [75 <./Cp_oneram6.pdf>] [76
+[73 <./Cp_oneram6.pdf>] [74
 
 ]
 Chapter 5.
-[77] [78
+[75] [76
 
-] (./THESIS_DF.bbl [79
+] (./THESIS_DF.bbl [77
 
 ]
 Underfull \hbox (badness 1043) in paragraph at lines 138--145
@@ -1173,10 +1153,10 @@ Underfull \hbox (badness 1033) in paragraph at lines 138--145
  . com / doi / abs / 10 . 1002 /
  []
 
-[80] [81] [82]) [83] (./THESIS_DF.aux) ) 
+[78] [79] [80]) [81] (./THESIS_DF.aux) ) 
 Here is how much of TeX's memory you used:
- 15694 strings out of 478287
- 254805 string characters out of 5849288
+ 15693 strings out of 478287
+ 254807 string characters out of 5849288
  585924 words of memory out of 5000000
  32911 multiletter control sequences out of 15000+600000
  602541 words of font info for 266 fonts, out of 8000000 for 9000
@@ -1205,10 +1185,10 @@ r/share/texmf/fonts/type1/public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/pub
 lic/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on THESIS_DF.pdf (99 pages, 4501868 bytes).
+Output written on THESIS_DF.pdf (97 pages, 4502961 bytes).
 PDF statistics:
- 1283 PDF objects out of 1440 (max. 8388607)
- 1051 compressed objects within 11 object streams
- 352 named destinations out of 1000 (max. 500000)
+ 1277 PDF objects out of 1440 (max. 8388607)
+ 1047 compressed objects within 11 object streams
+ 351 named destinations out of 1000 (max. 500000)
  76394 words of extra memory for PDF output out of 89155 (max. 10000000)
 

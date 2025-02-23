@@ -148,7 +148,8 @@
 	\\	
 	These equations are solved numerically in CFD to analyze fluid flows where changes in pressure, temperature, and density significantly affect the dynamics, such as supersonic aircraft, rocket engines, weather modeling and shock waves.
 	
-	\newpage
+	\subsection{Euler equation}
+	
 	\section{OpenFOAM}
 	OpenFOAM (Open source Field Operation And Manipulation) is the leading open source software for Computational Fluid Dynamics (CFD), which is developed and constantly updated by the ESI-\citet{OpenFOAM_ESI} ltd since 2004. It is distributed exclusively from the OpenFOAM \citet{OpenFOAMFoundation} under the General Public Licence (GPL). The GPL gives users the freedom to modify and redistribute the software and a guarantee of continued free use, within the terms of the licence.
 	The structure of OpenFOAM  can be summarized in Figure \ref{OpenFOAM_structure}. In fact, OpenFOAM is mainly an object-oriented C++ framework: it consists in a set of libraries containing a list of executables called \say{solvers}. Each solver has a unique name which is referred to a specific physical sector (e.g. incompressible, compressible or multiphase flows, heat transfer analysis or chemical reactions) and it allows the resolution of fluid-dynamic equations. The software open source nature helps the creation of personalized solvers in a small amount of time compared to their creation from scratch. Moreover, OpenFOAM includes third party softwares packages for some complementary tasks to the processing of the data. These utilities help the user to  manipulate data with pre-processing (as changing the meshes through refinement and domain decomposition as well as modifying the initial setup of each case) and data post-processing (as data visualization through ParaView and plotting results). 
@@ -190,7 +191,6 @@
 	
 	\noindent OpenFOAM can handle continuum mechanics problems resolving Partial Differencial Equations (PDEs) using the Finite Volume Method over arbitrary polyhedric meshes.
 	
-	\newpage
 	\section{The Finite Volume Method}
 	
 	The Finite Volume Method (FVM)\citep{ferziger2019computational} is a numerical technique that transforms the
@@ -1497,11 +1497,16 @@
 	\chapter{Results}
 	\label{chap:results}
 	
-	Il passo successivo è stato quello di analizzare i casi facendo riferimento all'articolo di \citet{rhoEnergyFOAM}.
+	In this chapter, we present a series of test cases that exemplify the capability of rhoEnergyFoam evaluating different test cases where all the three operational modes outlined in table \ref{REF_modes} are analyzed, aiming to evaluate the energy-preserving properties of the proposed solver in comparison to standard OpenFOAM solvers. To assess numerical diffusion, we analyze Euler turbulence and Taylor–Green flow. To examine the effectiveness of background numerical diffusion in smooth flows, we conduct Unsteady Reynolds-Averaged Navier–Stokes (URANS) and Detached Eddy Simulations (DES) of subsonic turbulent flow past a circular cylinder. Finally, the shock-capturing capabilities of rhoEnergyFoam are tested using three classical flow cases: inviscid supersonic flow past a forward-facing step, transonic flow past an RAE airfoil, and transonic flow past the ONERA M6 wing.
 	
 	\section{Decaying Isotropic Turbulence}
-	Al fine di quantificare le proprietà di conservazione dell'energia di rhoEnergyFOAM, è stato analizzato il decadimento isotropo omogeneo della turbolenza a viscosità cinematica nulla ($\nu = 0$). La simulazione numerica è stata realizzata su una mesh cartesiana strutturata con $32^3$ celle (32 celle per lato) con una spaziatura costante e un timestep costante, imponendo un CFL = 1. La simulazione è stata impostata con il numero di Mach pari a 0.01.
-	Il caso è stato analizzato a parità di condizioni con rhoCentralFOAM e con rhoEnergyFOAM in modalità A, in modalità B e in modalità C e, infine, è stato anche valutato con il solutore dnsFOAM.
+	The study of a decaying isotropic turbulence case in the literature serves as a fundamental testbed for understanding turbulence dynamics in the absence of external forcing or mean flow effects. Isotropic turbulence, characterized by uniform statistical properties in all directions, provides a simplified yet insightful framework to investigate how turbulence evolves over time. Researchers use this case to examine the decay laws of turbulent kinetic energy, the role of vortex structures, and the mechanisms governing the dissipation of energy. It also serves as a benchmark for testing turbulence models, numerical schemes, and theoretical predictions. Since isotropic turbulence eliminates directional biases, it allows for a more general study of turbulence physics that can be applied to a wide range of engineering and geophysical flows. Additionally, the decay process sheds light on how turbulence transitions to a more laminar state, which is crucial for understanding mixing, diffusion, and energy cascade processes in both natural and industrial settings.
+	In this study, 
+	To quantify the energy conservation properties of the rhoEnergyFOAM solver, the isotropic homogeneous turbulence decay in the absence of kinematic viscosity ($\nu = 0$) was studied.This means that the Navier-Stokes equations becomes the Euler equations Numerical simulation was conducted on a structured Cartesian grid consisting of $32^3$ cells (32 cells per side), with uniform spacing and constant timestep, imposing a Courant number (CFL) of 1. The Mach number adopted for the simulation was 0.01.
+	
+	The analysis was carried out by comparing the results obtained with rhoCentralFOAM and rhoEnergyFOAM in three different modes (A, B and C). In addition, the case was also evaluated using the dnsFOAM solver for a more in-depth comparison.
+	
+	Translated with DeepL.com (free version)
 	
 	\section{Taylor-Green Vortex}
 	Il Taylor-Green vortex illustra il meccanismo di base del decadimento della produzione di piccoli vortici detti "eddies". Il caso in questione, come il precedente, quantifica le proprietà di conservazione dell'energia di rhoEnergyFOAM. Sono state effettuate prove sia con rhoEnergyFOAM che con rhoCentralFOAM, su una mesh strutturata con $32^3$ celle e su una mesh non strutturata con 85'056 prisimi. Tale mesh è stata realizzata con gmsh, estrudendo gli elementi triangolari di una faccia lungo la terza direzione principale. Per valutare la conservazione della TKE (Turbulent Kinetic Energy) è stata effettuata l'inversione del tempo a metà della simulazione, verificando effettivamente se la soluzione tornasse ai valori delle condizioni iniziali. Per una migliore visualizzazione dei risultati, è stato realizzato un video in cui si possono apprezzare contemporaneamente le simulazioni ottenute con Paraview e i grafici animati in cui viene rappresentatato l'andamento dell'enstrofia, come mostrato in Figura \ref{TGV}. 
