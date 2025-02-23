@@ -1082,7 +1082,7 @@
 	
 	
 	\subsubsection{$k-\varepsilon$ model}
-	This model solves transport equations for turbulent kinetic energy (k) and dissipation rate ($\varepsilon$):
+	This two-equations model solves transport equations for turbulent kinetic energy (k) and dissipation rate ($\varepsilon$):
 	
 	\begin{equation}
 		\frac{\partial \rho k}{\partial t} + \frac{\partial \rho k u_i}{\partial x_i} = \frac{\partial}{\partial x_j}\left[\left(\mu +\frac{\mu_t}{\sigma_k}\right)\frac{\partial k}{\partial x_j}\right] + P_k + P_b - \rho \varepsilon + S_k
@@ -1406,6 +1406,94 @@
 		\caption{Coefficient of the low-storage	third-order, three-stage Runge–Kutta algorithm}
 		\label{table:RKconstants}
 	\end{table}
+	
+	\noindent Referring to figure \ref{cells}, the AUSM convective and pressure ﬂux to be
+	used in equation (\ref{flags_fluxes}) are given below, based on the AUSM+ -up formulation \citep{LIOU_AUSM+-up}:
+	
+	\begin{equation}
+		\mathbf{\hat{f}}_{ON}^{AUSM} = -\frac{C_{ON}}{2} \left[ \left( \frac{1}{2} \delta m_{ON} - |M_{ON}| \right) \mathbf{\varphi}_L + \left( \frac{1}{2} \delta m_{ON} + |M_{ON}| \right) \mathbf{\varphi}_R \right].
+	\end{equation}
+	
+	\begin{equation}
+		\hat{p}_{ON}^{AUSM} = -\frac{1}{2} \delta p_{ON},
+	\end{equation}
+	
+	\begin{equation}
+		M_{ON} = \frac{M_R + M_L}{2} - \frac{1}{2} \delta m_{ON},
+	\end{equation}
+	
+	\begin{equation}
+		\delta m_{ON} = \left[ \Delta \mathcal{M}(M_R) - \Delta \mathcal{M}(M_L) \right] - 2M_p,
+	\end{equation}
+	
+	\begin{equation}
+		\Delta \mathcal{M}(M) = \mathcal{M}_{(4)}^+ (M) - \mathcal{M}_{(4)}^- (M),
+	\end{equation}
+	
+	\begin{equation}
+		M_p = \frac{k_p}{f_a} \max \left( 1 - \sigma \overline{M}^2, 0 \right), \quad 2 \frac{(p_R - p_L)}{(\rho_L + \rho_R) c_{ON}^2}.
+	\end{equation}
+	\\
+	The speed of sound at the cell interface is evaluated as 
+	
+	\begin{equation}
+		c_{ON} = \frac{(c_L + c_R)}{2}, \quad \text{and} \quad \overline{M}^2 = \frac{(u_{nL}^2 + u_{nR}^2)}{(2c_{ON}^2)}.
+	\end{equation}
+	
+	\begin{equation}
+		M_0^2 = \min(1, \max(\overline{M}^2, M_{\infty}^2)),
+	\end{equation}
+	
+	\begin{equation}
+		f_a (M_0) = M_0 (2 - M_0),
+	\end{equation}
+	\\
+	with \( k_p = 0.25 \), \( k_u = 0.75 \), and \( \sigma = 1 \).
+	The diffusive-like pressure flux is given by
+	
+	\begin{equation}
+		\delta p_{ON} = \left[ p_R \Delta P(M_R) - p_L \Delta P(M_L) \right] - 2M_u.
+	\end{equation}
+	
+	\begin{equation}
+		\Delta P(M) = P_{(5)}^+ (M) - P_{(5)}^- (M),
+	\end{equation}
+	\\
+	where
+	
+	\begin{equation}
+		M_u = -\frac{1}{2} k_u P_{(5)}^+ (M_L) P_{(5)}^- (M_R) (\rho_L + \rho_R) (f_a c_{ON}) (u_{nR} - u_{nL}).
+	\end{equation}
+	\\
+	The subscript $L, R$ refers to the two sides of the cell interface, which have been reconstructed through the Minmod limiter, also available in the OpenFOAM library. We further define the split Mach numbers $\mathcal{M}_{(m)}$ as $m$-th degree polynomials
+	
+	\begin{equation}
+		\mathcal{M}_{(1)}^{\pm} (M) = \frac{1}{2} (M \pm |M|),
+	\end{equation}
+	
+	\begin{equation}
+		\mathcal{M}_{(2)}^{\pm} (M) = \pm \frac{1}{4} (M \pm 1)^2,
+	\end{equation}
+	
+	\begin{equation}
+		\mathcal{M}_{(4)}^{\pm} (M) =
+		\begin{cases}
+			\mathcal{M}_{(1)}^{\pm} (M), & \text{if } |M| \geq 1, \\
+			\mathcal{M}_{(2)}^{\pm} (M) (1 \mp 16 \beta \mathcal{M}_{(2)}^{\pm} (M)), & \text{if } |M| < 1.
+		\end{cases}
+	\end{equation}
+	\\
+	$P_{(5)}^+$ is also defined in terms of the split Mach numbers, as follows:
+	
+	\begin{equation}
+		P_{(5)}^+ (M) =
+		\begin{cases}
+			\frac{1}{M} \mathcal{M}_{(1)}^{+} (M), & \text{if } |M| \geq 1, \\
+			\mathcal{M}_{(2)}^{+} (M) [(2 \pm M) \mp 16 \alpha M \mathcal{M}_{(2)}^{+} (M)], & \text{if } |M| < 1.
+		\end{cases}
+	\end{equation}
+	\\
+	Following \citet{LIOU_AUSM+-up}, we set $\alpha = 3/16(-4 + 5 f_a^2)$, $\beta = 1/8$.
 
 	\chapter{Results}
 	\label{chap:results}
