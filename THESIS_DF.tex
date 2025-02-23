@@ -13,6 +13,7 @@
 \usepackage{mathrsfs}
 \usepackage{caption} 
 \bibliographystyle{plainnat}  % Orders references alphabetically
+\definecolor{Havelock Blue}{RGB}{ 74, 144, 226}
 
 \usepackage[bookmarks=false,hyperfootnotes=false]{hyperref}
 \hypersetup{
@@ -472,7 +473,7 @@
 	\begin{figure}[t]
 		\centering
 		\includegraphics[width=0.4 \linewidth]{Figures/CELL3D.png}
-		\caption{Computational cell for numerical flux evaluation. $\textcolor{red}{\Delta S_{ON}}$ represents the interface between the owner cell O and the neighboring cell N, with $\over{n}$ as the outward normal for O. L and R denote the limit states on either side of the interface, where $L\equiv O$ and $R \equiv O$ in the case of first-order reconstruction.}
+		\caption{Computational cell for numerical flux evaluation. \textcolor{red}{$\Delta S_{ON}$} represents the interface between the owner cell O and the neighboring cell N, with \textcolor{red}{$n$} as the outward normal for O and \textcolor{Havelock Blue}{$d_{ON}$} the distance between the cell centers O and N.}
 		\label{cells}
 	\end{figure} 
 	\noindent The pressure flux is treated symmetrically to ensure accurate shock resolution and smooth transitions:
@@ -492,7 +493,10 @@
 	The Mach number is split to minimize numerical dissipation at low Mach numbers.
 	
 	\begin{equation}
-		2m_{j+1/2} = (M_j +M_{j+1})-(\mathscr{M}_{j+1}^+ - \mathscr{M}_{j+1}^-)+(\mathscr{M}_{j}^+ - \mathscr{M}_{j}^-)-\delta m_{j+1/2},
+		\begin{aligned}
+			2m_{j+1/2} = (M_j +M_{j+1})-(\mathscr{M}_{j+1}^+ - \mathscr{M}_{j+1}^-)+\\
+			+(\mathscr{M}_{j}^+ - \mathscr{M}_{j}^-)-\delta m_{j+1/2},
+		\end{aligned}
 	\end{equation}
 	\\
 	where
@@ -509,8 +513,8 @@
 	\begin{equation}
 		|\mathscr{M}|(M) = 
 		\begin{cases}
-			|M|,					\hspace{42.5 mm} if \hspace{5 mm} |M|\geq1\\
-			\dfrac{1}{2}(M^2 +1)+2\beta(M^2-1)^2, \hspace{5mm}   otherwise
+			|M|,\qquad \qquad \qquad \qquad \qquad \quad |M|\geq1\\
+			\dfrac{1}{2}(M^2 +1)+2\beta(M^2-1)^2,\quad otherwise
 		\end{cases}
 	\end{equation}
 	\\
@@ -519,7 +523,7 @@
 	\begin{equation}
 		|\mathscr{P}|(M) = 
 		\begin{cases}
-			sign(M),	\hspace{42.5 mm} if \hspace{5 mm} |M|\geq1\\
+			sign(M), \qquad \qquad \qquad \qquad \qquad |M|\geq1\\
 			\dfrac{M}{2}(3-M^2+4\alpha(M^2-1)^2), \hspace{5mm}   otherwise
 		\end{cases}
 	\end{equation}

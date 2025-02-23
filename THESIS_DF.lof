@@ -2,7 +2,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Overview of the OpenFOAM structure.\relax }}{9}{figure.caption.5}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Case directory structure.\relax }}{10}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Computational cell for numerical flux evaluation. $\textcolor {red}{\Delta S_{ON}}$ represents the interface between the owner cell O and the neighboring cell N, with $\over {n}$ as the outward normal for O. L and R denote the limit states on either side of the interface, where $L\equiv O$ and $R \equiv O$ in the case of first-order reconstruction.\relax }}{23}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Computational cell for numerical flux evaluation. \textcolor {red}{$\Delta S_{ON}$} represents the interface between the owner cell O and the neighboring cell N, with \textcolor {red}{$n$} as the outward normal for O and \textcolor {Havelock Blue}{$d_{ON}$} the distance between the cell centers O and N.\relax }}{23}{figure.caption.13}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Computational cell for numerical flux evaluation. \textcolor {red}{ON} represents the interface between the owner cell O and the neighboring cell N, with $n_{ON}$ as the outward normal for O. L and R denote the limit states on either side of the interface, where $L\equiv O$ and $R \equiv O$ in the case of first-order reconstruction.\relax }}{55}{figure.caption.37}%
 \addvspace {10\p@ }
