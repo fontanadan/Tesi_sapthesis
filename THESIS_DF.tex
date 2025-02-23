@@ -1415,7 +1415,7 @@
 	\end{equation}
 	
 	\begin{equation}
-		\hat{p}_{ON}^{AUSM} = -\frac{1}{2} \delta p_{ON},
+		\mathbf{\hat{p}}_{ON}^{AUSM} = -\frac{1}{2} \delta \mathbf{p}_{ON},
 	\end{equation}
 	
 	\begin{equation}
@@ -1431,7 +1431,7 @@
 	\end{equation}
 	
 	\begin{equation}
-		M_p = \frac{k_p}{f_a} \max \left( 1 - \sigma \overline{M}^2, 0 \right), \quad 2 \frac{(p_R - p_L)}{(\rho_L + \rho_R) c_{ON}^2}.
+		M_p = \frac{k_p}{f_a} \max \left( 1 - \sigma \overline{M}^2, 0 \right) \frac{2(p_R - p_L)}{(\rho_L + \rho_R) c_{ON}^2}.
 	\end{equation}
 	\\
 	The speed of sound at the cell interface is evaluated as 
@@ -1452,17 +1452,17 @@
 	The diffusive-like pressure flux is given by
 	
 	\begin{equation}
-		\delta p_{ON} = \left[ p_R \Delta P(M_R) - p_L \Delta P(M_L) \right] - 2M_u.
+		\delta p_{ON} = \left[ p_R \Delta \mathcal{P}(M_R) - p_L \Delta \mathcal{P}(M_L) \right] - 2M_u.
 	\end{equation}
 	
 	\begin{equation}
-		\Delta P(M) = P_{(5)}^+ (M) - P_{(5)}^- (M),
+		\Delta \mathcal{P}(M) = \mathcal{P}_{(5)}^+ (M) - \mathcal{P}_{(5)}^- (M),
 	\end{equation}
 	\\
 	where
 	
 	\begin{equation}
-		M_u = -\frac{1}{2} k_u P_{(5)}^+ (M_L) P_{(5)}^- (M_R) (\rho_L + \rho_R) (f_a c_{ON}) (u_{nR} - u_{nL}).
+		M_u = -\frac{1}{2} k_u \mathcal{P}_{(5)}^+ (M_L) \mathcal{P}_{(5)}^- (M_R) (\rho_L + \rho_R) (f_a c_{ON}) (u_{nR} - u_{nL}).
 	\end{equation}
 	\\
 	The subscript $L, R$ refers to the two sides of the cell interface, which have been reconstructed through the Minmod limiter, also available in the OpenFOAM library. We further define the split Mach numbers $\mathcal{M}_{(m)}$ as $m$-th degree polynomials
@@ -1479,7 +1479,7 @@
 		\mathcal{M}_{(4)}^{\pm} (M) =
 		\begin{cases}
 			\mathcal{M}_{(1)}^{\pm} (M), & \text{if } |M| \geq 1, \\
-			\mathcal{M}_{(2)}^{\pm} (M) (1 \mp 16 \beta \mathcal{M}_{(2)}^{\pm} (M)), & \text{if } |M| < 1.
+			\mathcal{M}_{(2)}^{\pm} (M) (1 \mp 16 \beta \mathcal{M}_{(2)}^{\mp} (M)), & \text{if } |M| < 1.
 		\end{cases}
 	\end{equation}
 	\\
@@ -1489,7 +1489,7 @@
 		P_{(5)}^+ (M) =
 		\begin{cases}
 			\frac{1}{M} \mathcal{M}_{(1)}^{+} (M), & \text{if } |M| \geq 1, \\
-			\mathcal{M}_{(2)}^{+} (M) [(2 \pm M) \mp 16 \alpha M \mathcal{M}_{(2)}^{+} (M)], & \text{if } |M| < 1.
+			\mathcal{M}_{(2)}^{+} (M) [(2 \pm M) \mp 16 \alpha M \mathcal{M}_{(2)}^{\mp} (M)], & \text{if } |M| < 1.
 		\end{cases}
 	\end{equation}
 	\\
