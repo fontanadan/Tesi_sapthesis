@@ -1547,8 +1547,8 @@
 			rhoEnergyFoam - mode A &  \textcolor{black}{\rule{0.05\linewidth}{0.75mm}} \\
 			rhoEnergyFoam - mode B &  \textcolor{blue}{\rule{0.05\linewidth}{0.75mm}} \\
 			rhoEnergyFoam - mode C &  \textcolor{red}{\rule{0.05\linewidth}{0.75mm}} \\
-			rhoCentralFoam	  	   &  \textcolor{green}{\rule{0.05\linewidth}{0.75mm}} \\
-			dnsFoam			       &  \textcolor{magenta}{\rule{0.05\linewidth}{0.75mm}} \\
+			rhoCentralFoam	  	   &  \textcolor{magenta}{\rule{0.05\linewidth}{0.75mm}} \\
+			dnsFoam			       &  \textcolor{green}{\rule{0.05\linewidth}{0.75mm}} \\
 			\bottomrule
 		\end{tabular}
 	\end{table}
@@ -1579,6 +1579,7 @@
 	When the pressure diffusion term is introduced (Mode B), a degree of numerical diffusion is observed, albeit lower than in \texttt{dnsFoam}. Most kinetic energy is dissipated at the characteristic eddy turn-over time scale. In Mode C, where $\theta^* = 0$, numerical diffusion is exacerbated but remains less pronounced than in \texttt{rhoCentralFoam}. 
 	
 	\section{Taylor-Green Vortex}
+	The Taylor–Green vortex solution is a classical case used for testing and validation of spatial and temporal accuracy of CFD solvers.
 	Il Taylor-Green vortex illustra il meccanismo di base del decadimento della produzione di piccoli vortici detti "eddies". Il caso in questione, come il precedente, quantifica le proprietà di conservazione dell'energia di rhoEnergyFOAM. Sono state effettuate prove sia con rhoEnergyFOAM che con rhoCentralFOAM, su una mesh strutturata con $32^3$ celle e su una mesh non strutturata con 85'056 prisimi. Tale mesh è stata realizzata con gmsh, estrudendo gli elementi triangolari di una faccia lungo la terza direzione principale. Per valutare la conservazione della TKE (Turbulent Kinetic Energy) è stata effettuata l'inversione del tempo a metà della simulazione, verificando effettivamente se la soluzione tornasse ai valori delle condizioni iniziali. Per una migliore visualizzazione dei risultati, è stato realizzato un video in cui si possono apprezzare contemporaneamente le simulazioni ottenute con Paraview e i grafici animati in cui viene rappresentatato l'andamento dell'enstrofia, come mostrato in Figura \ref{TGV}. 
 	
 	\begin{figure}
