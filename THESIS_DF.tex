@@ -941,6 +941,9 @@
 	\subsection*{sonicFoam}
 	\texttt{sonicFoam} is a transient, pressure-based solver for compressible flows that supports subsonic, transonic, and supersonic conditions. It uses the PISO algorithm for time marching and pressure-velocity coupling.\\
 	\\	
+	\subsection*{dnsFoam}
+	The dnsFoam solver in OpenFOAM stands for Direct Numerical Simulation Foam. It's a computational fluid dynamics (CFD) solver that allows for the direct simulation of turbulent flows without using turbulence models. Instead of modeling turbulence with empirical relations, dnsFoam resolves all turbulent scales of motion directly by solving the Navier-Stokes equations numerically on a grid that resolves all length scales of turbulence. The dnsFoam solver in OpenFOAM is a transient (time-dependent), pressure-velocity coupled solver that typically uses the PISO (Pressure-Implicit with Splitting of Operators) algorithm for time-accurate simulations.
+	\\
 	The following table presents a comparative summary of the solvers described above, highlighting the flow regime, numerical approach, and their capability to handle shocks and turbulence.	
 	\begin{table}[h]
 		\centering
@@ -957,6 +960,7 @@
 			\texttt{rhoPisoFoam} & Compressible, transient & Pressure-based & Moderate & RANS, LES \\
 			\texttt{rhoCentralFoam} & Compressible, high-speed & Density-based & Good & RANS, LES \\
 			\texttt{sonicFoam} & Compressible, subsonic/supersonic & Pressure-based & Moderate & RANS, LES \\
+			\texttt{dnsFoam} & Incompressible, transient & Pressure-based & Low & DNS \\
 			\hline
 		\end{tabular}}
 		\vspace{3mm}
