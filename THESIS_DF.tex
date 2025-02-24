@@ -13,7 +13,21 @@
 \usepackage{mathrsfs}
 \usepackage{caption} 
 \bibliographystyle{plainnat}  % Orders references alphabetically
+
+% define color for plots
 \definecolor{Havelock Blue}{RGB}{ 74, 144, 226}
+\definecolor{black}{rgb}{0.0, 0.0, 0.0}
+\definecolor{green}{rgb}{0.0, 0.5019607843137255, 0.0}
+\definecolor{cyan}{rgb}{0.0, 1.0, 1.0}
+\definecolor{orange}{rgb}{1.0, 0.6470588235294118, 0.0}
+\definecolor{red}{rgb}{1.0, 0.0, 0.0}
+\definecolor{purple}{rgb}{0.5019607843137255, 0.0, 0.5019607843137255}
+\definecolor{magenta}{rgb}{1.0, 0.0, 1.0}
+\definecolor{blue}{rgb}{0.0, 0.0, 1.0}
+\definecolor{pink}{rgb}{1.0, 0.75, 0.8}
+\definecolor{violet}{rgb}{0.56, 0.0, 1.0}
+\definecolor{darkgreen}{rgb}{0.0, 0.392, 0.0}
+
 
 \usepackage[bookmarks=false,hyperfootnotes=false]{hyperref}
 \hypersetup{
@@ -1386,7 +1400,7 @@
 	\\
 	where the constants are displayed in table 
 	
-		\begin{table}[h]
+	\begin{table}[h]
 		\centering
 		\renewcommand{\arraystretch}{1.6} % Adjust row height
 		\begin{tabular}{c c}
@@ -1500,20 +1514,51 @@
 	In this chapter, we present a series of test cases that exemplify the capability of rhoEnergyFoam evaluating different test cases where all the three operational modes outlined in table \ref{REF_modes} are analyzed, aiming to evaluate the energy-preserving properties of the proposed solver in comparison to standard OpenFOAM solvers. To assess numerical diffusion, we analyze Euler turbulence and Taylor–Green flow. To examine the effectiveness of background numerical diffusion in smooth flows, we conduct Unsteady Reynolds-Averaged Navier–Stokes (URANS) and Detached Eddy Simulations (DES) of subsonic turbulent flow past a circular cylinder. Finally, the shock-capturing capabilities of rhoEnergyFoam are tested using three classical flow cases: inviscid supersonic flow past a forward-facing step, transonic flow past an RAE airfoil, and transonic flow past the ONERA M6 wing.
 	
 	\section{Decaying Isotropic Turbulence}
-	The study of a decaying isotropic turbulence case in the literature serves as a fundamental testbed for understanding turbulence dynamics in the absence of external forcing or mean flow effects. Isotropic turbulence, characterized by uniform statistical properties in all directions, provides a simplified yet insightful framework to investigate how turbulence evolves over time. Researchers use this case to examine the decay laws of turbulent kinetic energy, the role of vortex structures, and the mechanisms governing the dissipation of energy. It also serves as a benchmark for testing turbulence models, numerical schemes, and theoretical predictions. Since isotropic turbulence eliminates directional biases, it allows for a more general study of turbulence physics that can be applied to a wide range of engineering and geophysical flows. Additionally, the decay process sheds light on how turbulence transitions to a more laminar state, which is crucial for understanding mixing, diffusion, and energy cascade processes in both natural and industrial settings.
-	In this study, 
-	To quantify the energy conservation properties of the rhoEnergyFOAM solver, the isotropic homogeneous turbulence decay in the absence of kinematic viscosity ($\nu = 0$) was studied.This means that the Navier-Stokes equations becomes the Euler equations Numerical simulation was conducted on a structured Cartesian grid consisting of $32^3$ cells (32 cells per side), with uniform spacing and constant timestep, imposing a Courant number (CFL) of 1. The Mach number adopted for the simulation was 0.01.
+	The study of a decaying isotropic turbulence case in the literature serves as a fundamental test for understanding turbulence dynamics in the absence of external forcing or mean flow effects. Isotropic turbulence, characterized by uniform statistical properties in all directions, provides a simplified yet insightful framework to investigate how turbulence evolves over time. Researchers use this case to examine the decay laws of turbulent kinetic energy, the role of vortex structures, and the mechanisms governing the dissipation of energy. It also serves as a benchmark for testing turbulence models, numerical schemes, and theoretical predictions. Since isotropic turbulence eliminates directional biases, it allows for a more general study of turbulence physics that can be applied to a wide range of engineering and geophysical flows. Also, the decay process sheds light on turbulence behavior, understanding mixing, diffusion, and energy cascade processes in both natural and industrial settings.
+	In this study, the decay of isotropic turbulence is considered to quantify the energy conservation properties of rhoEnergyFoam, resolving Navier-Stokes equations in the absence of kinematic viscosity ($\nu = 0$). This means that the NS equations becomes the Euler equations as follows
 	
-	The analysis was carried out by comparing the results obtained with rhoCentralFOAM and rhoEnergyFOAM in three different modes (A, B and C). In addition, the case was also evaluated using the dnsFOAM solver for a more in-depth comparison.
+	\begin{equation}
+		\begin{cases}
+			\nabla \cdot u = 0 \\
+			\frac{\partial u}{\partial t} + u \cdot \nabla u = - \frac{1}{\rho_0} \nabla p
+		\end{cases}
+	\end{equation}
+	\\
+	Numerical simulation was conducted on a structured Cartesian grid consisting of $32^3$ cells (32 cells per side), with uniform spacing and constant timestep, imposing a Courant number (CFL) of 1. Random initial conditions are used with prescribed energy spectrum
 	
-	Translated with DeepL.com (free version)
+	\begin{equation}
+		E(k) = 16 \sqrt{\frac{2}{\pi}} \frac{u_0^2}{k_0} \left( \frac{k}{k_0} \right )^2 e^{-2(k/k_0)^2}
+	\end{equation}
+	\\
+	where $k_0 = 4$ is the most energetic mode, and $u_0$ is the initial r.m.s. velocity. The Mach number adopted for the simulation was $ Ma= u_0/c_0= 0.01$, where $c_0 = \sqrt{\gamma}$ is the adimensionalized speed of sound. Time is made nondimensional with respect to the eddy turnover time $\tau = 2/k_0 u_0$
+	The analysis was carried out by comparing the results obtained with rhoEnergyFOAM in three different modes (A, B and C) and rhoCentralFOAM. In addition, the case was also evaluated using the dnsFOAM solver for a more in-depth comparison.
+	
+		\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{Figures/TKE_DIT}
+		\caption{Decaying isotropic turbulence: time evolution of turbulence kinetic $K$ energy for rhoEnergyFoam in Mode A (black line), Mode B (blue line), Mode C with $\theta^* = 0$ (red line), and for dnsFOAM (green line), rhoCentralFoam (purple line). $\tau$ is the eddy turnover time.}
+		\label{DIT}
+	\end{figure} 
+	
+	\begin{table}
+		\centering
+		\begin{tabular}{cc}
+			\toprule
+			rhoEnergyFoam - mode A &  \textcolor{black}{\rule{0.05\linewidth}{0.75mm}} \\
+			rhoEnergyFoam - mode B &  \textcolor{blue}{\rule{0.05\linewidth}{0.75mm}} \\
+			rhoEnergyFoam - mode C &  \textcolor{red}{\rule{0.05\linewidth}{0.75mm}} \\
+			rhoCentralFoam	  	   &  \textcolor{green}{\rule{0.05\linewidth}{0.75mm}} \\
+			dnsFoam			       &  \textcolor{magenta}{\rule{0.05\linewidth}{0.75mm}} \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
 	
 	\section{Taylor-Green Vortex}
 	Il Taylor-Green vortex illustra il meccanismo di base del decadimento della produzione di piccoli vortici detti "eddies". Il caso in questione, come il precedente, quantifica le proprietà di conservazione dell'energia di rhoEnergyFOAM. Sono state effettuate prove sia con rhoEnergyFOAM che con rhoCentralFOAM, su una mesh strutturata con $32^3$ celle e su una mesh non strutturata con 85'056 prisimi. Tale mesh è stata realizzata con gmsh, estrudendo gli elementi triangolari di una faccia lungo la terza direzione principale. Per valutare la conservazione della TKE (Turbulent Kinetic Energy) è stata effettuata l'inversione del tempo a metà della simulazione, verificando effettivamente se la soluzione tornasse ai valori delle condizioni iniziali. Per una migliore visualizzazione dei risultati, è stato realizzato un video in cui si possono apprezzare contemporaneamente le simulazioni ottenute con Paraview e i grafici animati in cui viene rappresentatato l'andamento dell'enstrofia, come mostrato in Figura \ref{TGV}. 
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.99\linewidth]{TGV}
+		\includegraphics[width=0.99\linewidth]{Figures/TGV}
 		\caption{A destra il plot della velocità graficata mediante il Q-criterion del Taylor-Green Vortex, sulla sinistra il grafico dell'Enstrofia che, dopo aver invertito il campo di velocità al tempo adimensionalizzato 8, recupera l'andamento fino alle raggiungimento delle condizioni iniziali. Il tempo adimensinalizzato è calcolato com $t u_0 k_0$ dove $k_0$ è il numero d'onda.}
 		\label{TGV}
 	\end{figure} 
@@ -1522,14 +1567,14 @@
 	
 	\begin{figure}[htp]
 		\centering
-		\includegraphics[width=0.66\linewidth]{TGV_Qcriterion}
+		\includegraphics[width=0.66\linewidth]{Figures/TGV_Qcriterion}
 		\caption{Campo di velocità del Taylor-Green Vortex graficata mediante il Q-criterion.}
 		\label{TGV_Qcriterion}
 	\end{figure} 
 	
 	\begin{figure}[htp]
 		\centering
-		\includegraphics[width=0.66 \linewidth]{TGV_Enstrophy}
+		\includegraphics[width=0.66 \linewidth]{Figures/TGV_Enstrophy}
 		\caption{Grafico dell'enstrofia ottenuto con rhoEnergyFOAM. Il tempo adimensinalizzato è calcolato con $t u_0 k_0$, dove $t$ è il tempo fisico, $u_0$ è la velocità all'infinito e $k_0$ è il numero d'onda.}
 		\label{TGV_Enstrophy}
 	\end{figure} 
@@ -1543,17 +1588,17 @@
 	
 	\begin{figure}[htp]
 		\centering
-		\includegraphics[width=0.94 \linewidth, height=0.26\textheight]{FS}
+		\includegraphics[width=0.94 \linewidth, height=0.26\textheight]{Figures/FS}
 		\caption{geometria del Forward Step e condizioni al contorno}
 		\label{FS}
 	\end{figure} 
 	\begin{figure}[htp]
 		\centering
 		\subfloat
-		{\includegraphics[width=0.7\textwidth]{FS_velocity}} \quad 
+		{\includegraphics[width=0.7\textwidth]{Figures/FS_velocity}} \quad 
 		\subfloat
 		\centering
-		{\includegraphics[width=0.1\textwidth, height=0.16\textheight]{FS_velocitybar}}
+		{\includegraphics[width=0.1\textwidth, height=0.16\textheight]{Figures/FS_velocitybar}}
 		\caption{campo di velocità supersonico del Forward Step raggiunto a Mach 3.}
 		\label{fig:FS}
 	\end{figure}
@@ -1573,7 +1618,7 @@
 	
 	\begin{figure}[h]
 		\begin{center}
-			{\includegraphics[width=0.579\linewidth]{pressure_coeff_cylinder}}  
+			{\includegraphics[width=0.579\linewidth]{Figures/pressure_coeff_cylinder}}  
 			\caption{Simulazione numerica del flusso attorno a un cilindro circolare: coefficiente di pressione ottenuto da rhoEnergyFoam in modalità B con URANS (linea viola continua e quadrati) confrontato con URANS di Modesti(linea celeste) e LES (tratteggiato) di Catalano et al. \cite{Catalano}}
 			\label{Cp_Cylinder}
 		\end{center}
@@ -1582,17 +1627,17 @@
 	\begin{figure}[htp]
 		\centering
 		\subfloat
-		{\includegraphics[width=0.9\textwidth, height=0.27\textheight]{Cylinder_u.pdf}} \quad 
+		{\includegraphics[width=0.9\textwidth, height=0.27\textheight]{Figures/Cylinder_u.pdf}} \quad 
 		\subfloat
 		\centering
-		{\includegraphics[width=0.9\textwidth, height=0.27\textheight]{Cylinder_v}}
+		{\includegraphics[width=0.9\textwidth, height=0.27\textheight]{Figures/Cylinder_v}}
 		\caption{Simulazione numerica del flusso attorno a un cilindro circolare: proﬁli di velocità media a $x/D = 0.75$ e $x/D = 1.5$ per la URANS (linea rossa), la URANS di Modesti (linea tratteggiata viola sottile) rispetto alla URANS (linea tratteggiata viola spessa) di Catalano.}
 		\label{Cylinder}
 	\end{figure}
 	
 	\begin{figure}[htp]
 		\begin{center}
-			{\includegraphics[width=0.98\linewidth]{Des_cylinder}}  
+			{\includegraphics[width=0.98\linewidth]{Figures/Des_cylinder}}  
 			\caption{DES del flusso 3D attorno a un cilindro circolare: rappresentazione del campo di velocità mediante il Q-criterion $Q = \dfrac{1}{2} [(\nabla \cdot u)^2 - \nabla u : \nabla u^T]$.}
 			\label{Des_Cylinder}
 		\end{center}
@@ -1614,14 +1659,14 @@
 	
 	\begin{figure}[htp]
 		\centering
-		\includegraphics[width=0.9\textwidth]{RAE2822_pressurefield}
+		\includegraphics[width=0.9\textwidth]{Figures/RAE2822_pressurefield}
 		\caption{RANS del RAE2822: Campi di pressione calcolai da rhoEnergyFoam (a) e rhoCentralFoam (b). Nella rappresentazione sono stati utilizzati 24 livelli nel range $0.6 < p/p_\infty < 1.4$.}
 		\label{RAE2822_pressurefield}
 	\end{figure}
 	
 	\begin{figure}[htp]
 		\centering
-		\includegraphics[width=0.5\textwidth]{Cp_RAE2822}
+		\includegraphics[width=0.5\textwidth]{Figures/Cp_RAE2822}
 		\caption{RANS del RAE2822: coeﬃciente di pressione ottenuto da rhoEnergyFoam (linee continue) e da rhoCentralFoam (punti), rispetto a precedenti RANS (linee tratteggiate) e a dati sperimentali (quadrati).}
 		\label{Cp_RAE2822}
 	\end{figure}
@@ -1633,16 +1678,16 @@
 	
 	\begin{figure}[htp]
 		\centering
-		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Ducros}}  
+		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Figures/Ducros}}  
 		\centering
-		{\includegraphics[width=0.6\linewidth]{Ducros_bar}}
+		{\includegraphics[width=0.6\linewidth]{Figures/Ducros_bar}}
 		\caption{Campo di pressione dell'Onera M6 con sovrapposta l'isosuperficie del sensore di Ducros che evidenzia la presenza di due onde d'urto.}
 		\label{OneraM6_pressurefield}
 	\end{figure}
 	
 	\begin{figure}[htp]
 		\centering
-		{\includegraphics[width=0.95\linewidth]{Cp_contours_oneram6_1}}  
+		{\includegraphics[width=0.95\linewidth]{Figures/Cp_contours_oneram6_1}}  
 		\caption{Flusso attorno all'ala dell'ONERA M6: profili di pressione calcolati sulla superficie dell'ala per rhoEnergyFoam (a) e rhoCentralFoam (b). Nell'intervallo $0.3 < p/p_\infty < 1.5$ sono mostrati 32 livelli  (scala di colori dal blu a rosso). Le linee tratteggiate indicano le sezioni alari utilizzate nella Figura \ref{Cp_oneraM6}}
 		\label{Cp_contours_oneraM6}
 	\end{figure}
@@ -1651,7 +1696,7 @@
 	
 	\begin{figure}[htp]
 		\begin{center}
-			{\includegraphics[width=0.95\linewidth]{Cp_oneram6}}  
+			{\includegraphics[width=0.95\linewidth]{Figures/Cp_oneram6}}  
 			\caption{Flusso attorno all'ala ONERA M6: coefficiente di pressione $(Cp = (p-p_\infty)/(\dfrac{1}{2}\rho_\infty u^2_\infty))$ a varie sezioni dell'ala (vedi Fig. \ref{Cp_contours_oneraM6}): (a) $z/b = 0.2$, (b) $z/b = 0.65$, (c) $z/b = 0.8$, (d) $z/b = 0.9$, per rhoEnergyFoam (linea continua) rhoCentralFoam (linea tratteggiata) e dati sperimentali (simboli quadrati). $x_l$ e $x_t$ indicano rispettivamente le coordinate del bordo d'attacco e del bordo d'uscita di ciascuna sezione alare.}
 			\label{Cp_oneraM6}
 		\end{center}
