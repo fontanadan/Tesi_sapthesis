@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  24 FEB 2025 17:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  24 FEB 2025 18:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1057,22 +1057,40 @@ File: Figures/FS_velocitybar.pdf Graphic file (type pdf)
 <use Figures/FS_velocitybar.pdf>
 Package pdftex.def Info: Figures/FS_velocitybar.pdf  used on input line 1634.
 (pdftex.def)             Requested size: 30.00113pt x 78.40195pt.
-[65 <./Figures/FS.pdf>] [66 <./Figures/FS_velocity.pdf> <./Figures/FS_velocityb
-ar.pdf>] [67]
+
+Overfull \hbox (17.55788pt too wide) in paragraph at lines 1643--1643
+[]\T1/lmr/bx/n/14.4 (-20) Axisymmetric Tran-sonic Bump (Bachalo-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [65]
+[66 <./Figures/FS.pdf> <./Figures/FS_velocity.pdf> <./Figures/FS_velocitybar.pd
+f>]
+Overfull \hbox (22.95906pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 4.5.  AXISYMMETRIC TRANSONIC BUMP (BACHALO-JOHNSON) \T1/lmr/m/n
+/10 67
+ []
+
+[67]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/pressure_coeff_cylinder.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/pressure_coeff_cylinder.pdf, id=967, 701.44414pt x 595.87321pt>
+<Figures/pressure_coeff_cylinder.pdf, id=966, 701.44414pt x 595.87321pt>
 File: Figures/pressure_coeff_cylinder.pdf Graphic file (type pdf)
 <use Figures/pressure_coeff_cylinder.pdf>
 Package pdftex.def Info: Figures/pressure_coeff_cylinder.pdf  used on input lin
 e 1654.
 (pdftex.def)             Requested size: 173.69843pt x 147.54955pt.
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cylinder_u.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Cylinder_u.pdf, id=970, 844.74538pt x 380.49437pt>
+<Figures/Cylinder_u.pdf, id=969, 844.74538pt x 380.49437pt>
 File: Figures/Cylinder_u.pdf Graphic file (type pdf)
 <use Figures/Cylinder_u.pdf>
 Package pdftex.def Info: Figures/Cylinder_u.pdf  used on input line 1663.
@@ -1081,7 +1099,7 @@ Package pdftex.def Info: Figures/Cylinder_u.pdf  used on input line 1663.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cylinder_v.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Cylinder_v.pdf, id=971, 844.74538pt x 380.49437pt>
+<Figures/Cylinder_v.pdf, id=970, 844.74538pt x 380.49437pt>
 File: Figures/Cylinder_v.pdf Graphic file (type pdf)
 <use Figures/Cylinder_v.pdf>
 Package pdftex.def Info: Figures/Cylinder_v.pdf  used on input line 1666.
@@ -1090,17 +1108,20 @@ Package pdftex.def Info: Figures/Cylinder_v.pdf  used on input line 1666.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Des_cylinder.pdf): PDF inclus
 ion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Des_cylinder.pdf, id=972, 844.47797pt x 292.62225pt>
+<Figures/Des_cylinder.pdf, id=971, 844.47797pt x 292.62225pt>
 File: Figures/Des_cylinder.pdf Graphic file (type pdf)
 <use Figures/Des_cylinder.pdf>
 Package pdftex.def Info: Figures/Des_cylinder.pdf  used on input line 1673.
 (pdftex.def)             Requested size: 293.99872pt x 101.87457pt.
-[68 <./Figures/pressure_coeff_cylinder.pdf>] [69 <./Figures/Cylinder_u.pdf> <./
-Figures/Cylinder_v.pdf> <./Figures/Des_cylinder.pdf>] [70]
+[68]
+Underfull \vbox (badness 2229) has occurred while \output is active []
+
+ [69 <./Figures/pressure_coeff_cylinder.pdf>] [70 <./Figures/Cylinder_u.pdf> <.
+/Figures/Cylinder_v.pdf> <./Figures/Des_cylinder.pdf>] [71]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/RAE2822_pressurefield.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/RAE2822_pressurefield.pdf, id=1011, 842.44148pt x 354.2647pt>
+<Figures/RAE2822_pressurefield.pdf, id=1015, 842.44148pt x 354.2647pt>
 File: Figures/RAE2822_pressurefield.pdf Graphic file (type pdf)
 <use Figures/RAE2822_pressurefield.pdf>
 Package pdftex.def Info: Figures/RAE2822_pressurefield.pdf  used on input line 
@@ -1110,12 +1131,12 @@ Package pdftex.def Info: Figures/RAE2822_pressurefield.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cp_RAE2822.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Cp_RAE2822.pdf, id=1012, 408.02437pt x 372.64218pt>
+<Figures/Cp_RAE2822.pdf, id=1016, 408.02437pt x 372.64218pt>
 File: Figures/Cp_RAE2822.pdf Graphic file (type pdf)
 <use Figures/Cp_RAE2822.pdf>
 Package pdftex.def Info: Figures/Cp_RAE2822.pdf  used on input line 1702.
 (pdftex.def)             Requested size: 150.0pt x 136.99411pt.
-[71] [72 <./Figures/RAE2822_pressurefield.pdf> <./Figures/Cp_RAE2822.pdf>]
+[72 <./Figures/RAE2822_pressurefield.pdf> <./Figures/Cp_RAE2822.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Ducros.pdf): PDF inclusion: f
 ound PDF version <1.7>, but at most version <1.5> allowed
@@ -1144,16 +1165,18 @@ Package pdftex.def Info: Figures/Cp_contours_oneram6_1.pdf  used on input line
 1723.
 (pdftex.def)             Requested size: 284.99908pt x 133.8025pt.
 [73 <./Figures/Ducros.pdf> <./Figures/Ducros_bar.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [74 <./Figures/Cp_contours_oneram6_1.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cp_oneram6.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Cp_oneram6.pdf, id=1051, 733.7336pt x 595.81372pt>
+<Figures/Cp_oneram6.pdf, id=1061, 733.7336pt x 595.81372pt>
 File: Figures/Cp_oneram6.pdf Graphic file (type pdf)
 <use Figures/Cp_oneram6.pdf>
 Package pdftex.def Info: Figures/Cp_oneram6.pdf  used on input line 1732.
 (pdftex.def)             Requested size: 284.99908pt x 231.43pt.
-[74 <./Figures/Cp_contours_oneram6_1.pdf>] [75 <./Figures/Cp_oneram6.pdf>]
-[76
+[75 <./Figures/Cp_oneram6.pdf>] [76
 
 ]
 Chapter 5.
@@ -1175,11 +1198,11 @@ Underfull \hbox (badness 1033) in paragraph at lines 138--145
 
 [80] [81] [82]) [83] (./THESIS_DF.aux) ) 
 Here is how much of TeX's memory you used:
- 15761 strings out of 478287
- 257302 string characters out of 5849288
+ 15763 strings out of 478287
+ 257326 string characters out of 5849288
  586782 words of memory out of 5000000
  32947 multiletter control sequences out of 15000+600000
- 602719 words of font info for 268 fonts, out of 8000000 for 9000
+ 602816 words of font info for 269 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,131p,2104b,531s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm
@@ -1207,7 +1230,7 @@ lic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy5.pfb></usr/share
 lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/rsfs/rsfs10.pfb>
-Output written on THESIS_DF.pdf (99 pages, 5043600 bytes).
+Output written on THESIS_DF.pdf (99 pages, 5045119 bytes).
 PDF statistics:
  1334 PDF objects out of 1440 (max. 8388607)
  1092 compressed objects within 11 object streams

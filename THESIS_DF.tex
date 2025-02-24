@@ -1612,7 +1612,7 @@
 		\label{TGV_Enstrophy}
 	\end{figure} 
 	
-	\section{Forward Step}
+	\section{Supersonic flow over a forward-facing step}
 	Lo studio del flusso non viscoso su un gradino rivolto in avanti è stato originariamente proposto da \cite{EMERY1968306} per confrontare gli schemi di cattura dello shock. In questo caso è stato utilizzato per analizzare il comportamento di rhoEnergyFOAM su flussi supersonici in presenza di urti. 
 	Il flusso supersonico a M = 3 affronta un gradino di altezza $0.2 h$, dove $h$ è l'altezza del canale. La lunghezza totale del canale è $3 h$, il bordo anteriore del gradino è a $0.6 h$ dall'ingresso e la mesh è uniforme, con $N_x \times N_y = 240 \times 80$ celle nelle direzioni delle coordinate. Le condizioni al contorno di scorrimento sono imposte alle pareti superiore e inferiore e tutte le variabili sono estrapolate all'uscita. Per questo caso il test viene eseguito in modalità C. L'ispezione del modello di shock mostra che, nonostante le somiglianze qualitative, rhoEnergyFOAM fornisce dettagli di flusso aggiuntivi che sono appena visibili con rhoCentralFOAM. In particolare la linea di scivolamento che esce dal punto quadruplo vicino alla parete superiore è evanescente in rhoCentralFOAM, a causa della sua maggiore diffusione numerica.
 	
@@ -1637,10 +1637,10 @@
 	\end{figure}
 	
 	
-	\section{Sod Shock Tube}
-	Il caso in questione studia il flusso transonico sul dosso assialsimmetrico di Bachalo-Johnson. La lunghezza del dosso è c = 20.32 cm. Il dominio è costituito da un cuneo di $1^\circ$ con raggio interno $r_{in}/c = 0.375$ e raggio esterno $r_{out}/c = 4.0$. L'altezza del dosso è $h/c = 0.09375$. La condizione a contorno è di no-slip vicino alla parete. All'inlet la velocità, la temperatura totale e la pressione totale sono costanti ("fixed-value"), mentre all'outlet la velocità, la temperatura e la pressione sono impostate con uno "zero-gradient". I confini su entrambi i lati del dominio computazionale sono periodici, cioè è stata decisa la condizione "cyclic" di OpenFOAM per rendere la simulazione 3D e assialsimmetrica. I risultati sono ancora in fase di discussione.
+	\section{Sod's shock tube}
+	In this case, we simulate the sod's shock tube. The equations to be solved are the Euler equations and the air is modeled as an ideal gas. This is an extremelly severe case used to test the accuracy and stability of CFD solvers. 
 	
-	\section{Bachalo-Johnson}
+	\section{Axisymmetric Transonic Bump (Bachalo-Johnson)}
 	Il caso in questione studia il flusso transonico sul dosso assialsimmetrico di Bachalo-Johnson. La lunghezza del dosso è c = 20.32 cm. Il dominio è costituito da un cuneo di $1^\circ$ con raggio interno $r_{in}/c = 0.375$ e raggio esterno $r_{out}/c = 4.0$. L'altezza del dosso è $h/c = 0.09375$. La condizione a contorno è di no-slip vicino alla parete. All'inlet la velocità, la temperatura totale e la pressione totale sono costanti ("fixed-value"), mentre all'outlet la velocità, la temperatura e la pressione sono impostate con uno "zero-gradient". I confini su entrambi i lati del dominio computazionale sono periodici, cioè è stata decisa la condizione "cyclic" di OpenFOAM per rendere la simulazione 3D e assialsimmetrica. I risultati sono ancora in fase di discussione.
 	
 	\section{RANS of a flow past circular cylinder}
