@@ -1589,7 +1589,14 @@
 		\label{TGV}
 	\end{figure} 
 	
-\begin{figure}
+		\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{Figures/TKE_TGV}
+		\caption{Taylor Green Vortex: time evolution of turbulence kinetic $K$ energy for rhoEnergyFoam in Mode A (black line), Mode B (blue line), and for dnsFOAM (green line), rhoCentralFoam (magenta line).}
+		\label{TKE_TGV}
+	\end{figure} 
+	
+	\begin{figure}
 		\centering
 		(a)\includegraphics[width=0.45\linewidth]{Figures/TGV_mesh_structured}
 		(b)\includegraphics[width=0.45\linewidth]{Figures/TGV_mesh_unstructured}\\
@@ -1599,14 +1606,14 @@
 	
 		Il Taylor-Green vortex illustra il meccanismo di base del decadimento della produzione di piccoli vortici detti \say{eddies}. Il caso studio dimostra le proprietà di conservazione dell'energia cinetica del solutore rhoEnergyFOAM. Sono state effettuate prove sia con rhoEnergyFOAM che con rhoCentralFOAM, prima su una mesh strutturata con $32^3$ celle e poi su una mesh non strutturata con 85'056 prismi. Tale mesh è stata realizzata con Gmsh, estrudendo gli elementi triangolari di una faccia lungo la terza direzione principale. Per valutare la conservazione della TKE (Turbulent Kinetic Energy) è stata effettuata l'inversione del tempo a metà della simulazione, verificando effettivamente se la soluzione tornasse ai valori delle condizioni iniziali. Per una migliore visualizzazione dei risultati, è stato realizzato un video in cui si possono apprezzare contemporaneamente le simulazioni ottenute con Paraview e i grafici animati in cui viene rappresentatato l'andamento dell'enstrofia. In figura \ref{TGV_Qcriterion} viene mostrato il campo di velocità del Taylor-Green vortex visualizzato con il  Q-criterion, mentre in figura \ref{TGV_Enstrophy} si può apprezzare il grafico dell'enstrofia ottenuto con rhoEnergyFOAM che, dopo aver invertito il campo di velocità al tempo adimensionalizzato $t^*=8$, recupera l'andamento fino alle raggiungimento delle condizioni iniziali. Il tempo adimensinalizzato è calcolato con $t^* = t u_0 k_0$.
 	
-	\begin{figure}[htp]
+	\begin{figure}
 		\centering
 		\includegraphics[width=0.66\linewidth]{Figures/TGV_Qcriterion}
 		\caption{Campo di velocità del Taylor-Green Vortex graficata mediante il Q-criterion.}
 		\label{TGV_Qcriterion}
 	\end{figure} 
 	
-	\begin{figure}[htp]
+	\begin{figure}
 		\centering
 		\includegraphics[width=0.66 \linewidth]{Figures/TGV_Enstrophy}
 		\caption{Grafico dell'enstrofia ottenuto con rhoEnergyFOAM. Il tempo adimensinalizzato è calcolato con $t u_0 k_0$, dove $t$ è il tempo fisico, $u_0$ è la velocità all'infinito e $k_0$ è il numero d'onda.}
