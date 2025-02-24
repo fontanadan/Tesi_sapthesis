@@ -1321,11 +1321,18 @@
 		\end{Bmatrix}.
 	\end{equation}
 	\\
-	The corresponding numerical fluxes can be expressed as the sum of a central contribution and a diffusive term:
+	The corresponding numerical fluxes can be expressed as the sum of a central contribution and a diffusive contribution,both for the convective terms:
 	
 	\begin{equation}
-		\hat{f}_{ON} = \hat{f}^{c}_{ON} + \hat{f}^{D}_{ON}, \quad \hat{p}_{ON} = \hat{p}^{C}_{ON} + \hat{p}^{D}_{ON}.
-		\label{central_diffusive_fluxes}
+		\hat{f}_{ON} = \hat{f}^{c}_{ON} + \hat{f}^{D}_{ON}
+		\label{convective_central_diffusive_fluxes}
+	\end{equation}
+	\\
+	and the pressure terms:
+	
+	\begin{equation}
+		\hat{p}_{ON} = \hat{p}^{C}_{ON} + \hat{p}^{D}_{ON}.
+		\label{diffusive_central_diffusive_fluxes}
 	\end{equation}
 	\\
 	The central part of the convective flux is determined using the following relation \cite{PIROZZOLI20107180}:
@@ -1355,7 +1362,7 @@
 		\theta_{\text{ON}} = \frac{1}{2} (\theta_O +\theta_N)
 	\end{equation}
 	\\
-	To accurately capture shock waves, it is necessary to also activate the convective diffusive flux whenever $ \theta_{\text{ON}} $ exceeds a specified threshold ($ \theta^* $, set to 0.05 unless stated otherwise). Thus, the diffusive numerical fluxes used in equation (\ref{central_diffusive_fluxes}) can be concisely expressed as follows:
+	To accurately capture shock waves, it is necessary to also activate the convective diffusive flux whenever $ \theta_{\text{ON}} $ exceeds a specified threshold ($ \theta^* $, set to 0.05 unless stated otherwise). Thus, the diffusive numerical fluxes used in equations (\ref{convective_central_diffusive_fluxes}, \ref{diffusive_central_diffusive_fluxes}) can be concisely expressed as follows:
 	
 	\begin{equation}
 		\hat{f}_{\text{ON}} = (\text{IC}) H (\theta_{\text{ON}} - \theta^*) \tilde{p}_{\text{ON}}^{AUSM}, \quad
