@@ -1544,6 +1544,14 @@
 	where $k_0 = 4$ is the most energetic mode, and $u_0$ is the initial r.m.s. velocity. The Mach number adopted for the simulation was $ Ma= u_0/c_0= 0.01$, where $c_0 = \sqrt{\gamma}$ is the adimensionalized speed of sound. Time is made nondimensional with respect to the eddy turnover time $\tau = 2/k_0 u_0$
 	The analysis was carried out by comparing the results obtained with rhoEnergyFOAM in three different modes (A, B and C) and rhoCentralFOAM. In addition, the case was also evaluated using the dnsFOAM solver for a more in-depth comparison.
 	
+	\begin{figure}
+		\centering
+		\hspace{20mm}
+		\includegraphics[width=0.7\linewidth]{Figures/DIT}
+		\caption{Structured mesh for numerical simulation of decaying isotropic turbulence.}
+		\label{DIT_mesh}
+	\end{figure}
+	
 	\begin{table}
 		\centering
 		\begin{tabular}{cc}
@@ -1559,8 +1567,8 @@
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.7\linewidth]{Figures/TKE_DIT}
-		\caption{Decaying isotropic turbulence: time evolution of turbulence kinetic $K$ energy for rhoEnergyFoam in Mode A (black line), Mode B (blue line), Mode C with $\theta^* = 0$ (red line), and for dnsFOAM (green line), rhoCentralFoam (magenta line). $\tau$ is the eddy turnover time.}
+		\includegraphics[width=0.8\linewidth]{Figures/TKE_DIT}
+		\caption{Decaying isotropic turbulence: time evolution of turbulence kinetic $K$ energy for rhoEnergyFoam in Mode A (black line), Mode B (blue line), Mode C with $\theta^* = 0$ (red line), for dnsFOAM (green line), and rhoCentralFoam (magenta line). $\tau$ is the eddy turnover time.}
 		\label{DIT}
 	\end{figure} 
 	
@@ -1583,23 +1591,41 @@
 	When the pressure diffusion term is introduced (Mode B), a degree of numerical diffusion is observed, albeit lower than in \texttt{dnsFoam}. Most kinetic energy is dissipated at the characteristic eddy turn-over time scale. In Mode C, where $\theta^* = 0$, numerical diffusion is exacerbated but remains less pronounced than in \texttt{rhoCentralFoam}. 
 	
 	\section{Taylor-Green Vortex}
-	The Taylor–Green vortex solution is a classical case used for testing and validation of spatial and temporal accuracy of CFD solvers.
-	Il Taylor-Green vortex illustra il meccanismo di base del decadimento della produzione di piccoli vortici detti "eddies". Il caso in questione, come il precedente, quantifica le proprietà di conservazione dell'energia di rhoEnergyFOAM. Sono state effettuate prove sia con rhoEnergyFOAM che con rhoCentralFOAM, su una mesh strutturata con $32^3$ celle e su una mesh non strutturata con 85'056 prisimi. Tale mesh è stata realizzata con gmsh, estrudendo gli elementi triangolari di una faccia lungo la terza direzione principale. Per valutare la conservazione della TKE (Turbulent Kinetic Energy) è stata effettuata l'inversione del tempo a metà della simulazione, verificando effettivamente se la soluzione tornasse ai valori delle condizioni iniziali. Per una migliore visualizzazione dei risultati, è stato realizzato un video in cui si possono apprezzare contemporaneamente le simulazioni ottenute con Paraview e i grafici animati in cui viene rappresentatato l'andamento dell'enstrofia, come mostrato in Figura \ref{TGV}. 
+	The Taylor–Green vortex solution is a classical case used for testing and validate spatial and temporal accuracy of CFD solvers. The energy-preserving properties of \texttt{rhoEnergyFoam} are herein tested checking the time reversibility of this test case. In fact, the Taylor-Green vortex illustrates the fundamental process of decaying production of small vortices, known as eddies. In the simulation considered, energy conservation properties are evaluated using rhoEnergyFOAM. Tests were conducted on two types of meshes: a structured one with $32'768$ cubic cells and a unstructured one with $85'056$ prisms. Both of them are a $(2\pi)^3$ triply-periodic box generated with Gmsh (an open source finite-element mesh generator). The unstructured mesh was made extruding the triangular elements of the frontal face along the third dimension. This 	setting guarantees exact geometrical correspondence of the ele	ments on opposite faces of the computational box, hence period	icity can be exploited in all space directions. To verify the conservation of Turbulent Kinetic Energy (TKE), a time reversal test was performed in the middle of the simulation to ensure that the solution returned to the values of the initial conditions. 
+	The solution was initialized as follows:
 	
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.8\linewidth]{Figures/TGV}
-		\caption{On the right, the plot of velocity visualized using the Q-criterion for the Taylor-Green Vortex; on the left, the graph of Enstrophy, which, after reversing the velocity field at the dimensionless time 8, recovers its trend until it reaches the initial conditions. The dimensionless time is calculated as $t u_0 k_0$, where $k_0$ is the wavenumber.}
-		\label{TGV}
-	\end{figure} 
+	\begin{equation}
+		\begin{cases}
+			u = u_0 sin(k_0 x)cos(k_0 y)cos(k_0 z)\\
+			v = -v_0 cos(k_0 x)sin(k_0 y)cos(k_0 z)\\
+			w = 0
+		\end{cases}
+	\end{equation}
+	\\
+	where the density is constant $\rho = \rho_0$, $u_0 = Ma \ c_0$ is the reference velocity with $Ma = 0.01$ and $c_0$ is the reference speed of sound, $P_0$ is the reference pressure and $T_0$ is the reference temperature. The pressure equation used to initialize the case was the following:
 	
-		\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{Figures/TKE_TGV}
-		\caption{Taylor Green Vortex: time evolution of turbulence kinetic $K$ energy for rhoEnergyFoam in Mode A (black line), Mode B (blue line), and for dnsFOAM (green line), rhoCentralFoam (magenta line).}
-		\label{TKE_TGV}
-	\end{figure} 
+	\begin{equation}
+		p = p_0 + \frac{u_0^2}{16}[cos(2k_0 x)+sin(2k_0 y)][2+ cos(2k_0 z)]		
+	\end{equation}
+	\\
+	where $k_0 = 1$  is the initial wave number. 
+	Questo flusso rappresenta un caso di studio ampiamente utilizzato per analizzare la transizione dalla condizione iniziale ordinata allo sviluppo della turbolenza, caratterizzata dalla formazione di strutture su piccola scala e dalla crescita della vorticità.  
 	
+	La soluzione viene calcolata sia su una griglia cartesiana, composta da \( 32^3 \) celle, sia su una griglia non strutturata, ottenuta per estrusione di una mesh bidimensionale con elementi triangolari (Fig. 3), generando un totale di 85.056 prismi triangolari. Questa configurazione garantisce un perfetto allineamento geometrico tra le facce opposte del dominio, consentendo di sfruttare appieno la periodicità nelle tre direzioni spaziali.  
+	
+	La simulazione viene fatta evolvere fino a \( t u_0 k_0 = 8 \), istante in cui tutti i vettori velocità vengono invertiti, per poi proseguire fino a \( t u_0 k_0 = 16 \). Secondo le proprietà matematiche delle equazioni di Eulero, le condizioni iniziali dovrebbero essere ripristinate esattamente \cite{duponcheel}. Tuttavia, la diffusione numerica può compromettere questa reversibilità, come evidenziato in Fig. 4, dove viene mostrata l’evoluzione dell’energia cinetica della turbolenza e dell’enstrofia totale, definita come  
+	
+	\begin{equation}
+		\Omega = \frac{1}{2} \sum_i (\overline{\omega_i \omega_i})_i V_i.
+	\end{equation}
+	
+	L’energia cinetica totale (pannelli a, b) mostra un decadimento progressivo con \texttt{dnsFoam}, sia su griglie strutturate che non strutturate. Al contrario, \texttt{rhoCentralFoam} evidenzia una dissipazione rapida dell’energia cinetica su una scala temporale molto breve, con curve quasi impercettibili nella rappresentazione adottata. D’altra parte, \texttt{rhoEnergyFoam} conserva l’energia cinetica quasi perfettamente in modalità A, mentre in modalità B si osserva un certo grado di diffusione numerica.  
+	
+	L’enstrofia totale su griglia cartesiana (pannello c) cresce significativamente fino all’inversione temporale, seguita da una diminuzione speculare. Tuttavia, il recupero delle condizioni iniziali non risulta perfetto con \texttt{dnsFoam}, dove la vorticità massima alla fine della simulazione è più elevata del previsto. Questo comportamento anomalo è dovuto alla randomizzazione del flusso al termine della fase diretta, che non viene completamente recuperata nelle simulazioni affette da diffusione numerica. Su griglia non strutturata (pannello d) il comportamento è simile, sebbene il picco di enstrofia risulti inferiore a causa degli errori legati alla distorsione della mesh.  
+	
+	Nel complesso, questo test dimostra che \texttt{rhoEnergyFoam} mantiene proprietà di bassa diffusione anche su griglie non strutturate, offrendo prestazioni nettamente superiori rispetto ai solutori standard di OpenFOAM.  
+	
+
 	\begin{figure}
 		\centering
 		(a)\includegraphics[width=0.45\linewidth]{Figures/TGV_mesh_structured}
@@ -1608,21 +1634,31 @@
 		\label{TGV_mesh}
 	\end{figure} 
 	
-		Il Taylor-Green vortex illustra il meccanismo di base del decadimento della produzione di piccoli vortici detti \say{eddies}. Il caso studio dimostra le proprietà di conservazione dell'energia cinetica del solutore rhoEnergyFOAM. Sono state effettuate prove sia con rhoEnergyFOAM che con rhoCentralFOAM, prima su una mesh strutturata con $32^3$ celle e poi su una mesh non strutturata con 85'056 prismi. Tale mesh è stata realizzata con Gmsh, estrudendo gli elementi triangolari di una faccia lungo la terza direzione principale. Per valutare la conservazione della TKE (Turbulent Kinetic Energy) è stata effettuata l'inversione del tempo a metà della simulazione, verificando effettivamente se la soluzione tornasse ai valori delle condizioni iniziali. Per una migliore visualizzazione dei risultati, è stato realizzato un video in cui si possono apprezzare contemporaneamente le simulazioni ottenute con Paraview e i grafici animati in cui viene rappresentatato l'andamento dell'enstrofia. In figura \ref{TGV_Qcriterion} viene mostrato il campo di velocità del Taylor-Green vortex visualizzato con il  Q-criterion, mentre in figura \ref{TGV_Enstrophy} si può apprezzare il grafico dell'enstrofia ottenuto con rhoEnergyFOAM che, dopo aver invertito il campo di velocità al tempo adimensionalizzato $t^*=8$, recupera l'andamento fino alle raggiungimento delle condizioni iniziali. Il tempo adimensinalizzato è calcolato con $t^* = t u_0 k_0$.
+	\noindent The evolution of enstrophy is defined as:
 	
+	\begin{equation}
+		\Omega = \frac{1}{2} \sum_i  (\overline{\omega_{i} \omega_{i}}) V_i,
+	\end{equation}
+	\\
+	where $\omega_i$ represents the vorticity of the cell $i$, $V_i$ is the volume of cell $i$, and the overbar denotes Reynolds-averaging.
+	\\	
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.66\linewidth]{Figures/TGV_Qcriterion}
-		\caption{Campo di velocità del Taylor-Green Vortex graficata mediante il Q-criterion.}
+		\caption{Vorticity field visualized using the Q-criterion for the Taylor-Green Vortex.}
 		\label{TGV_Qcriterion}
-	\end{figure} 
+	\end{figure}
+	
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.66 \linewidth]{Figures/TGV_Enstrophy}
-		\caption{Grafico dell'enstrofia ottenuto con rhoEnergyFOAM. Il tempo adimensinalizzato è calcolato con $t u_0 k_0$, dove $t$ è il tempo fisico, $u_0$ è la velocità all'infinito e $k_0$ è il numero d'onda.}
-		\label{TGV_Enstrophy}
-	\end{figure} 
+		(a)\includegraphics[width=0.45\linewidth]{Figures/TKE_TGV_structured}
+		(b)\includegraphics[width=0.45\linewidth]{Figures/TKE_TGV_unstructured}\\
+		(c)\includegraphics[width=0.45\linewidth]{Figures/ENS_TGV_structured}
+		(d)\includegraphics[width=0.45\linewidth]{Figures/ENS_TGV_structured}\\
+		\caption{Taylor Green Vortex: time evolution of total kinetic energy (a-b), and enstrophy (c-d) for Taylor–Green ﬂow at $Ma = 0.01$ on Cartesian mesh (a–c) and on unstructured mesh (b–d). Data are shown for rhoEnergyFoam in Mode A (black line), Mode B (blue dotted line), for dnsFOAM (green line) and rhoCentralFoam (magenta line).}
+		\label{TKE_TGV}
+	\end{figure}  
 	
 	\section{Supersonic flow over a forward-facing step}
 	Lo studio del flusso non viscoso su un gradino rivolto in avanti è stato originariamente proposto da \cite{EMERY1968306} per confrontare gli schemi di cattura dello shock. In questo caso è stato utilizzato per analizzare il comportamento di rhoEnergyFOAM su flussi supersonici in presenza di urti. 
@@ -1631,13 +1667,14 @@
 	Lo studio del flusso non viscoso su un gradino rivolto in avanti è stato originariamente proposto da \citet{EMERY1968306} per confrontare gli schemi di cattura dello shock. In questo caso è stato utilizzato per analizzare il comportamento di rhoEnergyFOAM su flussi supersonici in presenza di urti. 
 	Il flusso supersonico a numero di Mach M = 3 affronta un gradino di altezza $0.2 h$, dove $h$ è l'altezza del canale. La lunghezza totale del canale è $3 h$, il bordo anteriore del gradino è a $0.6 h$ dall'ingresso e la mesh è uniforme, con $N_x \times N_y = 240 \times 80$ celle nelle direzioni delle coordinate. Le condizioni al contorno di scorrimento sono imposte alle pareti superiore e inferiore e tutte le variabili sono estrapolate all'uscita. Per questo caso il test è stato eseguito in modalità C. L'ispezione del modello di shock mostra che, nonostante le somiglianze qualitative, rhoEnergyFOAM fornisce dettagli di flusso aggiuntivi che sono appena visibili con rhoCentralFOAM. In particolare la linea di scivolamento che esce dal punto quadruplo vicino alla parete superiore è evanescente in rhoCentralFOAM, a causa della sua maggiore diffusione numerica.
 	
-	\begin{figure}[htp]
+	\begin{figure}
 		\centering
 		\includegraphics[width=0.94 \linewidth, height=0.26\textheight]{Figures/FS}
 		\caption{geometria del Forward Step e condizioni al contorno}
 		\label{FS}
 	\end{figure} 
-	\begin{figure}[htp]
+	
+	\begin{figure}
 		\centering
 		\subfloat
 		{\includegraphics[width=0.7\textwidth]{Figures/FS_velocity}} \quad 
