@@ -1518,7 +1518,9 @@
 	\end{equation}
 	\\
 	Following \citet{LIOU_AUSM+-up}, we set $\alpha = 3/16(-4 + 5 f_a^2)$, $\beta = 1/8$.
-
+	\\
+	From its original version, present in OpenFOAM's version v2006, \texttt{rhoEnergyFoam} was then optimized in terms of computational cost and	accuracy and ported to the ESI OpenFOAM v2412 version. Moreover, the Adaptive Mesh Refinement (AMR) already present in OpenFOAM, has been added as a new feature of \texttt{rhoEnergyFoam} and its results can be seen in section \ref{AMR_cylinder}.
+	 
 	\chapter{Results}
 	\label{chap:results}
 	
@@ -1701,8 +1703,15 @@
 	
 	\section{Supersonic flow over a forward-facing step}
 	The study of inviscid flow over a forward-facing step was originally introduced by \citet{EMERY1968306} to evaluate the effectiveness of shock-capturing schemes. In this work, this configuration is used to analyze the performance of \texttt{rhoEnergyFOAM} in simulating supersonic flows in the presence of shock waves.
-	\\
-	The case considered involves a supersonic flow (Mach number $Ma = 3$) encountering a step of height $0.2\,h$, where $h$ represents the channel height, as shown in figure \ref{FS_Geometry}. The total channel length is $3\,h$, with the leading edge of the step positioned at $0.6\,h$ from the inlet. The spatial discretization is uniform, consisting of a grid with $240 \times 80$ cells along the coordinate directions. 	The thermodynamic properties of the gas considered are defined as follows: specific heat at constant volume: $C_v = 1.785$ J/kgK, the gas constant: $R = 0.714286$ J/kgK and thermal conductivity: $k = 32.3 \,\mu$W/mK. The boundary conditions include slip walls on the upper and lower surfaces, while all variables are extrapolated at the outlet. \\
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8 \linewidth]{Figures/FS_Geometry}
+		\caption{Geometry of the forward-facing step and its boundary conditions}
+		\label{FS_Geometry}
+	\end{figure} 
+	
+	\noindent The case considered involves a supersonic flow (Mach number $Ma = 3$) encountering a step of height $0.2\,h$, where $h$ represents the channel height, as shown in figure \ref{FS_Geometry}. The total channel length is $3\,h$, with the leading edge of the step positioned at $0.6\,h$ from the inlet. The spatial discretization is uniform, consisting of a grid with $240 \times 80$ cells along the coordinate directions. 	The thermodynamic properties of the gas considered are defined as follows: specific heat at constant volume: $C_v = 1.785$ J/kgK, the gas constant: $R = 0.714286$ J/kgK and thermal conductivity: $k = 32.3 \,\mu$W/mK. The boundary conditions include slip walls on the upper and lower surfaces, while all variables are extrapolated at the outlet. \\
 	\\
 	In detail:
 	
@@ -1718,15 +1727,8 @@
 	This speed of sound relation can be verified using the equation for a perfect gas which yields the specific heat ratio $\gamma = \frac{C_p}{C_v}$. 
 	For this test case the solver is run in Mode C, with threshold
 	value of the shock sensor $\theta^* = 0.05$ and $k_u = 0.25$, rather than the value suggested by \citet{LIOU_AUSM+-up}, as we observed a smoother shock front in this case.
-	Analysis of the shock structure reveals that, although \texttt{rhoEnergyFOAM} and \texttt{rhoCentralFOAM} produce qualitatively similar results, \texttt{rhoEnergyFOAM} provides additional flow details. In particular, the slip line emerging from the quadruple point near the upper wall is barely visible in \texttt{rhoCentralFOAM} due to its higher numerical diffusion.
+	Analysis of the shock structure reveals that, although \texttt{rhoEnergyFOAM} and \texttt{rhoCentralFOAM} produce qualitatively similar results as shown in figures (\ref{FS_ref}, \ref{FS_rcf}), \texttt{rhoEnergyFOAM} provides additional flow details. In particular, the slip line emerging from the quadruple point near the upper wall is barely visible in \texttt{rhoCentralFOAM} due to its higher numerical diffusion.
 			
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.8 \linewidth]{Figures/FS_Geometry}
-		\caption{Geometry of the forward-facing step and its boundary conditions}
-		\label{FS_Geometry}
-	\end{figure} 
-	
 	\begin{figure}
 		\centering
 		\subfloat
@@ -1750,8 +1752,29 @@
 	\end{figure}
 	
 	\section{RANS of a flow past circular cylinder}
-	Il flusso turbolento attorno a un cilindro circolare è stato studiato numericamente per mezzo di rhoEnergyFOAM in modalità B, sia attraverso la URANS (Unsteady Reynolds-Averaged Navier-Stokes) che con la simulazione DES (Detached Eddy Simulation), basandosi sul classico modello di turbolenza di Spalart-Allmaras e la sua estensione DES, rispettivamente. Il numero di Mach del flusso libero è $M_0 = u_0 /c_0 = 0.1$, dove $u_0$ e $c_0$ sono la velocità del flusso libero e la velocità del suono, e il Reynolds basato sul diametro del cilindro è $Re_D = \rho_0 u_0 D/ \mu_w$, con $\rho_0$ la densità del flusso libero e $\mu_w$ la viscosità della parete. Una mesh di tipo O viene utilizzata per DES con $Nr \times N_\theta \times N_z = 256 \times 256 \times 48$ celle con tangente iperbolica che si estende verso il muro in un dominio $L_r \times L_z = 20D \times 2D$, mentre viene utilizzata la stessa mesh con $N_z = 1$ per la URANS. I risultati sono ancora in fase di discussione.
-	La griglia è allungata verso il cilindro con il primo punto della griglia fuori dalla parete a $y_+ \approx 150 - 200$, quindi ci affidiamo all'uso di funzioni di parete per un corretto trattamento della parete. In particolare, si utilizza la legge di equilibrio della parete di Spalding \citep{spalding1961single}. Le condizioni al contorno isotermiche di \say{no-slip} sono imposte alla parete, mentre le condizioni al contorno \say{fixedValue} e/o \say{zeroGradient} sono utilizzate per tutte le variabili all'ingresso e all'uscita, rispettivamente, con la viscosità turbolenta impostata a $\mu_{t0} = 3\mu_w$. I risultati numerici sono confrontati con precedenti simulazioni numeriche ed esperimenti. La principale differenza rispetto a questi ultimi è l'assenza di vorticità sensibile nella URANS che è probabilmente da ricondurre all'uso di funzioni di parete. Lo shedding è osservato nella DES in figura \ref{Des_Cylinder}, con parametri globali di ﬂusso in ragionevole accordo con altre fonti. Il coefficiente di pressione di parete e i proﬁli di velocità media nella scia del cilindro sono ulteriormente analizzati nelle ﬁgure \ref{Cp_Cylinder} e \ref{Cylinder}. Il confronto è complessivamente soddisfacente sia per il coefficiente di pressione che per i proﬁli di velocità, con la differenza principale che si osserva una scia cilindrica più lunga nella URANS rispetto alle simulazioni numeriche di riferimento di Catalano \citep{Catalano}. Anche in questo caso, questa deviazione può essere dovuta a una previsione imprecisa del punto di separazione causata da un trattamento approssimativo delle pareti.
+	The turbulent flow around a circular cylinder has been numerically investigated using \textit{rhoEnergyFOAM} in mode B, employing both URANS (Unsteady Reynolds-Averaged Navier-Stokes) and DES (Detached Eddy Simulation). The study is based on the classic Spalart-Allmaras turbulence model and its DES extension, respectively. The free-stream Mach number is given by 
+	
+	\begin{equation}
+		M_0 = \frac{u_0}{c_0} = 0.1,
+	\end{equation}
+	
+	where \( u_0 \) and \( c_0 \) are the free-stream velocity and the speed of sound. The Reynolds number, based on the cylinder diameter, is defined as
+	
+	\begin{equation}
+		Re_D = \frac{\rho_0 u_0 D}{\mu_w},
+	\end{equation}
+	
+	where \( \rho_0 \) represents the free-stream density and \( \mu_w \) the wall viscosity.  
+	
+	For the DES simulation, an O-type mesh is utilized, consisting of \( N_r \times N_\theta \times N_z = 256 \times 256 \times 48 \) cells, with a hyperbolic tangent stretching towards the wall in a computational domain of \( L_r \times L_z = 20D \times 2D \). The URANS simulation employs the same mesh but with \( N_z = 1 \). The results are currently under discussion.  
+	
+	The grid is refined near the cylinder, with the first grid point located at \( y_+ \approx 150 - 200 \), necessitating the use of wall functions for proper wall treatment. Specifically, Spalding’s equilibrium wall law \cite{spalding1961single} is employed. Isothermal no-slip boundary conditions are imposed at the wall, while \texttt{fixedValue} and/or \texttt{zeroGradient} boundary conditions are applied to all variables at the inlet and outlet, respectively. The turbulent viscosity is set to 
+	
+	\begin{equation}
+		\mu_{t0} = 3\mu_w.
+	\end{equation}
+	
+	Numerical results are compared against previous simulations and experimental data. A key difference observed in URANS is the absence of significant vortex shedding, likely due to the use of wall functions. In contrast, vortex shedding is captured in the DES simulation, as shown in Figure~\ref{Des_Cylinder}, with global flow parameters in reasonable agreement with reference sources. Further analysis of the wall pressure coefficient and mean velocity profiles in the cylinder wake is presented in Figures~\ref{Cp_Cylinder} and \ref{Cylinder}. The overall comparison is satisfactory, with the main discrepancy being a longer wake in URANS compared to the reference numerical simulations by Catalano \cite{Catalano}. This deviation is likely caused by an inaccurate prediction of the separation point due to the approximate wall treatment.
 	
 	\begin{figure}[h]
 		\begin{center}
@@ -1788,6 +1811,7 @@
 	La griglia è allungata verso il cilindro con il primo punto della griglia fuori dalla parete a $y_+ \approx 150 - 200$, quindi ci affidiamo all'uso di funzioni di parete per un corretto trattamento della parete. In particolare, si utilizza la legge di equilibrio della parete di Spalding \citep{spalding1961single}. Le condizioni al contorno isotermiche di \say{no-slip} sono imposte alla parete, mentre le condizioni al contorno \say{fixedValue} e/o \say{zeroGradient} sono utilizzate per tutte le variabili all'ingresso e all'uscita, rispettivamente, con la viscosità turbolenta impostata a $\mu_{t0} = 3\mu_w$. I risultati numerici sono confrontati con precedenti simulazioni numeriche ed esperimenti. La principale differenza rispetto a questi ultimi è l'assenza di vorticità sensibile nella URANS che è probabilmente da ricondurre all'uso di funzioni di parete. Lo shedding è osservato nella DES in figura \ref{Des_Cylinder}, con parametri globali di ﬂusso in ragionevole accordo con altre fonti. Il coefficiente di pressione di parete e i proﬁli di velocità media nella scia del cilindro sono ulteriormente analizzati nelle ﬁgure \ref{Cp_Cylinder} e \ref{Cylinder}. Il confronto è complessivamente soddisfacente sia per il coefficiente di pressione che per i proﬁli di velocità, con la differenza principale che si osserva una scia cilindrica più lunga nella URANS rispetto alle simulazioni numeriche di riferimento di Catalano \citep{Catalano}. Anche in questo caso, questa deviazione può essere dovuta a una previsione imprecisa del punto di separazione causata da un trattamento approssimativo delle pareti.
 	
 	\section{Smooth flow past cylinder with AMR}
+	\label{AMR_cylinder}
 	
 	\section{Transonic flow over RAE-2822 airfoil}
 	Il flusso transonico intorno al profilo alare RAE-2822 è stato simulato tramite RANS, utilizzando il modello standard di Spalart-Allmaras. Il numero di Mach è $M = 0.729$, il numero di Reynolds della corda è $Re_c = \rho_0 u_0 c /\mu_0 = 6.5 \times 10^6$, e l'angolo di attacco è $\alpha = 2.31^\circ$. \'E stata utilizzata una mesh strutturata di tipo C che comprende $369 \times 256$ celle, con tangente iperbolica che si estende verso la parete. Il limite del "far-field" si trova a circa 20 corde dalla parete, dove le condizioni al contorno di ingresso/uscita sono imposte, mentre le condizioni al contorno isotermiche di non slittamento sono imposte alla parete del profilo alare.
