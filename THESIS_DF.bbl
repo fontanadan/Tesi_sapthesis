@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{46}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -181,6 +181,12 @@ X.~D. Liu, S.~Osher, and T.~Chan.
   200--212, 1994.
 \newblock ISSN 0021-9991.
 \newblock \doi{https://doi.org/10.1006/jcph.1994.1187}.
+
+\bibitem[Modesti and Pirozzoli(2017)]{rhoEnergyFOAM}
+D.~Modesti and S.~Pirozzoli.
+\newblock A low-dissipative solver for turbulent compressible flows on
+  unstructured meshes, with openfoam implementation.
+\newblock \emph{Computers \& Fluids}, 152:\penalty0 14--23, 2017.
 
 \bibitem[Moretti(1979)]{MORETTI1979191}
 G.~Moretti.
