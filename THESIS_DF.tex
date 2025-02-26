@@ -487,7 +487,7 @@
 	\begin{figure}[t]
 		\centering
 		\includegraphics[width=0.4 \linewidth]{Figures/CELL3D.png}
-		\caption{Computational cell for numerical flux evaluation. \textcolor{red}{$\Delta S_{ON}$} represents the interface between the owner cell O and the neighboring cell N, with \textcolor{red}{$n$} as the outward normal for O and \textcolor{Havelock Blue}{$d_{ON}$} the distance between the cell centers O and N.}
+		\caption{Computational cell for numerical flux evaluation. \textcolor{red}{$\Delta S_{ON}$} represents the interface between the owner cell O and the neighboring cell N, with \textcolor{red}{$\vec{n}$} as the outward normal for O and \textcolor{Havelock Blue}{$\vec{d_{ON}}$} the distance between the cell centers O and N.}
 		\label{cells}
 	\end{figure} 
 	\noindent The pressure flux is treated symmetrically to ensure accurate shock resolution and smooth transitions:
@@ -1582,7 +1582,7 @@
 		K = \frac{1}{2} \sum_i  (\overline{u_{i} u_{i}}) V_i,
 	\end{equation}
 	\\
-	where $u_i$ represents the velocity of the cell $i$, $V_i$ is the volume of cell $i$, and the overbar denotes Reynolds-averaging, can be seen in figure \ref{DIT}.
+	where $u_i$ represents the velocity of the cell $i$, $V_i$ is the volume of cell, and the overbar denotes Reynolds-averaging, can be seen in figure \ref{DIT}.
 	\\
 	From an aerospace engineering perspective, accurately capturing turbulent kinetic energy dynamics is crucial, particularly in high-speed aerodynamic flows where shock-boundary layer interactions and numerical diffusion can significantly impact predictive accuracy. The numerical study is conducted with convective diffusive fluxes initially deactivated (mode A) to assess the upper bound of numerical diffusion in shock-capturing simulations.
 	\\
@@ -1591,7 +1591,7 @@
 	When the pressure diffusion term is introduced (Mode B), a degree of numerical diffusion is observed, albeit lower than in \texttt{dnsFoam}. Most kinetic energy is dissipated at the characteristic eddy turn-over time scale. In Mode C, where $\theta^* = 0$, numerical diffusion is exacerbated but remains less pronounced than in \texttt{rhoCentralFoam}. 
 	
 	\section{Taylor-Green Vortex}
-	The Taylor–Green vortex solution is a classical case used for testing and validate spatial and temporal accuracy of CFD solvers. The energy-preserving properties of \texttt{rhoEnergyFoam} are herein tested checking the time reversibility of this test case. In fact, the Taylor-Green vortex illustrates the fundamental process of decaying production of small vortices, known as eddies. In the simulation considered, energy conservation properties are evaluated using rhoEnergyFOAM. Tests were conducted on two types of meshes: a structured one with $32'768$ cubic cells and a unstructured one with $85'056$ prisms. Both of them are a $(2\pi)^3$ triply-periodic box generated with Gmsh (an open source finite-element mesh generator). The unstructured mesh was made extruding the triangular elements of the frontal face along the third dimension. This 	setting guarantees exact geometrical correspondence of the ele	ments on opposite faces of the computational box, hence period	icity can be exploited in all space directions. To verify the conservation of Turbulent Kinetic Energy (TKE), a time reversal test was performed in the middle of the simulation to ensure that the solution returned to the values of the initial conditions. 
+	The Taylor–Green vortex solution is a classical case used for testing and validating spatial and temporal accuracy of CFD solvers. In fact, the Taylor-Green vortex illustrates the fundamental process of decaying production of small vortices, known as eddies.The energy-preserving properties of \texttt{rhoEnergyFoam} are herein tested checking the time reversibility of this test case. Tests were conducted on two types of meshes: a structured one with $32'768$ cubic cells and a unstructured one with $85'056$ prisms. Both of them are a $(2\pi)^3$ triply-periodic box generated with Gmsh (an open source finite-element mesh generator). The unstructured mesh was made extruding the triangular elements of the frontal face along the third dimension. This 	setting guarantees exact geometrical correspondence of the ele	ments on opposite faces of the computational box, hence period	icity can be exploited in all space directions. To verify the conservation of Turbulent Kinetic Energy (TKE), a time reversal test was performed in the middle of the simulation to ensure that the solution returned to the values of the initial conditions. 
 	The solution was initialized as follows:
 	
 	\begin{equation}
@@ -1608,16 +1608,15 @@
 		p = p_0 + \frac{u_0^2}{16}[cos(2k_0 x)+sin(2k_0 y)][2+ cos(2k_0 z)]		
 	\end{equation}
 	\\
-	where $k_0 = 1$  is the initial wave number. 
-	Questo flusso rappresenta un caso di studio ampiamente utilizzato per analizzare la transizione dalla condizione iniziale ordinata allo sviluppo della turbolenza, caratterizzata dalla formazione di strutture su piccola scala e dalla crescita della vorticità.  
-	
-	La soluzione viene calcolata sia su una griglia cartesiana, composta da \( 32^3 \) celle, sia su una griglia non strutturata, ottenuta per estrusione di una mesh bidimensionale con elementi triangolari (Fig. 3), generando un totale di 85.056 prismi triangolari. Questa configurazione garantisce un perfetto allineamento geometrico tra le facce opposte del dominio, consentendo di sfruttare appieno la periodicità nelle tre direzioni spaziali.  
-	
-	La simulazione viene fatta evolvere fino a \( t u_0 k_0 = 8 \), istante in cui tutti i vettori velocità vengono invertiti, per poi proseguire fino a \( t u_0 k_0 = 16 \). Secondo le proprietà matematiche delle equazioni di Eulero, le condizioni iniziali dovrebbero essere ripristinate esattamente \cite{duponcheel}. Tuttavia, la diffusione numerica può compromettere questa reversibilità, come evidenziato in Fig. 4, dove viene mostrata l’evoluzione dell’energia cinetica della turbolenza e dell’enstrofia totale, definita come  
-	
+	where $k_0 = 1$ is the initial wave number. 
+	The solution is evolved over time until $t u_0 k_0 = 8$, where all velocity vectors are reversed, and then continued further until $t u_0 k_0 = 16$. According to the mathematical principles governing the Euler equations, the initial conditions are expected to be precisely recovered.
+	\\
+	Herein, we introduce a new physical variable called Enstrophy, defined as
 	\begin{equation}
 		\Omega = \frac{1}{2} \sum_i (\overline{\omega_i \omega_i})_i V_i.
 	\end{equation}
+	\\
+	where $\omega_i = \nabla \times u_i$ represents the vorticity of the cell $i$, $V_i$ is the volume of cell, and the overbar denotes Reynolds-averaging, can be seen in figure \ref{TKE_ENS_TGV}.
 	
 	L’energia cinetica totale (pannelli a, b) mostra un decadimento progressivo con \texttt{dnsFoam}, sia su griglie strutturate che non strutturate. Al contrario, \texttt{rhoCentralFoam} evidenzia una dissipazione rapida dell’energia cinetica su una scala temporale molto breve, con curve quasi impercettibili nella rappresentazione adottata. D’altra parte, \texttt{rhoEnergyFoam} conserva l’energia cinetica quasi perfettamente in modalità A, mentre in modalità B si osserva un certo grado di diffusione numerica.  
 	
@@ -1634,21 +1633,12 @@
 		\label{TGV_mesh}
 	\end{figure} 
 	
-	\noindent The evolution of enstrophy is defined as:
-	
-	\begin{equation}
-		\Omega = \frac{1}{2} \sum_i  (\overline{\omega_{i} \omega_{i}}) V_i,
-	\end{equation}
-	\\
-	where $\omega_i$ represents the vorticity of the cell $i$, $V_i$ is the volume of cell $i$, and the overbar denotes Reynolds-averaging.
-	\\	
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.66\linewidth]{Figures/TGV_Qcriterion}
 		\caption{Vorticity field visualized using the Q-criterion for the Taylor-Green Vortex.}
 		\label{TGV_Qcriterion}
 	\end{figure}
-	
 	
 	\begin{figure}
 		\centering
@@ -1657,7 +1647,7 @@
 		(c)\includegraphics[width=0.45\linewidth]{Figures/ENS_TGV_structured}
 		(d)\includegraphics[width=0.45\linewidth]{Figures/ENS_TGV_structured}\\
 		\caption{Taylor Green Vortex: time evolution of total kinetic energy (a-b), and enstrophy (c-d) for Taylor–Green ﬂow at $Ma = 0.01$ on Cartesian mesh (a–c) and on unstructured mesh (b–d). Data are shown for rhoEnergyFoam in Mode A (black line), Mode B (blue dotted line), for dnsFOAM (green line) and rhoCentralFoam (magenta line).}
-		\label{TKE_TGV}
+		\label{TKE_ENS_TGV}
 	\end{figure}  
 	
 	\section{Supersonic flow over a forward-facing step}
