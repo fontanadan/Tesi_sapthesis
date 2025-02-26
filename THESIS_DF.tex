@@ -1680,7 +1680,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.8 \linewidth]{Figures/SOD_TUBE_GEOMETRY}
-		\caption{Sod shock tube at $t = 0s$. On the left-hand side region with high density, pressure and temperature}
+		\caption{Sod shock tube at $t = 0$. On the left-hand side region with high density, pressure and temperature}
 		\label{Sod_geometry}
 	\end{figure} 
 	
@@ -1698,7 +1698,6 @@
 
 	\noindent Figure (\ref{Sod_plots}) contains six plots comparing the results of \texttt{rhoEnergyFoam} and \texttt{rhoCentralFoam}, for the Sod's shock tube simulation. Plots (a) and (b) depict the velocity magnitude, (c) and (d) show the pressure distribution, while (e) and (f) present the density profile. The red dots represent the numerical results obtained from the solvers, while the black solid lines correspond to the exact analytical solution. From the comparison, it is evident that \texttt{rhoEnergyFoam} (plots a, c, and e) closely matches the exact solution with minimal deviation. In fact, it manages to capture the shock wave, rarefaction wave, and contact discontinuity accurately as well as the pressure drop across the shock and the density jump. In contrast, \texttt{rhoCentralFoam} (plots b, d, and f) exhibits noticeable discrepancies, particularly in the velocity and pressure profiles, where numerical oscillations appear around the discontinuities. This proves that \texttt{rhoEnergyFoam} provides a more accurate and stable solution for this type of problem, while \texttt{rhoCentralFoam} struggles to capture the shock and rarefaction waves correctly, becasue it exhibits oscillations around the shock and contact discontinuity.
 	
-	
 	\section{Supersonic flow over a forward-facing step}
 	Lo studio del flusso non viscoso su un gradino rivolto in avanti è stato originariamente proposto da \cite{EMERY1968306} per confrontare gli schemi di cattura dello shock. In questo caso è stato utilizzato per analizzare il comportamento di rhoEnergyFOAM su flussi supersonici in presenza di urti. 
 	Il flusso supersonico a M = 3 affronta un gradino di altezza $0.2 h$, dove $h$ è l'altezza del canale. La lunghezza totale del canale è $3 h$, il bordo anteriore del gradino è a $0.6 h$ dall'ingresso e la mesh è uniforme, con $N_x \times N_y = 240 \times 80$ celle nelle direzioni delle coordinate. Le condizioni al contorno di scorrimento sono imposte alle pareti superiore e inferiore e tutte le variabili sono estrapolate all'uscita. Per questo caso il test viene eseguito in modalità C. L'ispezione del modello di shock mostra che, nonostante le somiglianze qualitative, rhoEnergyFOAM fornisce dettagli di flusso aggiuntivi che sono appena visibili con rhoCentralFOAM. In particolare la linea di scivolamento che esce dal punto quadruplo vicino alla parete superiore è evanescente in rhoCentralFOAM, a causa della sua maggiore diffusione numerica.
@@ -1708,7 +1707,7 @@
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.94 \linewidth, height=0.26\textheight]{Figures/FS}
+		\includegraphics[width=0.8 \linewidth]{Figures/FS_Geometry}
 		\caption{geometria del Forward Step e condizioni al contorno}
 		\label{FS}
 	\end{figure} 
@@ -1716,11 +1715,11 @@
 	\begin{figure}
 		\centering
 		\subfloat
-		{\includegraphics[width=0.7\textwidth]{Figures/FS_velocity}} \quad 
+		{\includegraphics[width=0.65\textwidth]{Figures/FS_velocity}} \quad 
 		\subfloat
 		\centering
 		{\includegraphics[width=0.1\textwidth, height=0.16\textheight]{Figures/FS_velocitybar}}
-		\caption{campo di velocità supersonico del Forward Step raggiunto a Mach 3.}
+		\caption{rhoEnergyFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.}
 		\label{fig:FS}
 	\end{figure}
 	
