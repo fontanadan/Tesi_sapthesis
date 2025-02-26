@@ -3,7 +3,7 @@
 \contentsline {table}{\numberline {2.1}{\ignorespaces Comparison of OpenFOAM Solvers for incompressible and compressible flows\relax }}{41}{table.caption.33}%
 \contentsline {table}{\numberline {2.2}{\ignorespaces Spalart-Allmaras constants\relax }}{45}{table.caption.35}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Modes of operation of the flow solver, with corresponding suggested values for the flags in equation \ref {flags_fluxes}.\relax }}{57}{table.caption.39}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Operational modes of \texttt {rhoEnergyFoam}, with corresponding suggested values for the flags in equation \ref {flags_fluxes}.\relax }}{57}{table.caption.39}%
 \contentsline {table}{\numberline {3.2}{\ignorespaces Coefficient of the low-storage third-order, three-stage Runge–Kutta algorithm\relax }}{57}{table.caption.40}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
