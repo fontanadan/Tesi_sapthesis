@@ -1646,7 +1646,36 @@
 	\end{figure}  
 		
 	\section{Sod's shock tube}
-	In this case, we simulate the Sod's shock tube problem, named after Gary A. Sod. This is a common test for the accuracy of computational fluid codes, like Riemann solvers, and was heavily investigated by \citet{Sod19781} in 1978. It consists of a pipe with either a circular or rectangular cross-section, filled with gas. The pipe is divided into two regions by a diaphragm positioned at its midpoint, as illustrated in figure (\ref{Sod_geometry}). In numerical simulations, this diaphragm is represented as a discontinuity in the initial fluid conditions, including density, pressure, and temperature, across the interface. The equations to be solved are the Euler equations and the air is modeled as an ideal gas. This is an extremelly severe case used to test the accuracy and stability of CFD solvers. 
+	In this case, we simulate the Sod's shock tube problem, named after Gary A. Sod. This is a common test for the accuracy of computational fluid codes, like Riemann solvers, and was heavily investigated by \citet{Sod19781} in 1978. It consists of a pipe with either a circular or rectangular cross-section, filled with gas. The pipe is divided into two regions by a diaphragm positioned at its midpoint, as illustrated in figure (\ref{Sod_geometry}). In numerical simulations, this diaphragm is represented as a discontinuity in the initial fluid conditions, including density, pressure, and temperature, across the interface. This is an extremely severe case used to test the accuracy and stability of CFD solvers. The initial conditions for this problem are straightforward, consisting of a contact discontinuity that separates gas regions with different pressure and density, while the velocity remains zero throughout the domain. In the standard configuration, the left side of the diaphragm has a density and pressure of $1$, whereas the right side has a density of $0.125$ and a pressure of $0.1$. The specific heat ratio is set to $1.4$.\\
+	These initial conditions can be expressed mathematically as follows. 
+	
+	\begin{equation}
+		\begin{bmatrix}
+			\rho_2\\
+			P_2\\
+			u_2
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			1.0\\
+			1.0\\
+			0.0
+		\end{bmatrix},
+		\quad
+		\begin{bmatrix}
+			\rho_1\\
+			P_1\\
+			u_1
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			0.125\\
+			0.1\\
+			0.0
+		\end{bmatrix}
+	\end{equation}
+	\\
+	where $\rho$ is density, $P$ is pressure and $u$ is velocity. Index $2$ and $1$ refer to left and right-hand side conditions on the side of the diaphragm, respectively. The equations to be solved are the Euler equations and the air is modeled as an ideal gas.
 	
 	\begin{figure}
 		\centering
@@ -1654,6 +1683,21 @@
 		\caption{Sod shock tube at $t = 0s$. On the left-hand side region with high density, pressure and temperature}
 		\label{Sod_geometry}
 	\end{figure} 
+	
+	\begin{figure}
+		\centering
+		(a)\includegraphics[width=0.45\linewidth]{Figures/Sod_umag_ref}
+		(b)\includegraphics[width=0.45\linewidth]{Figures/Sod_umag_rcf}\\
+		(c)\includegraphics[width=0.45\linewidth]{Figures/Sod_p_ref}
+		(d)\includegraphics[width=0.45\linewidth]{Figures/Sod_p_rcf}\\
+		(e)\includegraphics[width=0.45\linewidth]{Figures/Sod_rho_ref}
+		(f)\includegraphics[width=0.45\linewidth]{Figures/Sod_rho_rcf}\\
+		\caption{Sod's shock tube: Comparison of numerical results from \texttt{rhoEnergyFoam} and \texttt{rhoCentralFoam} for Sod's shock tube problem. The black solid lines represent the exact analytical solution, while the red dot show the numerical results. (a) and (b) display the velocity magnitude, (c) and (d) show the pressure distribution, and (e) and (f) present the density profile.}
+		\label{Sod_plots}
+	\end{figure}  
+
+	\noindent Figure (\ref{Sod_plots}) contains six plots comparing the results of \texttt{rhoEnergyFoam} and \texttt{rhoCentralFoam}, for the Sod's shock tube simulation. Plots (a) and (b) depict the velocity magnitude, (c) and (d) show the pressure distribution, while (e) and (f) present the density profile. The red dots represent the numerical results obtained from the solvers, while the black solid lines correspond to the exact analytical solution. From the comparison, it is evident that \texttt{rhoEnergyFoam} (plots a, c, and e) closely matches the exact solution with minimal deviation. In fact, it manages to capture the shock wave, rarefaction wave, and contact discontinuity accurately as well as the pressure drop across the shock and the density jump. In contrast, \texttt{rhoCentralFoam} (plots b, d, and f) exhibits noticeable discrepancies, particularly in the velocity and pressure profiles, where numerical oscillations appear around the discontinuities. This proves that \texttt{rhoEnergyFoam} provides a more accurate and stable solution for this type of problem, while \texttt{rhoCentralFoam} struggles to capture the shock and rarefaction waves correctly, becasue it exhibits oscillations around the shock and contact discontinuity.
+	
 	
 	\section{Supersonic flow over a forward-facing step}
 	Lo studio del flusso non viscoso su un gradino rivolto in avanti è stato originariamente proposto da \cite{EMERY1968306} per confrontare gli schemi di cattura dello shock. In questo caso è stato utilizzato per analizzare il comportamento di rhoEnergyFOAM su flussi supersonici in presenza di urti. 
