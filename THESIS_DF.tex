@@ -1591,7 +1591,7 @@
 	When the pressure diffusion term is introduced (Mode B), a degree of numerical diffusion is observed, albeit lower than in \texttt{dnsFoam}. Most kinetic energy is dissipated at the characteristic eddy turn-over time scale. In Mode C, where $\theta^* = 0$, numerical diffusion is exacerbated but remains less pronounced than in \texttt{rhoCentralFoam}. 
 	
 	\section{Taylor-Green Vortex}
-	The Taylor–Green vortex solution is a classical case used for testing and validating spatial and temporal accuracy of CFD solvers. In fact, the Taylor-Green vortex illustrates the fundamental process of decaying production of small vortices, known as eddies.The energy-preserving properties of \texttt{rhoEnergyFoam} are herein tested checking the time reversibility of this test case. Tests were conducted on two types of meshes: a structured one (figure \ref{TGV_mesh} panel (a)) with $32'768$ cubic cells and a unstructured one (figure \ref{TGV_mesh} panel (b)) with $85'056$ prisms. Both of them are a $(2\pi)^3$ triply-periodic box generated with Gmsh (an open source finite-element mesh generator). The unstructured mesh was made extruding the triangular elements of the frontal face along the third dimension. This setting guarantees exact geometrical correspondence of the elements on opposite faces of the computational box, hence periodicity can be exploited in all space directions.
+	The Taylor–Green vortex solution is a classical case used for testing and validating spatial and temporal accuracy of CFD solvers. In fact, the Taylor-Green vortex illustrates the fundamental process of decaying production of small vortices, known as eddies.The energy-preserving properties of \texttt{rhoEnergyFoam} are herein tested checking the time reversibility of this test case. Tests were conducted on two types of meshes: a structured one (figure (\ref{TGV_mesh}.a)) with $32'768$ cubic cells and a unstructured one (figure (\ref{TGV_mesh}.b)) with $85'056$ prisms. Both of them are a $(2\pi)^3$ triply-periodic box generated with Gmsh (an open source finite-element mesh generator). The unstructured mesh was made extruding the triangular elements of the frontal face along the third dimension. This setting guarantees exact geometrical correspondence of the elements on opposite faces of the computational box, hence periodicity can be exploited in all space directions.
 	\begin{figure}
 		\centering
 		(a)\includegraphics[width=0.45\linewidth]{Figures/TGV_mesh_structured}
@@ -1618,10 +1618,10 @@
 	\end{equation}
 	\\
 	where $k_0 = 1$ is the initial wave number. 
-	The initial conditions on the velocity field represented with the Q-criterion are show in figure \ref{TGV_Qcriterion}
+	The initial conditions on the velocity field represented with the Q-criterion are show in figure (\ref{TGV_Qcriterion})
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.66\linewidth]{Figures/TGV_Qcriterion}
+		\includegraphics[width=0.75\linewidth]{Figures/TGV_Qcriterion}
 		\caption{Vorticity field visualized using the Q-criterion for the Taylor-Green Vortex.}
 		\label{TGV_Qcriterion}
 	\end{figure}
@@ -1633,20 +1633,27 @@
 	\end{equation}
 	\\
 	where $\omega_i = \nabla \times u_i$ represents the vorticity of the cell $i$, $V_i$ is the volume of cell and the overbar denotes Reynolds-averaging. Enstrophy is a measure of the intensity of vorticity in a moving fluid. In turbulence theory it provides insights into the distribution and dissipation of rotational motion within a flow. In inviscid flows, enstrophy can be conserved, whereas in viscous flows, it tends to dissipate over time due to the effects of viscosity.	The evolution in time of the turbulent kinetic energy and of the enstrophy can be seen in figure (\ref{TKE_ENS_TGV}). As illustrated in panel (a), the kinetic energy obtained from the simulation on the structured mesh using \texttt{rhoEnergyFoam} in both mode A and mode B remains conserved and constant, as indicated by the black solid line and the blue dotted line. In contrast, \texttt{rhoCentralFoam} exhibits a rapid dissipation of kinetic energy over a very short timescale, with curves that are nearly imperceptible in the adopted representation. Meanwhile, \texttt{dnsFoam} demonstrates a gradual decay of kinetic energy. In panel (b), which corresponds to the unstructured mesh, the total kinetic energy obtained using \texttt{dnsFoam} exhibits a continuous decay, whereas \texttt{rhoCentralFoam} continues to show rapid dissipation of kinetic energy. Conversely, \texttt{rhoEnergyFoam} effectively preserves kinetic energy in mode A, while mode B experiences some degree of numerical diffusion.
-
-	L’enstrofia totale su griglia cartesiana (pannello c) cresce significativamente fino all’inversione temporale, seguita da una diminuzione speculare. Tuttavia, il recupero delle condizioni iniziali non risulta perfetto con \texttt{dnsFoam}, dove la vorticità massima alla fine della simulazione è più elevata del previsto. Questo comportamento anomalo è dovuto alla randomizzazione del flusso al termine della fase diretta, che non viene completamente recuperata nelle simulazioni affette da diffusione numerica. Su griglia non strutturata (pannello d) il comportamento è simile, sebbene il picco di enstrofia risulti inferiore a causa degli errori legati alla distorsione della mesh.  
+	In the Cartesian grid (panel c), the total enstrophy experiences a significant increase up to the point of time reversal, after which it symmetrically decreases. However, with \texttt{dnsFoam}, the initial conditions are not perfectly restored, as the maximum vorticity at the conclusion of the simulation exceeds the expected value. This discrepancy arises from the randomization of the flow at the end of the direct phase, which is not entirely recovered in simulations influenced by numerical diffusion. On the unstructured grid (panel d), a similar trend is observed. Indeed, \texttt{rhoEnergyFoam} in mode A (black line) retains initial conditions, while \texttt{rhoEnergyFoam} in mode B shows a lower peak due to errors associated with mesh distortion and to the introduction of diffusion. In both cases, \texttt{dnsFoam} and \texttt{rhoCentralFoam} are not able to show good results.
 	
 	\begin{figure}
 		\centering
 		(a)\includegraphics[width=0.45\linewidth]{Figures/TKE_TGV_structured}
 		(b)\includegraphics[width=0.45\linewidth]{Figures/TKE_TGV_unstructured}\\
 		(c)\includegraphics[width=0.45\linewidth]{Figures/ENS_TGV_structured}
-		(d)\includegraphics[width=0.45\linewidth]{Figures/ENS_TGV_structured}\\
+		(d)\includegraphics[width=0.45\linewidth]{Figures/ENS_TGV_unstructured}\\
 		\caption{Taylor Green Vortex: time evolution of total kinetic energy (a-b), and enstrophy (c-d) for Taylor–Green ﬂow at $Ma = 0.01$ on Cartesian mesh (a–c) and on unstructured mesh (b–d). Data are shown for rhoEnergyFoam in Mode A (black line), Mode B (blue dotted line), for dnsFOAM (green line) and rhoCentralFoam (magenta line).}
 		\label{TKE_ENS_TGV}
 	\end{figure}  
+		
+	\section{Sod's shock tube}
+	In this case, we simulate the Sod's shock tube problem, named after Gary A. Sod. This is a common test for the accuracy of computational fluid codes, like Riemann solvers, and was heavily investigated by \citet{Sod19781} in 1978. It consists of a pipe with either a circular or rectangular cross-section, filled with gas. The pipe is divided into two regions by a diaphragm positioned at its midpoint, as illustrated in figure (\ref{Sod_geometry}). In numerical simulations, this diaphragm is represented as a discontinuity in the initial fluid conditions, including density, pressure, and temperature, across the interface. The equations to be solved are the Euler equations and the air is modeled as an ideal gas. This is an extremelly severe case used to test the accuracy and stability of CFD solvers. 
 	
-	\noindent Overall, this test shows that \texttt{rhoEnergyFoam} maintains low-diffusion properties even on unstructured grids, offering significantly better performance than standard OpenFOAM solvers. 	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8 \linewidth]{Figures/SOD_TUBE_GEOMETRY}
+		\caption{Sod shock tube at $t = 0s$. On the left-hand side region with high density, pressure and temperature}
+		\label{Sod_geometry}
+	\end{figure} 
 	
 	\section{Supersonic flow over a forward-facing step}
 	Lo studio del flusso non viscoso su un gradino rivolto in avanti è stato originariamente proposto da \cite{EMERY1968306} per confrontare gli schemi di cattura dello shock. In questo caso è stato utilizzato per analizzare il comportamento di rhoEnergyFOAM su flussi supersonici in presenza di urti. 
@@ -1672,13 +1679,6 @@
 		\caption{campo di velocità supersonico del Forward Step raggiunto a Mach 3.}
 		\label{fig:FS}
 	\end{figure}
-	
-	
-	\section{Sod's shock tube}
-	In this case, we simulate the sod's shock tube. The equations to be solved are the Euler equations and the air is modeled as an ideal gas. This is an extremelly severe case used to test the accuracy and stability of CFD solvers. 
-	
-	\section{Axisymmetric Transonic Bump (Bachalo-Johnson)}
-	Il caso in questione studia il flusso transonico sul dosso assialsimmetrico di Bachalo-Johnson. La lunghezza del dosso è c = 20.32 cm. Il dominio è costituito da un cuneo di $1^\circ$ con raggio interno $r_{in}/c = 0.375$ e raggio esterno $r_{out}/c = 4.0$. L'altezza del dosso è $h/c = 0.09375$. La condizione a contorno è di no-slip vicino alla parete. All'inlet la velocità, la temperatura totale e la pressione totale sono costanti ("fixed-value"), mentre all'outlet la velocità, la temperatura e la pressione sono impostate con uno "zero-gradient". I confini su entrambi i lati del dominio computazionale sono periodici, cioè è stata decisa la condizione "cyclic" di OpenFOAM per rendere la simulazione 3D e assialsimmetrica. I risultati sono ancora in fase di discussione.
 	
 	\section{RANS of a flow past circular cylinder}
 	Il flusso turbolento attorno a un cilindro circolare è stato studiato numericamente per mezzo di rhoEnergyFOAM in modalità B, sia attraverso la URANS (Unsteady Reynolds-Averaged Navier-Stokes) che con la simulazione DES (Detached Eddy Simulation), basandosi sul classico modello di turbolenza di Spalart-Allmaras e la sua estensione DES, rispettivamente. Il numero di Mach del flusso libero è $M_0 = u_0 /c_0 = 0.1$, dove $u_0$ e $c_0$ sono la velocità del flusso libero e la velocità del suono, e il Reynolds basato sul diametro del cilindro è $Re_D = \rho_0 u_0 D/ \mu_w$, con $\rho_0$ la densità del flusso libero e $\mu_w$ la viscosità della parete. Una mesh di tipo O viene utilizzata per DES con $Nr \times N_\theta \times N_z = 256 \times 256 \times 48$ celle con tangente iperbolica che si estende verso il muro in un dominio $L_r \times L_z = 20D \times 2D$, mentre viene utilizzata la stessa mesh con $N_z = 1$ per la URANS. I risultati sono ancora in fase di discussione.

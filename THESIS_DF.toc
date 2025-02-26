@@ -39,13 +39,12 @@
 \contentsline {chapter}{\numberline {4}Results}{61}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Decaying Isotropic Turbulence}{61}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Taylor-Green Vortex}{64}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Supersonic flow over a forward-facing step}{68}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Sod's shock tube}{68}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Axisymmetric Transonic Bump (Bachalo-Johnson)}{70}{section.4.5}%
-\contentsline {section}{\numberline {4.6}RANS of a flow past circular cylinder}{70}{section.4.6}%
-\contentsline {section}{\numberline {4.7}DES of a flow past circular cylinder}{71}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Smooth flow past cylinder with AMR}{74}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Transonic flow over RAE-2822 airfoil}{74}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Transonic flow over Onera M6 wing}{75}{section.4.10}%
+\contentsline {section}{\numberline {4.3}Sod's shock tube}{68}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Supersonic flow over a forward-facing step}{68}{section.4.4}%
+\contentsline {section}{\numberline {4.5}RANS of a flow past circular cylinder}{69}{section.4.5}%
+\contentsline {section}{\numberline {4.6}DES of a flow past circular cylinder}{71}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Smooth flow past cylinder with AMR}{74}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Transonic flow over RAE-2822 airfoil}{74}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Transonic flow over Onera M6 wing}{76}{section.4.9}%
 \contentsline {chapter}{\numberline {5}Conclusion and Future Work}{79}{chapter.5}%
-\contentsline {chapter}{Bibliography}{81}{section*.57}%
+\contentsline {chapter}{Bibliography}{81}{section*.58}%

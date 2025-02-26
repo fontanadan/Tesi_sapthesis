@@ -182,12 +182,6 @@ X.~D. Liu, S.~Osher, and T.~Chan.
 \newblock ISSN 0021-9991.
 \newblock \doi{https://doi.org/10.1006/jcph.1994.1187}.
 
-\bibitem[Modesti and Pirozzoli(2017)]{rhoEnergyFOAM}
-D.~Modesti and S.~Pirozzoli.
-\newblock A low-dissipative solver for turbulent compressible flows on
-  unstructured meshes, with openfoam implementation.
-\newblock \emph{Computers \& Fluids}, 152:\penalty0 14--23, 2017.
-
 \bibitem[Moretti(1979)]{MORETTI1979191}
 G.~Moretti.
 \newblock The {$\lambda$}-scheme.
@@ -274,6 +268,14 @@ J.~Smagorinsky.
   basic experiment.
 \newblock \emph{Monthly weather review}, 91\penalty0 (3):\penalty0 99--164,
   1963.
+
+\bibitem[Sod(1978)]{Sod19781}
+G.~A. Sod.
+\newblock A survey of several finite difference methods for systems of
+  nonlinear hyperbolic conservation laws.
+\newblock \emph{Journal of Computational Physics}, 27\penalty0 (1):\penalty0
+  1--31, 1978.
+\newblock ISSN 0021-9991.
 
 \bibitem[Spalart(2009)]{DES}
 P.~Spalart.
