@@ -1707,15 +1707,15 @@
 	In detail:
 	
 	\begin{itemize}
-	\item \textbf{Inlet} (left): fixed-value condition for velocity $U = 3$ m/s (Mach 3), pressure $p = 1$ Pa, and temperature $T = 1$ K;
-	\item \textbf{Outlet} (right): \texttt{zeroGradient} condition on $U$, $p$, and $T$;
-	\item \textbf{Bottom wall}: no-slip adiabatic wall condition;
-	\item \textbf{Top wall}: symmetry plane condition.
+		\item \textbf{Inlet} (left): fixed-value condition for velocity $U = 3$ m/s (Mach 3), pressure $p = 1$ Pa, and temperature $T = 1$ K;
+		\item \textbf{Outlet} (right): \texttt{zeroGradient} condition on $U$, $p$, and $T$;
+		\item \textbf{Bottom wall}: no-slip adiabatic wall condition;
+		\item \textbf{Top wall}: symmetry plane condition.
 	\end{itemize}
 
 	\noindent The initial conditions for the simulation are: velocity  $U = 0$ m/s, pressure $p = 1$ Pa, and temperature: $T = 1$ K. The case is designed such that the speed of sound in the gas is	$c = \sqrt{\gamma R T} = 1 \text{ m/s}$. As a result, the velocity values are directly equivalent to the Mach number, meaning that an inlet velocity of 3 m/s corresponds to Mach 3.
 	\\
-	This speed of sound relation can be verified using the equation for a perfect gas $C_p - C_v = R$ which yields the specific heat ratio $\gamma = \frac{C_p}{C_v} = \frac{R}{C_v} + 1$. 
+	This speed of sound relation can be verified using the equation for a perfect gas which yields the specific heat ratio $\gamma = \frac{C_p}{C_v}$. 
 	For this test case the solver is run in Mode C, with threshold
 	value of the shock sensor $\theta^* = 0.05$ and $k_u = 0.25$, rather than the value suggested by \citet{LIOU_AUSM+-up}, as we observed a smoother shock front in this case.
 	Analysis of the shock structure reveals that, although \texttt{rhoEnergyFOAM} and \texttt{rhoCentralFOAM} produce qualitatively similar results, \texttt{rhoEnergyFOAM} provides additional flow details. In particular, the slip line emerging from the quadruple point near the upper wall is barely visible in \texttt{rhoCentralFOAM} due to its higher numerical diffusion.
@@ -1730,12 +1730,23 @@
 	\begin{figure}
 		\centering
 		\subfloat
-		{\includegraphics[width=0.65\textwidth]{Figures/FS_velocity}} \quad 
+		{\includegraphics[width=0.7\textwidth]{Figures/FS_velocity}} \quad 
 		\subfloat
 		\centering
 		{\includegraphics[width=0.1\textwidth, height=0.16\textheight]{Figures/FS_velocitybar}}
 		\caption{rhoEnergyFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.}
-		\label{fig:FS}
+		\label{FS_ref}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\subfloat
+		{\includegraphics[width=0.7\textwidth]{Figures/FS_rcf}} \quad 
+		\subfloat
+		\centering
+		{\includegraphics[width=0.1\textwidth, height=0.16\textheight]{Figures/FS_velocitybar}}
+		\caption{rhoCentralFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.}
+		\label{FS_rcf}
 	\end{figure}
 	
 	\section{RANS of a flow past circular cylinder}
