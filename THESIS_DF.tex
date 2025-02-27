@@ -1689,7 +1689,7 @@
 		\label{tab:cylinder_2d}
 	\end{table}
 	
-	\noindent The carthesian mesh, having $14'196$ cells, is generated through the \texttt{blockMesh} utility, then it has been refined through the \texttt{snappyHexMesh} utility, as shown in figure \ref{Cylinder_u1}. 
+	\noindent The carthesian mesh, having $14'196$ cells, is generated through the \texttt{blockMesh} utility, then it has been refined through the \texttt{snappyHexMesh} utility, as shown in figure (\ref{Cylinder_u1}). 
 	
 	\begin{figure}[h]
 		\centering
@@ -1698,7 +1698,7 @@
 		\label{Cylinder_u1}
 	\end{figure}
 	
-	\noindent In figure \ref{Cylinder_u1}, the initial velocity field is displayed, showing a uniform inflow condition and uniform velocity distribution around the cylinder. 
+	\noindent In figure (\ref{Cylinder_u1}), the initial velocity field is displayed, showing a uniform inflow condition and uniform velocity distribution around the cylinder. 
 
 	\begin{figure}[h]
 		\centering
@@ -1707,7 +1707,7 @@
 		\label{Cylinder_u2}
 	\end{figure}
 	
-	\noindent In figure \ref{Cylinder_u2}, the velocity field illustrates the onset of vortex shedding, characterized by alternating vortices in the wake of the cylinder. This phenomenon is known as vortex shedding an its pattern is typical for flows in the moderate Reynolds number regime, where the wake becomes unsteady and leads to the formation of the well-known Von Kármán vortex street.
+	\noindent In figure (\ref{Cylinder_u2}), the velocity field illustrates the onset of vortex shedding, characterized by alternating vortices in the wake of the cylinder. This phenomenon is known as vortex shedding an its pattern is typical for flows in the moderate Reynolds number regime, where the wake becomes unsteady and leads to the formation of the well-known Von Kármán vortex street.
 	
 	\begin{figure}[h]
 		\centering
@@ -1720,7 +1720,7 @@
 	
 
 	\section{URANS and DES of a flow \\ past circular cylinder}
-	The turbulent flow around a circular cylinder has been numerically investigated using \textit{rhoEnergyFoam} in mode B, employing both URANS (Unsteady Reynolds-Averaged Navier-Stokes) and DES (Detached Eddy Simulation). The study is based on the classic Spalart-Allmaras turbulence model and its DES extension. The free-stream Mach number is given by $M_0 = u_0/c_0 = 0.1$,	where $u_0$ and $c_0$ are the free-stream velocity and the speed of sound. The Reynolds number, based on the cylinder diameter, is defined as $Re_D = (\rho_0 u_0 D)/\mu_w$, where $\rho_0$ represents the free-stream density and $\mu_w$ the wall viscosity. For the URANS simulation, an O-type mesh is utilized, consisting of $ N_r \times N_\theta = 256 \times 256 $ cells, with a hyperbolic tangent stretching towards the wall in a computational domain of $ L_r \times L_z = 20D \times 2D $, as shown in figure \ref{Cylinder_mesh}. For the DES simulation, an also an O-type mesh is utilized, consisting of $ N_r \times N_\theta \times N_z = 256 \times 256 \times 48 $ cells. Here as well, a hyperbolic tangent stretching towards the wall was used, within the same domain as written above. The grid is refined near the cylinder, with the first grid point located at $ y_+ \approx 150 - 200 $, necessitating the use of wall functions for proper wall treatment. Specifically, Spalding’s equilibrium wall law \cite{spalding1961single} is employed. 
+	The turbulent flow around a circular cylinder has been numerically investigated using \textit{rhoEnergyFoam} in mode B, employing both URANS (Unsteady Reynolds-Averaged Navier-Stokes) and DES (Detached Eddy Simulation). The study is based on the classic Spalart-Allmaras turbulence model and its DES extension. The free-stream Mach number is given by $M_0 = u_0/c_0 = 0.1$,	where $u_0$ and $c_0$ are the free-stream velocity and the speed of sound. The Reynolds number, based on the cylinder diameter, is defined as $Re_D = (\rho_0 u_0 D)/\mu_w$, where $\rho_0$ represents the free-stream density and $\mu_w$ the wall viscosity. For the URANS simulation, an O-type mesh is utilized, consisting of $ N_r \times N_\theta = 256 \times 256 $ cells, with a hyperbolic tangent stretching towards the wall in a computational domain of $ L_r \times L_z = 20D \times 2D $, as shown in figure \ref{Cylinder_mesh}. For the DES simulation, an also an O-type mesh is utilized, consisting of $ N_r \times N_\theta \times N_z = 256 \times 256 \times 48 $ cells. Here as well, a hyperbolic tangent stretching towards the wall was used, within the same domain as written above. The grid is refined near the cylinder, with the first grid point located at $ y_+ \approx 150 - 200 $, necessitating the use of wall functions for proper wall treatment. Specifically, Spalding’s equilibrium wall law \citep{spalding1961single} is employed. 
 	
 	\begin{figure}[h]
 		\centering
@@ -1731,16 +1731,16 @@
 	
 	\begin{figure}[h]
 		\centering
-		(a){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_u_075}}
-		(b){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_u_150}}\\
-		(c){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_v_075}}
-		(d){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_v_150}}
+		(a){\includegraphics[width=0.4\textwidth]{Figures/Cylinder_u_075}}
+		(b){\includegraphics[width=0.4\textwidth]{Figures/Cylinder_u_150}}\\
+		(c){\includegraphics[width=0.4\textwidth]{Figures/Cylinder_v_075}}
+		(d){\includegraphics[width=0.4\textwidth]{Figures/Cylinder_v_150}}
 		\caption[Velocity profiles of a URANS for a flow around cylinder]{Numerical simulation of ﬂow around circular cylinder: mean velocity proﬁles at $x/D = 0.75$ (panels a-c) e $x/D = 1.5$ (panels b-d) for URANS with \texttt{rhoEnergyFoam} (red line), Modesti's URANS (black dotted line) Catalano's URANS (purple dotted line).}
 		\label{Cylinder}
 	\end{figure}
 	
-	\noindent Isothermal no-slip boundary conditions are imposed at the wall, while \texttt{fixedValue} and/or \texttt{zeroGradient} boundary conditions are applied to all variables at the inlet and outlet, respectively. The turbulent viscosity is set to $\mu_{t0} = 3\mu_w$. The simulation has been performed in parallel, dividing the computational domain within 48 processors, in an HPC architecture. Numerical results are compared against previous simulations and experimental data. A key difference observed in URANS is the absence of significant vortex shedding, likely due to the use of wall functions. In contrast, vortex shedding is captured in the DES simulation, as shown in Figure~\ref{Des_Cylinder}, with global flow parameters in reasonable agreement with reference sources. Further analysis of the wall pressure coefficient and mean velocity profiles in the cylinder wake is presented in Figures~\ref{Cp_Cylinder_URANS} and \ref{Cylinder}. The overall comparison is satisfactory, with the main discrepancy being a longer wake in URANS compared to the reference numerical simulations by Catalano \cite{Catalano}. This deviation is likely caused by an inaccurate prediction of the separation point due to the approximate wall treatment.
-	
+	\noindent Isothermal no-slip boundary conditions are imposed at the wall, while \texttt{fixedValue} and/or \texttt{zeroGradient} boundary conditions are applied to all variables at the inlet and outlet, respectively. The turbulent viscosity is set to $\mu_{t0} = 3\mu_w$. The simulation has been performed in parallel, dividing the computational domain within 48 processors, in an HPC architecture. Numerical results are compared against previous simulations and experimental data. In figure \ref{Cylinder} we present mean velocity profiles in the cylinder wake, whose results are of good acceptance with previous studies, with the only discrepancy that there is a longer wake in URANS compared to the reference numerical simulations by Catalano \cite{Catalano}. This deviation is likely caused by an inaccurate prediction of the separation point due to the approximate wall treatment. A key difference observed in URANS is the absence of significant vortex shedding, likely due to the use of wall functions. In contrast, vortex shedding is captured in the DES simulation, as shown in figure~(\ref{Des_Cylinder}), with global flow parameters in reasonable agreement with reference sources. Further analysis of the wall pressure coefficient for the URANS and DES is presented in figures~(\ref{Cp_Cylinder_URANS}, \ref{Cp_Cylinder_DES}). The overall comparison is satisfactory.
+		
 	\begin{figure}[h]
 		\begin{center}
 			\hspace{5mm}
@@ -1854,23 +1854,23 @@
 	\begin{figure}[h]
 		\centering
 		\subfloat
-		{\includegraphics[width=0.7\textwidth]{Figures/FS_velocity}} \quad 
-		\subfloat
-		\centering
-		{\includegraphics[width=0.1\textwidth, height=0.16\textheight]{Figures/FS_velocitybar}}
-		\caption{rhoEnergyFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.}
-		\label{FS_ref}
-	\end{figure}
-	
-	\begin{figure}[h]
-		\centering
-		\subfloat
 		{\includegraphics[width=0.7\textwidth]{Figures/FS_rcf}} \quad 
 		\subfloat
 		\centering
 		{\includegraphics[width=0.1\textwidth, height=0.16\textheight]{Figures/FS_velocitybar}}
 		\caption{rhoCentralFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.}
 		\label{FS_rcf}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat
+		{\includegraphics[width=0.7\textwidth]{Figures/FS_velocity}} \quad 
+		\subfloat
+		\centering
+		{\includegraphics[width=0.1\textwidth, height=0.16\textheight]{Figures/FS_velocitybar}}
+		\caption{rhoEnergyFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.}
+		\label{FS_ref}
 	\end{figure}
 	
 	\section{Transonic flow over RAE-2822 airfoil}
