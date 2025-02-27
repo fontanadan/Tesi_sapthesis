@@ -16,17 +16,17 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Geometry of the forward-facing step and its boundary conditions\relax }}{71}{figure.caption.49}%
 \contentsline {figure}{\numberline {4.9}{\ignorespaces rhoEnergyFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.\relax }}{72}{figure.caption.50}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces rhoCentralFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.\relax }}{72}{figure.caption.51}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Cylinder mesh AMR}}{73}{figure.caption.52}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Cylinder mesh AMR}}{73}{figure.caption.53}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Cylinder mesh AMR}}{73}{figure.caption.54}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Mesh for the URANS and DES simulation of the cylinder}}{74}{figure.caption.55}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Pressure coefficients for the URANS of the 2D cylinder}}{75}{figure.caption.56}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Pressure coefficients for the DES of the 3D cylinder}}{76}{figure.caption.57}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Velocity profiles of a URANS for a flow around cylinder}}{77}{figure.caption.58}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Velocity representation through Q-criterion of a DES of the circular cylinder}}{77}{figure.caption.59}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Pressure field of a RANS of a transonic flow over RAE2822}}{78}{figure.caption.60}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Pressure coefficient of RANS of a transonic flow over RAE2822}}{78}{figure.caption.61}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Pressure field with Ducros sensor isosurface superimposed, showing the presence of two shock waves, of the Onera M6 wing.\relax }}{79}{figure.caption.62}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Pressure field of a flow around Onera M6 wing}}{80}{figure.caption.63}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Pressure coefficient of the flow around ONERA M6 wing.}}{81}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Cylinder mesh AMR}}{73}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Cylinder mesh AMR}}{73}{figure.caption.54}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Cylinder mesh AMR}}{74}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Mesh for the URANS and DES simulation of the cylinder}}{75}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Pressure coefficients for the URANS of the 2D cylinder}}{76}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Pressure coefficients for the DES of the 3D cylinder}}{76}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Velocity profiles of a URANS for a flow around cylinder}}{77}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Velocity representation through Q-criterion of a DES of the circular cylinder}}{77}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Pressure field of a RANS of a transonic flow over RAE2822}}{78}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Pressure coefficient of RANS of a transonic flow over RAE2822}}{79}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Pressure field with Ducros sensor isosurface superimposed, showing the presence of two shock waves, of the Onera M6 wing.\relax }}{80}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Pressure field of a flow around Onera M6 wing}}{80}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Pressure coefficient of the flow around ONERA M6 wing.}}{81}{figure.caption.65}%
 \addvspace {10\p@ }

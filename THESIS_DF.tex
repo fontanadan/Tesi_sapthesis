@@ -1759,6 +1759,33 @@
 	\section{Smooth flow past cylinder with AMR}
 	\label{AMR_cylinder}
 	
+	\texttt{rhoEnergyFoam}, is also able to take advantage of the adptive 
+	mesh refinement schemes present within OpenFOAM. This paragraph 
+	is done to demonstrate these properties, and at the moment further 
+	tests are also being conducted to verify the solver's capability 
+	to handle moving objects within the domain. We report here a 2D 
+	simulation of a cylinder at Mach $M_\infty = 0.1$ and $Re_\infty = 100$. Again  nondimensional variables are used and are shown in Table \ref{tab:cylinder_2d}.
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{lcc}
+			\hline
+			Variable & Value \\
+			\hline
+			\(M_{\infty}\) & 0.1 \\
+			\(Re_{D}\) & \(100\) \\
+			\(\rho_{\infty}\) & 1 \\
+			\(u_{\infty}\) & 0.118321 \\
+			\(c_{\infty}\) & 1.18321 \\
+			\(\mu_{\infty}\) & \(1.18321 \times 10^{-4}\) \\
+			\(D\) & 0.1 \\
+			\hline
+		\end{tabular}
+		\caption{Initial conditions for turbulent flow around 
+			circular cylinder.}
+		\label{tab:cylinder_2d}
+	\end{table}
+	
 	\begin{figure}
 		\centering
 		{\includegraphics[width=0.8\linewidth]{Figures/Cylinder_mesh_AMR}}
