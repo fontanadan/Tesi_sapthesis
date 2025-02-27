@@ -41,9 +41,9 @@
 \contentsline {section}{\numberline {4.2}Taylor-Green Vortex}{64}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Sod's shock tube}{68}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Supersonic flow \\ over a forward-facing step}{70}{section.4.4}%
-\contentsline {section}{\numberline {4.5}URANS and DES of a flow \\ past circular cylinder}{72}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Smooth flow past cylinder with AMR}{76}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Transonic flow over RAE-2822 airfoil}{76}{section.4.7}%
+\contentsline {section}{\numberline {4.5}Smooth flow past cylinder with AMR}{72}{section.4.5}%
+\contentsline {section}{\numberline {4.6}URANS and DES of a flow \\ past circular cylinder}{72}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Transonic flow over RAE-2822 airfoil}{75}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Transonic flow over Onera M6 wing}{76}{section.4.8}%
-\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{81}{chapter.5}%
-\contentsline {chapter}{Bibliography}{83}{section*.62}%
+\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{83}{chapter.5}%
+\contentsline {chapter}{Bibliography}{85}{section*.65}%

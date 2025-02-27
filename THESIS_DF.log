@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  27 FEB 2025 02:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  27 FEB 2025 02:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -777,7 +777,7 @@ ge.7}) has been already used, duplicate ignored
                    \relax 
 l.175 	
         [7]
-<Figures/OpenFOAM_structure.pdf, id=271, 1445.4pt x 813.0375pt>
+<Figures/OpenFOAM_structure.pdf, id=277, 1445.4pt x 813.0375pt>
 File: Figures/OpenFOAM_structure.pdf Graphic file (type pdf)
 <use Figures/OpenFOAM_structure.pdf>
 Package pdftex.def Info: Figures/OpenFOAM_structure.pdf  used on input line 178
@@ -789,7 +789,7 @@ been already used, duplicate ignored
                    \relax 
 l.192 	\end{itemize}
                      [8 <./Figures/OpenFOAM_structure.pdf>]
-<Figures/Case_directory_structure.pdf, id=294, 1445.4pt x 813.0375pt>
+<Figures/Case_directory_structure.pdf, id=300, 1445.4pt x 813.0375pt>
 File: Figures/Case_directory_structure.pdf Graphic file (type pdf)
 <use Figures/Case_directory_structure.pdf>
 Package pdftex.def Info: Figures/Case_directory_structure.pdf  used on input li
@@ -866,7 +866,7 @@ yp-i-cally achieved
  []
 
 [18] [19] [20] [21]
-<Figures/CELL3D.png, id=424, 447.17062pt x 288.3272pt>
+<Figures/CELL3D.png, id=430, 447.17062pt x 288.3272pt>
 File: Figures/CELL3D.png Graphic file (type png)
 <use Figures/CELL3D.png>
 Package pdftex.def Info: Figures/CELL3D.png  used on input line 494.
@@ -947,7 +947,7 @@ Package natbib Warning: Citation `rhoEnergyFoam' on page 53 undefined on input
 line 1263.
 
 [53]
-<Figures/CELL.png, id=728, 1219.55624pt x 560.0925pt>
+<Figures/CELL.png, id=734, 1219.55624pt x 560.0925pt>
 File: Figures/CELL.png Graphic file (type png)
 <use Figures/CELL.png>
 Package pdftex.def Info: Figures/CELL.png  used on input line 1309.
@@ -976,24 +976,24 @@ Overfull \hbox (15.3612pt too wide) detected at line 1444
 ]
 Chapter 4.
 [61]
-<Figures/DIT.png, id=820, 489.32813pt x 406.51875pt>
+<Figures/DIT.png, id=826, 489.32813pt x 406.51875pt>
 File: Figures/DIT.png Graphic file (type png)
 <use Figures/DIT.png>
 Package pdftex.def Info: Figures/DIT.png  used on input line 1557.
 (pdftex.def)             Requested size: 209.99908pt x 174.46469pt.
-<Figures/TKE_DIT.pdf, id=821, 361.35pt x 252.945pt>
+<Figures/TKE_DIT.pdf, id=827, 361.35pt x 252.945pt>
 File: Figures/TKE_DIT.pdf Graphic file (type pdf)
 <use Figures/TKE_DIT.pdf>
 Package pdftex.def Info: Figures/TKE_DIT.pdf  used on input line 1577.
 (pdftex.def)             Requested size: 240.00092pt x 168.00175pt.
  [62] [63 <./Figures/DIT.png (PNG copy)> <./Figures/TKE_DIT.pdf>]
-<Figures/TGV_mesh_structured.png, id=865, 432.86719pt x 327.47343pt>
+<Figures/TGV_mesh_structured.png, id=871, 432.86719pt x 327.47343pt>
 File: Figures/TGV_mesh_structured.png Graphic file (type png)
 <use Figures/TGV_mesh_structured.png>
 Package pdftex.def Info: Figures/TGV_mesh_structured.png  used on input line 16
 04.
 (pdftex.def)             Requested size: 134.99908pt x 102.13033pt.
-<Figures/TGV_mesh_unstructured.png, id=866, 423.83344pt x 327.47343pt>
+<Figures/TGV_mesh_unstructured.png, id=872, 423.83344pt x 327.47343pt>
 File: Figures/TGV_mesh_unstructured.png Graphic file (type png)
 <use Figures/TGV_mesh_unstructured.png>
 Package pdftex.def Info: Figures/TGV_mesh_unstructured.png  used on input line 
@@ -1003,32 +1003,32 @@ Package pdftex.def Info: Figures/TGV_mesh_unstructured.png  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/TGV_Qcriterion.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/TGV_Qcriterion.pdf, id=873, 441.42816pt x 321.96384pt>
+<Figures/TGV_Qcriterion.pdf, id=879, 441.42816pt x 321.96384pt>
 File: Figures/TGV_Qcriterion.pdf Graphic file (type pdf)
 <use Figures/TGV_Qcriterion.pdf>
 Package pdftex.def Info: Figures/TGV_Qcriterion.pdf  used on input line 1631.
 (pdftex.def)             Requested size: 225.0pt x 164.10603pt.
 [65 <./Figures/TGV_mesh_structured.png> <./Figures/TGV_mesh_unstructured.png>]
 [66 <./Figures/TGV_Qcriterion.pdf>]
-<Figures/TKE_TGV_structured.pdf, id=893, 361.35pt x 252.945pt>
+<Figures/TKE_TGV_structured.pdf, id=899, 361.35pt x 252.945pt>
 File: Figures/TKE_TGV_structured.pdf Graphic file (type pdf)
 <use Figures/TKE_TGV_structured.pdf>
 Package pdftex.def Info: Figures/TKE_TGV_structured.pdf  used on input line 164
 7.
 (pdftex.def)             Requested size: 134.99908pt x 94.49905pt.
-<Figures/TKE_TGV_unstructured.pdf, id=894, 361.35pt x 252.945pt>
+<Figures/TKE_TGV_unstructured.pdf, id=900, 361.35pt x 252.945pt>
 File: Figures/TKE_TGV_unstructured.pdf Graphic file (type pdf)
 <use Figures/TKE_TGV_unstructured.pdf>
 Package pdftex.def Info: Figures/TKE_TGV_unstructured.pdf  used on input line 1
 648.
 (pdftex.def)             Requested size: 134.99908pt x 94.49905pt.
-<Figures/ENS_TGV_structured.pdf, id=895, 361.35pt x 252.945pt>
+<Figures/ENS_TGV_structured.pdf, id=901, 361.35pt x 252.945pt>
 File: Figures/ENS_TGV_structured.pdf Graphic file (type pdf)
 <use Figures/ENS_TGV_structured.pdf>
 Package pdftex.def Info: Figures/ENS_TGV_structured.pdf  used on input line 164
 9.
 (pdftex.def)             Requested size: 134.99908pt x 94.49905pt.
-<Figures/ENS_TGV_unstructured.pdf, id=896, 361.35pt x 252.945pt>
+<Figures/ENS_TGV_unstructured.pdf, id=902, 361.35pt x 252.945pt>
 File: Figures/ENS_TGV_unstructured.pdf Graphic file (type pdf)
 <use Figures/ENS_TGV_unstructured.pdf>
 Package pdftex.def Info: Figures/ENS_TGV_unstructured.pdf  used on input line 1
@@ -1039,38 +1039,38 @@ Underfull \vbox (badness 6396) has occurred while \output is active []
 
  [67 <./Figures/TKE_TGV_structured.pdf> <./Figures/TKE_TGV_unstructured.pdf> <.
 /Figures/ENS_TGV_structured.pdf> <./Figures/ENS_TGV_unstructured.pdf>]
-<Figures/SOD_TUBE_GEOMETRY.png, id=965, 651.93562pt x 186.6975pt>
+<Figures/SOD_TUBE_GEOMETRY.png, id=971, 651.93562pt x 186.6975pt>
 File: Figures/SOD_TUBE_GEOMETRY.png Graphic file (type png)
 <use Figures/SOD_TUBE_GEOMETRY.png>
 Package pdftex.def Info: Figures/SOD_TUBE_GEOMETRY.png  used on input line 1690
 .
 (pdftex.def)             Requested size: 240.00092pt x 68.72943pt.
-<Figures/Sod_umag_ref.png, id=966, 752.8125pt x 526.96875pt>
+<Figures/Sod_umag_ref.png, id=972, 752.8125pt x 526.96875pt>
 File: Figures/Sod_umag_ref.png Graphic file (type png)
 <use Figures/Sod_umag_ref.png>
 Package pdftex.def Info: Figures/Sod_umag_ref.png  used on input line 1697.
 (pdftex.def)             Requested size: 134.99908pt x 94.49648pt.
-<Figures/Sod_umag_rcf.png, id=967, 752.8125pt x 526.96875pt>
+<Figures/Sod_umag_rcf.png, id=973, 752.8125pt x 526.96875pt>
 File: Figures/Sod_umag_rcf.png Graphic file (type png)
 <use Figures/Sod_umag_rcf.png>
 Package pdftex.def Info: Figures/Sod_umag_rcf.png  used on input line 1698.
 (pdftex.def)             Requested size: 134.99908pt x 94.49648pt.
-<Figures/Sod_p_ref.png, id=968, 752.8125pt x 526.96875pt>
+<Figures/Sod_p_ref.png, id=974, 752.8125pt x 526.96875pt>
 File: Figures/Sod_p_ref.png Graphic file (type png)
 <use Figures/Sod_p_ref.png>
 Package pdftex.def Info: Figures/Sod_p_ref.png  used on input line 1699.
 (pdftex.def)             Requested size: 134.99908pt x 94.49648pt.
-<Figures/Sod_p_rcf.png, id=969, 752.8125pt x 526.96875pt>
+<Figures/Sod_p_rcf.png, id=975, 752.8125pt x 526.96875pt>
 File: Figures/Sod_p_rcf.png Graphic file (type png)
 <use Figures/Sod_p_rcf.png>
 Package pdftex.def Info: Figures/Sod_p_rcf.png  used on input line 1700.
 (pdftex.def)             Requested size: 134.99908pt x 94.49648pt.
-<Figures/Sod_rho_ref.png, id=970, 752.8125pt x 526.96875pt>
+<Figures/Sod_rho_ref.png, id=976, 752.8125pt x 526.96875pt>
 File: Figures/Sod_rho_ref.png Graphic file (type png)
 <use Figures/Sod_rho_ref.png>
 Package pdftex.def Info: Figures/Sod_rho_ref.png  used on input line 1701.
 (pdftex.def)             Requested size: 134.99908pt x 94.49648pt.
-<Figures/Sod_rho_rcf.png, id=971, 752.8125pt x 526.96875pt>
+<Figures/Sod_rho_rcf.png, id=977, 752.8125pt x 526.96875pt>
 File: Figures/Sod_rho_rcf.png Graphic file (type png)
 <use Figures/Sod_rho_rcf.png>
 Package pdftex.def Info: Figures/Sod_rho_rcf.png  used on input line 1702.
@@ -1078,7 +1078,7 @@ Package pdftex.def Info: Figures/Sod_rho_rcf.png  used on input line 1702.
  [68 <./Figures/SOD_TUBE_GEOMETRY.png (PNG copy)>] [69 <./Figures/Sod_umag_ref.
 png> <./Figures/Sod_umag_rcf.png> <./Figures/Sod_p_ref.png> <./Figures/Sod_p_rc
 f.png> <./Figures/Sod_rho_ref.png> <./Figures/Sod_rho_rcf.png>]
-<Figures/FS_Geometry.pdf, id=990, 1005.7575pt x 447.1706pt>
+<Figures/FS_Geometry.pdf, id=996, 1005.7575pt x 447.1706pt>
 File: Figures/FS_Geometry.pdf Graphic file (type pdf)
 <use Figures/FS_Geometry.pdf>
 Package pdftex.def Info: Figures/FS_Geometry.pdf  used on input line 1714.
@@ -1092,7 +1092,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1719--1722
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/FS_velocity.pdf): PDF inclusi
 on: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/FS_velocity.pdf, id=1000, 846.59145pt x 290.37053pt>
+<Figures/FS_velocity.pdf, id=1006, 846.59145pt x 290.37053pt>
 File: Figures/FS_velocity.pdf Graphic file (type pdf)
 <use Figures/FS_velocity.pdf>
 Package pdftex.def Info: Figures/FS_velocity.pdf  used on input line 1740.
@@ -1101,12 +1101,12 @@ Package pdftex.def Info: Figures/FS_velocity.pdf  used on input line 1740.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/FS_velocitybar.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/FS_velocitybar.pdf, id=1001, 107.65219pt x 252.19218pt>
+<Figures/FS_velocitybar.pdf, id=1007, 107.65219pt x 252.19218pt>
 File: Figures/FS_velocitybar.pdf Graphic file (type pdf)
 <use Figures/FS_velocitybar.pdf>
 Package pdftex.def Info: Figures/FS_velocitybar.pdf  used on input line 1743.
 (pdftex.def)             Requested size: 30.00113pt x 78.40195pt.
-<Figures/FS_rcf.png, id=1002, 773.89125pt x 271.0125pt>
+<Figures/FS_rcf.png, id=1008, 773.89125pt x 271.0125pt>
 File: Figures/FS_rcf.png Graphic file (type png)
 <use Figures/FS_rcf.png>
 Package pdftex.def Info: Figures/FS_rcf.png  used on input line 1751.
@@ -1115,128 +1115,145 @@ File: Figures/FS_velocitybar.pdf Graphic file (type pdf)
 <use Figures/FS_velocitybar.pdf>
 Package pdftex.def Info: Figures/FS_velocitybar.pdf  used on input line 1754.
 (pdftex.def)             Requested size: 30.00113pt x 78.40195pt.
-[71 <./Figures/FS_Geometry.pdf>] [72 <./Figures/FS_velocity.pdf> <./Figures/FS_
-velocitybar.pdf> <./Figures/FS_rcf.png>]
-<Figures/Cylinder_mesh.pdf, id=1038, 372.64218pt x 271.76532pt>
+<Figures/Cylinder_mesh_AMR.png, id=1009, 1529.715pt x 842.14626pt>
+File: Figures/Cylinder_mesh_AMR.png Graphic file (type png)
+<use Figures/Cylinder_mesh_AMR.png>
+Package pdftex.def Info: Figures/Cylinder_mesh_AMR.png  used on input line 1764
+.
+(pdftex.def)             Requested size: 240.00092pt x 132.12473pt.
+[71 <./Figures/FS_Geometry.pdf>]
+<Figures/Cylinder_u1.png, id=1028, 1529.715pt x 842.14626pt>
+File: Figures/Cylinder_u1.png Graphic file (type png)
+<use Figures/Cylinder_u1.png>
+Package pdftex.def Info: Figures/Cylinder_u1.png  used on input line 1772.
+(pdftex.def)             Requested size: 240.00092pt x 132.12473pt.
+<Figures/Cylinder_u2.png, id=1029, 1529.715pt x 842.14626pt>
+File: Figures/Cylinder_u2.png Graphic file (type png)
+<use Figures/Cylinder_u2.png>
+Package pdftex.def Info: Figures/Cylinder_u2.png  used on input line 1779.
+(pdftex.def)             Requested size: 240.00092pt x 132.12473pt.
+ [72 <./Figures/FS_velocity.pdf> <./Figures/FS_velocitybar.pdf> <./Figures/FS_r
+cf.png>] [73 <./Figures/Cylinder_mesh_AMR.png (PNG copy)> <./Figures/Cylinder_u
+1.png (PNG copy)> <./Figures/Cylinder_u2.png (PNG copy)>]
+<Figures/Cylinder_mesh.pdf, id=1051, 372.64218pt x 271.76532pt>
 File: Figures/Cylinder_mesh.pdf Graphic file (type pdf)
 <use Figures/Cylinder_mesh.pdf>
-Package pdftex.def Info: Figures/Cylinder_mesh.pdf  used on input line 1764.
+Package pdftex.def Info: Figures/Cylinder_mesh.pdf  used on input line 1789.
 (pdftex.def)             Requested size: 240.00092pt x 175.0281pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/pressure_coeff_cylinder.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/pressure_coeff_cylinder.pdf, id=1043, 701.44414pt x 595.87321pt>
+<Figures/pressure_coeff_cylinder.pdf, id=1056, 701.44414pt x 595.87321pt>
 File: Figures/pressure_coeff_cylinder.pdf Graphic file (type pdf)
 <use Figures/pressure_coeff_cylinder.pdf>
 Package pdftex.def Info: Figures/pressure_coeff_cylinder.pdf  used on input lin
-e 1774.
+e 1799.
 (pdftex.def)             Requested size: 209.99908pt x 178.39056pt.
-<Figures/pressure_coefficient_DES.png, id=1044, 752.8125pt x 526.96875pt>
+[74 <./Figures/Cylinder_mesh.pdf>]
+<Figures/pressure_coefficient_DES.png, id=1068, 752.8125pt x 526.96875pt>
 File: Figures/pressure_coefficient_DES.png Graphic file (type png)
 <use Figures/pressure_coefficient_DES.png>
 Package pdftex.def Info: Figures/pressure_coefficient_DES.png  used on input li
-ne 1782.
+ne 1807.
 (pdftex.def)             Requested size: 240.00092pt x 167.9982pt.
-<Figures/Cylinder_u_075.png, id=1045, 316.18124pt x 273.27094pt>
+<Figures/Cylinder_u_075.png, id=1069, 316.18124pt x 273.27094pt>
 File: Figures/Cylinder_u_075.png Graphic file (type png)
 <use Figures/Cylinder_u_075.png>
-Package pdftex.def Info: Figures/Cylinder_u_075.png  used on input line 1790.
+Package pdftex.def Info: Figures/Cylinder_u_075.png  used on input line 1815.
 (pdftex.def)             Requested size: 134.99908pt x 116.67859pt.
-<Figures/Cylinder_u_150.png, id=1046, 314.67563pt x 273.27094pt>
+<Figures/Cylinder_u_150.png, id=1070, 314.67563pt x 273.27094pt>
 File: Figures/Cylinder_u_150.png Graphic file (type png)
 <use Figures/Cylinder_u_150.png>
-Package pdftex.def Info: Figures/Cylinder_u_150.png  used on input line 1791.
+Package pdftex.def Info: Figures/Cylinder_u_150.png  used on input line 1816.
 (pdftex.def)             Requested size: 134.99908pt x 117.23317pt.
-<Figures/Cylinder_v_075.png, id=1047, 316.18124pt x 273.27094pt>
+<Figures/Cylinder_v_075.png, id=1071, 316.18124pt x 273.27094pt>
 File: Figures/Cylinder_v_075.png Graphic file (type png)
 <use Figures/Cylinder_v_075.png>
-Package pdftex.def Info: Figures/Cylinder_v_075.png  used on input line 1792.
+Package pdftex.def Info: Figures/Cylinder_v_075.png  used on input line 1817.
 (pdftex.def)             Requested size: 134.99908pt x 116.67859pt.
-<Figures/Cylinder_v_150.png, id=1048, 312.41719pt x 273.27094pt>
+<Figures/Cylinder_v_150.png, id=1072, 312.41719pt x 273.27094pt>
 File: Figures/Cylinder_v_150.png Graphic file (type png)
 <use Figures/Cylinder_v_150.png>
-Package pdftex.def Info: Figures/Cylinder_v_150.png  used on input line 1793.
+Package pdftex.def Info: Figures/Cylinder_v_150.png  used on input line 1818.
 (pdftex.def)             Requested size: 134.99908pt x 118.0838pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Des_cylinder.pdf): PDF inclus
 ion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Des_cylinder.pdf, id=1049, 844.47797pt x 292.62225pt>
+<Figures/Des_cylinder.pdf, id=1073, 844.47797pt x 292.62225pt>
 File: Figures/Des_cylinder.pdf Graphic file (type pdf)
 <use Figures/Des_cylinder.pdf>
-Package pdftex.def Info: Figures/Des_cylinder.pdf  used on input line 1800.
+Package pdftex.def Info: Figures/Des_cylinder.pdf  used on input line 1825.
 (pdftex.def)             Requested size: 293.99872pt x 101.87457pt.
-
-Underfull \vbox (badness 1546) has occurred while \output is active []
-
- [73 <./Figures/Cylinder_mesh.pdf>] [74 <./Figures/pressure_coeff_cylinder.pdf>
- <./Figures/pressure_coefficient_DES.png>] [75 <./Figures/Cylinder_u_075.png (P
-NG copy)> <./Figures/Cylinder_u_150.png (PNG copy)> <./Figures/Cylinder_v_075.p
-ng (PNG copy)> <./Figures/Cylinder_v_150.png (PNG copy)> <./Figures/Des_cylinde
-r.pdf>]
+[75 <./Figures/pressure_coeff_cylinder.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/RAE2822_pressurefield.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/RAE2822_pressurefield.pdf, id=1083, 842.44148pt x 354.2647pt>
+<Figures/RAE2822_pressurefield.pdf, id=1085, 842.44148pt x 354.2647pt>
 File: Figures/RAE2822_pressurefield.pdf Graphic file (type pdf)
 <use Figures/RAE2822_pressurefield.pdf>
 Package pdftex.def Info: Figures/RAE2822_pressurefield.pdf  used on input line 
-1816.
+1838.
 (pdftex.def)             Requested size: 269.99817pt x 113.54pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cp_RAE2822.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Cp_RAE2822.pdf, id=1084, 408.02437pt x 372.64218pt>
+<Figures/Cp_RAE2822.pdf, id=1086, 408.02437pt x 372.64218pt>
 File: Figures/Cp_RAE2822.pdf Graphic file (type pdf)
 <use Figures/Cp_RAE2822.pdf>
-Package pdftex.def Info: Figures/Cp_RAE2822.pdf  used on input line 1823.
+Package pdftex.def Info: Figures/Cp_RAE2822.pdf  used on input line 1845.
 (pdftex.def)             Requested size: 180.00183pt x 164.3952pt.
-[76] [77 <./Figures/RAE2822_pressurefield.pdf> <./Figures/Cp_RAE2822.pdf>]
+[76 <./Figures/pressure_coefficient_DES.png>] [77 <./Figures/Cylinder_u_075.png
+ (PNG copy)> <./Figures/Cylinder_u_150.png (PNG copy)> <./Figures/Cylinder_v_07
+5.png (PNG copy)> <./Figures/Cylinder_v_150.png (PNG copy)> <./Figures/Des_cyli
+nder.pdf>] [78 <./Figures/RAE2822_pressurefield.pdf> <./Figures/Cp_RAE2822.pdf>
+]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Ducros.pdf): PDF inclusion: f
 ound PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Ducros.pdf, id=1103, 641.39626pt x 569.12625pt>
+<Figures/Ducros.pdf, id=1116, 641.39626pt x 569.12625pt>
 File: Figures/Ducros.pdf Graphic file (type pdf)
 <use Figures/Ducros.pdf>
-Package pdftex.def Info: Figures/Ducros.pdf  used on input line 1836.
+Package pdftex.def Info: Figures/Ducros.pdf  used on input line 1858.
 (pdftex.def)             Requested size: 194.99431pt x 156.80112pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Ducros_bar.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Ducros_bar.pdf, id=1104, 408.02437pt x 59.47218pt>
+<Figures/Ducros_bar.pdf, id=1117, 408.02437pt x 59.47218pt>
 File: Figures/Ducros_bar.pdf Graphic file (type pdf)
 <use Figures/Ducros_bar.pdf>
-Package pdftex.def Info: Figures/Ducros_bar.pdf  used on input line 1838.
+Package pdftex.def Info: Figures/Ducros_bar.pdf  used on input line 1860.
 (pdftex.def)             Requested size: 180.00183pt x 26.2368pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cp_contours_oneram6.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Cp_contours_oneram6.pdf, id=1105, 763.79953pt x 358.58766pt>
+<Figures/Cp_contours_oneram6.pdf, id=1118, 763.79953pt x 358.58766pt>
 File: Figures/Cp_contours_oneram6.pdf Graphic file (type pdf)
 <use Figures/Cp_contours_oneram6.pdf>
 Package pdftex.def Info: Figures/Cp_contours_oneram6.pdf  used on input line 18
-45.
+67.
 (pdftex.def)             Requested size: 284.99908pt x 133.8025pt.
-[78 <./Figures/Ducros.pdf> <./Figures/Ducros_bar.pdf>]
+[79 <./Figures/Ducros.pdf> <./Figures/Ducros_bar.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cp_oneram6.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/Cp_oneram6.pdf, id=1125, 733.7336pt x 595.81372pt>
+<Figures/Cp_oneram6.pdf, id=1138, 733.7336pt x 595.81372pt>
 File: Figures/Cp_oneram6.pdf Graphic file (type pdf)
 <use Figures/Cp_oneram6.pdf>
-Package pdftex.def Info: Figures/Cp_oneram6.pdf  used on input line 1854.
+Package pdftex.def Info: Figures/Cp_oneram6.pdf  used on input line 1876.
 (pdftex.def)             Requested size: 284.99908pt x 231.43pt.
-[79 <./Figures/Cp_contours_oneram6.pdf>] [80 <./Figures/Cp_oneram6.pdf>]
+[80 <./Figures/Cp_contours_oneram6.pdf>] [81 <./Figures/Cp_oneram6.pdf>]
+[82
+
+]
 Chapter 5.
-[81
+[83] [84
 
-] [82
-
-] (./THESIS_DF.bbl [83
+] (./THESIS_DF.bbl [85
 
 ]
 Underfull \hbox (badness 1043) in paragraph at lines 138--145
@@ -1250,16 +1267,16 @@ Underfull \hbox (badness 1033) in paragraph at lines 138--145
  . com / doi / abs / 10 . 1002 /
  []
 
-[84] [85] [86])
+[86] [87] [88])
 
 Package natbib Warning: There were undefined citations.
 
-[87] (./THESIS_DF.aux) ) 
+[89] (./THESIS_DF.aux) ) 
 Here is how much of TeX's memory you used:
- 15958 strings out of 478287
- 262707 string characters out of 5849288
- 582851 words of memory out of 5000000
- 33106 multiletter control sequences out of 15000+600000
+ 15999 strings out of 478287
+ 263759 string characters out of 5849288
+ 583007 words of memory out of 5000000
+ 33139 multiletter control sequences out of 15000+600000
  600413 words of font info for 273 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,131p,2049b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1288,10 +1305,10 @@ ts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy5.pfb
 hare/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pf
 b>
-Output written on THESIS_DF.pdf (101 pages, 5133013 bytes).
+Output written on THESIS_DF.pdf (103 pages, 6889492 bytes).
 PDF statistics:
- 1403 PDF objects out of 1440 (max. 8388607)
- 1124 compressed objects within 12 object streams
- 374 named destinations out of 1000 (max. 500000)
- 74948 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1422 PDF objects out of 1440 (max. 8388607)
+ 1138 compressed objects within 12 object streams
+ 379 named destinations out of 1000 (max. 500000)
+ 74963 words of extra memory for PDF output out of 89155 (max. 10000000)
 
