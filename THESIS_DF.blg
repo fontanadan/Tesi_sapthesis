@@ -3,49 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: THESIS_DF.aux
 The style file: plainnat.bst
 Database file #1: references.bib
-Illegal end of database file---line 588 of file references.bib
- :  doi = {https://doi.org/10.1016/0021-9991(78)90023-2}
- :                                                      
-I'm skipping whatever remains of this entry
-You've used 46 entries,
+You've used 47 entries,
             2773 wiz_defined-function locations,
-            913 strings with 12362 characters,
-and the built_in function-call counts, 19141 in all, are:
-= -- 1784
-> -- 804
-< -- 41
-+ -- 287
-- -- 240
-* -- 1464
-:= -- 2988
-add.period$ -- 181
-call.type$ -- 46
-change.case$ -- 209
-chr.to.int$ -- 45
-cite$ -- 92
-duplicate$ -- 932
-empty$ -- 1735
-format.name$ -- 306
-if$ -- 4056
+            920 strings with 12535 characters,
+and the built_in function-call counts, 19563 in all, are:
+= -- 1823
+> -- 814
+< -- 43
++ -- 291
+- -- 243
+* -- 1485
+:= -- 3046
+add.period$ -- 185
+call.type$ -- 47
+change.case$ -- 213
+chr.to.int$ -- 46
+cite$ -- 94
+duplicate$ -- 962
+empty$ -- 1779
+format.name$ -- 310
+if$ -- 4155
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 51
-newline$ -- 279
-num.names$ -- 184
-pop$ -- 382
+missing$ -- 52
+newline$ -- 285
+num.names$ -- 188
+pop$ -- 394
 preamble$ -- 1
-purify$ -- 170
+purify$ -- 173
 quote$ -- 0
-skip$ -- 664
+skip$ -- 686
 stack$ -- 0
-substring$ -- 795
-swap$ -- 66
-text.length$ -- 4
+substring$ -- 803
+swap$ -- 75
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 471
+type$ -- 482
 warning$ -- 0
-while$ -- 183
+while$ -- 187
 width$ -- 0
-write$ -- 678
-(There was 1 error message)
+write$ -- 693

@@ -1,4 +1,4 @@
-\begin{thebibliography}{46}
+\begin{thebibliography}{47}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -34,6 +34,11 @@ R.~W. Clough.
 \newblock Original formulation of the finite element method.
 \newblock \emph{Finite elements in analysis and design}, 7\penalty0
   (2):\penalty0 89--101, 1990.
+
+\bibitem[Coakley(1987)]{coakley1987numerical}
+T.~Coakley.
+\newblock Numerical simulation of viscous transonic airfoil flows.
+\newblock In \emph{25th AIAA Aerospace Sciences Meeting}, page 416, 1987.
 
 \bibitem[Cook et~al.(1977)Cook, Firmin, and McDonald]{cook1977aerofoil}
 P.~H. Cook, M.~C.~P. Firmin, and M.~A. McDonald.
@@ -182,7 +187,7 @@ X.~D. Liu, S.~Osher, and T.~Chan.
 \newblock ISSN 0021-9991.
 \newblock \doi{https://doi.org/10.1006/jcph.1994.1187}.
 
-\bibitem[Modesti and Pirozzoli(2017)]{rhoEnergyFOAM}
+\bibitem[Modesti and Pirozzoli(2017)]{rhoEnergyFoam}
 D.~Modesti and S.~Pirozzoli.
 \newblock A low-dissipative solver for turbulent compressible flows on
   unstructured meshes, with openfoam implementation.
@@ -282,6 +287,7 @@ G.~A. Sod.
 \newblock \emph{Journal of Computational Physics}, 27\penalty0 (1):\penalty0
   1--31, 1978.
 \newblock ISSN 0021-9991.
+\newblock \doi{https://doi.org/10.1016/0021-9991(78)90023-2}.
 
 \bibitem[Spalart(2009)]{DES}
 P.~Spalart.

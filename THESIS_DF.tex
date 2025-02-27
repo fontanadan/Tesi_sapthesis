@@ -1874,14 +1874,13 @@
 	\end{figure}
 	
 	\section{Transonic flow over RAE-2822 airfoil}
-	The transonic flow around the RAE-2822 airfoil is simulated by RANS, using the standard Spalart-Allmaras model. The Mach number is $M = 0.729$, the Reynolds number of the chord is $Re_c = 6.5 \times 10^6$, defined as
+	The RAE-2822 airfoil is herein simulated by Reynolds-Averaged Navier-Stokes (RANS) equations, with both \texttt{rhoEnergyFoam} in mode C and \texttt{rhoCentralFoam}, using the standard Spalart-Allmaras model. The flow is transonic with a Mach number $M = 0.729$ and the Reynolds number of the chord considered is $Re_c = 6.5 \times 10^6$, defined as
 	
 	\begin{equation}
 		Re_c = \frac{\rho_0 u_0 c}{\mu_0} 
 	\end{equation}
 	\\
-	where $\rho_0$ is the density, $u_0$ is the initial velocity $c$ is the airfoil chord and $\mu_0$ is the dynamic viscosity. The angle of attack sued to simulate the airfoil is $\alpha = 2.31^\circ$. A C-type structured mesh comprising $369 \times 256$ cells was used, with hyperbolic tangent extending toward the wall. The “far-field” boundary is located about 20 chords from the wall, where inlet/outlet boundary conditions are imposed, while isothermal nonslip boundary conditions are imposed on the airfoil wall.
-	The calculated pressure fields are compared in Figure \ref{RAE2822_pressurefield}, which shows the presence of a single normal shock on the suction side and minimal differences between the two solvers. The detailed comparison of the pressure coeﬃcients with the \citet{cook1977aerofoil} experiments and the \cite{slater2010rae2822} simulations, shown in figure \ref{Cp_RAE2822}, is satisfactory for both solvers, although in this case rhoCentralFoam seems to be closer to the experiments and rhoEnergyFoam closer to the previous simulations.
+	where $\rho_0$ is the density, $u_0$ is the initial velocity $c$ is the airfoil chord and $\mu_0$ is the dynamic viscosity. The angle of attack used to simulate the airfoil is $\alpha = 2.31^\circ$. A C-type structured mesh comprising $369 \times 256$ cells was used, with hyperbolic tangent extending toward the wall. The “farfield” boundary is located about 20 chords from the wall, where inlet/outlet boundary conditions are imposed, while isothermal nonslip boundary conditions are imposed on the airfoil wall.
 	
 	\begin{figure}[h]
 		\centering
@@ -1890,20 +1889,40 @@
 		\label{RAE2822_pressurefield}
 	\end{figure}
 	
+	\noindent The calculated pressure fields are compared in figure (\ref{RAE2822_pressurefield}), which shows the presence of a single normal shock on the suction side and minimal differences between the two solvers. The detailed comparison of the pressure coefficients with the \citet{cook1977aerofoil} experiments and the \cite{slater2010rae2822} simulations, shown in figure (\ref{Cp_RAE2822}), is satisfactory for both solvers, although in this case \texttt{rhoCentralFoam} seems to be closer to the experiments and \texttt{rhoEnergyFoam} closer to the previous simulations. Finally we present table \ref{CLCDRAE2822} which shows the lift and
+	drag coefficient predicted by the two solver.
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{lcc}
+			\hline
+			\textbf{Case} & $C_l$ & $C_d$ \\
+			\hline
+			\textit{rhoEnergyFoam}              & 0.715 & 0.0135 \\
+			\textit{rhoCentralFoam}             & 0.730 & 0.0184 \\
+			RANS \citep{coakley1987numerical}   & 0.717 & 0.0133 \\
+			Experiment \citep{cook1977aerofoil} & 0.743 & 0.0127 \\
+			\hline
+		\end{tabular}
+		\vspace{3mm}
+		\caption[Lift and drag coeﬃcient of RAE 2822 airfoil]{Lift and drag coeﬃcient of RAE 2822 airfoil as predicted by rhoEnergyFoam and rhoCentralFoam, compared with \citet{coakley1987numerical} RANS and experimental data}
+		\label{CLCDRAE2822}
+	\end{table}
+	
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.6\textwidth]{Figures/Cp_RAE2822}
 		\caption[Pressure coefficient of RANS of a transonic flow over RAE2822]{RANS of a transonic flow over RAE2822: pressure coefficient obtained with \texttt{rhoEnergyFoam} (black line) and with \texttt{rhoCentralFoam} (red dots),compared with previous
-		RANS (green dotted lines) and experimental data (blue squares).}
+			RANS (green dotted lines) and experimental data (blue squares).}
 		\label{Cp_RAE2822}
 	\end{figure}
 
 	\section{Transonic flow over Onera M6 wing}
-	This case aims at the evaluation of an inviscid flow around the wing of Onera M6, whose flow is transonic with Mach number $M = 0.8395$, and the angle of attack is $\alpha = 3.06^circ$. An unstructured mesh including 341'797 tetrahedral cells was used, within an external computational box of size $L_x \times L_y \times L_z = 10c \times 5c$, where c is the chord in the wing root section. Numerical simulations were carried out using both rhoCentralFOAM and rhoEnergyFoam in mode C, also comparing the results with experimental data values.
+	This case aims at the evaluation of an inviscid flow around the wing of Onera M6, whose flow is transonic with Mach number $M = 0.8395$, and the angle of attack is $\alpha = 3.06^{\degree}$. An unstructured mesh including 341'797 tetrahedral cells was used, within an external computational box of size $L_x \times L_y \times L_z = 10c \times 5c$, where c is the chord in the wing root section. Numerical simulations were carried out using both rhoCentralFOAM and rhoEnergyFoam in mode C, also comparing the results with experimental data values.
 	\begin{figure}[h]
 		\centering
 		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Figures/OneraM6mesh}}  
-		\caption{Unstructured mesh of the Onera M6 wing.}
+		\caption[Unstructured mesh of the Onera M6 wing]{Unstructured mesh of the Onera M6 wing including 341'797 tetrahedral cells.}
 		\label{OneraM6_mesh}
 	\end{figure}
 	
