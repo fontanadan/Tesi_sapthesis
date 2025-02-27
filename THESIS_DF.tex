@@ -1937,32 +1937,40 @@
 			RANS (green dotted lines) and experimental data (blue squares).}
 		\label{Cp_RAE2822}
 	\end{figure}
+	
+	\newpage
 
 	\section{Transonic flow over Onera M6 wing}
-	This case aims to study the flow around the wing of Onera M6, whose flow is inviscid and transonic with Mach number $M = 0.8395$, and the angle of attack is $\alpha = 3.06^{\degree}$. An unstructured mesh including 341'797 tetrahedral cells was used, within an external computational box of size $L_x = 10c$, $L_y = 10c$ and $L_z = 5c$, where c is the chord in the wing root section. Numerical simulations were carried out using both rhoCentralFOAM and rhoEnergyFoam in mode C, also comparing the results with experimental data values.
+	This case aims to study the flow around the wing of Onera M6, whose flow is inviscid ($\mu_0$ = 0), transonic with Mach number $M = 0.8395$, and the angle of attack of the wing is $\alpha = 3.06^{\degree}$. An unstructured mesh including 341'797 tetrahedral cells was used, within an external computational box of size $L_x = 10c$, $L_y = 10c$ and $L_z = 5c$, where c is the chord in the wing root section, as shown in figure (\ref{OneraM6_mesh}). Numerical simulations were carried out using both \texttt{rhoCentralFoam} and \texttt{rhoEnergyFoam} in mode C, also comparing the results with experimental data values.
+	
 	\begin{figure}[h]
 		\centering
-		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Figures/OneraM6mesh}}  
-		\caption[Unstructured mesh of the Onera M6 wing]{Unstructured mesh of the Onera M6 wing including 341'797 tetrahedral cells.}
+		{\includegraphics[width=0.6\linewidth]{Figures/OneraM6mesh}}  
+		\caption[Unstructured mesh of the Onera M6 wing]{Unstructured mesh of the Onera M6 wing, within an external computational box of size $L_x = 10c$, $L_y = 10c$ and $L_z = 5c$, where c is the chord in the wing root section.}
 		\label{OneraM6_mesh}
 	\end{figure}
 	
+	\noindent Numerical simulations were carried out using \texttt{rhoCentralFoam} and \texttt{rhoEnergyFoam} in mode C, also comparing the results with experimental data values. Figure (\ref{OneraM6_pressurefield}) shows the pressure field obtained with \texttt{rhoEnergyFoam}, plotting the isosurface of the shock sensor over it, showing the presence of two shock waves: the main shock about halfway up the chord and a secondary shock near the leading edge, which eventually join near the wing tip.
+	
 	\begin{figure}[h]
 		\centering
-		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Figures/Ducros}}  
+		{\includegraphics[width=0.7\linewidth, height=0.3\textheight]{Figures/Ducros}}  \\
 		\centering
 		{\includegraphics[width=0.6\linewidth]{Figures/Ducros_bar}}
-		\caption[Pressure field Onera M6]{Pressure field with Ducros sensor isosurface superimposed, showing the presence of two shock waves, of the Onera M6 wing. In the representation, 24 levels were used in the range  $0.33 < p/p_\infty < 1.6$.}
+		\caption[Pressure field Onera M6]{Pressure field with Ducros sensor isosurface superimposed ($\theta = 0.6$), showing the presence of two shock waves, of the Onera M6 wing. In the representation, 24 levels were used in the range  $0.33 < p/p_\infty < 1.6$.}
 		\label{OneraM6_pressurefield}
 	\end{figure}
 	
-	\begin{figure}
+	\noindent Figure (\ref{Cp_contours_oneraM6}) shows the calculated pressure field on the wing suction surface for \texttt{rhoEnergyFoam} (figure \ref{Cp_contours_oneraM6}a) and rhoCentralFoam (figure \ref{Cp_contours_oneraM6}b), which highlights the qualitative differences between the two solvers.
+	
+	\begin{figure}[h]
 		\centering
-		{\includegraphics[width=0.95\linewidth]{Figures/Cp_contours_oneram6}}  
+		\includegraphics[width=0.5\linewidth]{Figures/Cp_contours_oneram6_ref}\includegraphics[width=0.5\linewidth]{Figures/Cp_contours_oneram6_rcf}
 		\caption[Pressure field of a flow around Onera M6 wing]{Flow around the wing of ONERA M6: pressure profiles evaluated with \texttt{rhoEnergyFoam} (a) and \texttt{rhoCentralFoam} (b). In range $0.3 < p/p_\infty < 1.5$ are shown 32 levels  (blue-to-red scale). Dotted lines point to section used to evaluate pressure coefficients as in \ref{Cp_oneraM6}}
 		\label{Cp_contours_oneraM6}
 	\end{figure}
-	Figure \ref{OneraM6_pressurefield} shows the pressure field calculated using rhoEnergyFoam with the isosurface of the shock sensor superimposed, showing the presence of two shock waves, a primary one about halfway up the chord and a secondary one near the leading edge, which eventually join near the wing tip. Figure \ref{Cp_contours_oneraM6} shows the calculated pressure field on the wing suction surface for rhoEnergyFoam (figure \ref{Cp_contours_oneraM6}a) and rhoCentralFoam (figure \ref{Cp_contours_oneraM6}b), which highlights the qualitative differences between the two solvers. Although the main ﬂow characteristics are captured by both solvers, it appears that the edge shock is much weaker in rhoCentralFoam and the primary shock is much thicker, especially toward the wing root, due to the diffusive nature of the solver. A more quantitative assessment is made in Figure \ref{Cp_oneraM6}, where the calculated distributions of the pressure coefficient are compared with \citet{schmitt1979pressure}'s experimental data, at the four wing sections indicated by the dashed lines in Figure \ref{Cp_contours_oneraM6}. In the innermost section (panel a) the primary shock is rather weak and barely noticeable in rhoCentralFoam, while rhoEnergyFoam provides a favorable prediction of both the strength and position of the shock. In the middle sections (panels b,c) there are both shocks, which are again correctly captured by rhoEnergyFoam, while rhoCentralFoam shows excessive smearing. In the outermost section (panel d) the primary and secondary shocks merge into a single stronger shock, the amplitude of which is well captured by rhoEnergyFoam. 
+	
+	 \noindent Although the main ﬂow characteristics are captured by both of them, it appears that the edge shock is much weaker in rhoCentralFoam and the primary shock is much thicker, especially toward the wing root, due to the diffusive nature of the solver. A more quantitative assessment is made in figure (\ref{Cp_oneraM6}), where the calculated distributions of the pressure coefficient are compared with \citet{schmitt1979pressure} experimental data, at the three wing sections indicated by the dashed lines in Figure (\ref{Cp_contours_oneraM6}). In the innermost section (panel a) the primary shock is rather weak and barely noticeable in \texttt{rhoCentralFoam}, while \texttt{rhoEnergyFoam} provides a favorable prediction of both the strength and position of the shock. In the second section (panels b) there are both shocks, which are again correctly captured by \texttt{rhoEnergyFoam}, while \texttt{rhoCentralFoam} shows excessive smearing. In the outermost section (panel c) the primary and secondary shocks merge into a single stronger shock, the amplitude of which is well captured by \texttt{rhoEnergyFoam}. 
 	
 	\begin{figure}[h]
 		\begin{center}
