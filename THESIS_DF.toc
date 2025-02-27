@@ -45,6 +45,6 @@
 \contentsline {section}{\numberline {4.5}Sod's shock tube}{73}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Supersonic flow over a forward-facing step}{76}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Transonic flow over RAE-2822 airfoil}{78}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Transonic flow over Onera M6 wing}{78}{section.4.8}%
+\contentsline {section}{\numberline {4.8}Transonic flow over Onera M6 wing}{79}{section.4.8}%
 \contentsline {chapter}{\numberline {5}Conclusion and Future Work}{83}{chapter.5}%
 \contentsline {chapter}{Bibliography}{85}{section*.67}%
