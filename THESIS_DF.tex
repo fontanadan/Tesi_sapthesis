@@ -1524,12 +1524,16 @@
 	\\
 	Following \citet{LIOU_AUSM+-up}, we set $\alpha = 3/16(-4 + 5 f_a^2)$, $\beta = 1/8$.
 	\\
-	From its original version, present in OpenFOAM's version v2006, \texttt{rhoEnergyFoam} was then optimized in terms of computational cost and	accuracy and ported to the ESI OpenFOAM v2412 version. Moreover, the Adaptive Mesh Refinement (AMR) already present in OpenFOAM, has been added as a new feature of \texttt{rhoEnergyFoam} and its results can be seen in section \ref{AMR_cylinder}.
-	 
+	From its original version, working in OpenFOAM's version v2006, \texttt{rhoEnergyFoam} was then optimized in terms of computational cost and accuracy, and was ported to the ESI OpenFOAM v2412 version. Moreover, the Adaptive Mesh Refinement (AMR) already present in OpenFOAM, has been added as a new feature in \texttt{rhoEnergyFoam} and its results can be seen in section \ref{AMR_cylinder}. 
+	
+	\subsection{Adaptive Mesh Refinement (AMR)}
+	
+	Adaptive Mesh Refinement (AMR) is a technique that dynamically refines the computational mesh based on predefined criteria and specific control parameters, such as refinement and unrefinement levels, as well as expansion ratios. In OpenFOAM, AMR is supported by solvers that incorporate dynamic mesh capabilities, with compatibility restricted to hexahedral meshes: itis  available in solvers from the PIMPLE family, and now available also in \texttt{rhoEnergyFoam}. Employing an accurate and stable numerical method is crucial when utilizing AMR. If an unbounded or excessively diffusive method (both in space and time) is used, the refinement strategy may fail to effectively capture the quantity of interest, potentially leading to overshoots and undershoots in the solution. Within OpenFOAM, all dynamic mesh capabilities are controlled in the dictionary \texttt{dynamicMeshDict}, which is located in the \texttt{constant} directory. To appropriately control the time step as the mesh is refined, the recommended approach in OpenFOAM is to enable the \texttt{adjustableTimeStep} option and, maintaining a Courant-Friedrichs-Lewy (CFL) number below $1$, ideally around $0.5$, helps to increase the accuracy of the results. It is important to note that AMR introduces a significant computational overhead, which should be considered when designing simulations. AMR is widely used in various engineering and scientific fields due to its ability to enhance simulation efficiency. In fluid dynamics, it plays a crucial role in turbulent flow simulations, shock capturing, and aeroacoustics by refining areas with high vorticity, shear layers, or boundary layers. In weather and climate modeling, AMR is employed to track the evolution of hurricanes and storms by refining mesh in regions of high vorticity or pressure gradients, thereby improving large-scale atmospheric simulations. It is used in combustion and reactive flow simulations to refine mesh around flame fronts and regions with steep temperature and species concentration gradients. It is also extensively used in structural mechanics and materials science, where it helps to refine regions where cracks propagate in materials and enhances stress analysis by providing higher resolution in high-stress zones. By refining only the necessary regions, AMR allows engineers and scientists to conduct high-fidelity simulations without excessive computational costs, making it a powerful tool for numerical simulations across different disciplines.
+	
 	\chapter{Results}
 	\label{chap:results}
 	
-	In this chapter, we present a series of test cases that exemplify the capability of rhoEnergyFoam evaluating different test cases where all the three operational modes outlined in table \ref{REF_modes} are analyzed, aiming to evaluate the energy-preserving properties of the proposed solver in comparison to standard OpenFOAM solvers. To assess numerical diffusion, we analyze Euler turbulence and Taylor–Green flow. To examine the effectiveness of background numerical diffusion in smooth flows, we conduct Unsteady Reynolds-Averaged Navier–Stokes (URANS) and Detached Eddy Simulations (DES) of subsonic turbulent flow past a circular cylinder. Finally, the shock-capturing capabilities of rhoEnergyFoam are tested using three classical flow cases: inviscid supersonic flow past a forward-facing step, transonic flow past an RAE airfoil, and transonic flow past the ONERA M6 wing.
+	In this chapter, we present a series of test cases that show the capability of rhoEnergyFoam evaluating different test cases where all the three operational modes outlined in table \ref{REF_modes} are analyzed, aiming to evaluate the energy-preserving properties of the proposed solver in comparison to standard OpenFOAM solvers. To assess numerical diffusion, we analyze Euler turbulence and Taylor–Green flow. To assess the capability of AMR, we tested a subsonic turbulent flow past a circular cylinder. To examine the effectiveness of background numerical diffusion in smooth flows, we conduct Unsteady Reynolds-Averaged Navier–Stokes (URANS) and Detached Eddy Simulations (DES) of subsonic turbulent flow past a circular cylinder. To test the accuracy of the solver we simulate the Sod's shock tube. Finally, the shock-capturing capabilities of rhoEnergyFoam are tested using three classical flow cases: inviscid supersonic flow past a forward-facing step, transonic flow past an RAE airfoil, and transonic flow past the ONERA M6 wing.
 	
 	\section{Decaying Isotropic Turbulence}
 	The study of a decaying isotropic turbulence case in the literature serves as a fundamental test for understanding turbulence dynamics in the absence of external forcing or mean flow effects. Isotropic turbulence, characterized by uniform statistical properties in all directions, provides a simplified yet insightful framework to investigate how turbulence evolves over time. Researchers use this case to examine the decay laws of turbulent kinetic energy, the role of vortex structures, and the mechanisms governing the dissipation of energy. It also serves as a benchmark for testing turbulence models, numerical schemes, and theoretical predictions. Since isotropic turbulence eliminates directional biases, it allows for a more general study of turbulence physics that can be applied to a wide range of engineering and geophysical flows. Also, the decay process sheds light on turbulence behavior, understanding mixing, diffusion, and energy cascade processes in both natural and industrial settings.
@@ -1551,30 +1555,17 @@
 	where $k_0 = 4$ is the most energetic mode, and $u_0$ is the initial r.m.s. velocity. The Mach number adopted for the simulation was $ Ma= u_0/c_0= 0.01$, where $c_0 = \sqrt{\gamma}$ is the adimensionalized speed of sound. Time is made nondimensional with respect to the eddy turnover time $\tau = 2/k_0 u_0$
 	The analysis was carried out by comparing the results obtained with rhoEnergyFoam in three different modes (A, B and C) and rhoCentralFOAM. In addition, the case was also evaluated using the dnsFOAM solver for a more in-depth comparison.
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\hspace{20mm}
-		\includegraphics[width=0.7\linewidth]{Figures/DIT}
+		\includegraphics[width=0.6\linewidth]{Figures/DIT}
 		\caption{Structured mesh for numerical simulation of decaying isotropic turbulence.}
 		\label{DIT_mesh}
 	\end{figure}
 	
-	\begin{table}
+	\begin{figure}[h]
 		\centering
-		\begin{tabular}{cc}
-			\toprule
-			rhoEnergyFoam - mode A &  \textcolor{black}{\rule{0.05\linewidth}{0.75mm}} \\
-			rhoEnergyFoam - mode B &  \textcolor{blue}{\rule{0.05\linewidth}{0.75mm}} \\
-			rhoEnergyFoam - mode C &  \textcolor{red}{\rule{0.05\linewidth}{0.75mm}} \\
-			rhoCentralFoam	  	   &  \textcolor{magenta}{\rule{0.05\linewidth}{0.75mm}} \\
-			dnsFoam			       &  \textcolor{green}{\rule{0.05\linewidth}{0.75mm}} \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
-	
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.8\linewidth]{Figures/TKE_DIT}
+		\includegraphics[width=0.7\linewidth]{Figures/TKE_DIT}
 		\caption[Turbulence kinetic energy for the decaying isotropic turbulence case]{Decaying isotropic turbulence: time evolution of turbulence kinetic $K$ energy for rhoEnergyFoam in Mode A (black line), Mode B (blue line), Mode C with $\theta^* = 0$ (red line), for dnsFOAM (green line), and rhoCentralFoam (magenta line). $\tau$ is the eddy turnover time.}
 		\label{DIT}
 	\end{figure} 
@@ -1590,7 +1581,18 @@
 	\end{equation}
 	\\
 	where $u_i$ represents the velocity of the cell $i$, $V_i$ is the volume of cell, and the overbar denotes Reynolds-averaging, can be seen in figure \ref{DIT}.
-	\\
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{cc}
+			\toprule
+			rhoEnergyFoam - mode A &  \textcolor{black}{\rule{0.05\linewidth}{0.75mm}} \\
+			rhoEnergyFoam - mode B &  \textcolor{blue}{\rule{0.05\linewidth}{0.75mm}} \\
+			rhoEnergyFoam - mode C &  \textcolor{red}{\rule{0.05\linewidth}{0.75mm}} \\
+			rhoCentralFoam	  	   &  \textcolor{magenta}{\rule{0.05\linewidth}{0.75mm}} \\
+			dnsFoam			       &  \textcolor{green}{\rule{0.05\linewidth}{0.75mm}} \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
 	From an aerospace engineering perspective, accurately capturing turbulent kinetic energy dynamics is crucial, particularly in high-speed aerodynamic flows where shock-boundary layer interactions and numerical diffusion can significantly impact predictive accuracy. The numerical study is conducted with convective diffusive fluxes initially deactivated (mode A) to assess the upper bound of numerical diffusion in shock-capturing simulations.
 	\\
 	To benchmark the solvers, results from \texttt{rhoCentralFoam} and the incompressible Direct Numerical Simulation (DNS) solver \texttt{dnsFoam} from OpenFOAM are also presented. The findings indicate that neither of the standard OpenFOAM solvers can preserve total kinetic energy effectively due to inherent numerical diffusion, which is particularly noticeable in \texttt{rhoCentralFoam}. The results given from \texttt{rhoEnergyFoam} show that it conserves total kinetic energy under Mode A operation, aligning with theoretical expectations for energy-preserving schemes.
@@ -1599,15 +1601,16 @@
 	
 	\section{Taylor-Green Vortex}
 	The Taylor–Green vortex solution is a classical case used for testing and validating spatial and temporal accuracy of CFD solvers. In fact, the Taylor-Green vortex illustrates the fundamental process of decaying production of small vortices, known as eddies.The energy-preserving properties of \texttt{rhoEnergyFoam} are herein tested checking the time reversibility of this test case. Tests were conducted on two types of meshes: a structured one (figure (\ref{TGV_mesh}.a)) with $32'768$ cubic cells and a unstructured one (figure (\ref{TGV_mesh}.b)) with $85'056$ prisms. Both of them are a $(2\pi)^3$ triply-periodic box generated with Gmsh (an open source finite-element mesh generator). The unstructured mesh was made extruding the triangular elements of the frontal face along the third dimension. This setting guarantees exact geometrical correspondence of the elements on opposite faces of the computational box, hence periodicity can be exploited in all space directions.
-	\begin{figure}
+	
+	\begin{figure}[h]
 		\centering
-		(a)\includegraphics[width=0.45\linewidth]{Figures/TGV_mesh_structured}
-		(b)\includegraphics[width=0.45\linewidth]{Figures/TGV_mesh_unstructured}\\
+		(a)\includegraphics[width=0.4\linewidth]{Figures/TGV_mesh_structured}
+		(b)\includegraphics[width=0.4\linewidth]{Figures/TGV_mesh_unstructured}\\
 		\caption{Structured mesh (a) and unstructured mesh (b)for numerical simulation of Taylor–Green ﬂow.}
 		\label{TGV_mesh}
 	\end{figure} 
-	\\
-	To verify the conservation of Turbulent Kinetic Energy (TKE), a time reversal test was performed in the middle of the simulation to ensure that the solution returned to the values of the initial conditions. 
+	
+	\noindent To verify the conservation of Turbulent Kinetic Energy (TKE), a time reversal test was performed in the middle of the simulation to ensure that the solution returned to the values of the initial conditions. 
 	The solution was initialized as follows:
 	
 	\begin{equation}
@@ -1626,9 +1629,10 @@
 	\\
 	where $k_0 = 1$ is the initial wave number. 
 	The initial conditions on the velocity field represented with the Q-criterion are show in figure (\ref{TGV_Qcriterion})
-	\begin{figure}
+	
+	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.75\linewidth]{Figures/TGV_Qcriterion}
+		\includegraphics[width=0.7\linewidth]{Figures/TGV_Qcriterion}
 		\caption{Vorticity field visualized using the Q-criterion for the Taylor-Green Vortex.}
 		\label{TGV_Qcriterion}
 	\end{figure}
@@ -1642,7 +1646,7 @@
 	where $\omega_i = \nabla \times u_i$ represents the vorticity of the cell $i$, $V_i$ is the volume of cell and the overbar denotes Reynolds-averaging. Enstrophy is a measure of the intensity of vorticity in a moving fluid. In turbulence theory it provides insights into the distribution and dissipation of rotational motion within a flow. In inviscid flows, enstrophy can be conserved, whereas in viscous flows, it tends to dissipate over time due to the effects of viscosity.	The evolution in time of the turbulent kinetic energy and of the enstrophy can be seen in figure (\ref{TKE_ENS_TGV}). As illustrated in panel (a), the kinetic energy obtained from the simulation on the structured mesh using \texttt{rhoEnergyFoam} in both mode A and mode B remains conserved and constant, as indicated by the black solid line and the blue dotted line. In contrast, \texttt{rhoCentralFoam} exhibits a rapid dissipation of kinetic energy over a very short timescale, with curves that are nearly imperceptible in the adopted representation. Meanwhile, \texttt{dnsFoam} demonstrates a gradual decay of kinetic energy. In panel (b), which corresponds to the unstructured mesh, the total kinetic energy obtained using \texttt{dnsFoam} exhibits a continuous decay, whereas \texttt{rhoCentralFoam} continues to show rapid dissipation of kinetic energy. Conversely, \texttt{rhoEnergyFoam} effectively preserves kinetic energy in mode A, while mode B experiences some degree of numerical diffusion.
 	In the Cartesian grid (panel c), the total enstrophy experiences a significant increase up to the point of time reversal, after which it symmetrically decreases. However, with \texttt{dnsFoam}, the initial conditions are not perfectly restored, as the maximum vorticity at the conclusion of the simulation exceeds the expected value. This discrepancy arises from the randomization of the flow at the end of the direct phase, which is not entirely recovered in simulations influenced by numerical diffusion. On the unstructured grid (panel d), a similar trend is observed. Indeed, \texttt{rhoEnergyFoam} in mode A (black line) retains initial conditions, while \texttt{rhoEnergyFoam} in mode B shows a lower peak due to errors associated with mesh distortion and to the introduction of diffusion. In both cases, \texttt{dnsFoam} and \texttt{rhoCentralFoam} are not able to show good results.
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		(a)\includegraphics[width=0.45\linewidth]{Figures/TKE_TGV_structured}
 		(b)\includegraphics[width=0.45\linewidth]{Figures/TKE_TGV_unstructured}\\
@@ -1651,9 +1655,128 @@
 		\caption[Turbulence kinetic energy and enstrophy plots for the Taylor Green Vortex case.]{Taylor Green Vortex: time evolution of total kinetic energy (a-b), and enstrophy (c-d) for Taylor–Green ﬂow at $Ma = 0.01$ on Cartesian mesh (a–c) and on unstructured mesh (b–d). Data are shown for rhoEnergyFoam in Mode A (black line), Mode B (blue dotted line), for dnsFOAM (green line) and rhoCentralFoam (magenta line).}
 		\label{TKE_ENS_TGV}
 	\end{figure}  
-		
+	
+	\section{Smooth flow past cylinder with AMR}
+	\label{AMR_cylinder}
+	
+	The subsonic flow around a circular cylinder is here analyzed to check whether the upgrade of \texttt{rhoEnergyFoam} with the Adaptive Mesh Refinement (AMR) schemes (already present within OpenFOAM) works as expected. The simulation is performed on a 2D  circular cylinder at Mach $M_\infty = u_0/c_0 = 0.1$, where $c_0 = \sqrt{\gamma R T_0}$ is the adimensionalized speed of sound, $R = 1$ is the adimensionalized Gas constant and $T_0 =1$ is the non-dimensional initial temperature. $u_0$ is the initial velocity field obtained with the previous equation, knowing the value of $c_0$ and of $M_\infty$. The simulation is set using non-dimensional quantities such as the Reynolds number $Re_\infty = 100$, which is defined as 
+	
+	\begin{equation}
+		Re = \frac{\rho_\infty u_0 D}{\mu_\infty}
+	\end{equation}
+	\\
+	where $\rho_\infty$ is the density of the fluid, $D$ is the cylinder diameter, and $\mu_\infty$ is the dynamic viscosity. Also, the boundary of the domain used are $L_x = 14D$, $L_z = 8D$. 
+	The variables used are shown in table \ref{tab:cylinder_2d}.
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{lcc}
+			\hline
+			Variable & Value \\
+			\hline
+			$M_{\infty}$ & 0.1 \\
+			$Re_{D}$ & $100$ \\
+			$\rho_{\infty}$ & 1 \\
+			$u_{\infty}$ & 0.118321 \\
+			$c_{\infty}$ & 1.18321 \\
+			$\mu_{\infty}$ & $1.18321 \times 10^{-4}$ \\
+			$D$ & 0.1 \\
+			\hline
+		\end{tabular}
+		\vspace{3mm}
+		\caption{Initial conditions for turbulent flow around 
+			circular cylinder.}
+		\label{tab:cylinder_2d}
+	\end{table}
+	
+	\noindent The carthesian mesh, having $14'196$ cells, is generated through the \texttt{blockMesh} utility, then it has been refined through the \texttt{snappyHexMesh} utility, as shown in figure \ref{Cylinder_u1}. 
+	
+	\begin{figure}[h]
+		\centering
+		{\includegraphics[width=0.58\linewidth]{Figures/Cylinder_u1}} 
+		\caption[Smooth flow past cylinder with AMR: initial velocity field.]{Smooth flow past cylinder with AMR: initial velocity field, with the mesh refinement only around the cylinder.}
+		\label{Cylinder_u1}
+	\end{figure}
+	
+	\noindent In figure \ref{Cylinder_u1}, the initial velocity field is displayed, showing a uniform inflow condition and uniform velocity distribution around the cylinder. 
+
+	\begin{figure}[h]
+		\centering
+		{\includegraphics[width=0.58\linewidth]{Figures/Cylinder_u2}}  
+		\caption[Smooth flow past cylinder with AMR: vortex shedding.]{Smooth flow past cylinder with AMR: velocity field which shows the vortex shedding and the Kármán vortex street possible through the refinement of the mesh in the necessary zones.}
+		\label{Cylinder_u2}
+	\end{figure}
+	
+	\noindent In figure \ref{Cylinder_u2}, the velocity field illustrates the onset of vortex shedding, characterized by alternating vortices in the wake of the cylinder. This phenomenon is known as vortex shedding an its pattern is typical for flows in the moderate Reynolds number regime, where the wake becomes unsteady and leads to the formation of the well-known Von Kármán vortex street.
+	
+	\begin{figure}[h]
+		\centering
+		{\includegraphics[width=0.51\linewidth]{Figures/Cylinder_mesh_AMR}}
+		\caption{Cylinder mesh AMR.}
+		\label{Cylinder_mesh_AMR}
+	\end{figure}
+	
+	\noindent Overall, the results highlight the transition from an initial steady-state condition to an unsteady wake due to flow separation and periodic vortex shedding.
+	
+
+	\section{URANS and DES of a flow \\ past circular cylinder}
+	The turbulent flow around a circular cylinder has been numerically investigated using \textit{rhoEnergyFoam} in mode B, employing both URANS (Unsteady Reynolds-Averaged Navier-Stokes) and DES (Detached Eddy Simulation). The study is based on the classic Spalart-Allmaras turbulence model and its DES extension. The free-stream Mach number is given by $M_0 = u_0/c_0 = 0.1$,	where $u_0$ and $c_0$ are the free-stream velocity and the speed of sound. The Reynolds number, based on the cylinder diameter, is defined as $Re_D = (\rho_0 u_0 D)/\mu_w$, where $\rho_0$ represents the free-stream density and $\mu_w$ the wall viscosity. For the URANS simulation, an O-type mesh is utilized, consisting of $ N_r \times N_\theta = 256 \times 256 $ cells, with a hyperbolic tangent stretching towards the wall in a computational domain of $ L_r \times L_z = 20D \times 2D $, as shown in figure \ref{Cylinder_mesh}. For the DES simulation, an also an O-type mesh is utilized, consisting of $ N_r \times N_\theta \times N_z = 256 \times 256 \times 48 $ cells. Here as well, a hyperbolic tangent stretching towards the wall was used, within the same domain as written above. The grid is refined near the cylinder, with the first grid point located at $ y_+ \approx 150 - 200 $, necessitating the use of wall functions for proper wall treatment. Specifically, Spalding’s equilibrium wall law \cite{spalding1961single} is employed. 
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7 \linewidth]{Figures/Cylinder_mesh}
+		\caption[Mesh for the URANS and DES simulation of the cylinder]{Mesh for the URANS ($ N_r \times N_\theta \times N_z = 256 \times 256$) and DES ($ N_r \times N_\theta \times N_z = 256 \times 256 \times 48 $) simulation of the flow over a circular cylinder.}
+		\label{Cylinder_mesh}
+	\end{figure} 
+	
+	\begin{figure}[h]
+		\centering
+		(a){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_u_075}}
+		(b){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_u_150}}\\
+		(c){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_v_075}}
+		(d){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_v_150}}
+		\caption[Velocity profiles of a URANS for a flow around cylinder]{Numerical simulation of ﬂow around circular cylinder: mean velocity proﬁles at $x/D = 0.75$ (panels a-c) e $x/D = 1.5$ (panels b-d) for URANS with \texttt{rhoEnergyFoam} (red line), Modesti's URANS (black dotted line) Catalano's URANS (purple dotted line).}
+		\label{Cylinder}
+	\end{figure}
+	
+	\noindent Isothermal no-slip boundary conditions are imposed at the wall, while \texttt{fixedValue} and/or \texttt{zeroGradient} boundary conditions are applied to all variables at the inlet and outlet, respectively. The turbulent viscosity is set to $\mu_{t0} = 3\mu_w$. The simulation has been performed in parallel, dividing the computational domain within 48 processors, in an HPC architecture. Numerical results are compared against previous simulations and experimental data. A key difference observed in URANS is the absence of significant vortex shedding, likely due to the use of wall functions. In contrast, vortex shedding is captured in the DES simulation, as shown in Figure~\ref{Des_Cylinder}, with global flow parameters in reasonable agreement with reference sources. Further analysis of the wall pressure coefficient and mean velocity profiles in the cylinder wake is presented in Figures~\ref{Cp_Cylinder_URANS} and \ref{Cylinder}. The overall comparison is satisfactory, with the main discrepancy being a longer wake in URANS compared to the reference numerical simulations by Catalano \cite{Catalano}. This deviation is likely caused by an inaccurate prediction of the separation point due to the approximate wall treatment.
+	
+	\begin{figure}[h]
+		\begin{center}
+			\hspace{5mm}
+			{\includegraphics[width=0.46\linewidth]{Figures/pressure_coeff_cylinder}}  
+			\caption[Pressure coefficients for the URANS of the 2D cylinder]{Numerical simulation of ﬂow around a 2D circular cylinder: wall pressure coefficient obtained from rhoEnergyFoam in Mode B with URANS (purple line) Modesti's URANS (light blue line) and Catalano's URANS and LES (black dotted line).}
+			\label{Cp_Cylinder_URANS}
+		\end{center}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\begin{center}
+			{\includegraphics[width=0.56\linewidth]{Figures/pressure_coefficient_DES}}  
+			\caption[Pressure coefficients for the DES of the 3D cylinder]{Numerical simulation of ﬂow around a 3D circular cylinder: wall pressure coefficient obtained from rhoEnergyFoam in Mode B with DES (red line) and Catalano's DES (light blue line).}
+			\label{Cp_Cylinder_DES}
+		\end{center}
+	\end{figure}
+	
+	\begin{figure}[t]
+		\begin{center}
+			{\includegraphics[width=1\linewidth]{Figures/Des_cylinder}}
+			\caption[Velocity representation through Q-criterion of a DES of the circular cylinder]{DES of a flow over a 3D circular cylinder: velocity filed plotted with Q-criterion $Q = \dfrac{1}{2} [(\nabla \cdot u)^2 - \nabla u : \nabla u^T]$.}
+			\label{Des_Cylinder}
+		\end{center}
+	\end{figure}
+	\newpage
 	\section{Sod's shock tube}
-	In this case, we simulate the Sod's shock tube problem, named after Gary A. Sod. This is a common test for the accuracy of computational fluid codes, like Riemann solvers, and was heavily investigated by \citet{Sod19781} in 1978. It consists of a pipe with either a circular or rectangular cross-section, filled with gas. The pipe is divided into two regions by a diaphragm positioned at its midpoint, as illustrated in figure (\ref{Sod_geometry}). In numerical simulations, this diaphragm is represented as a discontinuity in the initial fluid conditions, including density, pressure, and temperature, across the interface. This is an extremely severe case used to test the accuracy and stability of CFD solvers. The initial conditions for this problem are straightforward, consisting of a contact discontinuity that separates gas regions with different pressure and density, while the velocity remains zero throughout the domain. In the standard configuration, the left side of the diaphragm has a density and pressure of $1$, whereas the right side has a density of $0.125$ and a pressure of $0.1$. The specific heat ratio is set to $1.4$.\\
+	In this case, we simulate the Sod's shock tube problem, named after Gary A. Sod. This is a common test for the accuracy of computational fluid codes, like Riemann solvers, and was heavily investigated by \citet{Sod19781} in 1978. It consists of a pipe with either a circular or rectangular cross-section, filled with gas. The pipe is divided into two regions by a diaphragm positioned at its midpoint, as illustrated in figure (\ref{Sod_geometry}). 
+		
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7 \linewidth]{Figures/SOD_TUBE_GEOMETRY}
+		\caption{Sod shock tube at $t = 0$. On the left-hand side region with high density, pressure and temperature}
+		\label{Sod_geometry}
+	\end{figure} 
+	
+	\noindent In numerical simulations, this diaphragm is represented as a discontinuity in the initial fluid conditions, including density, pressure, and temperature, across the interface. This is an extremely severe case used to test the accuracy and stability of CFD solvers. The initial conditions for this problem are straightforward, consisting of a contact discontinuity that separates gas regions with different pressure and density, while the velocity remains zero throughout the domain. In the standard configuration, the left side of the diaphragm has a density and pressure of $1$, whereas the right side has a density of $0.125$ and a pressure of $0.1$. The specific heat ratio is set to $1.4$.\\
 	These initial conditions can be expressed mathematically as follows. 
 	
 	\begin{equation}
@@ -1682,16 +1805,9 @@
 		\end{bmatrix}
 	\end{equation}
 	\\
-	where $\rho$ is density, $P$ is pressure and $u$ is velocity. Index $2$ and $1$ refer to left and right-hand side conditions on the side of the diaphragm, respectively. The equations to be solved are the Euler equations, the air is modeled as an ideal gas and, in this case, \texttt{rhoEnergyFoam}0 is used in Mode C, where full AUSM \ref{AUSMsection} diffusion is activated near discontinuities to ensure stability and accuracy. The results
+	where $\rho$ is density, $P$ is pressure and $u$ is velocity. Index $(2)$ and $(1)$ refer to left and right-hand side conditions on the side of the diaphragm, respectively. The equations to be solved are the Euler equations, the air is modeled as an ideal gas and, in this case, \texttt{rhoEnergyFoam}0 is used in Mode C, where full AUSM \ref{AUSMsection} diffusion is activated near discontinuities to ensure stability and accuracy. The results
 	are for similar runtime parameters (CFL, time step), accuracy and mesh. 
-		
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=0.8 \linewidth]{Figures/SOD_TUBE_GEOMETRY}
-		\caption{Sod shock tube at $t = 0$. On the left-hand side region with high density, pressure and temperature}
-		\label{Sod_geometry}
-	\end{figure} 
-	
+
 	\begin{figure}
 		\centering
 		(a)\includegraphics[width=0.45\linewidth]{Figures/Sod_umag_ref}
@@ -1703,15 +1819,16 @@
 		\caption[Velocity magnitude, Pressure and denisty plots for the Sod's shock tube case.]{Sod's shock tube: Comparison of numerical results from \texttt{rhoEnergyFoam} and \texttt{rhoCentralFoam} for Sod's shock tube problem. The black solid lines represent the exact analytical solution, while the red dot show the numerical results. (a) and (b) display the velocity magnitude, (c) and (d) show the pressure distribution, and (e) and (f) present the density profile.}
 		\label{Sod_plots}
 	\end{figure}  
-
+	
 	\noindent Figure (\ref{Sod_plots}) contains six plots comparing the results of \texttt{rhoEnergyFoam} and \texttt{rhoCentralFoam}, for the Sod's shock tube simulation. Plots (a) and (b) depict the velocity magnitude, (c) and (d) show the pressure distribution, while (e) and (f) present the density profile. The red dots represent the numerical results obtained from the solvers, while the black solid lines correspond to the exact analytical solution. From the comparison, it is evident that \texttt{rhoEnergyFoam} (plots a, c, and e) closely matches the exact solution with minimal deviation. In fact, it manages to capture the shock wave, rarefaction wave, and contact discontinuity accurately as well as the pressure drop across the shock and the density jump. In contrast, \texttt{rhoCentralFoam} (plots b, d, and f) exhibits noticeable discrepancies, particularly in the velocity and pressure profiles, where numerical oscillations appear around the discontinuities. This proves that \texttt{rhoEnergyFoam} provides a more accurate and stable solution for this type of problem, while \texttt{rhoCentralFoam} struggles to capture the shock and rarefaction waves correctly, becasue it exhibits oscillations around the shock and contact discontinuity.
 	
-	\section{Supersonic flow \\ over a forward-facing step}
+	\newpage
+	\section{Supersonic flow over a forward-facing step}
 	The study of inviscid flow over a forward-facing step was originally introduced by \citet{EMERY1968306} to evaluate the effectiveness of shock-capturing schemes. In this work, this configuration is used to analyze the performance of \texttt{rhoEnergyFoam} in simulating supersonic flows in the presence of shock waves.
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.8 \linewidth]{Figures/FS_Geometry}
+		\includegraphics[width=0.7 \linewidth]{Figures/FS_Geometry}
 		\caption{Geometry of the forward-facing step and its boundary conditions}
 		\label{FS_Geometry}
 	\end{figure} 
@@ -1726,15 +1843,15 @@
 		\item \textbf{Bottom wall}: no-slip adiabatic wall condition;
 		\item \textbf{Top wall}: symmetry plane condition.
 	\end{itemize}
-
+	
 	\noindent The initial conditions for the simulation are: velocity  $U = 0$ m/s, pressure $p = 1$ Pa, and temperature: $T = 1$ K. The case is designed such that the speed of sound in the gas is	$c = \sqrt{\gamma R T} = 1 \text{ m/s}$. As a result, the velocity values are directly equivalent to the Mach number, meaning that an inlet velocity of 3 m/s corresponds to Mach 3.
 	\\
 	This speed of sound relation can be verified using the equation for a perfect gas which yields the specific heat ratio $\gamma = \frac{C_p}{C_v}$. 
 	For this test case the solver is run in Mode C, with threshold
 	value of the shock sensor $\theta^* = 0.05$ and $k_u = 0.25$, rather than the value suggested by \citet{LIOU_AUSM+-up}, as we observed a smoother shock front in this case.
 	Analysis of the shock structure reveals that, although \texttt{rhoEnergyFoam} and \texttt{rhoCentralFOAM} produce qualitatively similar results as shown in figures (\ref{FS_ref}, \ref{FS_rcf}), \texttt{rhoEnergyFoam} provides additional flow details. In particular, the slip line emerging from the quadruple point near the upper wall is barely visible in \texttt{rhoCentralFOAM} due to its higher numerical diffusion.
-			
-	\begin{figure}
+	
+	\begin{figure}[h]
 		\centering
 		\subfloat
 		{\includegraphics[width=0.7\textwidth]{Figures/FS_velocity}} \quad 
@@ -1745,7 +1862,7 @@
 		\label{FS_ref}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\subfloat
 		{\includegraphics[width=0.7\textwidth]{Figures/FS_rcf}} \quad 
@@ -1756,118 +1873,18 @@
 		\label{FS_rcf}
 	\end{figure}
 	
-	\section{Smooth flow past cylinder with AMR}
-	\label{AMR_cylinder}
-	
-	\texttt{rhoEnergyFoam}, is also able to take advantage of the adptive 
-	mesh refinement schemes present within OpenFOAM. This paragraph 
-	is done to demonstrate these properties, and at the moment further 
-	tests are also being conducted to verify the solver's capability 
-	to handle moving objects within the domain. We report here a 2D 
-	simulation of a cylinder at Mach $M_\infty = 0.1$ and $Re_\infty = 100$. Again  nondimensional variables are used and are shown in Table \ref{tab:cylinder_2d}.
-	
-	\begin{table}[h]
-		\centering
-		\begin{tabular}{lcc}
-			\hline
-			Variable & Value \\
-			\hline
-			\(M_{\infty}\) & 0.1 \\
-			\(Re_{D}\) & \(100\) \\
-			\(\rho_{\infty}\) & 1 \\
-			\(u_{\infty}\) & 0.118321 \\
-			\(c_{\infty}\) & 1.18321 \\
-			\(\mu_{\infty}\) & \(1.18321 \times 10^{-4}\) \\
-			\(D\) & 0.1 \\
-			\hline
-		\end{tabular}
-		\caption{Initial conditions for turbulent flow around 
-			circular cylinder.}
-		\label{tab:cylinder_2d}
-	\end{table}
-	
-	\begin{figure}
-		\centering
-		{\includegraphics[width=0.8\linewidth]{Figures/Cylinder_mesh_AMR}}
-		\caption[Cylinder mesh AMR]{Cylinder mesh AMR.}
-		\label{Cylinder_mesh_AMR}
-	\end{figure}
-	
-	
-	\begin{figure}
-		\centering
-			{\includegraphics[width=0.8\linewidth]{Figures/Cylinder_u1}}  
-			\caption[Cylinder mesh AMR]{Cylinder initial velocity field.}
-			\label{Cylinder_u1}
-	\end{figure}
-	
-	\begin{figure}
-		\centering
-		{\includegraphics[width=0.8\linewidth]{Figures/Cylinder_u2}}  
-		\caption[Cylinder mesh AMR]{Cylinder shedding.}
-		\label{Cylinder_u2}
-	\end{figure}
-	
-	\section{URANS and DES of a flow \\ past circular cylinder}
-	The turbulent flow around a circular cylinder has been numerically investigated using \textit{rhoEnergyFoam} in mode B, employing both URANS (Unsteady Reynolds-Averaged Navier-Stokes) and DES (Detached Eddy Simulation). The study is based on the classic Spalart-Allmaras turbulence model and its DES extension. The free-stream Mach number is given by $M_0 = u_0/c_0 = 0.1$,	where $u_0$ and $c_0$ are the free-stream velocity and the speed of sound. The Reynolds number, based on the cylinder diameter, is defined as $Re_D = (\rho_0 u_0 D)/\mu_w$, where $\rho_0$ represents the free-stream density and $\mu_w$ the wall viscosity. For the URANS simulation, an O-type mesh is utilized, consisting of $ N_r \times N_\theta = 256 \times 256 $ cells, with a hyperbolic tangent stretching towards the wall in a computational domain of $ L_r \times L_z = 20D \times 2D $, as shown in figure \ref{Cylinder_mesh}. For the DES simulation, an also an O-type mesh is utilized, consisting of $ N_r \times N_\theta \times N_z = 256 \times 256 \times 48 $ cells. Here as well, a hyperbolic tangent stretching towards the wall was used, within the same domain as written above. The grid is refined near the cylinder, with the first grid point located at $ y_+ \approx 150 - 200 $, necessitating the use of wall functions for proper wall treatment. Specifically, Spalding’s equilibrium wall law \cite{spalding1961single} is employed. 
-	
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=0.8 \linewidth]{Figures/Cylinder_mesh}
-		\caption[Mesh for the URANS and DES simulation of the cylinder]{Mesh for the URANS ($ N_r \times N_\theta \times N_z = 256 \times 256$) and DES ($ N_r \times N_\theta \times N_z = 256 \times 256 \times 48 $) simulation of the flow over a circular cylinder.}
-		\label{Cylinder_mesh}
-	\end{figure} 
-	
-	\noindent Isothermal no-slip boundary conditions are imposed at the wall, while \texttt{fixedValue} and/or \texttt{zeroGradient} boundary conditions are applied to all variables at the inlet and outlet, respectively. The turbulent viscosity is set to $\mu_{t0} = 3\mu_w$. The simulation has been performed in parallel, dividing the computational domain within 48 processors, in an HPC architecture. Numerical results are compared against previous simulations and experimental data. A key difference observed in URANS is the absence of significant vortex shedding, likely due to the use of wall functions. In contrast, vortex shedding is captured in the DES simulation, as shown in Figure~\ref{Des_Cylinder}, with global flow parameters in reasonable agreement with reference sources. Further analysis of the wall pressure coefficient and mean velocity profiles in the cylinder wake is presented in Figures~\ref{Cp_Cylinder_URANS} and \ref{Cylinder}. The overall comparison is satisfactory, with the main discrepancy being a longer wake in URANS compared to the reference numerical simulations by Catalano \cite{Catalano}. This deviation is likely caused by an inaccurate prediction of the separation point due to the approximate wall treatment.
-	
-	\begin{figure}
-		\begin{center}
-			\hspace{5mm}
-			{\includegraphics[width=0.7\linewidth]{Figures/pressure_coeff_cylinder}}  
-			\caption[Pressure coefficients for the URANS of the 2D cylinder]{Numerical simulation of ﬂow around a 2D circular cylinder: wall pressure coefficient obtained from rhoEnergyFoam in Mode B with URANS (purple line) Modesti's URANS (light blue line) and Catalano's URANS and LES (black dotted line).}
-			\label{Cp_Cylinder_URANS}
-		\end{center}
-	\end{figure}
-	
-	\begin{figure}
-		\begin{center}
-			{\includegraphics[width=0.8\linewidth]{Figures/pressure_coefficient_DES}}  
-			\caption[Pressure coefficients for the DES of the 3D cylinder]{Numerical simulation of ﬂow around a 3D circular cylinder: wall pressure coefficient obtained from rhoEnergyFoam in Mode B with DES (red line) and Catalano's DES (light blue line).}
-			\label{Cp_Cylinder_DES}
-		\end{center}
-	\end{figure}
-	
-	\begin{figure}
-		\centering
-		(a){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_u_075}}
-		(b){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_u_150}}\\
-		(c){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_v_075}}
-		(d){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_v_150}}
-		\caption[Velocity profiles of a URANS for a flow around cylinder]{Numerical simulation of ﬂow around circular cylinder: mean velocity proﬁles at $x/D = 0.75$ (panels a-c) e $x/D = 1.5$ (panels b-d) for URANS with \texttt{rhoEnergyFoam} (red line), Modesti's URANS (black dotted line) Catalano's URANS (purple dotted line).}
-		\label{Cylinder}
-	\end{figure}
-	
-	\begin{figure}
-		\begin{center}
-			{\includegraphics[width=0.98\linewidth]{Figures/Des_cylinder}}
-			\caption[Velocity representation through Q-criterion of a DES of the circular cylinder]{DES of a flow over a 3D circular cylinder: velocity filed plotted with Q-criterion $Q = \dfrac{1}{2} [(\nabla \cdot u)^2 - \nabla u : \nabla u^T]$.}
-			\label{Des_Cylinder}
-		\end{center}
-	\end{figure}
-	
 	\section{Transonic flow over RAE-2822 airfoil}
 	Il flusso transonico intorno al profilo alare RAE-2822 è stato simulato tramite RANS, utilizzando il modello standard di Spalart-Allmaras. Il numero di Mach è $M = 0.729$, il numero di Reynolds della corda è $Re_c = \rho_0 u_0 c /\mu_0 = 6.5 \times 10^6$, e l'angolo di attacco è $\alpha = 2.31^\circ$. \'E stata utilizzata una mesh strutturata di tipo C che comprende $369 \times 256$ celle, con tangente iperbolica che si estende verso la parete. Il limite del "far-field" si trova a circa 20 corde dalla parete, dove le condizioni al contorno di ingresso/uscita sono imposte, mentre le condizioni al contorno isotermiche di non slittamento sono imposte alla parete del profilo alare.
+	I campi di pressione calcolati sono confrontati nella figura \ref{RAE2822_pressurefield}, che mostra la presenza di un singolo shock normale sul lato di aspirazione e differenze minime tra i due solutori. Il confronto dettagliato dei coeﬃcienti di pressione con gli esperimenti di \citet{cook1977aerofoil} e le simulazioni \cite{slater2010rae2822}, mostrato in figura \ref{Cp_RAE2822}, è soddisfacente per entrambi i solutori, anche se in questo caso rhoCentralFoam sembra essere più vicino agli esperimenti e rhoEnergyFoam più vicino alle simulazioni precedenti.
 	
-		Il flusso transonico intorno al profilo RAE-2822 è stato simulato tramite RANS, utilizzando il modello standard di Spalart-Allmaras. Il numero di Mach è $M = 0.729$, il numero di Reynolds della corda è $Re_c = \rho_0 u_0 c /\mu_0 = 6.5 \times 10^6$, e l'angolo di attacco è $\alpha = 2.31^\circ$. \'E stata utilizzata una mesh strutturata di tipo C che comprende $369 \times 256$ celle, con tangente iperbolica che si estende verso la parete. Il limite del \say{farfield} si trova a circa 20 corde dalla parete, dove le condizioni al contorno di ingresso/uscita sono imposte, mentre le condizioni al contorno isotermiche di non slittamento sono imposte alla parete del profilo alare. I campi di pressione calcolati sono confrontati nella figura \ref{RAE2822_pressurefield}, che mostra la presenza di un singolo shock normale sul lato di aspirazione e differenze minime tra i due solutori. Il confronto dettagliato dei coeﬃcienti di pressione con gli esperimenti di \citet{cook1977aerofoil} e le simulazioni \cite{slater2010rae2822}, mostrato in figura \ref{Cp_RAE2822}, è soddisfacente per entrambi i solutori, anche se in questo caso rhoCentralFoam sembra essere più vicino agli esperimenti e rhoEnergyFoam più vicino alle simulazioni precedenti.
-	
-	\begin{figure}[htp]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.9\textwidth]{Figures/RAE2822_pressurefield}
 		\caption[Pressure field of a RANS of a transonic flow over RAE2822]{RANS of a transonic flow over RAE2822: Pressure fields evaluated with \texttt{rhoEnergyFoam} (a) and \texttt{rhoCentralFoam} (b). In the representation, 24 levels were used in the range  $0.6 < p/p_\infty < 1.4$.}
 		\label{RAE2822_pressurefield}
 	\end{figure}
 	
-	\begin{figure}[htp]
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.6\textwidth]{Figures/Cp_RAE2822}
 		\caption[Pressure coefficient of RANS of a transonic flow over RAE2822]{RANS of a transonic flow over RAE2822: pressure coefficient obtained with \texttt{rhoEnergyFoam} (black line) and with \texttt{rhoCentralFoam} (red dots),compared with previous
@@ -1879,8 +1896,14 @@
 	Questo caso mira alla valutazione di un flusso inviscido intorno all'ala dell'Onera M6, il cui flusso è transonico con numero di Mach $M = 0.8395$, e l'angolo di attacco è $\alpha = 3.06^\circ$ . \'E stata utilizzata una mesh non strutturata che include 341'797 celle tetraedriche, all'interno di una scatola computazionale esterna di dimensioni $L_x \times L_y \times L_z = 10c \times 10c \times 5c$, dove c è la corda nella sezione della radice dell'ala. Le simulazioni numeriche sono state effettuate utilizzando sia rhoCentralFOAM che rhoEnergyFoam in modo C.
 	\\
 		Questo caso mira alla valutazione di un flusso inviscido intorno all'ala dell'Onera M6, il cui flusso è transonico con numero di Mach $M = 0.8395$, e l'angolo di attacco è $\alpha = 3.06^\circ$. \'E stata utilizzata una mesh non strutturata che include 341'797 celle tetraedriche, all'interno di una scatola computazionale esterna di dimensioni $L_x \times L_y \times L_z = 10c \times 10c \times 5c$, dove c è la corda nella sezione della radice dell'ala. Le simulazioni numeriche sono state effettuate utilizzando sia rhoCentralFOAM che rhoEnergyFoam in modo C, confrontando i risultati anche con i valori dei dati sperimentali.
+	\begin{figure}[h]
+		\centering
+		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Figures/OneraM6mesh}}  
+		\caption{Unstructured mesh of the Onera M6 wing.}
+		\label{OneraM6_mesh}
+	\end{figure}
 	
-	\begin{figure}[htp]
+	\begin{figure}[h]
 		\centering
 		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Figures/Ducros}}  
 		\centering
@@ -1889,7 +1912,7 @@
 		\label{OneraM6_pressurefield}
 	\end{figure}
 	
-	\begin{figure}[htp]
+	\begin{figure}
 		\centering
 		{\includegraphics[width=0.95\linewidth]{Figures/Cp_contours_oneram6}}  
 		\caption[Pressure field of a flow around Onera M6 wing]{Flow around the wing of ONERA M6: pressure profiles evaluated with \texttt{rhoEnergyFoam} (a) and \texttt{rhoCentralFoam} (b). In range $0.3 < p/p_\infty < 1.5$ are shown 32 levels  (blue-to-red scale). Dotted lines point to section used to evaluate pressure coefficients as in \ref{Cp_oneraM6}}
@@ -1898,7 +1921,7 @@
 	
 	La figura \ref{OneraM6_pressurefield} mostra il campo di pressione calcolato usando rhoEnergyFoam con sovrapposta l'isosuperficie del sensore d'urto, che evidenzia la presenza di due onde d'urto, una primaria all'incirca a metà della corda e una secondaria vicino al bordo d'attacco, che alla fine si uniscono vicino alla punta dell'ala. La figura \ref{Cp_contours_oneraM6} mostra il campo di pressione calcolato sulla superficie di aspirazione dell'ala per rhoEnergyFoam (figura \ref{Cp_contours_oneraM6}a) e rhoCentralFoam (figura \ref{Cp_contours_oneraM6}b), che evidenzia le differenze qualitative tra i due solutori. Sebbene le caratteristiche principali del ﬂusso siano colte da entrambi i solutori, sembra che lo shock di bordo sia molto più debole in rhoCentralFoam e che lo shock primario sia molto più spesso, soprattutto verso la radice dell'ala, a causa della natura diffusiva del solutore. Una valutazione più quantitativa viene effettuata nella figura \ref{Cp_oneraM6}, dove si confrontano le distribuzioni calcolate del coefficiente di pressione con i dati sperimentali di Schmitt e Charpin \citep{schmitt1979pressure}, in corrispondenza delle quattro sezioni alari indicate con le linee tratteggiate nella figura \ref{Cp_contours_oneraM6}. Nella sezione più interna (pannello a) lo shock primario è piuttosto debole e appena evidente in rhoCentralFoam, mentre rhoEnergyFoam fornisce una previsione favorevole sia della forza che della posizione dello shock. Nelle sezioni intermedie (pannelli b,c) sono presenti entrambi gli shock, che sono di nuovo correttamente catturati da rhoEnergyFoam, mentre rhoCentralFoam mostra un'eccessiva sbavatura. Nella sezione più esterna (pannello d) lo shock primario e quello secondario si fondono in un unico shock più forte, la cui ampiezza è ben catturata da rhoEnergyFoam. 
 	
-	\begin{figure}[htp]
+	\begin{figure}[h]
 		\begin{center}
 			{\includegraphics[width=0.95\linewidth]{Figures/Cp_oneram6}}  
 			\caption[Pressure coefficient of the flow around ONERA M6 wing.]{Flow around ONERA M6 wing: pressure coefficient $(Cp = (p-p_\infty)/(\dfrac{1}{2}\rho_\infty u^2_\infty))$ at various wing sections: (a) $z/b = 0.2$, (b) $z/b = 0.65$ and (c) $z/b = 0.8$, for rhoEnergyFoam (black lines), rhoCentralFoam (red dotted lines) and experimental data (blue squares). $x_l$ and $x_t$ denote the coordinates of the leading edge and trailing edge of each wing section, respectively.}
