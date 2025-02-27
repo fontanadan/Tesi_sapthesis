@@ -1770,7 +1770,8 @@
 	
 	\begin{figure}
 		\begin{center}
-			{\includegraphics[width=0.6\linewidth]{Figures/pressure_coeff_cylinder}}  
+			\hspace{5mm}
+			{\includegraphics[width=0.7\linewidth]{Figures/pressure_coeff_cylinder}}  
 			\caption[Pressure coefficients for the URANS of the 2D cylinder]{Numerical simulation of ﬂow around a 2D circular cylinder: wall pressure coefficient obtained from rhoEnergyFoam in Mode B with URANS (purple line) Modesti's URANS (light blue line) and Catalano's URANS and LES (black dotted line).}
 			\label{Cp_Cylinder_URANS}
 		\end{center}
@@ -1778,7 +1779,7 @@
 	
 	\begin{figure}
 		\begin{center}
-			{\includegraphics[width=0.7\linewidth]{Figures/pressure_coefficient_DES}}  
+			{\includegraphics[width=0.8\linewidth]{Figures/pressure_coefficient_DES}}  
 			\caption[Pressure coefficients for the DES of the 3D cylinder]{Numerical simulation of ﬂow around a 3D circular cylinder: wall pressure coefficient obtained from rhoEnergyFoam in Mode B with DES (red line) and Catalano's DES (light blue line).}
 			\label{Cp_Cylinder_DES}
 		\end{center}
@@ -1790,14 +1791,14 @@
 		(b){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_u_150}}\\
 		(c){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_v_075}}
 		(d){\includegraphics[width=0.45\textwidth]{Figures/Cylinder_v_150}}
-		\caption[URANS, velocity profiles for flow around cylinder]{Numerical simulation of ﬂow around circular cylinder: mean velocity proﬁles at $x/D = 0.75$ (panels a-c) e $x/D = 1.5$ (panels b-d) for URANS with \texttt{rhoEnergyFoam} (red line), Modesti's URANS (black dotted line) Catalano's URANS (purple dotted line).}
+		\caption[Velocity profiles of a URANS for a flow around cylinder]{Numerical simulation of ﬂow around circular cylinder: mean velocity proﬁles at $x/D = 0.75$ (panels a-c) e $x/D = 1.5$ (panels b-d) for URANS with \texttt{rhoEnergyFoam} (red line), Modesti's URANS (black dotted line) Catalano's URANS (purple dotted line).}
 		\label{Cylinder}
 	\end{figure}
 	
 	\begin{figure}
 		\begin{center}
 			{\includegraphics[width=0.98\linewidth]{Figures/Des_cylinder}}
-			\caption[DES, velocity represetnation through Q-criterion]{DES of a flow over a 3D circular cylinder: velocity filed plotted with Q-criterion $Q = \dfrac{1}{2} [(\nabla \cdot u)^2 - \nabla u : \nabla u^T]$.}
+			\caption[Velocity representation through Q-criterion of a DES of the circular cylinder]{DES of a flow over a 3D circular cylinder: velocity filed plotted with Q-criterion $Q = \dfrac{1}{2} [(\nabla \cdot u)^2 - \nabla u : \nabla u^T]$.}
 			\label{Des_Cylinder}
 		\end{center}
 	\end{figure}
@@ -1813,7 +1814,7 @@
 	\begin{figure}[htp]
 		\centering
 		\includegraphics[width=0.9\textwidth]{Figures/RAE2822_pressurefield}
-		\caption{RANS del RAE2822: Campi di pressione calcolai da rhoEnergyFoam (a) e rhoCentralFoam (b). Nella rappresentazione sono stati utilizzati 24 livelli nel range $0.6 < p/p_\infty < 1.4$.}
+		\caption[Pressure field of a RANS of a transonic flow over RAE2822]{RANS of a transonic flow over RAE2822: Pressure fields evaluated with \texttt{rhoEnergyFoam} (a) and \texttt{rhoCentralFoam} (b). In the representation, 24 levels were used in the range  $0.6 < p/p_\infty < 1.4$.}
 		\label{RAE2822_pressurefield}
 	\end{figure}
 	
@@ -1835,14 +1836,14 @@
 		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Figures/Ducros}}  
 		\centering
 		{\includegraphics[width=0.6\linewidth]{Figures/Ducros_bar}}
-		\caption{Campo di pressione dell'Onera M6 con sovrapposta l'isosuperficie del sensore di Ducros che evidenzia la presenza di due onde d'urto.}
+		\caption{Pressure field with Ducros sensor isosurface superimposed, showing the presence of two shock waves, of the Onera M6 wing.}
 		\label{OneraM6_pressurefield}
 	\end{figure}
 	
 	\begin{figure}[htp]
 		\centering
-		{\includegraphics[width=0.95\linewidth]{Figures/Cp_contours_oneram6_1}}  
-		\caption{Flusso attorno all'ala dell'ONERA M6: profili di pressione calcolati sulla superficie dell'ala per rhoEnergyFoam (a) e rhoCentralFoam (b). Nell'intervallo $0.3 < p/p_\infty < 1.5$ sono mostrati 32 livelli  (scala di colori dal blu a rosso). Le linee tratteggiate indicano le sezioni alari utilizzate nella Figura \ref{Cp_oneraM6}}
+		{\includegraphics[width=0.95\linewidth]{Figures/Cp_contours_oneram6}}  
+		\caption[Pressure field of a flow around Onera M6 wing]{Flow around the wing of ONERA M6: pressure profiles evaluated with \texttt{rhoEnergyFoam} (a) and \texttt{rhoCentralFoam} (b). In range $0.3 < p/p_\infty < 1.5$ are shown 32 levels  (blue-to-red scale). Dotted lines point to section used to evaluate pressure coefficients as in \ref{Cp_oneraM6}}
 		\label{Cp_contours_oneraM6}
 	\end{figure}
 	
@@ -1851,7 +1852,7 @@
 	\begin{figure}[htp]
 		\begin{center}
 			{\includegraphics[width=0.95\linewidth]{Figures/Cp_oneram6}}  
-			\caption{Flusso attorno all'ala ONERA M6: coefficiente di pressione $(Cp = (p-p_\infty)/(\dfrac{1}{2}\rho_\infty u^2_\infty))$ a varie sezioni dell'ala (vedi Fig. \ref{Cp_contours_oneraM6}): (a) $z/b = 0.2$, (b) $z/b = 0.65$, (c) $z/b = 0.8$, (d) $z/b = 0.9$, per rhoEnergyFoam (linea continua) rhoCentralFoam (linea tratteggiata) e dati sperimentali (simboli quadrati). $x_l$ e $x_t$ indicano rispettivamente le coordinate del bordo d'attacco e del bordo d'uscita di ciascuna sezione alare.}
+			\caption[Pressure coefficient of the flow around ONERA M6 wing.]{Flow around ONERA M6 wing: pressure coefficient $(Cp = (p-p_\infty)/(\dfrac{1}{2}\rho_\infty u^2_\infty))$ at various wing sections: (a) $z/b = 0.2$, (b) $z/b = 0.65$ and (c) $z/b = 0.8$, for rhoEnergyFoam (black lines), rhoCentralFoam (red dotted lines) and experimental data (blue squares). $x_l$ and $x_t$ denote the coordinates of the leading edge and trailing edge of each wing section, respectively.}
 			\label{Cp_oneraM6}
 		\end{center}
 	\end{figure}
