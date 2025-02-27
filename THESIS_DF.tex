@@ -187,7 +187,7 @@
 	\\	
 	These equations are solved numerically in CFD to analyze fluid flows where changes in pressure, temperature, and density significantly affect the dynamics, such as supersonic aircraft, rocket engines, weather modeling and shock waves.
 	
-	\subsection{Euler equation}
+	%\subsection{Euler equation}
 	
 	\section{OpenFOAM}
 	OpenFOAM (Open source Field Operation And Manipulation) is the leading open source software for Computational Fluid Dynamics (CFD), which is developed and constantly updated by the ESI-\citet{OpenFOAM_ESI} ltd since 2004. It is distributed exclusively from the OpenFOAM \citet{OpenFOAMFoundation} under the General Public Licence (GPL). The GPL gives users the freedom to modify and redistribute the software and a guarantee of continued free use, within the terms of the licence.
@@ -511,7 +511,7 @@
 	
 	\begin{figure}[t]
 		\centering
-		\includegraphics[width=0.4 \linewidth]{Figures/CELL3D.png}
+		\includegraphics[width=0.5 \linewidth]{Figures/CELL3D.png}
 		\caption[3D computational cell for numerical flux evaluation.]{Computational cell for numerical flux evaluation. \textcolor{red}{$\Delta S_{ON}$} represents the interface between the owner cell O and the neighboring cell N, with \textcolor{red}{$\vec{n}$} as the outward normal for O and \textcolor{Havelock Blue}{$\vec{d_{ON}}$} the distance between the cell centers O and N.}
 		\label{cells}
 	\end{figure} 
@@ -1110,6 +1110,7 @@
 			$C_{t4}$  & $2$ \\
 			\hline
 		\end{tabular}
+		\vspace{3mm}
 		\caption{Spalart-Allmaras constants}
 		\label{table:SAconstants}
 	\end{table}

@@ -1,7 +1,6 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Literature Review}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Navier-Stokes equations}{5}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Euler equation}{7}{subsection.2.1.1}%
 \contentsline {section}{\numberline {2.2}OpenFOAM}{7}{section.2.2}%
 \contentsline {section}{\numberline {2.3}The Finite Volume Method}{10}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Interpolation Schemes}{13}{section.2.4}%
@@ -14,21 +13,21 @@
 \contentsline {subsection}{\numberline {2.4.3}The AUSM Schemes}{20}{subsection.2.4.3}%
 \contentsline {subsubsection}{The AUSM Scheme}{20}{section*.12}%
 \contentsline {subsubsection}{The AUSM+ Scheme}{22}{section*.15}%
-\contentsline {subsubsection}{The AUSM+-up Scheme}{24}{section*.17}%
+\contentsline {subsubsection}{The AUSM+-up Scheme}{25}{section*.17}%
 \contentsline {subsection}{\numberline {2.4.4}Shock Capturing Schemes}{27}{subsection.2.4.4}%
-\contentsline {subsubsection}{Classical methods}{27}{section*.19}%
+\contentsline {subsubsection}{Classical methods}{28}{section*.19}%
 \contentsline {subsubsection}{Hybrid Methods}{29}{section*.20}%
 \contentsline {paragraph}{Ducros Sensor}{32}{section*.21}%
 \contentsline {subsection}{\numberline {2.4.5}Temporal Discretization}{33}{subsection.2.4.5}%
 \contentsline {subsubsection}{Explicit Time Discretization}{33}{section*.22}%
-\contentsline {subsubsection}{Implicit Time Discretization}{34}{section*.23}%
+\contentsline {subsubsection}{Implicit Time Discretization}{35}{section*.23}%
 \contentsline {section}{\numberline {2.5}Interpolation schemes in OpenFOAM}{36}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}OpenFOAM solvers}{36}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.1}OpenFOAM solvers}{37}{subsection.2.5.1}%
 \contentsline {section}{\numberline {2.6}CFD Methodologies}{41}{section.2.6}%
 \contentsline {subsection}{\numberline {2.6.1}Reynolds-Averaged Navier-Stokes (RANS)}{42}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}RANS closure models}{43}{subsection.2.6.2}%
 \contentsline {subsubsection}{Spalart-Allmaras model}{44}{section*.35}%
-\contentsline {subsubsection}{$k-\varepsilon $ model}{45}{section*.37}%
+\contentsline {subsubsection}{$k-\varepsilon $ model}{46}{section*.37}%
 \contentsline {subsubsection}{$k-\omega $ model}{46}{section*.38}%
 \contentsline {subsection}{\numberline {2.6.3}Unsteady RANS (URANS)}{47}{subsection.2.6.3}%
 \contentsline {subsection}{\numberline {2.6.4}Large Eddy Simulation (LES)}{48}{subsection.2.6.4}%
