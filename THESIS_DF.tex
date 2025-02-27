@@ -65,14 +65,34 @@
 	\maketitle
 	\dedication{Dedicated to\\ Ilaria}
 	
+	\newpage
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.22\linewidth]{immagini/EU}
+		\includegraphics[width=0.22\linewidth]{immagini/Min}
+		\includegraphics[width=0.22\linewidth]{immagini/pon}
+		\includegraphics[width=0.22\linewidth]{immagini/react}
+	\end{figure}
+	\begin{center}
+		\small % Riduce la dimensione del testo
+		%\footnotesize
+		%\scriptsize
+		La borsa di dottorato è stata cofinanziata con risorse del\\
+		Programma Operativo Nazionale Ricerca e Innovazione 2014-2020,	risorse FSE REACT-EU\\
+		Azione IV.4 “Dottorati e contratti di ricerca su tematiche dell’innovazione”\\
+		e Azione IV.5 “Dottorati su tematiche Green”
+	\end{center}
+	
 	\begin{abstract}
-		This thesis deals with myself.
+		This thesis deals with.
 	\end{abstract}
 	
 	% Acknowledgements
 	\chapter*{Acknowledgements}
 	%\addcontentsline{toc}{chapter}{Acknowledgements}
-	Acknowledge contributions from advisors, funding sources, colleagues, and anyone who supported you.	
+	
+	The numerical simulations reported in this thesis have been carried out in collaboration with Leonardo S.p.a.
 	
 	% Table of Contents
 	\tableofcontents
@@ -1771,7 +1791,7 @@
 		
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.7 \linewidth]{Figures/SOD_TUBE_GEOMETRY}
+		\includegraphics[width=0.8 \linewidth]{Figures/SOD_TUBE_GEOMETRY}
 		\caption{Sod shock tube at $t = 0$. On the left-hand side region with high density, pressure and temperature}
 		\label{Sod_geometry}
 	\end{figure} 
@@ -1918,7 +1938,7 @@
 	\end{figure}
 
 	\section{Transonic flow over Onera M6 wing}
-	This case aims at the evaluation of an inviscid flow around the wing of Onera M6, whose flow is transonic with Mach number $M = 0.8395$, and the angle of attack is $\alpha = 3.06^{\degree}$. An unstructured mesh including 341'797 tetrahedral cells was used, within an external computational box of size $L_x \times L_y \times L_z = 10c \times 5c$, where c is the chord in the wing root section. Numerical simulations were carried out using both rhoCentralFOAM and rhoEnergyFoam in mode C, also comparing the results with experimental data values.
+	This case aims to study the flow around the wing of Onera M6, whose flow is inviscid and transonic with Mach number $M = 0.8395$, and the angle of attack is $\alpha = 3.06^{\degree}$. An unstructured mesh including 341'797 tetrahedral cells was used, within an external computational box of size $L_x = 10c$, $L_y = 10c$ and $L_z = 5c$, where c is the chord in the wing root section. Numerical simulations were carried out using both rhoCentralFOAM and rhoEnergyFoam in mode C, also comparing the results with experimental data values.
 	\begin{figure}[h]
 		\centering
 		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Figures/OneraM6mesh}}  
@@ -1931,7 +1951,7 @@
 		{\includegraphics[width=0.65\linewidth, height=0.32\textheight]{Figures/Ducros}}  
 		\centering
 		{\includegraphics[width=0.6\linewidth]{Figures/Ducros_bar}}
-		\caption{Pressure field with Ducros sensor isosurface superimposed, showing the presence of two shock waves, of the Onera M6 wing.}
+		\caption[Pressure field Onera M6]{Pressure field with Ducros sensor isosurface superimposed, showing the presence of two shock waves, of the Onera M6 wing. In the representation, 24 levels were used in the range  $0.33 < p/p_\infty < 1.6$.}
 		\label{OneraM6_pressurefield}
 	\end{figure}
 	
@@ -1955,10 +1975,35 @@
 	\label{chap:conclusion}
 	
 	In conclusion, the low-dissipative solver presented in this study represents a significant advancement in the simulation of turbulent compressible flows. Its ability to preserve energy, adaptively manage numerical diffusion, and accurately capture both smooth and shocked flow features underscores its potential to bridge the gap between academic and industrial CFD practices. By demonstrating superior performance across a range of test cases, from canonical turbulence to applied aerodynamics, the solver establishes itself as a robust tool for high-fidelity flow simulations. Its integration within OpenFOAM further amplifies its utility, offering a practical solution for complex fluid dynamics problems in research and industry alike.
+	$rhoEnergyFoam$ is a high-fidelity, 
+	low-dissipative, energy preserving, compressible flow solver 
+	implemented in the open-source OpenFOAM framework. 
+	Its energy-preserving numerics augmented with selective 
+	diffusion provide:
 	
+	\begin{itemize}
+		\item Discrete kinetic energy conservation for accurate DNS/LES
+		\item Shock capturing with reduced diffusion compared to typical schemes
+		\item Straightforward 3-mode formulation for resolved, unresolved, and shocked flows
+		\item Out-of-the-box use in OpenFOAM.
+	\end{itemize}
+	
+	By lowering numerical diffusion while retaining 
+	unstructured FV formulation, $rhoEnergyFoam$ enables 
+	accurate turbulence simulation for complex engineering flows. 
+	The implementation maintains OpenFOAM's ease of use to facilitate adoption.
+	\\
+	The code, with documentation, is openly available. 
+	It is aimed at academics and CFD practitioners seeking 
+	improved accuracy, especially for LES. Further development 
+	by the community is encouraged.
+	\\
+	In summary, \texttt{rhoEnergyFoam} bridges the gap between high-accuracy  academic codes and general-purpose industrial solvers. It brings the benefits of low-dissipation numerics to a wider range of practical applications. This can lead to significant improvements in CFD capabilities for flows of engineering interest. 
+	
+	\newpage
 
 	%\backmatter
-	\cleardoublepage
+	%\cleardoublepage
 	\phantomsection % Give this command only if hyperref is loaded
 	\addcontentsline{toc}{chapter}{\bibname}
 	% Here put the code for the bibliography. You can use BibTeX or
