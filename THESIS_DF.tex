@@ -54,8 +54,8 @@
 \courseorganizer{Department of Mechanical and Aerospace Engineering}
 \cycle{XXXVII}
 \AcademicYear{2024/2025}
-\advisor{Sergio Pirozzoli}
-\coadvisor{Ivan Spisso}
+\advisor{Prof. Sergio Pirozzoli}
+\coadvisor{Dott. Ivan Spisso}
 \authoremail{daniele.fontana@uniroma1.it}
 \copyyear{2025}
 \thesistype{PhD thesis}
@@ -88,13 +88,7 @@
 	\begin{abstract}
 	The development of the \texttt{rhoEnergyFoam} solver represents a significant advancement in the numerical simulation of compressible turbulent flows, aimed at bridging the gap between high-accuracy academic methods and general-purpose Computational Fluid Dynamics (CFD) solvers used in industry. Leveraging an energy-consistent, low-diffusive numerical flux and selectively incorporating diffusion based on flow characteristics, \texttt{rhoEnergyFoam} ensures minimal numerical dissipation while maintaining robustness. The solver utilizes a novel triple-splitting approach, previously unexplored in finite-volume methods, which through the AUSM (Advection Upstream Splitting Method) decomposes advection fluxes of the Navier-Stokes equations into distinct pressure and convective components. This formulation allows for tailored numerical diffusion in different flow regimes: fully resolved simulations (Mode A) operating without artificial diffusion, unresolved smooth flows (Mode B) using minimal pressure diffusion, and shocked flows (Mode C) applying both pressure and convective diffusion for stability.	Implemented within the OpenFOAM framework, \texttt{rhoEnergyFoam} offers a robust, highly-accurate tool for simulating compressible flows across a wide range of Mach and Reynolds numbers, advancing both fundamental turbulence modeling and real-world engineering applications. The solver's low-dissipation characteristics improve the accuracy of turbulence simulations, preserving kinetic energy in unsteady RANS and Large Eddy Simulations (LES), and reducing the numerical damping that can obscure physical flow features. Additionally, its shock-capturing capability, based on a local shock sensor, provides sharper resolution of supersonic flows—crucial for aerospace and automotive applications. Validation through a variety of fundamental and applied test cases demonstrates that \texttt{rhoEnergyFoam} outperforms standard OpenFOAM solvers in preserving kinetic energy and provides enhanced predictions of aerodynamic coefficients such as lift and drag. By maintaining minimal numerical diffusion while enabling selective diffusion where necessary, it ensures high-fidelity flow predictions without sacrificing stability. Furthermore, as an open-source solver, \texttt{rhoEnergyFoam} fosters collaboration and further development within the CFD community, encouraging innovation and improvement. As a potential next step, the solver could benefit from GPU acceleration to further enhance computational efficiency and speed, broadening its applicability to large-scale industrial simulations.
 	\end{abstract}
-	
-	% Acknowledgements
-	\chapter*{Acknowledgements}
-	%\addcontentsline{toc}{chapter}{Acknowledgements}
-	
-	The numerical simulations reported in this thesis have been carried out in collaboration with Leonardo S.p.a.
-	
+		
 	% Table of Contents
 	\tableofcontents
 
@@ -241,7 +235,7 @@
 	Here we consider the general transport equation in its integral form:
 	
 	\begin{equation} 
-		\int_{V_{p}}{{\dfrac{\partial{\rho \phi}}{\partial{t}}}}\ dV + \int_{V_{p}}{\nabla \cdot (\rho u \phi)}\ dV - \int_{V_{p}}{\nabla \cdot (\rho \Gamma_{\phi} \nabla\phi)}\ dV = \int_{V_{p}}{S_{\phi}(\phi)}\ dV
+		\int_{V_{p}}{{\dfrac{\partial{\rho \phi}}{\partial{t}}}}\ \mathrm{d}V + \int_{V_{p}}{\nabla \cdot (\rho u \phi)}\ \mathrm{d}V - \int_{V_{p}}{\nabla \cdot (\rho \Gamma_{\phi} \nabla\phi)}\ \mathrm{d}V = \int_{V_{p}}{S_{\phi}(\phi)}\ \mathrm{d}V
 		\label{Transport equation}
 	\end{equation}
 	\\
@@ -249,16 +243,16 @@
 	Now, let us recall the Gauss theorem which states that the outward flux of a vector field through a closed surface is equal to the volume integral of the divergence over the region inside the surface:
 	
 	\begin{equation}
-		\int_{V}{\nabla \cdot \bar{u} \ }dV = \int_{\partial{V}}{\bar{u} \cdot \hat{n} \ dS}
+		\int_{V}{\nabla \cdot \bar{u} \ }\mathrm{d}V = \int_{\partial{V}}{\bar{u} \cdot \hat{n} \ \mathrm{d}S}
 		\label{Gauss theorem}
 	\end{equation}
 	\\
-	where $\partial{V}$ is a closed surface bounding the generic control volume $V$ and $dS$ represents an infinitesimal surface element with associated normal $\hat{n}$ pointing outwards of the surface $\partial{V}$.
+	where $\partial{V}$ is a closed surface bounding the generic control volume $V$ and $\mathrm{d}S$ represents an infinitesimal surface element with associated normal $\hat{n}$ pointing outwards of the surface $\partial{V}$.
 	
 	If we use the Gauss theorem to convert the volume integrals into surface integrals, that is using equation \ref{Gauss theorem} into equation \ref{Transport equation}, we obtain the following equation
 	
 	\begin{equation}
-		\dfrac{\partial}{\partial{t}}\int_{V_{p}}{{(\rho \phi)}}\ dV + \int_{\partial{V_{p}}}{ (\rho u \phi)\cdot \hat{n}}\ dS - \int_{V_{p}}{(\rho \Gamma_{\phi} \nabla\phi)\cdot \hat{n}}\ dS = \int_{V_{p}}{S_{\phi}(\phi)}\ dV
+		\dfrac{\partial}{\partial{t}}\int_{V_{p}}{{(\rho \phi)}}\ \mathrm{d}V + \int_{\partial{V_{p}}}{ (\rho u \phi)\cdot \hat{n}}\ \mathrm{d}S - \int_{V_{p}}{(\rho \Gamma_{\phi} \nabla\phi)\cdot \hat{n}}\ \mathrm{d}S = \int_{V_{p}}{S_{\phi}(\phi)}\ \mathrm{d}V
 		\label{Transport equation_2}
 	\end{equation}
 	\\
@@ -266,7 +260,7 @@
 	\indent For the convective term we have:
 	
 	\begin{equation}
-		\int_{\partial{V_{p}}}{(\rho u \phi)} \cdot \hat{n}\ dS = \sum_{f}\int_{f}{(\rho u \phi)_{f}} \cdot \hat{n}\ dS \simeq \sum_{f} (\overline{\rho u \phi})_{f} \cdot \hat{n} \ S_{f} = \sum_{f} (\rho u \phi)_{f} \cdot \hat{n} \ S_{f}
+		\int_{\partial{V_{p}}}{(\rho u \phi)} \cdot \hat{n}\ \mathrm{d}S = \sum_{f}\int_{f}{(\rho u \phi)_{f}} \cdot \hat{n}\ dS \simeq \sum_{f} (\overline{\rho u \phi})_{f} \cdot \hat{n} \ S_{f} = \sum_{f} (\rho u \phi)_{f} \cdot \hat{n} \ S_{f}
 		\label{convective discrete}
 	\end{equation}
 	\\
@@ -276,8 +270,8 @@
 	
 	\begin{equation}
 		\begin{aligned}
-			\int_{\partial{V_{p}}}{(\rho \Gamma_{\phi} \nabla \phi)} \cdot \hat{n}\ dS = \\ 
-			\sum_{f}\int_{f}{(\rho \Gamma_{\phi} \nabla \phi)_{f}} \cdot \hat{n}\ dS \simeq \sum_{f} (\overline{\rho \Gamma_{\phi} \nabla \phi})_{f} \cdot \hat{n} \ S_{f} =\\
+			\int_{\partial{V_{p}}}{(\rho \Gamma_{\phi} \nabla \phi)} \cdot \hat{n}\ \mathrm{d}S = \\ 
+			\sum_{f}\int_{f}{(\rho \Gamma_{\phi} \nabla \phi)_{f}} \cdot \hat{n}\ \mathrm{d}S \simeq \sum_{f} (\overline{\rho \Gamma_{\phi} \nabla \phi})_{f} \cdot \hat{n} \ S_{f} =\\
 			\sum_{f} (\rho \Gamma_{\phi} \nabla \phi)_{f} \cdot \hat{n} \ S_{f}
 		\label{diffusive discrete}
 	\end{aligned} 
@@ -286,7 +280,7 @@
 	For the source term we have:
 	
 	\begin{equation}
-		\int_{V_{p}}{(\phi) S_{\phi}} \ dV = S_{c}V_{P} + S_{p}V_{P}\phi_{P}
+		\int_{V_{p}}{(\phi) S_{\phi}} \ \mathrm{d}V = S_{c}V_{P} + S_{p}V_{P}\phi_{P}
 		\label{source discrete}
 	\end{equation}	
 	\\
@@ -365,7 +359,7 @@
 	where $f^+(u)$ and $f^-(u)$ correspond to non-negative and non-positive propagation velocities, respectively, i.e.,
 	
 	\begin{equation}
-		\dfrac{df^+}{du} \geq 0 \quad \text{and} \quad \dfrac{df^-}{du} \leq 0.
+		\dfrac{\mathrm{d}f^+}{\mathrm{d}u} \geq 0 \quad \text{and} \quad \dfrac{\mathrm{d}f^-}{\mathrm{d}u} \leq 0.
 	\end{equation}
 	\\
 	These components are discretized using left- and right-biased approximations to maintain linear stability.
@@ -737,7 +731,7 @@
 	Suppose that the scalar conservation law is the one in equation \ref{conservationlaw} which can be approximated by the semidiscrete scheme
 	
 	\begin{equation}
-		\Delta x \dfrac{d v_j}{d t} + \hat{f}_{(j+1/2)} -  \hat{f}_{(j-1/2)} = 0
+		\Delta x \dfrac{\mathrm{d} v_j}{\mathrm{d} t} + \hat{f}_{(j+1/2)} -  \hat{f}_{(j-1/2)} = 0
 		\label{semidiscretescheme}
 	\end{equation} 
 	\\
@@ -876,11 +870,11 @@
 	Explicit schemes are conditionally stable and require the time step size $\Delta t$ to satisfy specific stability criteria, such as the Courant-Friedrichs-Lewy (CFL) condition. For example, in advection-dominated problems, the CFL condition imposes the following constraint:
 	
 	\begin{equation}
-	\Delta t \ \leq \ C_{max} \ \dfrac{\Delta x}{|\mathbf{u}|},
+	\Delta t \ \leq \ C_{max} \ \dfrac{\Delta x}{|\mathbf{\lambda_u}|},
 	\label{CFL}
 	\end{equation}
 	\\
-	where $\Delta x$ is the spatial grid resolution and $|\mathbf{u}|$ is the characteristic velocity of the flow. Failure to meet this criterion may result in numerical instability. The value of $C_{max}$ changes with the method used to solve the discretised equation, especially depending on whether the method is explicit or implicit. If an explicit solver is used then typically $C_{max} \leq 1$. Implicit solvers are usually less sensitive to numerical instability, so $C_{max} > 1$. 
+	where $\Delta x$ is the spatial grid resolution and $|\mathbf{\lambda_u}|$ is the characteristic velocity of the flow. Failure to meet this criterion may result in numerical instability. The value of $C_{max}$ changes with the method used to solve the discretised equation, especially depending on whether the method is explicit or implicit. If an explicit solver is used then typically $C_{max} \leq 1$. Implicit solvers are usually less sensitive to numerical instability, so $C_{max} > 1$. 
     The accuracy of explicit schemes depends on their formulation.
 	In general, in order for this kind of schemes to be accurate the CFL require a very low $\Delta t$ (e.g. for a dimensionless time, that would correspond to an order of magnitude of $10^{-6}$). This requires large computation times to be sure the simulation has come to convergence.
 	The \textit{forward Euler} method is first-order accurate, meaning that its error decreases linearly with the time step size. Higher-order explicit schemes, such as \textit{Runge-Kutta} methods, provide improved accuracy by incorporating additional intermediate steps within each time step.
@@ -1188,7 +1182,7 @@
  	For instance, a generic model of filtering is the following
  	
  	\begin{equation}
- 			\overline{u(x,t)} = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} u(\bar{x},\bar{t})F(x-\bar{x},t-\bar{t}) d\bar{t} d\bar{x},
+ 			\overline{u(x,t)} = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} u(\bar{x},\bar{t})F(x-\bar{x},t-\bar{t}) \mathrm{d}{t} \mathrm{d}\bar{x},
  	\end{equation}
  	\\
  	where $F$ is a convolution function different for any type of filter. Using the above filter definition, the field $u$ may be split up into a filtered and sub-filtered (denoted with a prime) portion, as 
@@ -1290,7 +1284,7 @@
 	\noindent Let's consider the Navier-Stokes equations for a compressible ideal gas, integrated over an arbitrary volume $V$
 	
 	\begin{equation}
-		\dfrac{d}{dt}\int_V \textbf{u} \ dV + \sum_{i=1}^{3} \int_{\partial{V}} (\textbf{f}_i-\textbf{f}_i^{\nu}) \cdot n_i \ dS = 0
+		\dfrac{\mathrm{d}}{\mathrm{d}t}\int_V \textbf{u} \ \mathrm{d}V + \sum_{i=1}^{3} \int_{\partial{V}} (\textbf{f}_i-\textbf{f}_i^{\nu}) \cdot n_i \ \mathrm{d}S = 0
 		\label{NS-compressible}
 	\end{equation}
 	\\
@@ -1323,7 +1317,7 @@
 	The boundary Eulerian flux in equation \ref{NS-compressible} is approximated on a polyhedral cell $ O $ (see figure \ref{figure:cells} for illustration) as follows
 	
 	\begin{equation}
-		\frac{1}{V} \int_{\partial V} \mathbf{f_i} n_i dS \approx \sum_N (\mathbf{f_i} n_i)_{ON} \Delta S_{ON} = \sum_N \mathbf{\hat{f}}_{ON} \Delta S_{ON}.
+		\frac{1}{V} \int_{\partial V} \mathbf{f_i} n_i \mathrm{d}S \approx \sum_N (\mathbf{f_i} n_i)_{ON} \Delta S_{ON} = \sum_N \mathbf{\hat{f}}_{ON} \Delta S_{ON}.
 	\end{equation}
 	\\
 	\begin{figure}[h]
@@ -1423,7 +1417,7 @@
 	\\The resulting semi-discretized system of ordinary differential equations, say 
 	
 	\begin{equation}
-		d \mathbf{u}/dt = R(\mathbf{u}),
+		\frac{\mathrm{d} \mathbf{u}}{\mathrm{d}t} = R(\mathbf{u}),
 	\end{equation}
 	\\
 	is advanced in time using a low-storage	third-order, three-stage Runge–Kutta algorithm, where the substeps are the following:
@@ -1599,10 +1593,10 @@
 	The evolution of turbulence kinetic energy defined as:
 	
 	\begin{equation}
-		K = \frac{1}{2} \sum_i  (\overline{u_{i} u_{i}}) V_i,
+		K = \frac{1}{2} \sum_i  (u_{k} u_{k})_i V_i,
 	\end{equation}
 	\\
-	where $u_i$ represents the velocity of the cell $i$, $V_i$ is the volume of cell, and the overbar denotes Reynolds-averaging, can be seen in figure \ref{DIT}.
+	where $u_k$ represents the velocity of the cell $i$, $V_i$ is the volume of cell, can be seen in figure \ref{DIT}.
 	\begin{table}[h]
 		\centering
 		\begin{tabular}{cc}
@@ -1662,10 +1656,10 @@
 	\\
 	Herein, we introduce a new physical variable called Enstrophy, defined as
 	\begin{equation}
-		\Omega = \frac{1}{2} \sum_i (\overline{\omega_i \omega_i})_i V_i.
+		\Omega = \frac{1}{2} \sum_i (\omega_k \omega_k)_i V_i.
 	\end{equation}
 	\\
-	where $\omega_i = \nabla \times u_i$ represents the vorticity of the cell $i$, $V_i$ is the volume of cell and the overbar denotes Reynolds-averaging. Enstrophy is a measure of the intensity of vorticity in a moving fluid. In turbulence theory it provides insights into the distribution and dissipation of rotational motion within a flow. In inviscid flows, enstrophy can be conserved, whereas in viscous flows, it tends to dissipate over time due to the effects of viscosity.	The evolution in time of the turbulent kinetic energy and of the enstrophy can be seen in figure (\ref{TKE_ENS_TGV}). As illustrated in panel (a), the kinetic energy obtained from the simulation on the structured mesh using \texttt{rhoEnergyFoam} in both mode A and mode B remains conserved and constant, as indicated by the black solid line and the blue dotted line. In contrast, \texttt{rhoCentralFoam} exhibits a rapid dissipation of kinetic energy over a very short timescale, with curves that are nearly imperceptible in the adopted representation. Meanwhile, \texttt{dnsFoam} demonstrates a gradual decay of kinetic energy. In panel (b), which corresponds to the unstructured mesh, the total kinetic energy obtained using \texttt{dnsFoam} exhibits a continuous decay, whereas \texttt{rhoCentralFoam} continues to show rapid dissipation of kinetic energy. Conversely, \texttt{rhoEnergyFoam} effectively preserves kinetic energy in mode A, while mode B experiences some degree of numerical diffusion.
+	where $\omega = \nabla \times u$ represents the vorticity of the cell $i$ and $V_i$ is the volume of cell. Enstrophy is a measure of the intensity of vorticity in a moving fluid. In turbulence theory it provides insights into the distribution and dissipation of rotational motion within a flow. In inviscid flows, enstrophy can be conserved, whereas in viscous flows, it tends to dissipate over time due to the effects of viscosity.	The evolution in time of the turbulent kinetic energy and of the enstrophy can be seen in figure (\ref{TKE_ENS_TGV}). As illustrated in panel (a), the kinetic energy obtained from the simulation on the structured mesh using \texttt{rhoEnergyFoam} in both mode A and mode B remains conserved and constant, as indicated by the black solid line and the blue dotted line. In contrast, \texttt{rhoCentralFoam} exhibits a rapid dissipation of kinetic energy over a very short timescale, with curves that are nearly imperceptible in the adopted representation. Meanwhile, \texttt{dnsFoam} demonstrates a gradual decay of kinetic energy. In panel (b), which corresponds to the unstructured mesh, the total kinetic energy obtained using \texttt{dnsFoam} exhibits a continuous decay, whereas \texttt{rhoCentralFoam} continues to show rapid dissipation of kinetic energy. Conversely, \texttt{rhoEnergyFoam} effectively preserves kinetic energy in mode A, while mode B experiences some degree of numerical diffusion.
 	In the Cartesian grid (panel c), the total enstrophy experiences a significant increase up to the point of time reversal, after which it symmetrically decreases. However, with \texttt{dnsFoam}, the initial conditions are not perfectly restored, as the maximum vorticity at the conclusion of the simulation exceeds the expected value. This discrepancy arises from the randomization of the flow at the end of the direct phase, which is not entirely recovered in simulations influenced by numerical diffusion. On the unstructured grid (panel d), a similar trend is observed. Indeed, \texttt{rhoEnergyFoam} in mode A (black line) retains initial conditions, while \texttt{rhoEnergyFoam} in mode B shows a lower peak due to errors associated with mesh distortion and to the introduction of diffusion. In both cases, \texttt{dnsFoam} and \texttt{rhoCentralFoam} are not able to show good results.
 	
 	\begin{figure}[h]
@@ -1838,7 +1832,7 @@
 		(d)\includegraphics[width=0.45\linewidth]{Figures/Sod_p_rcf}\\
 		(e)\includegraphics[width=0.45\linewidth]{Figures/Sod_rho_ref}
 		(f)\includegraphics[width=0.45\linewidth]{Figures/Sod_rho_rcf}\\
-		\caption[Velocity magnitude, Pressure and denisty plots for the Sod's shock tube case.]{Sod's shock tube: Comparison of numerical results from \texttt{rhoEnergyFoam} and \texttt{rhoCentralFoam} for Sod's shock tube problem. The black solid lines represent the exact analytical solution, while the red dot show the numerical results. (a) and (b) display the velocity magnitude, (c) and (d) show the pressure distribution, and (e) and (f) present the density profile.}
+		\caption[Velocity magnitude, Pressure and denisty plots for the Sod's shock tube case.]{Sod's shock tube: Comparison of numerical results from \texttt{rhoEnergyFoam}(panels (a),(c),(e)) and \texttt{rhoCentralFoam} (panels (b),(d),(f)) for Sod's shock tube problem. The black solid lines represent the exact analytical solution, while the red dot show the numerical results. (a) and (b) display the velocity magnitude, (c) and (d) show the pressure distribution, and (e) and (f) present the density profile.}
 		\label{Sod_plots}
 	\end{figure}  
 	
@@ -1984,8 +1978,8 @@
 	
 	\begin{figure}[t]
 		\centering
-		\includegraphics[width=0.45\linewidth]{Figures/Cp_contours_oneram6_ref}
-		\includegraphics[width=0.45\linewidth]{Figures/Cp_contours_oneram6_rcf}
+		(a)\includegraphics[width=0.45\linewidth]{Figures/Cp_contours_oneram6_ref}
+		(b)\includegraphics[width=0.45\linewidth]{Figures/Cp_contours_oneram6_rcf}
 		\caption[Pressure field of a flow around Onera M6 wing]{Flow around the wing of ONERA M6: pressure profiles evaluated with \texttt{rhoEnergyFoam} (a) and \texttt{rhoCentralFoam} (b). In range $0.3 < p/p_\infty < 1.5$ are shown 32 levels  (blue-to-red scale). Dotted lines point to section used to evaluate pressure coefficients as in \ref{Cp_oneraM6}}
 		\label{Cp_contours_oneraM6}
 	\end{figure}

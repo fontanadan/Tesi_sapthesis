@@ -1,33 +1,33 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Overview of the OpenFOAM structure.\relax }}{8}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Case directory structure.\relax }}{10}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces 3D computational cell for numerical flux evaluation.}}{22}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Overview of the OpenFOAM structure.\relax }}{8}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Case directory structure.\relax }}{10}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces 3D computational cell for numerical flux evaluation.}}{22}{figure.caption.13}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces 2D computational cell for numerical flux evaluation.}}{55}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 2D computational cell for numerical flux evaluation.}}{55}{figure.caption.38}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Structured mesh for numerical simulation of decaying isotropic turbulence.\relax }}{63}{figure.caption.42}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Turbulence kinetic energy for the decaying isotropic turbulence case}}{64}{figure.caption.43}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Structured mesh (a) and unstructured mesh (b)for numerical simulation of Taylor–Green ﬂow.\relax }}{65}{figure.caption.45}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Vorticity field visualized using the Q-criterion for the Taylor-Green Vortex.\relax }}{66}{figure.caption.46}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Turbulence kinetic energy and enstrophy plots for the Taylor Green Vortex case.}}{67}{figure.caption.47}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Smooth flow past cylinder with AMR: initial velocity field.}}{69}{figure.caption.49}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Smooth flow past cylinder with AMR: vortex shedding.}}{69}{figure.caption.50}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Cylinder mesh AMR.\relax }}{69}{figure.caption.51}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Mesh for the URANS and DES simulation of the cylinder}}{70}{figure.caption.52}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Velocity profiles of a URANS for a flow around cylinder}}{71}{figure.caption.53}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Pressure coefficients for the URANS of the 2D cylinder}}{72}{figure.caption.54}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Pressure coefficients for the DES of the 3D cylinder}}{72}{figure.caption.55}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Velocity representation through Q-criterion of a DES of the circular cylinder}}{73}{figure.caption.56}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Sod shock tube at $t = 0$. On the left-hand side region with high density, pressure and temperature\relax }}{73}{figure.caption.57}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Velocity magnitude, Pressure and denisty plots for the Sod's shock tube case.}}{75}{figure.caption.58}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Geometry of the forward-facing step and its boundary conditions\relax }}{76}{figure.caption.59}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces rhoCentralFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.\relax }}{77}{figure.caption.60}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces rhoEnergyFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.\relax }}{77}{figure.caption.61}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Pressure field of a RANS of a transonic flow over RAE2822}}{78}{figure.caption.62}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Pressure coefficient of RANS of a transonic flow over RAE2822}}{79}{figure.caption.64}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Unstructured mesh of the Onera M6 wing}}{80}{figure.caption.65}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Pressure field Onera M6}}{81}{figure.caption.66}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Pressure field of a flow around Onera M6 wing}}{82}{figure.caption.67}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Pressure coefficient of the flow around ONERA M6 wing.}}{82}{figure.caption.68}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Structured mesh for numerical simulation of decaying isotropic turbulence.\relax }}{63}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Turbulence kinetic energy for the decaying isotropic turbulence case}}{64}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Structured mesh (a) and unstructured mesh (b)for numerical simulation of Taylor–Green ﬂow.\relax }}{65}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Vorticity field visualized using the Q-criterion for the Taylor-Green Vortex.\relax }}{66}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Turbulence kinetic energy and enstrophy plots for the Taylor Green Vortex case.}}{67}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Smooth flow past cylinder with AMR: initial velocity field.}}{68}{figure.caption.48}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Smooth flow past cylinder with AMR: vortex shedding.}}{69}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Cylinder mesh AMR.\relax }}{69}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Mesh for the URANS and DES simulation of the cylinder}}{70}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Velocity profiles of a URANS for a flow around cylinder}}{71}{figure.caption.52}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Pressure coefficients for the URANS of the 2D cylinder}}{72}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Pressure coefficients for the DES of the 3D cylinder}}{73}{figure.caption.54}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Velocity representation through Q-criterion of a DES of the circular cylinder}}{73}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Sod shock tube at $t = 0$. On the left-hand side region with high density, pressure and temperature\relax }}{74}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Velocity magnitude, Pressure and denisty plots for the Sod's shock tube case.}}{75}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Geometry of the forward-facing step and its boundary conditions\relax }}{76}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces rhoCentralFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.\relax }}{77}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces rhoEnergyFoam: supersonic ﬂow past forward-facing step at $Ma = 3$.\relax }}{77}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Pressure field of a RANS of a transonic flow over RAE2822}}{78}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Pressure coefficient of RANS of a transonic flow over RAE2822}}{79}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Unstructured mesh of the Onera M6 wing}}{80}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Pressure field Onera M6}}{81}{figure.caption.65}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Pressure field of a flow around Onera M6 wing}}{82}{figure.caption.66}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Pressure coefficient of the flow around ONERA M6 wing.}}{82}{figure.caption.67}%
 \addvspace {10\p@ }
