@@ -2,6 +2,8 @@
 \usepackage{microtype}
 %\usepackage[a4paper, margin=1in]{geometry}
 \usepackage{graphicx}        % For including figures
+%\usepackage{subcaption} % Per affiancare figure e tabelle
+\usepackage{booktabs} % Per migliorare l'aspetto della tabella
 \usepackage{amsmath} 		 % For mathematical symbols
 %\usepackage{hyperref}        % For clickable links in the PDF
 \usepackage{cite}            % For managing citations
@@ -1932,12 +1934,30 @@
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.6\textwidth]{Figures/Cp_RAE2822}
-		\caption[Pressure coefficient of RANS of a transonic flow over RAE2822]{RANS of a transonic flow over RAE2822: pressure coefficient obtained with \texttt{rhoEnergyFoam} (black line) and with \texttt{rhoCentralFoam} (red dots),compared with previous
-			RANS (green dotted lines) and experimental data (blue squares).}
+		\begin{minipage}{0.62\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth, height=0.8\textwidth]{Figures/Cp_RAE2822}
+		\end{minipage}
+		\centering
+		\begin{minipage}{0.8\textwidth}
+			\centering
+			\scriptsize
+			\hspace{9mm}
+			\begin{tabular}{cc}
+				\toprule
+				\textit{rhoEnergyFoam} &  \textcolor{red}{\rule{0.05\linewidth}{0.75mm}} \\
+				\textit{rhoCentralFoam}  	   & 
+				\textcolor{blue}{\rule{0.05\linewidth}{0.75mm}} \\
+				RANS        &  \textcolor{green}{\rule{0.05\linewidth}{0.75mm}} \\
+				Experiment        &  \textcolor{black}{\rule{0.05\linewidth}{0.75mm}} \\
+				\bottomrule
+			\end{tabular}
+		\end{minipage}
+			\caption[Pressure coefficient of RANS of a transonic flow over RAE2822]{RANS of a transonic flow over RAE2822: pressure coefficient obtained with \texttt{rhoEnergyFoam} (red line) and with \texttt{rhoCentralFoam} (blue dotted lines),compared with previous RANS (green crosses) and experimental data (black dotted lines).}
 		\label{Cp_RAE2822}
 	\end{figure}
 	
+				
 	\newpage
 
 	\section{Transonic flow over Onera M6 wing}
@@ -1954,7 +1974,7 @@
 	
 	\begin{figure}[h]
 		\centering
-		{\includegraphics[width=0.7\linewidth, height=0.3\textheight]{Figures/Ducros}}  \\
+		{\includegraphics[width=0.7\linewidth, height=0.35\textheight]{Figures/Ducros}}  \\
 		\centering
 		{\includegraphics[width=0.6\linewidth]{Figures/Ducros_bar}}
 		\caption[Pressure field Onera M6]{Pressure field with Ducros sensor isosurface superimposed ($\theta = 0.6$), showing the presence of two shock waves, of the Onera M6 wing. In the representation, 24 levels were used in the range  $0.33 < p/p_\infty < 1.6$.}
@@ -1963,7 +1983,7 @@
 	
 	\noindent Figure (\ref{Cp_contours_oneraM6}) shows the calculated pressure field on the wing suction surface for \texttt{rhoEnergyFoam} (figure \ref{Cp_contours_oneraM6}a) and rhoCentralFoam (figure \ref{Cp_contours_oneraM6}b), which highlights the qualitative differences between the two solvers.
 	
-	\begin{figure}[h]
+	\begin{figure}[t]
 		\centering
 		\includegraphics[width=0.5\linewidth]{Figures/Cp_contours_oneram6_ref}\includegraphics[width=0.5\linewidth]{Figures/Cp_contours_oneram6_rcf}
 		\caption[Pressure field of a flow around Onera M6 wing]{Flow around the wing of ONERA M6: pressure profiles evaluated with \texttt{rhoEnergyFoam} (a) and \texttt{rhoCentralFoam} (b). In range $0.3 < p/p_\infty < 1.5$ are shown 32 levels  (blue-to-red scale). Dotted lines point to section used to evaluate pressure coefficients as in \ref{Cp_oneraM6}}
@@ -1974,7 +1994,9 @@
 	
 	\begin{figure}[h]
 		\begin{center}
-			{\includegraphics[width=0.95\linewidth]{Figures/Cp_oneram6}}  
+			%\includegraphics[width=0.5\linewidth]{Figures/Cp_oneram6_a}
+			%\includegraphics[width=0.5\linewidth]{Figures/Cp_oneram6_b}
+			%\includegraphics[width=0.5\linewidth]{Figures/Cp_oneram6_c}
 			\caption[Pressure coefficient of the flow around ONERA M6 wing.]{Flow around ONERA M6 wing: pressure coefficient $(Cp = (p-p_\infty)/(\dfrac{1}{2}\rho_\infty u^2_\infty))$ at various wing sections: (a) $z/b = 0.2$, (b) $z/b = 0.65$ and (c) $z/b = 0.8$, for rhoEnergyFoam (black lines), rhoCentralFoam (red dotted lines) and experimental data (blue squares). $x_l$ and $x_t$ denote the coordinates of the leading edge and trailing edge of each wing section, respectively.}
 			\label{Cp_oneraM6}
 		\end{center}

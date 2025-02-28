@@ -45,5 +45,5 @@
 \contentsline {section}{\numberline {4.6}Supersonic flow over a forward-facing step}{76}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Transonic flow over RAE-2822 airfoil}{78}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Transonic flow over Onera M6 wing}{80}{section.4.8}%
-\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{85}{chapter.5}%
-\contentsline {chapter}{Bibliography}{87}{section*.69}%
+\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{83}{chapter.5}%
+\contentsline {chapter}{Bibliography}{85}{section*.69}%
