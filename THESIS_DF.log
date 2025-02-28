@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  28 FEB 2025 04:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  28 FEB 2025 04:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -698,11 +698,25 @@ File: immagini/react.png Graphic file (type png)
 Package pdftex.def Info: immagini/react.png  used on input line 76.
 (pdftex.def)             Requested size: 66.00037pt x 21.43819pt.
  [4 <./immagini/EU.png> <./immagini/Min.png> <./immagini/pon.png> <./immagini/r
-eact.png>] [5
+eact.png>]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
+9.
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
-] [6
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [7] [8
+ [5
+
+]
+[6] [7
+
+] [8
 
 ] (./THESIS_DF.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -713,31 +727,20 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `THESIS_DF.toc'.
 
- [10] (./THESIS_DF.lof
-[11
+ [10] (./THESIS_DF.lof [11
 
 ])
 \tf@lof=\write4
 \openout4 = `THESIS_DF.lof'.
 
- [12] (./THESIS_DF.lot
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
-.
- (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-)
+ [12]
+(./THESIS_DF.lot)
 \tf@lot=\write5
 \openout5 = `THESIS_DF.lot'.
 
  [13
 
-]
-[14
+] [14
 
 ]
 Chapter 1.
@@ -1345,7 +1348,7 @@ Here is how much of TeX's memory you used:
  33198 multiletter control sequences out of 15000+600000
  601953 words of font info for 285 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,131p,2549b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,12n,131p,2708b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm
 -ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts
 /enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/us
@@ -1371,7 +1374,7 @@ texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/l
 msy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on THESIS_DF.pdf (105 pages, 7895749 bytes).
+Output written on THESIS_DF.pdf (105 pages, 7898245 bytes).
 PDF statistics:
  1489 PDF objects out of 1728 (max. 8388607)
  1187 compressed objects within 12 object streams
