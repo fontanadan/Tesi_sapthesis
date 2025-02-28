@@ -1280,7 +1280,7 @@
 	\\
 	where $N$ is the total number of grid points required. In practical turbulent flow simulations, such as those with a Reynolds number around $10^6$, the number of grid points required would be at least $N\sim 10^{18}$. This presents a formidable computational and it would not be feasible given the current technology.
 		
-	\chapter{Methodology}
+	\chapter{A New Density-Based Solver}
 	\label{chap:methodology}
     This solver, proposed by \citet{rhoEnergyFoam} in 2017, addresses the numerical challenges of simulating fluid dynamics in situations involving significant density changes, complex energy transfer mechanisms and temperature variations. By employing advanced numerical discretization techniques and solving coupled energy and momentum conservation equations, rhoEnergyFoam provides researchers and engineers with a powerful computational framework for investigating thermodynamic phenomena across diverse applications, from aeronautical engineering to industrial thermal management systems. The following methodology section will delve into the mathematical formulation, numerical algorithms, and computational strategies that underpin the rhoEnergyFoam solver, elucidating the precise numerical methods used to transform fundamental conservation laws into computationally tractable algorithms capable of accurately predicting fluid behavior under complex thermodynamic conditions.
 	
@@ -1552,7 +1552,7 @@
 	
 	Adaptive Mesh Refinement (AMR) is a technique that dynamically refines the computational mesh based on predefined criteria and specific control parameters, such as refinement and unrefinement levels, as well as expansion ratios. In OpenFOAM, AMR is supported by solvers that incorporate dynamic mesh capabilities, with compatibility restricted to hexahedral meshes: itis  available in solvers from the PIMPLE family, and now available also in \texttt{rhoEnergyFoam}. Employing an accurate and stable numerical method is crucial when utilizing AMR. If an unbounded or excessively diffusive method (both in space and time) is used, the refinement strategy may fail to effectively capture the quantity of interest, potentially leading to overshoots and undershoots in the solution. Within OpenFOAM, all dynamic mesh capabilities are controlled in the dictionary \texttt{dynamicMeshDict}, which is located in the \texttt{constant} directory. To appropriately control the time step as the mesh is refined, the recommended approach in OpenFOAM is to enable the \texttt{adjustableTimeStep} option and, maintaining a Courant-Friedrichs-Lewy (CFL) number below $1$, ideally around $0.5$, helps to increase the accuracy of the results. It is important to note that AMR introduces a significant computational overhead, which should be considered when designing simulations. AMR is widely used in various engineering and scientific fields due to its ability to enhance simulation efficiency. In fluid dynamics, it plays a crucial role in turbulent flow simulations, shock capturing, and aeroacoustics by refining areas with high vorticity, shear layers, or boundary layers. In weather and climate modeling, AMR is employed to track the evolution of hurricanes and storms by refining mesh in regions of high vorticity or pressure gradients, thereby improving large-scale atmospheric simulations. It is used in combustion and reactive flow simulations to refine mesh around flame fronts and regions with steep temperature and species concentration gradients. It is also extensively used in structural mechanics and materials science, where it helps to refine regions where cracks propagate in materials and enhances stress analysis by providing higher resolution in high-stress zones. By refining only the necessary regions, AMR allows engineers and scientists to conduct high-fidelity simulations without excessive computational costs, making it a powerful tool for numerical simulations across different disciplines.
 	
-	\chapter{Results}
+	\chapter{Test Cases and Results}
 	\label{chap:results}
 	
 	In this chapter, we present a series of test cases that show the capability of rhoEnergyFoam evaluating different test cases where all the three operational modes outlined in table \ref{REF_modes} are analyzed, aiming to evaluate the energy-preserving properties of the proposed solver in comparison to standard OpenFOAM solvers. To assess numerical diffusion, we analyze Euler turbulence and Taylor–Green flow. To assess the capability of AMR, we tested a subsonic turbulent flow past a circular cylinder. To examine the effectiveness of background numerical diffusion in smooth flows, we conduct Unsteady Reynolds-Averaged Navier–Stokes (URANS) and Detached Eddy Simulations (DES) of subsonic turbulent flow past a circular cylinder. To test the accuracy of the solver we simulate the Sod's shock tube. Finally, the shock-capturing capabilities of rhoEnergyFoam are tested using three classical flow cases: inviscid supersonic flow past a forward-facing step, transonic flow past an RAE airfoil, and transonic flow past the ONERA M6 wing.
@@ -2001,10 +2001,8 @@
 		\end{center}
 	\end{figure}
 
-	\chapter{Conclusion and Future Work}
+	\chapter{Conclusion and Future Development}
 	\label{chap:conclusion}
-	
-	\section{Conclusion}
 	
 	The development of the \texttt{rhoEnergyFoam} solver represents a significant step forward in the numerical simulation of compressible turbulent flows. By leveraging an energy-consistent, non-diffusive numerical flux and selectively incorporating diffusion based on flow characteristics, the solver effectively balances accuracy and stability. The introduction of a triple splitting approach of \citet{Pirozzoli2011}, previously unexplored in finite-volume methods, and the decomposition of the AUSM diffusive flux into distinct pressure and convective components ensure minimal numerical dissipation while maintaining robustness. Additionally, the three-mode operational framework provides tailored numerical diffusion for different flow regimes: fully resolved simulations (Mode A) operate without artificial diffusion, unresolved smooth flows (Mode B) utilize minimal pressure diffusion, and shocked flows (Mode C) employ both pressure and convective diffusion to enhance stability. 
 	\\
@@ -2025,7 +2023,6 @@
 	In conclusion, \texttt{rhoEnergyFoam} represents a significant advancement in the simulation of compressible flows, offering a powerful CFD tool capable of dealing within a wide range of Mach numbers and Reynolds numbers. Through continued development and adoption, \texttt{rhoEnergyFoam} has the potential to reshape the landscape of computational fluid dynamics, enabling more accurate and efficient simulations for engineering applications. As a future step, the solver could greatly benefit from GPU acceleration, which would significantly enhance computational efficiency, reducing turnaround times for large-scale simulations and further broadening its applicability in industrial settings.
 		
 
-	
 	\newpage
 
 	%\backmatter
