@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  28 FEB 2025 05:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  28 FEB 2025 07:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1302,7 +1302,7 @@ File: Figures/Cp_contours_oneram6_ref.pdf Graphic file (type pdf)
 <use Figures/Cp_contours_oneram6_ref.pdf>
 Package pdftex.def Info: Figures/Cp_contours_oneram6_ref.pdf  used on input lin
 e 1987.
-(pdftex.def)             Requested size: 150.0pt x 134.78851pt.
+(pdftex.def)             Requested size: 134.99908pt x 121.306pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cp_contours_oneram6_rcf.pdf):
@@ -1311,14 +1311,31 @@ pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cp_contours_oneram6_rcf.pdf):
 File: Figures/Cp_contours_oneram6_rcf.pdf Graphic file (type pdf)
 <use Figures/Cp_contours_oneram6_rcf.pdf>
 Package pdftex.def Info: Figures/Cp_contours_oneram6_rcf.pdf  used on input lin
-e 1987.
-(pdftex.def)             Requested size: 150.0pt x 134.84325pt.
+e 1988.
+(pdftex.def)             Requested size: 134.99908pt x 121.36101pt.
 [80 <./Figures/OneraM6mesh.pdf>]
+<Figures/Cp_oneram6_02.pdf, id=1188, 361.35pt x 252.945pt>
+File: Figures/Cp_oneram6_02.pdf Graphic file (type pdf)
+<use Figures/Cp_oneram6_02.pdf>
+Package pdftex.def Info: Figures/Cp_oneram6_02.pdf  used on input line 1997.
+(pdftex.def)             Requested size: 134.99908pt x 94.49905pt.
+<Figures/Cp_oneram6_065.pdf, id=1189, 361.35pt x 252.945pt>
+File: Figures/Cp_oneram6_065.pdf Graphic file (type pdf)
+<use Figures/Cp_oneram6_065.pdf>
+Package pdftex.def Info: Figures/Cp_oneram6_065.pdf  used on input line 1998.
+(pdftex.def)             Requested size: 134.99908pt x 94.49905pt.
+<Figures/Cp_oneram6_08.pdf, id=1190, 361.35pt x 252.945pt>
+File: Figures/Cp_oneram6_08.pdf Graphic file (type pdf)
+<use Figures/Cp_oneram6_08.pdf>
+Package pdftex.def Info: Figures/Cp_oneram6_08.pdf  used on input line 2000.
+(pdftex.def)             Requested size: 134.99908pt x 94.49905pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [81 <./Figures/Ducros.pdf> <./Figures/Ducros_bar.pdf>] [82 <./Figures/Cp_contou
-rs_oneram6_ref.pdf> <./Figures/Cp_contours_oneram6_rcf.pdf>]
+rs_oneram6_ref.pdf> <./Figures/Cp_contours_oneram6_rcf.pdf> <./Figures/Cp_onera
+m6_02.pdf> <./Figures/Cp_oneram6_065.pdf> <./Figures/Cp_oneram6_08.pdf>]
 Chapter 5.
 
 Underfull \vbox (badness 2698) has occurred while \output is active []
@@ -1342,11 +1359,11 @@ Underfull \hbox (badness 1033) in paragraph at lines 143--150
 
 [88] [89] [90]) [91] (./THESIS_DF.aux) ) 
 Here is how much of TeX's memory you used:
- 16095 strings out of 478287
- 265625 string characters out of 5849288
+ 16126 strings out of 478287
+ 266502 string characters out of 5849288
  583297 words of memory out of 5000000
- 33198 multiletter control sequences out of 15000+600000
- 601953 words of font info for 285 fonts, out of 8000000 for 9000
+ 33222 multiletter control sequences out of 15000+600000
+ 602128 words of font info for 287 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,131p,2708b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm
@@ -1374,10 +1391,10 @@ texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/l
 msy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on THESIS_DF.pdf (105 pages, 7896824 bytes).
+Output written on THESIS_DF.pdf (105 pages, 7919080 bytes).
 PDF statistics:
- 1488 PDF objects out of 1728 (max. 8388607)
- 1186 compressed objects within 12 object streams
+ 1549 PDF objects out of 1728 (max. 8388607)
+ 1228 compressed objects within 13 object streams
  388 named destinations out of 1000 (max. 500000)
- 79084 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 79099 words of extra memory for PDF output out of 89155 (max. 10000000)
 
