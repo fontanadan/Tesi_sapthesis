@@ -46,8 +46,7 @@
 	pdfauthor={Daniele Fontana}
 }
 
-\title{Development of high-fidelity simulation  \\
-	   techniques for aircraft and rotor aerodynamics}
+\title{Development of a high-fidelity OpenFOAM solver for aircraft aerodynamics}
 \author{Daniele Fontana}
 \IDnumber{1635256}
 \course{PhD in Aeronautical and Space Engineering}
@@ -243,7 +242,7 @@
 	Now, let us recall the Gauss theorem which states that the outward flux of a vector field through a closed surface is equal to the volume integral of the divergence over the region inside the surface:
 	
 	\begin{equation}
-		\int_{V}{\nabla \cdot \bar{u} \ }\mathrm{d}V = \int_{\partial{V}}{\bar{u} \cdot \hat{n} \ \mathrm{d}S}
+		\int_{V}{\nabla \cdot u \ }\mathrm{d}V = \int_{\partial{V}}{u \cdot n \ \mathrm{d}S}
 		\label{Gauss theorem}
 	\end{equation}
 	\\
@@ -252,7 +251,7 @@
 	If we use the Gauss theorem to convert the volume integrals into surface integrals, that is using equation \ref{Gauss theorem} into equation \ref{Transport equation}, we obtain the following equation
 	
 	\begin{equation}
-		\dfrac{\partial}{\partial{t}}\int_{V_{p}}{{(\rho \phi)}}\ \mathrm{d}V + \int_{\partial{V_{p}}}{ (\rho u \phi)\cdot \hat{n}}\ \mathrm{d}S - \int_{V_{p}}{(\rho \Gamma_{\phi} \nabla\phi)\cdot \hat{n}}\ \mathrm{d}S = \int_{V_{p}}{S_{\phi}(\phi)}\ \mathrm{d}V
+		\dfrac{\partial}{\partial{t}}\int_{V_{p}}{{(\rho \phi)}}\ \mathrm{d}V + \int_{\partial{V_{p}}}{ (\rho u \phi)\cdot n}\ \mathrm{d}S - \int_{V_{p}}{(\rho \Gamma_{\phi} \nabla\phi)\cdot n}\ \mathrm{d}S = \int_{V_{p}}{S_{\phi}(\phi)}\ \mathrm{d}V
 		\label{Transport equation_2}
 	\end{equation}
 	\\
@@ -260,7 +259,7 @@
 	\indent For the convective term we have:
 	
 	\begin{equation}
-		\int_{\partial{V_{p}}}{(\rho u \phi)} \cdot \hat{n}\ \mathrm{d}S = \sum_{f}\int_{f}{(\rho u \phi)_{f}} \cdot \hat{n}\ dS \simeq \sum_{f} (\overline{\rho u \phi})_{f} \cdot \hat{n} \ S_{f} = \sum_{f} (\rho u \phi)_{f} \cdot \hat{n} \ S_{f}
+		\int_{\partial{V_{p}}}{(\rho u \phi)} \cdot n \ \mathrm{d}S = \sum_{f}\int_{f}{(\rho u \phi)_{f}} \cdot n \ dS \simeq \sum_{f} (\overline{\rho u \phi})_{f} \cdot n \ S_{f} = \sum_{f} (\rho u \phi)_{f} \cdot n \ S_{f}
 		\label{convective discrete}
 	\end{equation}
 	\\
@@ -270,8 +269,8 @@
 	
 	\begin{equation}
 		\begin{aligned}
-			\int_{\partial{V_{p}}}{(\rho \Gamma_{\phi} \nabla \phi)} \cdot \hat{n}\ \mathrm{d}S = \\ 
-			\sum_{f}\int_{f}{(\rho \Gamma_{\phi} \nabla \phi)_{f}} \cdot \hat{n}\ \mathrm{d}S \simeq \sum_{f} (\overline{\rho \Gamma_{\phi} \nabla \phi})_{f} \cdot \hat{n} \ S_{f} =\\
+			\int_{\partial{V_{p}}}{(\rho \Gamma_{\phi} \nabla \phi)} \cdot n\ \mathrm{d}S = \\ 
+			\sum_{f}\int_{f}{(\rho \Gamma_{\phi} \nabla \phi)_{f}} \cdot n\ \mathrm{d}S \simeq \sum_{f} (\overline{\rho \Gamma_{\phi} \nabla \phi})_{f} \cdot n \ S_{f} =\\
 			\sum_{f} (\rho \Gamma_{\phi} \nabla \phi)_{f} \cdot \hat{n} \ S_{f}
 		\label{diffusive discrete}
 	\end{aligned} 
@@ -289,19 +288,19 @@
 	Using equations \ref{convective discrete}, \ref{diffusive discrete} and \ref{source discrete} into equation \ref{Transport equation_2}, we obtain the following  semi-discrete transport equation:
 	
 	\begin{equation}
-		\dfrac{\partial}{\partial{t}}\int_{V_{p}}{{(\rho \phi)}}\ dV + \sum_{f} (\rho u \phi)_{f} \cdot \hat{n} \ S_{f} - \sum_{f} (\rho \Gamma_{\phi} \nabla \phi)_{f} \cdot \hat{n} \ S_{f} = S_{c}V_{P} + S_{p}V_{P}\phi_{P}
+		\dfrac{\partial}{\partial{t}}\int_{V_{p}}{{(\rho \phi)}}\ dV + \sum_{f} (\rho u \phi)_{f} \cdot n \ S_{f} - \sum_{f} (\rho \Gamma_{\phi} \nabla \phi)_{f} \cdot n \ S_{f} = S_{c}V_{P} + S_{p}V_{P}\phi_{P}
 		\label{Discrete transport equation_2}
 	\end{equation}
 	\\
-	where $(\rho u \phi)_{f} \cdot \hat{n} \ S_{f} = F^{C}$ is the convective flux and $(\rho \Gamma_{\phi} \nabla \phi)_{f} \cdot \hat{n} \ S_{f}=F^{D}$is the diffusive flux.
+	where $(\rho u \phi)_{f} \cdot n \ S_{f} = F^{C}$ is the convective flux and $(\rho \Gamma_{\phi} \nabla \phi)_{f} \cdot n \ S_{f}=F^{D}$is the diffusive flux.
 	All of this is necessary to transform the governing partial differential equations into a set of algebraic equations, one for each element in the computational domain. These algebraic equations are then assembled into a global matrix and vectors that can be expressed in the form 
 	
 	\begin{equation}
-		A\bar{x} = \bar{b}
+		A x = b
 		\label{matrix form}
 	\end{equation}
 	\\
-	where $A$ is the $N \times N$ coefficient matrix, $\bar{x}$ is the unknown $N$ vector variable which is defined at each interior element and at the boundary of the computational domain, and $\bar{b}$ is the vector of dimension $N$ of the known variables. One of the main advantages of the Finite Volume Method is that the techniques to solve the algebraic system of equations are independent of the discretization method, and represent the various trajectories that can be followed to obtain a solution. 
+	where $A$ is the $N \times N$ coefficient matrix, $x$ is the unknown $N$ vector variable which is defined at each interior element and at the boundary of the computational domain, and $b$ is the vector of dimension $N$ of the known variables. One of the main advantages of the Finite Volume Method is that the techniques to solve the algebraic system of equations are independent of the discretization method, and represent the various trajectories that can be followed to obtain a solution. 
 	It is important to recall that the variables are computed and stored at the centroid $P$ of the control volumes. This means that the face values in the convective and diffusive fluxes have to be computed by some form of interpolation from the centroid of the control volume at both sides of the face $f$.
 	
 	\section{Interpolation Schemes}
@@ -632,8 +631,6 @@
 	\begin{equation}
 		M_{L/R} = \dfrac{u_{L/R}}{a_{1/2}},
 	\end{equation}
-	\\
-	In the last 70 years, shock-capturing schemes have been designed starting from the features of the entropy solution of the model scalar conservation law
 	\\
 	where $a_{1/2}$ can be an average of $a_L$ and $a_R$. For multi-dimensional flows, $u = \mathbf{V} \cdot \mathbf{n}$, with $\mathbf{n}$ as the unit normal vector of the cell face under consideration.
 	
@@ -1430,7 +1427,7 @@
 		\end{cases}	
 	\end{equation}
 	\\
-	where the constants are displayed in table 
+	where the constants are displayed in table \ref{table:RKconstants}.
 	
 	\begin{table}[h]
 		\centering
