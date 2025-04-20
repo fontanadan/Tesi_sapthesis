@@ -985,7 +985,7 @@
 		\label{tab:comparison_OFsolvers}
 	\end{table}
 	
-	\section{CFD Methodologies}
+	\section{Turbulence Modeling}
 	Turbulence modeling is a cornerstone of computational fluid dynamics (CFD), essential for predicting complex flow behavior in engineering and scientific applications. The Reynolds-Averaged Navier-Stokes (RANS) approach, widely used for its efficiency, simplifies turbulence by averaging its effects over time, making it practical for many industrial problems despite its limitations in capturing finer flow structures. Large Eddy Simulation (LES) takes a step further, directly resolving larger turbulent eddies while modeling only the smaller, more universal scales, offering a better balance between accuracy and computational cost. At the most detailed level, Direct Numerical Simulation (DNS) resolves all turbulent scales without approximation, providing the highest fidelity at an extraordinary computational expense. Each of these methods—RANS, LES, and DNS—comes with its own trade-offs, shaping their use in different contexts where turbulence must be understood and controlled.
 	
 \	\subsection{Reynolds-Averaged Navier-Stokes (RANS)}
@@ -1037,7 +1037,9 @@
 	of the practical importance of such models for weather forecasting and performance prediction for engineered devices, RANS-closure modeling efforts have existed for more than a century and continue to this day. This section presents a truncated overview of the essential elements leading to the most known turbulence models that can be divided into two categories: the one equation models like the Spalart-Allmaras model, and the two-equation models like the $k-\varepsilon$ model and the $k-\omega$ model.
 	
 	\subsubsection{Spalart-Allmaras model}
-	The Spalart-Allmaras (SA) model is a one-equation turbulence model\cite{SPALARTALLMARAS} designed primarily for aerodynamic flows, particularly those involving wall-bounded and external flows around airfoils, wings, and vehicles. This model introduces a transport equation for a modified \textbf{eddy viscosity} ($\tilde{\nu}$), making it computationally efficient while still capturing important turbulence effects. \\
+	The Spalart-Allmaras (SA) model is a one-equation turbulence model designed primarily for aerodynamic flows, particularly those involving wall-bounded and external flows around airfoils, wings, and vehicles. This model introduces a transport equation for a modified \textbf{eddy viscosity} ($\tilde{\nu}$), making it computationally efficient while still capturing important turbulence effects. \\
+	Hereafter, we report the Standard Spalart-Allmaras Model \cite{SPALARTALLMARAS}.
+	 \\
 	The turbulent \textbf{eddy viscosity} is given by:
 	
 	\begin{equation}

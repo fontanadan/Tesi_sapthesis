@@ -23,7 +23,7 @@
 \contentsline {subsubsection}{Implicit Time Discretization}{34}{section*.22}%
 \contentsline {section}{\numberline {2.5}Interpolation schemes in OpenFOAM}{36}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}OpenFOAM solvers}{36}{subsection.2.5.1}%
-\contentsline {section}{\numberline {2.6}CFD Methodologies}{41}{section.2.6}%
+\contentsline {section}{\numberline {2.6}Turbulence Modeling}{41}{section.2.6}%
 \contentsline {subsection}{\numberline {2.6.1}Reynolds-Averaged Navier-Stokes (RANS)}{42}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}RANS closure models}{43}{subsection.2.6.2}%
 \contentsline {subsubsection}{Spalart-Allmaras model}{44}{section*.34}%
