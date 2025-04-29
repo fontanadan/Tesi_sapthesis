@@ -149,7 +149,9 @@
 	\end{equation}
 	\\
 	where $\rho$ is the fluid density, $\mathbf{u}$ is the velocity vector, and $t$ is time.
-	It is based on the principle that the mass of a specific collection of neighboring fluid particles is constant. The volume occupied by a specific collection of fluid particles is called a material volume $V(t)$. Such a volume moves and deforms within a fluid flow so that it always contains the same mass elements; none enter the volume and none leave it.\\
+	The continuity equation states that the rate at which mass enters a system is equal to the rate at which mass leaves the system plus the accumulation of mass within the system.
+	The time derivative can be seen as the accumulation (or loss) of mass in the system, while the divergence term represents the difference between the inflow and the outflow.
+	\\
 	
 	\noindent \textbf{Momentum Equation}\\
 	The momentum equation is the generalized model of Newton's Second Law of Motion applied to a fluid element. It describes how the velocity of the fluid changes over time and space due to the forces acting on it, such as pressure gradients, viscous stresses, and external forces like gravity:
@@ -247,7 +249,7 @@
 	\end{equation}
 	\\
 	where $\partial{V}$ is a closed surface bounding the generic control volume $V$ and $\mathrm{d}S$ represents an infinitesimal surface element with associated normal $\hat{n}$ pointing outwards of the surface $\partial{V}$.
-	
+	\\
 	If we use the Gauss theorem to convert the volume integrals into surface integrals, that is using equation \ref{Gauss theorem} into equation \ref{Transport equation}, we obtain the following equation
 	
 	\begin{equation}
@@ -255,16 +257,15 @@
 		\label{Transport equation_2}
 	\end{equation}
 	\\
-	Now we can take a step further and move from the continuous domain to the discrete domain for each term.\\ 
-	\indent For the convective term we have:
+	Now we can take a step further and move from the continuous domain to the discrete domain for each term.
+	\\ 
+	For the convective term we have:
 	
 	\begin{equation}
 		\int_{\partial{V_{p}}}{(\rho u \phi)} \cdot n \ \mathrm{d}S = \sum_{f}\int_{f}{(\rho u \phi)_{f}} \cdot n \ dS \simeq \sum_{f} (\overline{\rho u \phi})_{f} \cdot n \ S_{f} = \sum_{f} (\rho u \phi)_{f} \cdot n \ S_{f}
 		\label{convective discrete}
 	\end{equation}
 	\\
-	where, in the last term, we have approximated the integrant by means of the mid point rule, which is second order accurate.
-	
 	For the diffusive term we have:
 	
 	\begin{equation}
@@ -275,6 +276,8 @@
 		\label{diffusive discrete}
 	\end{aligned} 
 	\end{equation}
+	\\
+	where, in the third term of both the convective and diffusive parts, we have approximated the integrant by means of the mid point rule, which is second order accurate.
 	\\
 	For the source term we have:
 	
