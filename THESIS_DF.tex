@@ -1022,7 +1022,7 @@
 	\end{equation}
 	\\
 	The main challenge with Reynolds-Averaged Navier-Stokes (RANS) equations lies in the imbalance between the number of unknowns and equations. In RANS modeling, the equations describing the mean flow properties are insufficient to fully determine all the required variables. This inadequacy arises because the equations for the first moments (mean flow quantities) depend on correlations that involve pairs of variables (second moments). 	
-	To accurately represent these second moments, RANS equations incorporate terms involving triple correlations. These correlations introduce additional complexity. This problem remains at all correlation levels and, in turbulence, is known as the closure problem. Currently, there are three approaches to the closure problem. The first is RANS closure modeling, which involves ending the number of equations at a finite value and then closing the resulting system using approximate models. The second, known as Large-Eddy Simulation (LES), use modeling the fields near the wall of the body using RANS and a direct numerical simulation of large-scale turbulent fluctuations. The third, known as Direct Numerical Simulations (DNS) involves fully numerically solving the time-dependent equations of motion and then Reynolds averaging the computational output to determine mean-flow quantities. 
+	To accurately represent these second moments, RANS equations incorporate terms involving triple correlations. These correlations introduce additional complexity. This problem remains at all correlation levels and, in turbulence, is known as the closure problem. Currently, there are three approaches to the closure problem. The first is RANS closure modeling, which involves ending the number of equations at a finite value and then closing the resulting system using approximate models. The second, known as Large-Eddy Simulation (LES), use sub grid scale modeling for the fields near the wall of the body and a direct numerical simulation of large-scale turbulent fluctuations. The third, known as Direct Numerical Simulations (DNS) involves fully numerically solving the time-dependent equations of motion and then Reynolds averaging the computational output to determine mean-flow quantities. 
 	
 	\subsection{RANS closure models}
 	The closure problem has driven the development of approximate models to complete the RANS system. Due to their critical role in practical applications—such as weather forecasting—RANS closure models have been an area of active research for over a century and remain a central focus in turbulence modeling today. This section presents a truncated overview of the essential elements leading to the most known turbulence models that can be divided into two categories: the one equation models like the Spalart-Allmaras model, and the two-equation models like the $k-\varepsilon$ model and the $k-\omega$ model.
@@ -1179,7 +1179,7 @@
  	\begin{equation}
  		{u ={\bar{u}}+u^{\prime }.}
  	\end{equation}
- 	It is important to note that the large eddy simulation filtering operation does not satisfy the properties of a Reynolds operator. 
+ 	It is important to note that the large eddy simulation filtering operation does not satisfy the properties of a Reynolds operator: indeed, it is not the Reynolds decomposition.
  	The governing equations of LES are obtained by filtering the Navier-Stokes equations both for incompressible flows and compressible flows. 
 	The former approach generate the filtered advection term that can be written as 
 	
@@ -1236,7 +1236,7 @@
 	\subsection{Detached Eddy Simulation (DES)}
 	DES was born from the necessity to resolve, with reduced computational cost, high–Reynolds number, massively separated flows, which must be addressed in many fields such as aerospace and ground transportation, as well as in
 	atmospheric forecast.
-	DES was initially proposed by \citet{DES} in 1997 and it combines RANS and LES approaches. The basic formulas of DES was based on the substitution in the Spalart–Allmaras turbulence model of the wall distance $d$ with a new wall distance $\tilde{d}$ that controls the eddy viscosity:
+	DES was initially proposed by \citet{DES} in 1997 and it combines the RANS  approach near the wall and LES approach everywhere else. The basic formulas of DES was based on the substitution in the Spalart–Allmaras turbulence model of the wall distance $d$ with a new wall distance $\tilde{d}$ that controls the eddy viscosity:
 	
 	\begin{equation}
 		\tilde{d} = \min(d, C_{DES}\Delta)
