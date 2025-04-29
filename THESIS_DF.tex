@@ -959,7 +959,7 @@
 	These features enhance stability and accuracy in capturing shocks, rarefactions, and contact discontinuities effectively. While it has some limitations, particularly for steady-state problems, it remains a robust, efficient, and widely used solver in the computational fluid dynamics (CFD) community.
 		
 	\subsection*{sonicFoam}
-	\texttt{sonicFoam} is a transient, pressure-based solver for compressible flows that supports subsonic, transonic, and supersonic conditions. It uses the PISO algorithm for time marching and pressure-velocity coupling.\\
+	\texttt{sonicFoam} is a transient, pressure-based solver for compressible flows that supports subsonic, transonic, and supersonic conditions. It uses the PISO algorithm for time marching and pressure-velocity coupling.
 	\\	
 	\subsection*{dnsFoam}
 	The dnsFoam solver in OpenFOAM stands for Direct Numerical Simulation Foam. It's a computational fluid dynamics (CFD) solver that allows for the direct simulation of turbulent flows without using turbulence models. Instead of modeling turbulence with empirical relations, dnsFoam resolves all turbulent scales of motion directly by solving the Navier-Stokes equations numerically on a grid that resolves all length scales of turbulence. The dnsFoam solver in OpenFOAM is a transient (time-dependent), pressure-velocity coupled solver that typically uses the PISO (Pressure-Implicit with Splitting of Operators) algorithm for time-accurate simulations.
@@ -1021,23 +1021,11 @@
 		\end{cases}
 	\end{equation}
 	\\
-	The primary problem with RANS equations is that there are more unknowns than equations. The system of equations for the first moments depends on correlations involving pairs of variables (second moments) and RANS equations developed for these pair correlations involve triple correlations. For example, the conservation equation for the Reynolds stress correlation, $\overline{u_i' u_j'}$:
-	\begin{equation}
-		\begin{aligned}
-			\frac{\partial u_i u_j}{\partial t} + U_k \frac{\partial u_i u_j}{\partial x_k} + \frac{\partial u_i u_j u_k}{\partial x_k} = - u_i u_k \frac{\partial U_j}{\partial x_k} - u_j u_k \frac{\partial U_i}{\partial x_k} + \\
-			-\frac{1}{\rho} \left( u_i \frac{\partial p}{\partial x_j} + u_j \frac{\partial p}{\partial x_i} \right)  
-			- 2 \nu \frac{\partial u_i}{\partial x_k} \frac{\partial u_j}{\partial x_k} + \nu \frac{\partial^2 u_i u_j}{\partial x_k^2} + \\
-			+ g \alpha \left( u_j T' \delta_{i3} + u_i T' \delta_{j3} \right)
-		\end{aligned}
-	\end{equation}
-	\\
-	and triple correlations appear in the third term on the left. Similar conservation equations for the triple correlations involve quadruple correlations, and the equations for the quadruple correlations depend on fifth-order correlations, and so on. This problem persists at all correlation levels and is known as the closure problem in turbulence. At the present time there are three approaches to the closure problem. The first, known as RANS closure
-	modeling, involves terminating the equation hierarchy at a given level and closing the resulting system of equations with models developed from dimensional analysis, 	intuition, symmetry requirements, and experimental results. The second, known as direct numerical simulations (DNS) involves numerically solving the time-dependent equations of motion and
-	then Reynolds averaging the computational output to determine mean-flow quantities. The third, known as large-eddy simulation (LES), combines elements of the other two and involves some modeling and some numerical simulation of large-scale turbulent fluctuations.
+	The main challenge with Reynolds-Averaged Navier-Stokes (RANS) equations lies in the imbalance between the number of unknowns and equations. In RANS modeling, the equations describing the mean flow properties are insufficient to fully determine all the required variables. This inadequacy arises because the equations for the first moments (mean flow quantities) depend on correlations that involve pairs of variables (second moments). 	
+	To accurately represent these second moments, RANS equations incorporate terms involving triple correlations. These correlations introduce additional complexity. This problem remains at all correlation levels and, in turbulence, is known as the closure problem. Currently, there are three approaches to the closure problem. The first is RANS closure modeling, which involves ending the number of equations at a finite value and then closing the resulting system using approximate models. The second, known as Large-Eddy Simulation (LES), use modeling the fields near the wall of the body using RANS and a direct numerical simulation of large-scale turbulent fluctuations. The third, known as Direct Numerical Simulations (DNS) involves fully numerically solving the time-dependent equations of motion and then Reynolds averaging the computational output to determine mean-flow quantities. 
 	
 	\subsection{RANS closure models}
-	The closure problem arising from Reynolds-averaging of the equations of fluid motion has lead to the development of approximate models to close systems of RANS equations. Because
-	of the practical importance of such models for weather forecasting and performance prediction for engineered devices, RANS-closure modeling efforts have existed for more than a century and continue to this day. This section presents a truncated overview of the essential elements leading to the most known turbulence models that can be divided into two categories: the one equation models like the Spalart-Allmaras model, and the two-equation models like the $k-\varepsilon$ model and the $k-\omega$ model.
+	The closure problem has driven the development of approximate models to complete the RANS system. Due to their critical role in practical applications—such as weather forecasting—RANS closure models have been an area of active research for over a century and remain a central focus in turbulence modeling today. This section presents a truncated overview of the essential elements leading to the most known turbulence models that can be divided into two categories: the one equation models like the Spalart-Allmaras model, and the two-equation models like the $k-\varepsilon$ model and the $k-\omega$ model.
 	
 	\subsubsection{Spalart-Allmaras model}
 	The Spalart-Allmaras (SA) model is a one-equation turbulence model designed primarily for aerodynamic flows, particularly those involving wall-bounded and external flows around airfoils, wings, and vehicles. This model introduces a transport equation for a modified \textbf{eddy viscosity} ($\tilde{\nu}$), making it computationally efficient while still capturing important turbulence effects. \\
