@@ -1,4 +1,4 @@
-\begin{thebibliography}{47}
+\begin{thebibliography}{51}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -155,6 +155,14 @@ B.~P. Leonard.
 \newblock \emph{Computer methods in applied mechanics and engineering},
   19\penalty0 (1):\penalty0 59--98, 1979.
 
+\bibitem[Li and Paoli(2019)]{Li_Paoli2019}
+S.~Li and R.~Paoli.
+\newblock Modeling of ice accretion over aircraft wings using a compressible
+  openfoam solver.
+\newblock \emph{International Journal of Aerospace Engineering}, 2019\penalty0
+  (1):\penalty0 4864927, 2019.
+\newblock \doi{https://doi.org/10.1155/2019/4864927}.
+
 \bibitem[Liou(1996)]{LIOU_AUSM+}
 M.~S. Liou.
 \newblock A sequel to ausm: Ausm+.
@@ -192,6 +200,12 @@ D.~Modesti and S.~Pirozzoli.
 \newblock A low-dissipative solver for turbulent compressible flows on
   unstructured meshes, with openfoam implementation.
 \newblock \emph{Computers \& Fluids}, 152:\penalty0 14--23, 2017.
+
+\bibitem[Modesti and Pirozzoli(2018)]{Modesti_2018}
+D.~Modesti and S.~Pirozzoli.
+\newblock An efficient semi-implicit solver for direct numerical simulation of
+  compressible flows at all speeds.
+\newblock \emph{Journal of Scientific Computing}, 75:\penalty0 308--331, 2018.
 
 \bibitem[Moretti(1979)]{MORETTI1979191}
 G.~Moretti.
@@ -341,5 +355,16 @@ H.~C. Yee, N.~D. Sandham, and M.~J. Djomehri.
   199--238, 1999.
 \newblock ISSN 0021-9991.
 \newblock \doi{https://doi.org/10.1006/jcph.1998.6177}.
+
+\bibitem[Zadeh(2022)]{Zadeh2022numerical}
+N.~N. Zadeh.
+\newblock \emph{Numerical Modeling of Contrail Formation}.
+\newblock PhD thesis, University of Illinois at Chicago, 2022.
+
+\bibitem[Zadeh and Paoli(2022)]{Zadeh_Paoli2022}
+N.~N. Zadeh and R.~Paoli.
+\newblock Numerical experiments of subsonic jet flow simulations using rans
+  with openfoam.
+\newblock \emph{Open Journal of Fluid Dynamics}, 12\penalty0 (02), 2022.
 
 \end{thebibliography}
