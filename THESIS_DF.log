@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  20 MAY 2025 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.11.13)  20 MAY 2025 16:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -698,11 +698,36 @@ File: immagini/react.png Graphic file (type png)
 Package pdftex.def Info: immagini/react.png  used on input line 76.
 (pdftex.def)             Requested size: 74.80042pt x 24.29587pt.
  [4 <./immagini/EU.png> <./immagini/Min.png> <./immagini/pon.png> <./immagini/r
-eact.png>] [5
+eact.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 91--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--108
+
+ []
+
+[5
 
 ] [6]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-06.
+11.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -753,35 +778,35 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.155 	
+l.160 	
         [1
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.155 	
+l.160 	
         [2]pdfTeX warning (ext4): destination with the same identifier (name{pa
 ge.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.156 	\chapter
+l.161 	\chapter
                {Literature Review} [3]pdfTeX warning (ext4): destination with t
 he same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.156 	\chapter
+l.161 	\chapter
                {Literature Review} [4
 
 ]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--179
+Underfull \hbox (badness 10000) in paragraph at lines 178--184
 
  []
 
@@ -789,9 +814,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.179 	
+l.184 	
         [5]
-Underfull \hbox (badness 10000) in paragraph at lines 193--197
+Underfull \hbox (badness 10000) in paragraph at lines 198--202
 
  []
 
@@ -799,60 +824,60 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.215 	
+l.220 	
         [6]
 <Figures/OpenFOAM_structure.pdf, id=289, 1445.4pt x 813.0375pt>
 File: Figures/OpenFOAM_structure.pdf Graphic file (type pdf)
 <use Figures/OpenFOAM_structure.pdf>
-Package pdftex.def Info: Figures/OpenFOAM_structure.pdf  used on input line 218
+Package pdftex.def Info: Figures/OpenFOAM_structure.pdf  used on input line 223
 .
 (pdftex.def)             Requested size: 340.0pt x 191.24992pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.229 		\textbf
+l.234 		\textbf
                {\textit{constant} directory}: this folder contains the \say{...
 [7 <./Figures/OpenFOAM_structure.pdf>]
 <Figures/Case_directory_structure.pdf, id=314, 1445.4pt x 813.0375pt>
 File: Figures/Case_directory_structure.pdf Graphic file (type pdf)
 <use Figures/Case_directory_structure.pdf>
 Package pdftex.def Info: Figures/Case_directory_structure.pdf  used on input li
-ne 246.
+ne 251.
 (pdftex.def)             Requested size: 255.0pt x 143.43744pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.252 	
+l.257 	
         [8]pdfTeX warning (ext4): destination with the same identifier (name{pa
 ge.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.261 	
+l.266 	
         [9 <./Figures/Case_directory_structure.pdf>]pdfTeX warning (ext4): dest
 ination with the same identifier (name{page.10}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.302 	\end{equation}
+l.307 	\end{equation}
                       [10]pdfTeX warning (ext4): destination with the same iden
 tifier (name{page.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.336 	
+l.341 	
         [11]pdfTeX warning (ext4): destination with the same identifier (name{p
 age.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.353 	
+l.358 	
         [12]pdfTeX warning (ext4): destination with the same identifier (name{p
 age.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.360 	
+l.365 	
         [13]
-Underfull \hbox (badness 10000) in paragraph at lines 372--374
+Underfull \hbox (badness 10000) in paragraph at lines 377--379
 
  []
 
@@ -863,7 +888,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.14}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.374 	
+l.379 	
         [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -872,35 +897,35 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Figures/CELL3D.png, id=425, 447.17062pt x 288.3272pt>
 File: Figures/CELL3D.png Graphic file (type png)
 <use Figures/CELL3D.png>
-Package pdftex.def Info: Figures/CELL3D.png  used on input line 535.
+Package pdftex.def Info: Figures/CELL3D.png  used on input line 540.
 (pdftex.def)             Requested size: 170.0pt x 109.61386pt.
  [18] [19 <./Figures/CELL3D.png>] [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 668--670
+Underfull \hbox (badness 10000) in paragraph at lines 673--675
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 672--674
+Underfull \hbox (badness 10000) in paragraph at lines 677--679
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--679
+Underfull \hbox (badness 10000) in paragraph at lines 681--684
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--709
+Underfull \hbox (badness 10000) in paragraph at lines 709--714
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 712--715
+Underfull \hbox (badness 10000) in paragraph at lines 717--720
 
  []
 
 
-Overfull \hbox (3.72429pt too wide) in paragraph at lines 734--735
+Overfull \hbox (3.72429pt too wide) in paragraph at lines 739--740
 []$[]$ \T1/lmr/m/n/10 (-20) (TVD) which in math-e-mat-i-cal form states 
  []
 
@@ -909,7 +934,7 @@ Underfull \vbox (badness 4518) has occurred while \output is active []
 
  [32]
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 986--988
+Underfull \hbox (badness 10000) in paragraph at lines 991--993
 
  []
 
@@ -918,12 +943,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 986--988
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1141--1143
+Underfull \hbox (badness 10000) in paragraph at lines 1146--1148
 
  []
 
 [37] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1165--1167
+Underfull \hbox (badness 10000) in paragraph at lines 1170--1172
 
  []
 
@@ -935,14 +960,14 @@ Chapter 3.
 <Figures/CELL.png, id=710, 1219.55624pt x 560.0925pt>
 File: Figures/CELL.png Graphic file (type png)
 <use Figures/CELL.png>
-Package pdftex.def Info: Figures/CELL.png  used on input line 1339.
+Package pdftex.def Info: Figures/CELL.png  used on input line 1344.
 (pdftex.def)             Requested size: 135.99792pt x 62.45644pt.
  [44 <./Figures/CELL.png>] [45]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [46] [47]
-Overfull \hbox (5.4436pt too wide) in paragraph at lines 1553--1558
+Overfull \hbox (5.4436pt too wide) in paragraph at lines 1558--1563
 \T1/lmr/m/n/10 (-20) From its orig-i-nal ver-sion, work-ing in Open-FOAM's ver-
 sion v2006, \T1/lmtt/m/n/10 rhoEnergyFoam
  []
@@ -955,12 +980,12 @@ Chapter 4.
 <Figures/DIT.png, id=801, 489.32813pt x 406.51875pt>
 File: Figures/DIT.png Graphic file (type png)
 <use Figures/DIT.png>
-Package pdftex.def Info: Figures/DIT.png  used on input line 1591.
+Package pdftex.def Info: Figures/DIT.png  used on input line 1596.
 (pdftex.def)             Requested size: 204.00208pt x 169.4775pt.
 <Figures/TKE_DIT.pdf, id=802, 361.35pt x 252.945pt>
 File: Figures/TKE_DIT.pdf Graphic file (type pdf)
 <use Figures/TKE_DIT.pdf>
-Package pdftex.def Info: Figures/TKE_DIT.pdf  used on input line 1598.
+Package pdftex.def Info: Figures/TKE_DIT.pdf  used on input line 1603.
 (pdftex.def)             Requested size: 237.99896pt x 166.60071pt.
 
 
@@ -971,13 +996,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Figures/TGV_mesh_structured.png Graphic file (type png)
 <use Figures/TGV_mesh_structured.png>
 Package pdftex.def Info: Figures/TGV_mesh_structured.png  used on input line 16
-37.
+42.
 (pdftex.def)             Requested size: 135.99792pt x 136.00122pt.
 <Figures/TGV_mesh_unstructured.png, id=850, 301.125pt x 301.125pt>
 File: Figures/TGV_mesh_unstructured.png Graphic file (type png)
 <use Figures/TGV_mesh_unstructured.png>
 Package pdftex.def Info: Figures/TGV_mesh_unstructured.png  used on input line 
-1638.
+1643.
 (pdftex.def)             Requested size: 135.99792pt x 136.00122pt.
  [54 <./Figures/TGV_mesh_structured.png> <./Figures/TGV_mesh_unstructured.png>]
 
@@ -987,32 +1012,32 @@ usion: found PDF version <1.7>, but at most version <1.5> allowed
 <Figures/TGV_Qcriterion.pdf, id=857, 441.42816pt x 321.96384pt>
 File: Figures/TGV_Qcriterion.pdf Graphic file (type pdf)
 <use Figures/TGV_Qcriterion.pdf>
-Package pdftex.def Info: Figures/TGV_Qcriterion.pdf  used on input line 1665.
+Package pdftex.def Info: Figures/TGV_Qcriterion.pdf  used on input line 1670.
 (pdftex.def)             Requested size: 237.99896pt x 173.58768pt.
 [55 <./Figures/TGV_Qcriterion.pdf>]
 <Figures/TKE_TGV_structured.pdf, id=871, 361.35pt x 252.945pt>
 File: Figures/TKE_TGV_structured.pdf Graphic file (type pdf)
 <use Figures/TKE_TGV_structured.pdf>
 Package pdftex.def Info: Figures/TKE_TGV_structured.pdf  used on input line 168
-1.
+6.
 (pdftex.def)             Requested size: 152.99896pt x 107.10072pt.
 <Figures/TKE_TGV_unstructured.pdf, id=872, 361.35pt x 252.945pt>
 File: Figures/TKE_TGV_unstructured.pdf Graphic file (type pdf)
 <use Figures/TKE_TGV_unstructured.pdf>
 Package pdftex.def Info: Figures/TKE_TGV_unstructured.pdf  used on input line 1
-682.
+687.
 (pdftex.def)             Requested size: 152.99896pt x 107.10072pt.
 <Figures/ENS_TGV_structured.pdf, id=873, 361.35pt x 252.945pt>
 File: Figures/ENS_TGV_structured.pdf Graphic file (type pdf)
 <use Figures/ENS_TGV_structured.pdf>
 Package pdftex.def Info: Figures/ENS_TGV_structured.pdf  used on input line 168
-3.
+8.
 (pdftex.def)             Requested size: 152.99896pt x 107.10072pt.
 <Figures/ENS_TGV_unstructured.pdf, id=874, 361.35pt x 252.945pt>
 File: Figures/ENS_TGV_unstructured.pdf Graphic file (type pdf)
 <use Figures/ENS_TGV_unstructured.pdf>
 Package pdftex.def Info: Figures/ENS_TGV_unstructured.pdf  used on input line 1
-684.
+689.
 (pdftex.def)             Requested size: 152.99896pt x 107.10072pt.
 
 
@@ -1024,7 +1049,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Figures/Cylinder_u1.png, id=877, 1380.15625pt x 673.51625pt>
 File: Figures/Cylinder_u1.png Graphic file (type png)
 <use Figures/Cylinder_u1.png>
-Package pdftex.def Info: Figures/Cylinder_u1.png  used on input line 1726.
+Package pdftex.def Info: Figures/Cylinder_u1.png  used on input line 1731.
 (pdftex.def)             Requested size: 197.20062pt x 96.23398pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1032,7 +1057,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Figures/Cylinder_u2.png, id=879, 1380.15625pt x 673.51625pt>
 File: Figures/Cylinder_u2.png Graphic file (type png)
 <use Figures/Cylinder_u2.png>
-Package pdftex.def Info: Figures/Cylinder_u2.png  used on input line 1735.
+Package pdftex.def Info: Figures/Cylinder_u2.png  used on input line 1740.
 (pdftex.def)             Requested size: 197.20062pt x 96.23398pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1041,7 +1066,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Figures/Cylinder_mesh_AMR.png, id=886, 1223.57124pt x 654.445pt>
 File: Figures/Cylinder_mesh_AMR.png Graphic file (type png)
 <use Figures/Cylinder_mesh_AMR.png>
-Package pdftex.def Info: Figures/Cylinder_mesh_AMR.png  used on input line 1744
+Package pdftex.def Info: Figures/Cylinder_mesh_AMR.png  used on input line 1749
 .
 (pdftex.def)             Requested size: 173.39813pt x 92.7401pt.
 
@@ -1053,7 +1078,7 @@ Figures/ENS_TGV_structured.pdf> <./Figures/ENS_TGV_unstructured.pdf>]
 <Figures/Cylinder_mesh.pdf, id=953, 372.64218pt x 271.76532pt>
 File: Figures/Cylinder_mesh.pdf Graphic file (type pdf)
 <use Figures/Cylinder_mesh.pdf>
-Package pdftex.def Info: Figures/Cylinder_mesh.pdf  used on input line 1757.
+Package pdftex.def Info: Figures/Cylinder_mesh.pdf  used on input line 1762.
 (pdftex.def)             Requested size: 237.99896pt x 173.56844pt.
 
 
@@ -1062,28 +1087,28 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Figures/Cylinder_u_075.png, id=954, 316.18124pt x 273.27094pt>
 File: Figures/Cylinder_u_075.png Graphic file (type png)
 <use Figures/Cylinder_u_075.png>
-Package pdftex.def Info: Figures/Cylinder_u_075.png  used on input line 1764.
+Package pdftex.def Info: Figures/Cylinder_u_075.png  used on input line 1769.
 (pdftex.def)             Requested size: 135.99792pt x 117.54173pt.
 <Figures/Cylinder_u_150.png, id=955, 314.67563pt x 273.27094pt>
 File: Figures/Cylinder_u_150.png Graphic file (type png)
 <use Figures/Cylinder_u_150.png>
-Package pdftex.def Info: Figures/Cylinder_u_150.png  used on input line 1765.
+Package pdftex.def Info: Figures/Cylinder_u_150.png  used on input line 1770.
 (pdftex.def)             Requested size: 135.99792pt x 118.10048pt.
 <Figures/Cylinder_v_075.png, id=956, 316.18124pt x 273.27094pt>
 File: Figures/Cylinder_v_075.png Graphic file (type png)
 <use Figures/Cylinder_v_075.png>
-Package pdftex.def Info: Figures/Cylinder_v_075.png  used on input line 1766.
+Package pdftex.def Info: Figures/Cylinder_v_075.png  used on input line 1771.
 (pdftex.def)             Requested size: 135.99792pt x 117.54173pt.
 <Figures/Cylinder_v_150.png, id=957, 312.41719pt x 273.27094pt>
 File: Figures/Cylinder_v_150.png Graphic file (type png)
 <use Figures/Cylinder_v_150.png>
-Package pdftex.def Info: Figures/Cylinder_v_150.png  used on input line 1767.
+Package pdftex.def Info: Figures/Cylinder_v_150.png  used on input line 1772.
 (pdftex.def)             Requested size: 135.99792pt x 118.95944pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (6.10918pt too wide) in paragraph at lines 1772--1773
+Overfull \hbox (6.10918pt too wide) in paragraph at lines 1777--1778
 \T1/lmr/m/n/10 (-20) Isothermal no-slip bound-ary con-di-tions are im-posed at 
 the wall, while \T1/lmtt/m/n/10 fixedValue
  []
@@ -1096,7 +1121,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./Figures/pressure_coeff_cylinder.pdf):
 File: Figures/pressure_coeff_cylinder.pdf Graphic file (type pdf)
 <use Figures/pressure_coeff_cylinder.pdf>
 Package pdftex.def Info: Figures/pressure_coeff_cylinder.pdf  used on input lin
-e 1777.
+e 1782.
 (pdftex.def)             Requested size: 156.40228pt x 132.85641pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1105,7 +1130,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Figures/pressure_coefficient_DES.png Graphic file (type png)
 <use Figures/pressure_coefficient_DES.png>
 Package pdftex.def Info: Figures/pressure_coefficient_DES.png  used on input li
-ne 1785.
+ne 1790.
 (pdftex.def)             Requested size: 190.39917pt x 133.27766pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1117,13 +1142,13 @@ ion: found PDF version <1.7>, but at most version <1.5> allowed
 <Figures/Des_cylinder.pdf, id=972, 844.47797pt x 292.62225pt>
 File: Figures/Des_cylinder.pdf Graphic file (type pdf)
 <use Figures/Des_cylinder.pdf>
-Package pdftex.def Info: Figures/Des_cylinder.pdf  used on input line 1793.
+Package pdftex.def Info: Figures/Des_cylinder.pdf  used on input line 1798.
 (pdftex.def)             Requested size: 340.0pt x 117.8148pt.
 [59 <./Figures/Cylinder_u2.png> <./Figures/Cylinder_mesh_AMR.png>]
 <Figures/SOD_TUBE_GEOMETRY.png, id=980, 651.93562pt x 186.6975pt>
 File: Figures/SOD_TUBE_GEOMETRY.png Graphic file (type png)
 <use Figures/SOD_TUBE_GEOMETRY.png>
-Package pdftex.def Info: Figures/SOD_TUBE_GEOMETRY.png  used on input line 1804
+Package pdftex.def Info: Figures/SOD_TUBE_GEOMETRY.png  used on input line 1809
 .
 (pdftex.def)             Requested size: 272.00104pt x 77.89677pt.
 
@@ -1134,35 +1159,35 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Figures/Sod_umag_ref.png, id=993, 752.8125pt x 526.96875pt>
 File: Figures/Sod_umag_ref.png Graphic file (type png)
 <use Figures/Sod_umag_ref.png>
-Package pdftex.def Info: Figures/Sod_umag_ref.png  used on input line 1843.
+Package pdftex.def Info: Figures/Sod_umag_ref.png  used on input line 1848.
 (pdftex.def)             Requested size: 152.99896pt x 107.09654pt.
 <Figures/Sod_umag_rcf.png, id=994, 752.8125pt x 526.96875pt>
 File: Figures/Sod_umag_rcf.png Graphic file (type png)
 <use Figures/Sod_umag_rcf.png>
-Package pdftex.def Info: Figures/Sod_umag_rcf.png  used on input line 1844.
+Package pdftex.def Info: Figures/Sod_umag_rcf.png  used on input line 1849.
 (pdftex.def)             Requested size: 152.99896pt x 107.09654pt.
 <Figures/Sod_p_ref.png, id=995, 752.8125pt x 526.96875pt>
 File: Figures/Sod_p_ref.png Graphic file (type png)
 <use Figures/Sod_p_ref.png>
-Package pdftex.def Info: Figures/Sod_p_ref.png  used on input line 1845.
+Package pdftex.def Info: Figures/Sod_p_ref.png  used on input line 1850.
 (pdftex.def)             Requested size: 152.99896pt x 107.09654pt.
 <Figures/Sod_p_rcf.png, id=996, 752.8125pt x 526.96875pt>
 File: Figures/Sod_p_rcf.png Graphic file (type png)
 <use Figures/Sod_p_rcf.png>
-Package pdftex.def Info: Figures/Sod_p_rcf.png  used on input line 1846.
+Package pdftex.def Info: Figures/Sod_p_rcf.png  used on input line 1851.
 (pdftex.def)             Requested size: 152.99896pt x 107.09654pt.
 <Figures/Sod_rho_ref.png, id=997, 752.8125pt x 526.96875pt>
 File: Figures/Sod_rho_ref.png Graphic file (type png)
 <use Figures/Sod_rho_ref.png>
-Package pdftex.def Info: Figures/Sod_rho_ref.png  used on input line 1847.
+Package pdftex.def Info: Figures/Sod_rho_ref.png  used on input line 1852.
 (pdftex.def)             Requested size: 152.99896pt x 107.09654pt.
 <Figures/Sod_rho_rcf.png, id=998, 752.8125pt x 526.96875pt>
 File: Figures/Sod_rho_rcf.png Graphic file (type png)
 <use Figures/Sod_rho_rcf.png>
-Package pdftex.def Info: Figures/Sod_rho_rcf.png  used on input line 1848.
+Package pdftex.def Info: Figures/Sod_rho_rcf.png  used on input line 1853.
 (pdftex.def)             Requested size: 152.99896pt x 107.09654pt.
 
-Underfull \hbox (badness 1412) in paragraph at lines 1849--1849
+Underfull \hbox (badness 1412) in paragraph at lines 1854--1854
 [] \T1/lmr/bx/n/9 (+20) Fig-ure 4.15. |\T1/lmr/m/n/9 (+20) Sod's shock tube: Co
 m-par-i-son of nu-mer-i-cal re-sults from
  []
@@ -1173,14 +1198,14 @@ g (PNG copy)>]
 <Figures/FS_Geometry.pdf, id=1005, 1005.7575pt x 447.1706pt>
 File: Figures/FS_Geometry.pdf Graphic file (type pdf)
 <use Figures/FS_Geometry.pdf>
-Package pdftex.def Info: Figures/FS_Geometry.pdf  used on input line 1861.
+Package pdftex.def Info: Figures/FS_Geometry.pdf  used on input line 1866.
 (pdftex.def)             Requested size: 237.99896pt x 105.81519pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1866--1869
+Underfull \hbox (badness 10000) in paragraph at lines 1871--1874
 
  []
 
@@ -1188,7 +1213,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1866--1869
 <Figures/FS_rcf.png, id=1018, 773.89125pt x 271.0125pt>
 File: Figures/FS_rcf.png Graphic file (type png)
 <use Figures/FS_rcf.png>
-Package pdftex.def Info: Figures/FS_rcf.png  used on input line 1887.
+Package pdftex.def Info: Figures/FS_rcf.png  used on input line 1892.
 (pdftex.def)             Requested size: 237.99896pt x 83.34721pt.
 
 
@@ -1197,7 +1222,7 @@ usion: found PDF version <1.7>, but at most version <1.5> allowed
 <Figures/FS_velocitybar.pdf, id=1019, 107.65219pt x 252.19218pt>
 File: Figures/FS_velocitybar.pdf Graphic file (type pdf)
 <use Figures/FS_velocitybar.pdf>
-Package pdftex.def Info: Figures/FS_velocitybar.pdf  used on input line 1890.
+Package pdftex.def Info: Figures/FS_velocitybar.pdf  used on input line 1895.
 (pdftex.def)             Requested size: 34.0026pt x 88.00305pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1209,11 +1234,11 @@ on: found PDF version <1.7>, but at most version <1.5> allowed
 <Figures/FS_velocity.pdf, id=1020, 846.59145pt x 290.37053pt>
 File: Figures/FS_velocity.pdf Graphic file (type pdf)
 <use Figures/FS_velocity.pdf>
-Package pdftex.def Info: Figures/FS_velocity.pdf  used on input line 1898.
+Package pdftex.def Info: Figures/FS_velocity.pdf  used on input line 1903.
 (pdftex.def)             Requested size: 237.99896pt x 81.63106pt.
 File: Figures/FS_velocitybar.pdf Graphic file (type pdf)
 <use Figures/FS_velocitybar.pdf>
-Package pdftex.def Info: Figures/FS_velocitybar.pdf  used on input line 1901.
+Package pdftex.def Info: Figures/FS_velocitybar.pdf  used on input line 1906.
 (pdftex.def)             Requested size: 34.0026pt x 88.00305pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1229,7 +1254,7 @@ DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: Figures/RAE2822_pressurefield.pdf Graphic file (type pdf)
 <use Figures/RAE2822_pressurefield.pdf>
 Package pdftex.def Info: Figures/RAE2822_pressurefield.pdf  used on input line 
-1917.
+1922.
 (pdftex.def)             Requested size: 340.0pt x 142.97368pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1240,7 +1265,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Figures/Cp_RAE2822.pdf, id=1042, 361.35pt x 252.945pt>
 File: Figures/Cp_RAE2822.pdf Graphic file (type pdf)
 <use Figures/Cp_RAE2822.pdf>
-Package pdftex.def Info: Figures/Cp_RAE2822.pdf  used on input line 1946.
+Package pdftex.def Info: Figures/Cp_RAE2822.pdf  used on input line 1951.
 (pdftex.def)             Requested size: 210.79617pt x 168.64244pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1254,13 +1279,13 @@ on: found PDF version <1.7>, but at most version <1.5> allowed
 <Figures/OneraM6mesh.pdf, id=1063, 483.30562pt x 393.72093pt>
 File: Figures/OneraM6mesh.pdf Graphic file (type pdf)
 <use Figures/OneraM6mesh.pdf>
-Package pdftex.def Info: Figures/OneraM6mesh.pdf  used on input line 1973.
+Package pdftex.def Info: Figures/OneraM6mesh.pdf  used on input line 1978.
 (pdftex.def)             Requested size: 204.00208pt x 166.19072pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (12.92084pt too wide) in paragraph at lines 1978--1979
+Overfull \hbox (12.92084pt too wide) in paragraph at lines 1983--1984
 \T1/lmr/m/n/10 (-20) Numerical sim-u-la-tions were car-ried out us-ing \T1/lmtt
 /m/n/10 rhoCentralFoam \T1/lmr/m/n/10 (-20) and \T1/lmtt/m/n/10 rhoEnergyFoam
  []
@@ -1272,7 +1297,7 @@ ound PDF version <1.7>, but at most version <1.5> allowed
 <Figures/Ducros.pdf, id=1065, 641.39626pt x 569.12625pt>
 File: Figures/Ducros.pdf Graphic file (type pdf)
 <use Figures/Ducros.pdf>
-Package pdftex.def Info: Figures/Ducros.pdf  used on input line 1982.
+Package pdftex.def Info: Figures/Ducros.pdf  used on input line 1987.
 (pdftex.def)             Requested size: 237.99797pt x 192.50168pt.
 
 
@@ -1281,7 +1306,7 @@ n: found PDF version <1.7>, but at most version <1.5> allowed
 <Figures/Ducros_bar.pdf, id=1066, 408.02437pt x 59.47218pt>
 File: Figures/Ducros_bar.pdf Graphic file (type pdf)
 <use Figures/Ducros_bar.pdf>
-Package pdftex.def Info: Figures/Ducros_bar.pdf  used on input line 1984.
+Package pdftex.def Info: Figures/Ducros_bar.pdf  used on input line 1989.
 (pdftex.def)             Requested size: 204.00208pt x 29.7351pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1294,7 +1319,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cp_contours_oneram6_ref.pdf):
 File: Figures/Cp_contours_oneram6_ref.pdf Graphic file (type pdf)
 <use Figures/Cp_contours_oneram6_ref.pdf>
 Package pdftex.def Info: Figures/Cp_contours_oneram6_ref.pdf  used on input lin
-e 1993.
+e 1998.
 (pdftex.def)             Requested size: 152.99896pt x 137.47978pt.
 
 
@@ -1304,24 +1329,24 @@ pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Cp_contours_oneram6_rcf.pdf):
 File: Figures/Cp_contours_oneram6_rcf.pdf Graphic file (type pdf)
 <use Figures/Cp_contours_oneram6_rcf.pdf>
 Package pdftex.def Info: Figures/Cp_contours_oneram6_rcf.pdf  used on input lin
-e 1994.
+e 1999.
 (pdftex.def)             Requested size: 152.99896pt x 137.54283pt.
 [66 <./Figures/FS_Geometry.pdf> <./Figures/FS_rcf.png> <./Figures/FS_velocityba
 r.pdf>]
 <Figures/Cp_oneram6_02.pdf, id=1101, 361.35pt x 252.945pt>
 File: Figures/Cp_oneram6_02.pdf Graphic file (type pdf)
 <use Figures/Cp_oneram6_02.pdf>
-Package pdftex.def Info: Figures/Cp_oneram6_02.pdf  used on input line 2003.
+Package pdftex.def Info: Figures/Cp_oneram6_02.pdf  used on input line 2008.
 (pdftex.def)             Requested size: 152.99896pt x 107.10072pt.
 <Figures/Cp_oneram6_065.pdf, id=1102, 361.35pt x 252.945pt>
 File: Figures/Cp_oneram6_065.pdf Graphic file (type pdf)
 <use Figures/Cp_oneram6_065.pdf>
-Package pdftex.def Info: Figures/Cp_oneram6_065.pdf  used on input line 2004.
+Package pdftex.def Info: Figures/Cp_oneram6_065.pdf  used on input line 2009.
 (pdftex.def)             Requested size: 152.99896pt x 107.10072pt.
 <Figures/Cp_oneram6_08.pdf, id=1103, 361.35pt x 252.945pt>
 File: Figures/Cp_oneram6_08.pdf Graphic file (type pdf)
 <use Figures/Cp_oneram6_08.pdf>
-Package pdftex.def Info: Figures/Cp_oneram6_08.pdf  used on input line 2006.
+Package pdftex.def Info: Figures/Cp_oneram6_08.pdf  used on input line 2011.
 (pdftex.def)             Requested size: 152.99896pt x 107.10072pt.
 
 
@@ -1393,7 +1418,7 @@ s/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on THESIS_DF.pdf (91 pages, 7913033 bytes).
+Output written on THESIS_DF.pdf (91 pages, 7913063 bytes).
 PDF statistics:
  1495 PDF objects out of 1728 (max. 8388607)
  1189 compressed objects within 12 object streams
